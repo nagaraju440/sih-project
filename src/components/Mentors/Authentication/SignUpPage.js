@@ -77,15 +77,15 @@ export default function SignInPage() {
         <form onSubmit={submitHandler} className="form-sub">
           <label className='label'>Full Name*</label><br/>
           <input type="name" autoComplete="name"  required  onChange={(value)=>handlename(value)}/>
-          {namerr ? <div>Name error bro</div> : <div></div>}
+          {namerr ? <div className='err'>Name error bro</div> : <div></div>}
           <br/>
           <label className='label'>Email*</label><br/>
           <input type="email" autoComplete="email" required  onChange={(value)=>handlemail(value)}/>
-          {mailerr ? <div>Email error bro</div> : <div></div>}
+          {mailerr ? <div className='err'>Email error bro</div> : <div></div>}
           <br/>
           <label className='label'>Phone No*</label><br/>
           <input type="text" pattern="[0-9]*"  maxLength="10" required onChange={(value)=>handlephno(value)}/>
-          {phnoerr ? <div>Number error bro</div> : <div></div>}
+          {phnoerr ? <div className='err'>Number error bro</div> : <div></div>}
           <br/>
           <label className='label'>New Password*</label><br/>
           <input type="password" required onChange={(value)=>handleNpassword(value)}/>
@@ -93,7 +93,7 @@ export default function SignInPage() {
           <br/>
           <label className='label'>Confirm Password*</label><br/>
           <input type="password" required onChange={(value)=>handleCpassword(value)}/>
-          {passerr ? <div>password error</div> : <div></div>}
+          {passerr ? <div className='err'>password error</div> : <div></div>}
           <br/>
           <button type='submit'className='button-text'>Register</button>
         </form>
