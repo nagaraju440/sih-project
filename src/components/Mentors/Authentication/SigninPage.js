@@ -1,6 +1,9 @@
 import React, { Component,useState,useEffect } from 'react'
 import * as EmailValidator from 'email-validator';
 import styles from './SigninPage.css'
+import { Routes, Route, Link, BrowserRouter as Router,
+  Switch, } from "react-router-dom";
+import SignUpPage from './SignUpPage'
 export default function SignInPage() {
   
     const [name,setname]=useState("")
@@ -72,7 +75,7 @@ export default function SignInPage() {
         <div className="subheading">
         Please, provide  the information below
         </div>
-        <form onSubmit={submitHandler}>
+        <form onSubmit={submitHandler} className="form-sub">
           <label className='label'>Full Name*</label><br/>
           <input type="name" autoComplete="name"  required  onChange={(value)=>handlename(value)}/>
           {namerr ? <div>Name error bro</div> : <div></div>}
@@ -95,6 +98,11 @@ export default function SignInPage() {
           <br/>
           <button type='submit'className='button-text'>Register</button>
         </form>
+        {/* <Routes>
+          <Route path="SignUpPage" element={<SignUpPage/>}>Already Registered? Sign  in ></Route>
+        </Routes> */}
+        <div>Already Registered? Sign  in > </div>
+        <div>Know More About Us > </div>
         </div>
         </div>
       </>
