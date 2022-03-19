@@ -17,7 +17,7 @@ class CloudFirestore extends Component {
         last: "bala",
         born: 1815
       });
-      console.log("Document written with ID: ", docRef.id);
+      console.log("Document written with ID: ", docRef);
     } catch (e) {
       console.error("Error adding document: ", e);
     }
