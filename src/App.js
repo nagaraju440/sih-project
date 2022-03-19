@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import './App.css';
+import './App.less';
 import { Button } from 'antd';
 import 'antd/dist/antd.css';
 import AntdSample from './AntdSample/AntdSample';

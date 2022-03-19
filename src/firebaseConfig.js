@@ -1,7 +1,7 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
-import { getFirestore } from 'firebase/firestore/lite';
+import { getFirestore } from 'firebase/firestore';
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
@@ -16,10 +16,9 @@ const firebaseConfig = {
   projectId: "sih-project-b9fde",
   storageBucket: "sih-project-b9fde.appspot.com",
   messagingSenderId: "421577513126",
-  appId: "1:421577513126:web:83aff3ee70c1031f06fc67",
-  measurementId: "G-V8M5GB70PQ"
+  appId: "1:421577513126:web:966ebd12cf152c6006fc67",
+  measurementId: "G-FVD2WKF1WR"
 };
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
