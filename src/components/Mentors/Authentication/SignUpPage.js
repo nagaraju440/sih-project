@@ -103,8 +103,8 @@ export default function SignInPage() {
         {/* <Routes>
           <Route path="SignUpPage" element={<SignUpPage/>}>Already Registered? Sign  in ></Route>
         </Routes> */}
-        <div>Already Registered? Sign  in > </div>
-        <div>Know More About Us > </div>
+        <div>Already Registered? Sign  in  </div>
+        <div>Know More About Us  </div>
         </div>
         </div>
       </>

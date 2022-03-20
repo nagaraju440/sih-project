@@ -39,8 +39,8 @@ export default function SignInPage (){
                   <div className='forget-password'>Forget Password ? click here !</div><br/>
                   <button className='button-text'>Sign in</button>
               </form>
-              <div >Don’t have an account ? Sign  up ></div>
-              <div>Know More About Us ></div>
+              <div >Don’t have an account ? Sign  up </div>
+              <div>Know More About Us </div>
           </div>
       </div>
       </div>
