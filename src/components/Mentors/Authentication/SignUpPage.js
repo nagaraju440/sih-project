@@ -50,6 +50,7 @@ export default function SignInPage() {
         const auth = getAuth();
         const res = await createUserWithEmailAndPassword(auth, email, password);
         const user = res.user;
+        // const user = userCredential.user;
         console.log(user);
         const test =
         await addDoc(collection(db, "colleges","srkr","mentors"), {
