@@ -45,27 +45,29 @@ export default function SignInPage() {
   const [phnoerr, setphnoerr] = useState(false)
   const [passerr, setpasserr] = useState(false)
   const [validDetails, setvalidDetails] = useState(0)
-    const emailAuth = async ( name,email, password) => {
-      try {
-        const auth = getAuth();
-        const res = await createUserWithEmailAndPassword(auth, email, password);
-        const user = res.user;
-        // const user = userCredential.user;
-        console.log(user);
-        const test =
-        await addDoc(collection(db, "colleges","srkr","mentors"), {
+  const emailAuth = async (name, email, password) => {
+    try {
+      const auth = getAuth();
+      const res = await createUserWithEmailAndPassword(auth, email, password);
+      const user = res.user;
+      // const user = userCredential.user;
+      console.log(user);
+      const test =
+        await addDoc(collection(db, "colleges", "srkr", "mentors",), {
           uid: user.uid,
           name,
           authProvider: "local",
           email,
           password
         });
-      } catch (err) {
-        console.error(err);
-        alert(err.message);
-      }
-    };
-  
+      // test.id = user.uid
+      console.log("test");
+    } catch (err) {
+      console.error(err);
+      alert(err.message);
+    }
+  };
+
   const submitHandler = (e) => {
     e.preventDefault()
     if (name.length > 6) {
@@ -102,7 +104,7 @@ export default function SignInPage() {
     }
     if (validDetails == 1) {
 
-      emailAuth(name,email,Npassword)
+      emailAuth(name, email, Npassword)
     }
     else {
       console.log("this is error");
