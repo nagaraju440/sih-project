@@ -4,8 +4,8 @@ import { Button } from 'antd';
 import 'antd/dist/antd.css';
 import AntdSample from './AntdSample/AntdSample';
 import CloudFirestore from './FirebaseSample/CloudFirestore';
-import { Routes, Route, Link, BrowserRouter as Router,
-Switch, } from "react-router-dom";
+import { Routes, Route, Link, BrowserRouter as Router, } from "react-router-dom";
+import {Navigate } from 'react-router'
 import MentorSignUpPage from './components/Mentors/Authentication/SignUpPage';
 import MentorSignInPage from './components/Mentors/Authentication/SigninPage';
 import StudentSignUpPage from './components/Students/Authentication/SignupPage';
@@ -14,15 +14,17 @@ import MenuBarPage from './components/Dashboard/MenuBarPage';
 import TopNavBar from './components/Dashboard/TopNavBar';
 import Dashboard from './components/Dashboard/Dashboard';
 import LandingPage from './components/LandingPage/LandingPage'
-function App() {
+import SignUpPage1 from './components/Mentors/Authentication/SignUpPage1';
+function App(props) {
   return (
     // <div className="App">
       // {/* <AntdSample/> */}
       // <h1>Welcome to React Router!</h1>
-      // <Router>
+      <Router>
           <Routes>
         <Route path="/" element={<Home />} />
         <Route path="mentor/signup" element={<MentorSignUpPage/>}  />
+        <Route path="mentor/signup1" element={<SignUpPage1/>}/>
         <Route path="mentor/signin" element={<MentorSignInPage/>}  />
         <Route path="student/signup" element={<StudentSignUpPage/>}  />
         <Route path="student/signin" element={<StudentSignInPage/>}  />
@@ -31,8 +33,8 @@ function App() {
         <Route path="topnavbar" element={<TopNavBar/>}/>
         <Route path="dashboard" element={<Dashboard/>}/>
         <Route path="LandingPage" element={<LandingPage/>}/>
-        
       </Routes>
+      </Router>
       // {/* </Router> */}
       // {/* <CloudFirestore/> */}
      
