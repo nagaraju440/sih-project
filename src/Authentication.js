@@ -19,6 +19,7 @@ import TopNavBar from './components/Dashboard/TopNavBar';
 import LandingPage from './components/LandingPage/LandingPage'
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import Dashboard from './components/Dashboard/Dashboard';
+import NotAuthenticated from './NotAuthenticated';
 function Authentication() {
     var [authenticated, setAuthenticated] = useState(false);
     const auth = getAuth();
@@ -45,25 +46,8 @@ function Authentication() {
     }
     else {
         console.log("authenticated in else", authenticated);
-        return <LandingPage />
+        return <NotAuthenticated />
     }
-    // <Router>
-    //         <Routes>
-    //       <Route path="/" element={<Home />} />
-    //       <Route path="mentor/signup" element={<MentorSignUpPage/>}  />
-    //       <Route path="mentor/signup1" element={<SignUpPage1/>}/>
-    //       <Route path="mentor/signin" element={<MentorSignInPage/>}  />
-    //       <Route path="student/signup" element={<StudentSignUpPage/>}  />
-    //       <Route path="student/signin" element={<StudentSignInPage/>}  />
-    //       <Route path="about" element={<About />} />
-    //       <Route path="menuBarPage" element={<MenuBarPage/>}/>
-    //       <Route path="topnavbar" element={<TopNavBar/>}/>
-    //       <Route path="dashboard" element={<Dashboard/>}/>
-    //       <Route path="LandingPage" element={<LandingPage/>}/>
-    //     </Routes>
-    //     </Router>
-
-
 }
 
 export default Authentication;

@@ -29,31 +29,31 @@ function App() {
 
 
   return (
-    // <Router>
-    // <Routes>
-    //   <Route path="/" element={<Authentication />} />
-    //   <Route path="mentor/signup" element={<MentorSignUpPage />} />
-    //   <Route path="mentor/signup1" element={<SignUpPage1 />} />
-    //   <Route path="mentor/signin" element={<MentorSignInPage />} />
-    //   <Route path="student/signup" element={<StudentSignUpPage />} />
-    //   <Route path="student/signin" element={<StudentSignInPage />} />
-    //   <Route path="about" element={<About />} />
-    //   <Route path="menuBarPage" element={<MenuBarPage />} />
-    //   <Route path="topnavbar" element={<TopNavBar />} />
-    //   <Route path="dashboard" element={<Dashboard />} />
-    //   <Route path="LandingPage" element={<LandingPage />} />
-    // </Routes>
-    // </Router>
-    <div>
-      <LandingPage />
-    </div>
-
+    <Authentication/>
   )
 
 }
 
 export default App;
-
+{/* <Router>
+    <Routes>
+      <Route path="/" element={<Authentication />}/>
+      <Route path="/Dashboard" element={<Dashboard/>}/>
+      <Route path="mentor/signup" element={<MentorSignUpPage />} />
+      <Route path="mentor/signup1" element={<SignUpPage1 />} />
+      <Route path="mentor/signin" element={<MentorSignInPage />} />
+      <Route path="student/signup" element={<StudentSignUpPage />} />
+      <Route path="student/signin" element={<StudentSignInPage />} />
+      <Route path="about" element={<About />} />
+      <Route path="menuBarPage" element={<MenuBarPage />} />
+      <Route path="topnavbar" element={<TopNavBar />} />
+      <Route path="dashboard" element={<Dashboard />} />
+      <Route path="LandingPage" element={<LandingPage />} />
+      <Route path="selectCollege" element={<SelectCollege/>}   />
+      <Route path="mentorOrStudent_signup" element={<MentorOrStu/>}   />
+      <Route path="mentorOrStudent_signin" element={<MentorOrStudentSignin/>}   />
+    </Routes>
+    </Router> */}
 function Home() {
   return (
     <>
