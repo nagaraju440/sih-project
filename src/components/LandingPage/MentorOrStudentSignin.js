@@ -33,20 +33,20 @@ export default function MentorOrStu() {
           {/* hii */}
 
          <div className='Sc-right-section-text-3'>
-         What do you wish to register for?
+         What do you wish to signin for?
          </div>
 
           <div className='Ms-right-section-button-1'>
           <button type='submit' onClick={()=>{
-                 navigate('/mentor/signup')
+                 navigate('/mentor/signin')
           }} className='button-text'>Mentor</button>
           </div>
           <div className='Ms-right-section-button-2'>
           <button type='submit'  onClick={()=>{
-                 navigate('/student/signup')
+                 navigate('/student/signin')
           }} className='button-text'>Student</button>
           </div>
-          <div className='Sc-bottom-text-1'>Already Registered? Sign  in </div>
+          {/* <div className='Sc-bottom-text-1'>Already Registered? Sign  in </div> */}
           <div className='Sc-bottom-text-2'>Know More About Us  </div>
 
            

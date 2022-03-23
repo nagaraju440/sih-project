@@ -150,8 +150,8 @@ export default function SignUpPage(props) {
             <label className='label'>Email*</label><br />
             <input type="email" autoComplete="email" required onChange={(value) => handlemail(value)} />
             {mailerr ? <div className='err'>Email error bro</div> : <div></div>}
-            <br />
-            <label className='label'>Phone No*</label><br />
+            <br/>
+            <label className='label'>Phone No*</label><br/>
             <input type="text" pattern="[0-9]*" maxLength="10" required onChange={(value) => handlephno(value)} />
             {phnoerr ? <div className='err'>Number error bro</div> : <div></div>}
             <br />
