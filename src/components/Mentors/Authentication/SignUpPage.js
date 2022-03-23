@@ -23,6 +23,7 @@ import { collection, doc, setDoc, addDoc } from "firebase/firestore";
 import { async } from "@firebase/util";
 import { Input, Space } from "antd";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
+import Mentor_img from '../../../assets/Images/Mentor_SignUp_img.png'
 // const auth = getAuth();
 
 export default function SignUpPage(props) {
@@ -136,7 +137,9 @@ export default function SignUpPage(props) {
   return (
     <>
       <div className="container">
-        <div>IMAGE</div>
+        <div>
+          <img src={Mentor_img} className="mentor_img"/>
+        </div>
         <div className="form">
           <div className="heading">Mentor Registartion</div>
           <div className="subheading">
@@ -182,7 +185,7 @@ export default function SignUpPage(props) {
             <br />
             <Space direction="vertical">
               <Input.Password
-               className="input"
+               className="pwd-input"
                 type="password"
                 required
                 onChange={(value) => handleNpassword(value)}

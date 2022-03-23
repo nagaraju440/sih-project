@@ -80,3 +80,25 @@ opacity: 0.6
     transition: all 0.3s;
     display: inline-flex; */ 
 }
+.ant-input-affix-wrapper .ant-input-password .input{
+all: unset;
+width: 296px !important;
+    height: 40px !important;
+}
+.ant-input-affix-wrapper .ant-input-password{
+    width: unset;
+    width: 296px;
+}
+.pwd-input{
+    width: 296px;
+    height: 40px;
+}
+.ant-input-affix-wrapper > input.ant-input{
+   background: none !important;
+}
+.mentor_img{
+    width: 82%;
+    height: auto;
+    padding-left: -40%;
+    /* left: -200; */
+}

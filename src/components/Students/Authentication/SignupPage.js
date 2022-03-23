@@ -10,6 +10,7 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import db from "../../../firebaseConfig.js"
 import MentorSignInPage from './SigninPage.js'
 import { collection, doc, setDoc, addDoc } from "firebase/firestore";
+import SignUp_img from '../../../assets/Images/Student_ Sign Up_Page_ Img.png'
 export default function SignInPage() {
 
   const [name, setname] = useState("")
@@ -117,7 +118,7 @@ export default function SignInPage() {
   return (
     <>
       <div className='container'>
-        <div>IMAGE</div>
+        <div className='student_img'> <img src={SignUp_img}/></div>
         <div className='form'>
           <div className='heading'>Student Registartion</div>
           <div className="subheading">

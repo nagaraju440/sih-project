@@ -43,3 +43,8 @@ color:  #FFFFFF;
 font-weight: bold;
 font-size: 16px;
 }
+.student_img{
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
