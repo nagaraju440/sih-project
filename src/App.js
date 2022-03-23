@@ -78,6 +78,9 @@ function Home() {
       <nav>
         <Link to="/LandingPage">LandingPage</Link>
       </nav>
+      <nav>
+        <Link to="/SelectCollege">SelectCollege</Link>
+      </nav>
     </>
   );
 }

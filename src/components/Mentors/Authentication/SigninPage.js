@@ -14,6 +14,7 @@ export default function SignInPage() {
   const [mailerr, setmailerr] = useState(false)
   const submithandler = (e) => {
     e.preventDefault()
+<<<<<<< HEAD
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -23,6 +24,16 @@ export default function SignInPage() {
         console.log("user details", user);
         // ...
       })
+=======
+    // const auth = getAuth();
+    // signInWithEmailAndPassword(auth, email, password)
+    //   .then((userCredential) => {
+    //     // Signed in 
+    //     const user = userCredential.user;
+    //     console.log("user details", user);
+    //     // ...
+    //   })
+>>>>>>> f322cf279d9f1446506a29d2a9628608475ec6e8
       .catch((error) => {
         alert("Please provide valid details")
         const errorCode = error.code;
