@@ -15,10 +15,10 @@ import StudentSignUpPage from './components/Students/Authentication/SignupPage';
 import StudentSignInPage from './components/Students/Authentication/SigninPage';
 import MenuBarPage from './components/Dashboard/MenuBarPage';
 import TopNavBar from './components/Dashboard/TopNavBar';
-import Dashboard from './components/Dashboard/Dashboard';
+// import Dashboard from './components/Dashboard/Dashboard';
 import LandingPage from './components/LandingPage/LandingPage'
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
-import MentorDashboard from './components/MentorDashboard/MentorDashboard';
+import Dashboard from './components/Dashboard/Dashboard';
 function Authentication() {
     var [authenticated, setAuthenticated] = useState(false);
     const auth = getAuth();
@@ -41,7 +41,7 @@ function Authentication() {
 
     if (authenticated) {
         console.log("authenticated in if", authenticated);
-        return <MentorDashboard/>
+        return <Dashboard/>
     }
     else {
         console.log("authenticated in else", authenticated);
