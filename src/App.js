@@ -24,6 +24,7 @@ import SignUpPage1 from './components/Mentors/Authentication/SignUpPage1'
 import SelectCollege from './components/LandingPage/SelectCollege';
 import MentorOrStu from './components/LandingPage/MentorOrStu'
 import MentorOrStudentSignin from './components/LandingPage/MentorOrStudentSignin'
+// import Dashboard from './components/Dashboard/Dashboard'
 function App() {
 
   // }
@@ -33,6 +34,7 @@ function App() {
     // <Router>
     <Routes>
       <Route path="/" element={<Authentication />} />
+      <Route path="/Dashboard" element={<Dashboard/>}/>
       <Route path="mentor/signup" element={<MentorSignUpPage />} />
       <Route path="mentor/signup1" element={<SignUpPage1 />} />
       <Route path="mentor/signin" element={<MentorSignInPage />} />
