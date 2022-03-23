@@ -105,7 +105,9 @@ export default function Dashboard() {
         {/* <Content> */}
          {/* <Router> */}
            <Routes>
-             <Route oute path='/Dashboard' element={<MentorDashboard/>}></Route>
+           <Route  path='/'  element={<MentorDashboard/>}></Route>
+
+             <Route  path='/Dashboard' element={<MentorDashboard/>}></Route>
            <Route path='/Dashboard/profile' element={<MentorProfile/>}></Route>
            <Route path='/Dashboard/assignments' element={<MentorAssignments/>}></Route>
            </Routes>

@@ -34,7 +34,7 @@ export default function LandingPage() {
           <div className='bottom-text-1' onClick={()=>{
              navigate('/mentorOrStudent_signin')
           }}> Already Registered? Sign  in </div>
-          <div className='bottom-text-2'>Know More About Us  </div>
+          {/* <div className='bottom-text-2'>Know More About Us  </div> */}
 
            
 

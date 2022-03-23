@@ -21,10 +21,8 @@ import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "fir
 import MentorDashboard from './components/MentorDashboard/MentorDashboard';
 import Authentication from './Authentication';
 import SignUpPage1 from './components/Mentors/Authentication/SignUpPage1'
-import SelectCollege from './components/LandingPage/SelectCollege';
-import MentorOrStu from './components/LandingPage/MentorOrStu'
-import MentorOrStudentSignin from './components/LandingPage/MentorOrStudentSignin'
-// import Dashboard from './components/Dashboard/Dashboard'
+import SignUpPage2 from './components/Mentors/Authentication/SignUpPage2'
+import SignUpPage3 from './components/Mentors/Authentication/SignUpPage3'
 function App() {
 
   // }
