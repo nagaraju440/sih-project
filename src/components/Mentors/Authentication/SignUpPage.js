@@ -194,7 +194,6 @@ export default function SignUpPage(props) {
                 }
               />
             </Space>
-            ,
             <br />
             <br />
             <label className="label">Confirm Password*</label>

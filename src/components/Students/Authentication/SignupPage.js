@@ -11,6 +11,8 @@ import db from "../../../firebaseConfig.js"
 import MentorSignInPage from './SigninPage.js'
 import { collection, doc, setDoc, addDoc } from "firebase/firestore";
 import SignUp_img from '../../../assets/Images/Student_ Sign Up_Page_ Img.png'
+import { Input, Space } from "antd";
+import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 export default function SignInPage() {
 
   const [name, setname] = useState("")
@@ -138,7 +140,18 @@ export default function SignInPage() {
             {phnoerr ? <div className='err'>Number error bro</div> : <div></div>}
             <br />
             <label className='label'>New Password*</label><br />
-            <input type="password" required onChange={(value) => handleNpassword(value)} />
+            <Space direction="vertical">
+              <Input.Password
+               className="pwd-input"
+                type="password"
+                required
+                onChange={(value) => handleNpassword(value)}
+                iconRender={(visible) =>
+                  visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+                }
+              />
+            </Space>
+            {/* <input type="password" required onChange={(value) => handleNpassword(value)} /> */}
             <br />
             <br />
             <label className='label'>Confirm Password*</label><br />
