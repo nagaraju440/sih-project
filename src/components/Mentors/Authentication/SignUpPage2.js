@@ -3,7 +3,6 @@ import styles from "./SignUpPage2.css";
 import { Select } from "antd";
 import Micon from "../../../assets/Icons/Micon.png";
 import { Input } from 'antd';
-
 export default function SignUpPage2(props) {
   const { Option } = Select;
   const children = [];
