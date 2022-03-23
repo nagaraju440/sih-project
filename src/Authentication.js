@@ -41,11 +41,11 @@ function Authentication() {
 
     if (authenticated) {
         console.log("authenticated in if", authenticated);
-        return <MentorDashboard />
+        return <MentorDashboard/>
     }
     else {
         console.log("authenticated in else", authenticated);
-        return <MentorSignInPage />
+        return <LandingPage />
     }
     // <Router>
     //         <Routes>

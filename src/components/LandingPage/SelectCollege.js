@@ -3,9 +3,14 @@ import React, { Component, useState, useEffect } from 'react'
 import LandingPageImg from '../../assets/Images/LandingPage.png'
 import Micon from '../../assets/Icons/Micon.png'
 
-
+import {
+  Routes, Route, Link, BrowserRouter as Router,
+  Switch, withRouter,useNavigate  
+} from "react-router-dom";
 export default function SelectCollege() {
+   
 
+    const navigate=useNavigate();
   
   return (
     <>
@@ -29,7 +34,9 @@ export default function SelectCollege() {
           <label>college /institute/university*</label>
           <input type="password" placeholder="Enter your college name"/><br />
           <div className='Sc-right-section-button'>
-          <button type='submit' className='button-text'>Next</button>
+          <button type='submit' onClick={()=>{
+            navigate('/mentorOrStudent_signup',{state:{collegeName:"SRKR"}})
+          }} className='button-text'>Next</button>
           </div>
           <div className='Sc-bottom-text-1'>Already Registered? Sign  in </div>
           <div className='Sc-bottom-text-2'>Know More About Us  </div>
