@@ -1,21 +1,27 @@
-import React, { Component, useState, useEffect } from 'react'
+import React, { Component, useState, useEffect, } from 'react'
 import * as EmailValidator from 'email-validator';
 import styles from './SignUpPage.css'
 import {
   Routes, Route, Link, BrowserRouter as Router,
-  Switch,
+  Switch, withRouter,useNavigate  
 } from "react-router-dom";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { Redirect } from 'react-router-dom';
+import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
 // import db from '../firebaseConfig'
 import db from "../../../firebaseConfig.js"
-
+import MentorSignInPage from './SigninPage.js'
 import { collection, doc, setDoc, addDoc } from "firebase/firestore";
 import { async } from '@firebase/util';
 import { EyeOutlined,EyeInvisibleOutlined} from '@ant-design/icons';
 // const auth = getAuth();
 
-export default function SignInPage() {
 
+
+export default function SignUpPage(props) {
+  // let history = useHistory();
+  const navigate = useNavigate ();
+  
+  // console.log("props/ in sign up page is",navigate)
   const [name, setname] = useState("")
   const handlename = (e) => {
     setname(e.target.value)
@@ -45,32 +51,43 @@ export default function SignInPage() {
   const [mailerr, setmailerr] = useState(false)
   const [phnoerr, setphnoerr] = useState(false)
   const [passerr, setpasserr] = useState(false)
-  const [validDetails, setvalidDetails] = useState(0)
-    const emailAuth = async ( name,email, password) => {
-      try {
-        const auth = getAuth();
-        const res = await createUserWithEmailAndPassword(auth, email, password);
-        const user = res.user;
-        // const user = userCredential.user;
-        console.log(user);
-        const test =
-        await addDoc(collection(db, "colleges","srkr","mentors"), {
+  var [validDetails, setvalidDetails] = useState(0)
+  const emailAuth = async (name, email, password) => {
+    try {
+      const auth = getAuth();
+      const res = await createUserWithEmailAndPassword(auth, email, password);
+      const user = res.user;
+      // const user = userCredential.user;
+      console.log(user);
+      const test =
+        await setDoc(doc(db, "colleges", "srkr", "mentors", user.uid), {
           uid: user.uid,
           name,
           authProvider: "local",
           email,
           password
-        });
-      } catch (err) {
-        console.error(err);
-        alert(err.message);
-      }
-    };
-  
+        })
+      console.log("test",test);
+      console.log("hehe succsess")
+        navigate("/mentor/signup1",{state:{uid:user.uid}});
+      // if (test) {
+      //   console.log("hii routing has done succesfully");
+      //   navigate("signup1");
+      //   // <Route path='*' element={<Navigate to='/mentor/signin' />} />
+      // }
+
+    } catch (err) {
+      console.error(err);
+      alert(err.message);
+    }
+  };
+
   const submitHandler = (e) => {
     e.preventDefault()
     if (name.length > 6) {
+
       setnamerr(false)
+      validDetails = 1
       setvalidDetails(1)
     }
     else {
@@ -79,6 +96,8 @@ export default function SignInPage() {
     }
     if (EmailValidator.validate(email)) {
       setmailerr(false)
+      validDetails = 1
+
       setvalidDetails(1)
     }
     else {
@@ -91,6 +110,8 @@ export default function SignInPage() {
     }
     else {
       setphnoerr(false)
+      validDetails = 1
+
       setvalidDetails(1)
     }
     if (Npassword != Cpassword) {
@@ -99,11 +120,13 @@ export default function SignInPage() {
     }
     else {
       setpasserr(false)
+      validDetails = 1
+
       setvalidDetails(1)
     }
     if (validDetails == 1) {
 
-      emailAuth(name,email,Npassword)
+      emailAuth(name, email, Npassword)
     }
     else {
       console.log("this is error");
