@@ -12,6 +12,8 @@ import db from "../../../firebaseConfig.js"
 import MentorSignInPage from './SigninPage.js'
 import { collection, doc, setDoc, addDoc } from "firebase/firestore";
 import { async } from '@firebase/util';
+import { EyeOutlined,EyeInvisibleOutlined} from '@ant-design/icons';
+// const auth = getAuth();
 
 
 
@@ -164,6 +166,8 @@ export default function SignUpPage(props) {
             {passerr ? <div className='err'>password error</div> : <div></div>}
             <br />
             <button type='submit' className='button-text'>Register</button>
+            {/* <EyeOutlined /> */}
+            {/* <EyeInvisibleOutlined /> */}
           </form>
           <div>Already Registered? Sign  in </div>
           <div>Know More About Us  </div>
