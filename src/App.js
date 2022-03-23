@@ -13,6 +13,7 @@ import StudentSignInPage from './components/Students/Authentication/SigninPage';
 import MenuBarPage from './components/Dashboard/MenuBarPage';
 import TopNavBar from './components/Dashboard/TopNavBar';
 import Dashboard from './components/Dashboard/Dashboard';
+import LandingPage from './components/LandingPage/LandingPage'
 function App() {
   return (
     // <div className="App">
@@ -29,6 +30,8 @@ function App() {
         <Route path="menuBarPage" element={<MenuBarPage/>}/>
         <Route path="topnavbar" element={<TopNavBar/>}/>
         <Route path="dashboard" element={<Dashboard/>}/>
+        <Route path="LandingPage" element={<LandingPage/>}/>
+        
       </Routes>
       // {/* </Router> */}
       // {/* <CloudFirestore/> */}
@@ -66,6 +69,9 @@ function Home() {
       </nav>
       <nav>
         <Link to="/dashboard">Dashboard</Link>
+      </nav>
+      <nav>
+        <Link to="/LandingPage">LandingPage</Link>
       </nav>
     </>
   );
