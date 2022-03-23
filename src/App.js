@@ -27,32 +27,6 @@ function App() {
 
 
   return (
-<<<<<<< HEAD
-    // <div className="App">
-      // {/* <AntdSample/> */}
-      // <h1>Welcome to React Router!</h1>
-      // <Router>
-          <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="mentor/signup" element={<MentorSignUpPage/>}  />
-        <Route path="mentor/signin" element={<MentorSignInPage/>}  />
-        <Route path="student/signup" element={<StudentSignUpPage/>}  />
-        <Route path="student/signin" element={<StudentSignInPage/>}  />
-        <Route path="about" element={<About />} />
-        <Route path="menuBarPage" element={<MenuBarPage/>}/>
-        <Route path="topnavbar" element={<TopNavBar/>}/>
-        <Route path="dashboard" element={<Dashboard/>}/>
-        <Route path="LandingPage" element={<LandingPage/>}/>
-        <Route path="SelectCollege" element={<SelectCollege/>}/>
-        <Route path="MentorOrStu" element={<MentorOrStu/>}/>
-        
-      </Routes>
-      // {/* </Router> */}
-      // {/* <CloudFirestore/> */}
-     
-    // {/* </div> */}
-  );
-=======
     // <Router>
     <Routes>
       <Route path="/" element={<Authentication />} />
@@ -70,7 +44,6 @@ function App() {
     // </Router>
   )
 
->>>>>>> 651d9cf17ca6e197ac8b0bb4204fb176a534d8c7
 }
 
 export default App;
