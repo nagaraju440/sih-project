@@ -85,3 +85,10 @@ width: 296px !important;
     width: unset;
     width: 296px;
 }
+.pwd-input{
+    width: 296px;
+    height: 40px;
+}
+.ant-input-affix-wrapper > input.ant-input{
+   background: none !important;
+}

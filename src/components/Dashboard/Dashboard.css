@@ -18,6 +18,11 @@ padding: 0px;
     position: sticky;
     top: 0;
     z-index: 100;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .avatar1{
     width: 100%;

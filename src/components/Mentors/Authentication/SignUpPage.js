@@ -182,7 +182,7 @@ export default function SignUpPage(props) {
             <br />
             <Space direction="vertical">
               <Input.Password
-               className="input"
+               className="pwd-input"
                 type="password"
                 required
                 onChange={(value) => handleNpassword(value)}
