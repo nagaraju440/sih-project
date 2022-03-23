@@ -45,7 +45,7 @@ function App() {
     // </Routes>
     // </Router>
     <div>
-      <SignUpPage2 />
+      <LandingPage />
     </div>
 
   )
