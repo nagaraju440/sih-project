@@ -1,6 +1,11 @@
 import React, { Component, useState } from 'react'
 import * as EmailValidator from 'email-validator';
-
+import {
+  Routes, Route, Link, BrowserRouter as Router,
+  Switch, withRouter,useNavigate  
+} from "react-router-dom";
+import { Input, Space } from "antd";
+import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 export default function SignInPage() {
   const [email, setemail] = useState("")
   const mailhandler = (e) => {
@@ -21,7 +26,7 @@ export default function SignInPage() {
       <div className='container'>
         <div></div>
         <div>
-          <div className='heading'>Mentor Sign in</div>
+          <div className='heading'>Student Sign in</div>
           <div>
             <div className='subheading'>Please, provide  the information below</div><br />
             <form onSubmit={submithandler}>
@@ -29,12 +34,33 @@ export default function SignInPage() {
               <input type="email" required autoComplete='email' onChange={(value) => mailhandler(value)} /><br /><br />
               {mailerr ? <div className='err'>Email error bro</div> : <div></div>}
               <label>Password*</label><br />
-              <input type="password" required onChange={(value) => passwordhandler(value)} /><br />
+              <Space direction="vertical">
+              <Input.Password
+               className="pwd-input"
+                type="password"
+                required
+                onChange={(value) => passwordhandler(value)}
+                iconRender={(visible) =>
+                  visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+                }
+              />
+            </Space>
+              {/* <input type="password" required onChange={(value) => passwordhandler(value)} /><br /> */}
               <div className='forget-password'>Forget Password ? click here !</div><br />
               <button className='button-text'>Sign in</button>
             </form>
-            <div >Don’t have an account ? Sign  up </div>
-            <div>Know More About Us </div>
+            <li>
+              <Link to="/student/signup">
+              Don’t have an account ? Sign  up 
+              </Link>
+            </li>
+            <li>
+              <Link to="/Dashboard">
+              Know More About Us
+              </Link>
+            </li>
+            {/* <div >Don’t have an account ? Sign  up </div> */}
+            {/* <div>Know More About Us </div> */}
           </div>
         </div>
       </div>

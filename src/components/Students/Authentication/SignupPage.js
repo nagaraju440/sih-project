@@ -10,6 +10,9 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import db from "../../../firebaseConfig.js"
 import MentorSignInPage from './SigninPage.js'
 import { collection, doc, setDoc, addDoc } from "firebase/firestore";
+import SignUp_img from '../../../assets/Images/Student_ Sign Up_Page_ Img.png'
+import { Input, Space } from "antd";
+import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 export default function SignInPage() {
 
   const [name, setname] = useState("")
@@ -117,9 +120,9 @@ export default function SignInPage() {
   return (
     <>
       <div className='container'>
-        <div>IMAGE</div>
+        <div className='student_img'> <img src={SignUp_img}/></div>
         <div className='form'>
-          <div className='heading'>Mentor Registartion</div>
+          <div className='heading'>Student Registartion</div>
           <div className="subheading">
             Please, provide  the information below
           </div>
@@ -137,7 +140,18 @@ export default function SignInPage() {
             {phnoerr ? <div className='err'>Number error bro</div> : <div></div>}
             <br />
             <label className='label'>New Password*</label><br />
-            <input type="password" required onChange={(value) => handleNpassword(value)} />
+            <Space direction="vertical">
+              <Input.Password
+               className="pwd-input"
+                type="password"
+                required
+                onChange={(value) => handleNpassword(value)}
+                iconRender={(visible) =>
+                  visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+                }
+              />
+            </Space>
+            {/* <input type="password" required onChange={(value) => handleNpassword(value)} /> */}
             <br />
             <br />
             <label className='label'>Confirm Password*</label><br />
@@ -152,8 +166,16 @@ export default function SignInPage() {
           {/* <Routes>
           <Route path="SignUpPage" element={<SignUpPage/>}>Already Registered? Sign  in ></Route>
         </Routes> */}
-          <div>Already Registered? Sign  in  </div>
-          <div>Learn More About Us  </div>
+        <li>
+        <Link to="/student/signin">
+        Already Registered? Sign  in 
+        </Link>
+        </li>
+        <li>
+        <Link to="/student/signup">
+        Learn More About Us  
+        </Link>
+        </li>
         </div>
       </div>
     </>
