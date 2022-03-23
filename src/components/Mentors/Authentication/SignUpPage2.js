@@ -2,106 +2,123 @@ import React, { Component, useState, useEffect } from "react";
 import styles from "./SignUpPage2.css";
 import { Select } from "antd";
 import Micon from "../../../assets/Icons/Micon.png";
-import { Input } from 'antd';
+import { Input } from "antd";
 export default function SignUpPage2(props) {
   const { Option } = Select;
-  const children = [];
-  for (let i = 10; i < 36; i++) {
-    children.push(
-      <Option key={i.toString(36) + i}>{i.toString(36) + i}</Option>
+
+
+  const skills = ['html','css','js'];
+  const languages = ['english','telugu','hindi'];
+  const hobbies=['cricket','sleeping','eating'];
+
+  for (let i = 0; i < 3; i++) {
+    skills.push(
+      <Option key={skills[i]} ></Option>
+    );
+  }
+  for (let i = 0; i < 3; i++) {
+    languages.push(
+      <Option key={languages[i]} ></Option>
+    );
+  }
+  for (let i = 0; i < 3; i++) {
+    hobbies.push(
+      <Option key={hobbies[i]} ></Option>
     );
   }
 
-  function handleChange(value) {
+  function AddSkills(value) {
     console.log(`selected ${value}`);
+  }
+  function Languages(value1) {
+    console.log(`selected ${value1}`);
+  }
+  function Hobbies(value2) {
+    console.log(`selected ${value2}`);
   }
   return (
     <>
-      <div className="container">
-        <div className="form">
-          <div className="main-heading">
-            <img src={Micon} className="Micon"></img>
-            <div className="heading">Mentor Registartion</div>
+      <div className="SignUpPage2-container">
+        <div className="SignUpPage2-form">
+
+          <div className="SignUpPage2-main-heading">
+            <img src={Micon} className="SignUpPage2-Micon"></img>
+            <div className="SignUpPage2-heading">Mentor Registartion</div>
           </div>
-          <div className="subheading">
+
+          <div className="SignUpPage2-subheading">
             Please, provide the information below
           </div>
 
-          {/* Form element */}
+        
 
-          <form className="form-sub">
-            <label className="label">Add Skills</label>
+          <form className="SignUpPage2-form-sub">
+            <label className="SignUpPage2-label">Add Skills</label>
             <br />
-            <div className="form-select">
+            <div className="SignUpPage2-form-select">
               <Select
-                className="form-tags"
+                className="SignUpPage2-form-tags"
                 mode="tags"
-                style={{ width: "80%" }}
-                onChange={handleChange}
+                style={{ width: "100%" }}
+                onChange={AddSkills}
                 tokenSeparators={[","]}
               >
-                {children}
+                {skills}
               </Select>
             </div>
-            <div className="first" style={{ paddingBottom: "15px" }}>
               <label className="label">Linked IN</label>
               <br />
               <div className="form-select">
-                <Input style={{ width: "80%" }} placeholder="Enter your linkedin Handle" />
+                <Input
+                  style={{ width: "100%" }}
+                  placeholder="Enter your linkedin Handle"
+                />
               </div>
-            </div>
-            <label className="label">Languages</label>
+
+            <label className="SignUpPage2-label">Languages</label>
             <br />
-            <div className="form-select">
+            <div className="SignUpPage2-form-select">
               <Select
                 className="form-tags"
                 mode="tags"
-                style={{ width: "80%" }}
-                onChange={handleChange}
+                style={{ width: "100%" }}
+                onChange={Languages}
                 tokenSeparators={[","]}
               >
-                {children}
+                {languages}
               </Select>
             </div>
-            <label className="label">Hobbies</label>
+
+            <label className="SignUpPage2-label">Hobbies</label>
             <br />
-            <div className="form-select">
+            <div className="SignUpPage2-form-select">
               <Select
-                className="form-tags"
+                className="SignUpPage2-form-tags"
                 mode="tags"
-                style={{ width: "80%" }}
-                onChange={handleChange}
+                style={{ width: "100%" }}
+                onChange={Hobbies}
                 tokenSeparators={[","]}
               >
-                {children}
+                {hobbies}
               </Select>
             </div>
+
+
+            <div className="SignUpPage2-skip" onClick={() => { console.log("hii skip");}} >Skip</div>
+
+            <div className="SignUpPage2-button-class">
+              <button type="submit" onClick={() => {
+                  console.log("hii mentor");
+                }}  className="SignUpPage2-button-text" >Next </button>
+            </div>
+
+
           </form>
 
-          <div
-            className="skip"
-            onClick={() => {
-              console.log("hii skip");
-            }}
-            style={{display: "flex",justifyContent:'space-between',alignItems: 'center',width: "100%"}}
-          >
-           <div> Skip</div>
+         
           
 
-          <div className="button-class" >
-            <button
-              type="submit"
-              onClick={() => {
-                console.log("hii mentor");
-              }}
-              className="button-text"
-            >
-              Next
-            </button>
-          </div>
-          </div>
-
-          {/* <-----------End of the form element--------> */}
+         
         </div>
       </div>
     </>
