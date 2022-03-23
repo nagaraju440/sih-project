@@ -163,12 +163,6 @@ export default function SignInPage(props) {
             <br />
             <button type='submit' className='button-text'>Register</button>
           </form>
-          {/* <Routes>
-          <Route path="SignUpPage" element={<SignUpPage/>}/>
-        </Routes> */}
-          {/* <Routes>
-          <Route path="SignUpPage" element={<SignUpPage/>}>Already Registered? Sign  in ></Route>
-        </Routes> */}
           <div>Already Registered? Sign  in </div>
           <div>Know More About Us  </div>
         </div>

@@ -1,7 +1,6 @@
 import React, { Component, useState } from 'react'
 import * as EmailValidator from 'email-validator';
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-
+import { Link } from "react-router-dom";
 export default function SignInPage() {
   const [email, setemail] = useState("")
   const mailhandler = (e) => {
@@ -47,8 +46,12 @@ export default function SignInPage() {
               <div className='forget-password'>Forget Password ? click here !</div><br />
               <button className='button-text'>Sign in</button>
             </form>
-            <div >Don’t have an account ? Sign  up </div>
-            <div>Know More About Us </div>
+            <li>
+              <Link to="/mentor/signup">Don’t have an account ? Sign  up</Link>
+            </li>
+            <li>
+              <Link to="/topnavbar">Know More About Us</Link>
+            </li>
           </div>
         </div>
       </div>
