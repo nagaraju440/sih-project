@@ -8,13 +8,20 @@ import { UserOutlined, LaptopOutlined, NotificationOutlined,EditFilled,PlusOutli
 import { ProSidebar, MenuItem, SubMenu, SidebarHeader, SidebarContent, SidebarFooter } from 'react-pro-sidebar';
 import Avatar from '../../assets/Images/avtar.jpg'
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
-
+import {
+  Routes, Route, Link, BrowserRouter as Router,
+  Switch,
+} from "react-router-dom";
+import MentorDashboard from '../Mentors/Dashboard/MentorDashboard'
+import MentorProfile from '../Mentors/Profile/MentorProfile'
+import MentorAssignments from '../Mentors/MentorAssignments/MentorAssignments'
 // const { SubMenu } = Menu;
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 const { Header, Content, Sider } = Layout;
 export default function Dashboard() {
   return (
-    <div>
+    <Router>
+    <div style={{width:'100%',height:'100%'}}>
          {/* <TopNavBar/>
          <div className='layout'>
          <MenuBarPage/>
@@ -27,23 +34,26 @@ export default function Dashboard() {
             
          </div>
          </div> */}
-         <Layout>
+         {/* <Layout> */}
     <Header   
     className="header"
     >
       <div 
       className="logo" 
       />
-      <Menu theme="light" mode="horizontal" defaultSelectedKeys={['1']}>
+    {/* <Router> */}
+    <Menu theme="light" mode="horizontal" defaultSelectedKeys={['1']}>
         <Menu.Item key="1"><Link to="/Dashboard">Home</Link></Menu.Item>
         <Menu.Item key="2"><Link to="/Dashboard">Ideana</Link></Menu.Item>
         <Menu.Item key="3"><Link to="/Dashboard">Connect</Link></Menu.Item>
         <Menu.Item key="4"><Link to="/Dashboard">About Us</Link></Menu.Item>
       </Menu>
+    {/* </Router> */}
     </Header>
-    <Layout>
-      <Sider >
-        <Menu className="site-layout-background">
+    <div style={{display:'flex'}}>
+      <div className='sidenav-container'>
+      {/* <Router> */}
+      <Menu className="site-layout-background">
             {/* <div>image here</div>
             <br/> */}
             <div>Hi,Sunil Kalikayi</div>
@@ -51,13 +61,13 @@ export default function Dashboard() {
               <Link to="/Dashboard">Dashboard</Link>
           </Menu.Item>
           <Menu.Item icon={<UserOutlined />}>
-              <Link to="/Dashboard">Profile</Link>
+              <Link to="/Dashboard/profile">Profile</Link>
           </Menu.Item>
           <Menu.Item icon={<UserOutlined />}>
               <Link to="/Dashboard">Courses</Link>
           </Menu.Item>
           <Menu.Item icon={<UserOutlined />}>
-              <Link to="/Dashboard">Assignments</Link>
+              <Link to="/Dashboard/assignments">Assignments</Link>
           </Menu.Item >
           <Menu.Item icon={<UserOutlined />}>
               <Link to="/Dashboard">Chat</Link>
@@ -83,23 +93,41 @@ export default function Dashboard() {
             {/* <div onClick={()=>{
    
             }}> */}
-              <Link to="/Dashboard">Sign out</Link>
+              <Link to="/">Sign out</Link>
               {/* </div> */}
           </Menu.Item>
         </Menu>
-      </Sider>
-      <Layout>
-        <Content>
-          <div>
+      {/* </Router> */}
+       </div>
+      {/* </Sider> */}
+     <div className='content-container'>
+     {/* <Layout> */}
+        {/* <Content> */}
+         {/* <Router> */}
+           <Routes>
+             <Route oute path='/Dashboard' element={<MentorDashboard/>}></Route>
+           <Route path='/Dashboard/profile' element={<MentorProfile/>}></Route>
+           <Route path='/Dashboard/assignments' element={<MentorAssignments/>}></Route>
+           </Routes>
+
+         {/* </Router> */}
+       
+          {/* <div style={{height:2000,backgroundColor:'red'}} className="content-inner">
             This is conent pa
-          </div>
-        </Content>
+          </div> */}
+        {/* </Content> */}
 
         {/* </Content> */}
-      </Layout>
-    </Layout>
-  </Layout>,
+      {/* </Layout> */}
+     </div>
+      </div>
+    {/* <Layout> */}
+      {/* <Sider > */}
+    
+    {/* </Layout> */}
+  {/* </Layout> */}
     </div>
+     </Router> 
   )
 }
 
