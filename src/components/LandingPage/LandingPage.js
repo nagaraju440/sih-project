@@ -3,10 +3,12 @@ import styles from './LandingPage.css'
 import LandingPageImg from '../../assets/Images/LandingPage.png'
 import Micon from '../../assets/Icons/Micon.png'
 
-
-export default function LandingPage() {
-
-  
+import {
+  Routes, Route, Link, BrowserRouter as Router,
+  Switch, withRouter,useNavigate  
+} from "react-router-dom";
+export default function LandingPage() {  
+  const navigate=useNavigate();
   return (
     <>
       <div className='MainContainer'>
@@ -25,9 +27,13 @@ export default function LandingPage() {
           <img src={Micon} alt="logo" className="imgStyles"/>
           </div>
           <div className='right-section-button'>
-          <button type='submit' className='button-text'>Register</button>
+          <button type='submit' onClick={()=>{
+                   navigate('/selectCollege')  
+          }}  className='button-text'>Register</button>
           </div>
-          <div className='bottom-text-1'>Already Registered? Sign  in </div>
+          <div className='bottom-text-1' onClick={()=>{
+             navigate('/mentorOrStudent_signin')
+          }}> Already Registered? Sign  in </div>
           <div className='bottom-text-2'>Know More About Us  </div>
 
            
