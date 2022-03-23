@@ -48,17 +48,14 @@ export default function SignInPage(props) {
   const [passerr, setpasserr] = useState(false)
   var [validDetails, setvalidDetails] = useState(0)
   const emailAuth = async (name, email, password) => {
-
-    // let navigate = useNavigate();
     try {
       const auth = getAuth();
-
       const res = await createUserWithEmailAndPassword(auth, email, password);
       const user = res.user;
       // const user = userCredential.user;
       console.log(user);
       const test =
-        await addDoc(collection(db, "colleges", "srkr", "mentors",), {
+        await setDoc(doc(db, "colleges", "srkr", "mentors", user.uid), {
           uid: user.uid,
           name,
           authProvider: "local",
@@ -82,6 +79,7 @@ export default function SignInPage(props) {
   const submitHandler = (e) => {
     e.preventDefault()
     if (name.length > 6) {
+
       setnamerr(false)
       validDetails = 1
       setvalidDetails(1)
