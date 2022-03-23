@@ -5,6 +5,8 @@ import {
   Routes, Route, Link, BrowserRouter as Router,
   Switch, withRouter, useNavigate
 } from "react-router-dom";
+import { Input, Space } from "antd";
+import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 export default function SignInPage() {
   const navigate = useNavigate()
   const [email, setemail] = useState("")
@@ -40,7 +42,9 @@ export default function SignInPage() {
   return (
     <>
       <div className='container'>
-        <div></div>
+        <div>
+         
+        </div>
         <div>
           <div className='heading'>Mentor Sign in</div>
           <div>
@@ -50,7 +54,18 @@ export default function SignInPage() {
               <input type="email" required autoComplete='email' onChange={(value) => mailhandler(value)} /><br /><br />
               {mailerr ? <div className='err'>Email error bro</div> : <div></div>}
               <label>Password*</label><br />
-              <input type="password" required onChange={(value) => passwordhandler(value)} /><br />
+              <Space direction="vertical">
+              <Input.Password
+               className="pwd-input"
+                type="password"
+                required
+                onChange={(value) => passwordhandler(value)}
+                iconRender={(visible) =>
+                  visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+                }
+              />
+            </Space>
+              {/* <input type="password" required onChange={(value) => passwordhandler(value)} /><br /> */}
               <div className='forget-password'>Forget Password ? click here !</div><br />
               <button className='button-text'>Sign in</button>
             </form>

@@ -23,6 +23,7 @@ import { collection, doc, setDoc, addDoc } from "firebase/firestore";
 import { async } from "@firebase/util";
 import { Input, Space } from "antd";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
+import Mentor_img from '../../../assets/Images/Mentor_SignUp_img.png'
 // const auth = getAuth();
 
 export default function SignUpPage(props) {
@@ -136,7 +137,9 @@ export default function SignUpPage(props) {
   return (
     <>
       <div className="container">
-        <div>IMAGE</div>
+        <div>
+          <img src={Mentor_img} className="mentor_img"/>
+        </div>
         <div className="form">
           <div className="heading">Mentor Registartion</div>
           <div className="subheading">
@@ -191,7 +194,6 @@ export default function SignUpPage(props) {
                 }
               />
             </Space>
-            ,
             <br />
             <br />
             <label className="label">Confirm Password*</label>
@@ -203,11 +205,14 @@ export default function SignUpPage(props) {
             />
             {passerr ? <div className="err">password error</div> : <div></div>}
             <br />
-            <button type="submit" className="button-text">
+            <button type="submit" className="button-text" >
               Register
             </button>
           </form>
-          <div>Already Registered? Sign in </div>
+          <li>
+            <Link to='/mentor/signin'>Already Registered? Sign in</Link>
+          </li>
+          {/* <div>Already Registered? Sign in </div> */}
           <div>Know More About Us </div>
         </div>
       </div>
