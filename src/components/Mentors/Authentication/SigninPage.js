@@ -1,8 +1,7 @@
 import React, { Component, useState } from 'react'
 import * as EmailValidator from 'email-validator';
 import { Link } from "react-router-dom";
-import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
-
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 export default function SignInPage() {
   const [email, setemail] = useState("")
   const mailhandler = (e) => {
@@ -18,6 +17,7 @@ export default function SignInPage() {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
+
         // Signed in 
         const user = userCredential.user;
         console.log("user details", user);
