@@ -46,7 +46,10 @@ export default function MentorOrStu() {
                  navigate('/student/signup')
           }} className='button-text'>Student</button>
           </div>
-          <div className='Sc-bottom-text-1'>Already Registered? Sign  in </div>
+          <li>
+            <Link to="/mentorOrStudent_signin">Already Registered? Sign  in</Link>
+          </li>
+          {/* <div className='Sc-bottom-text-1'>Already Registered? Sign  in </div> */}
           <div className='Sc-bottom-text-2'>Know More About Us  </div>
 
            

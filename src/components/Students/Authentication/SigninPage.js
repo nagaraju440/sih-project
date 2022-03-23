@@ -1,6 +1,9 @@
 import React, { Component, useState } from 'react'
 import * as EmailValidator from 'email-validator';
-
+import {
+  Routes, Route, Link, BrowserRouter as Router,
+  Switch, withRouter,useNavigate  
+} from "react-router-dom";
 export default function SignInPage() {
   const [email, setemail] = useState("")
   const mailhandler = (e) => {
@@ -21,7 +24,7 @@ export default function SignInPage() {
       <div className='container'>
         <div></div>
         <div>
-          <div className='heading'>Mentor Sign in</div>
+          <div className='heading'>Student Sign in</div>
           <div>
             <div className='subheading'>Please, provide  the information below</div><br />
             <form onSubmit={submithandler}>
@@ -33,8 +36,18 @@ export default function SignInPage() {
               <div className='forget-password'>Forget Password ? click here !</div><br />
               <button className='button-text'>Sign in</button>
             </form>
-            <div >Don’t have an account ? Sign  up </div>
-            <div>Know More About Us </div>
+            <li>
+              <Link to="/student/signup">
+              Don’t have an account ? Sign  up 
+              </Link>
+            </li>
+            <li>
+              <Link to="/Dashboard">
+              Know More About Us
+              </Link>
+            </li>
+            {/* <div >Don’t have an account ? Sign  up </div> */}
+            {/* <div>Know More About Us </div> */}
           </div>
         </div>
       </div>

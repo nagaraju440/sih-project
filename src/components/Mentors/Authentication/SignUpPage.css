@@ -39,6 +39,7 @@ button{
     background-color: #004E89;
     border-style: none;
     border-radius: 20px;
+    cursor: pointer;
 }
 .button-text{
 color:  #FFFFFF;
@@ -46,6 +47,9 @@ font-weight: bold;
 font-size: 16px;
 font-family: Rubik;
 }
+/* .button:hover{
+opacity: 0.6
+} */
 .forget-password{
    font-size: 14px;
    font-weight: 400;
@@ -75,13 +79,4 @@ font-family: Rubik;
     border-radius: 2px;
     transition: all 0.3s;
     display: inline-flex; */ 
-}
-.ant-input-affix-wrapper .ant-input-password .input{
-all: unset;
-width: 296px !important;
-    height: 40px !important;
-}
-.ant-input-affix-wrapper .ant-input-password{
-    width: unset;
-    width: 296px;
 }

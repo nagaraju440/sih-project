@@ -119,7 +119,7 @@ export default function SignInPage() {
       <div className='container'>
         <div>IMAGE</div>
         <div className='form'>
-          <div className='heading'>Mentor Registartion</div>
+          <div className='heading'>Student Registartion</div>
           <div className="subheading">
             Please, provide  the information below
           </div>
@@ -152,8 +152,16 @@ export default function SignInPage() {
           {/* <Routes>
           <Route path="SignUpPage" element={<SignUpPage/>}>Already Registered? Sign  in ></Route>
         </Routes> */}
-          <div>Already Registered? Sign  in  </div>
-          <div>Learn More About Us  </div>
+        <li>
+        <Link to="/student/signin">
+        Already Registered? Sign  in 
+        </Link>
+        </li>
+        <li>
+        <Link to="/student/signup">
+        Learn More About Us  
+        </Link>
+        </li>
         </div>
       </div>
     </>

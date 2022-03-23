@@ -85,10 +85,6 @@ export default function Dashboard() {
         >
           Content
           <Card>
-            {/* <p style="background-image:url('../../assets/Images/avtar.jpg')">
-
-            </p> */}
-            {/* <Avatar/> */}
             <img src={Avatar} className="avatar1"/>
             <img src={Avatar} className="avatar2"></img>
             <div className='card1'>
