@@ -1,5 +1,5 @@
 import React, { Component, useState, useEffect } from 'react'
- import styles from './SelectCollege.css'
+ import styles from './MentorOrStu.css'
 import LandingPageImg from '../../assets/Images/LandingPage.png'
 import Micon from '../../assets/Icons/Micon.png'
 
@@ -7,10 +7,10 @@ import {
   Routes, Route, Link, BrowserRouter as Router,
   Switch, withRouter,useNavigate  
 } from "react-router-dom";
-export default function SelectCollege() {
-   
 
-    const navigate=useNavigate();
+export default function MentorOrStu() {
+   
+  const navigate=useNavigate();
   
   return (
     <>
@@ -29,16 +29,24 @@ export default function SelectCollege() {
           <h2 className='Sc-right-section-text-2'>to learn twice over</h2>
           <div className='Sc-right-section-icon'>
           <img src={Micon} alt="logo" className="imgStyles"/>
-          </div>
+          </div >
           {/* hii */}
-          <label>college /institute/university*</label>
-          <input type="password" placeholder="Enter your college name"/><br />
-          <div className='Sc-right-section-button'>
+
+         <div className='Sc-right-section-text-3'>
+         What do you wish to signin for?
+         </div>
+
+          <div className='Ms-right-section-button-1'>
           <button type='submit' onClick={()=>{
-            navigate('/mentorOrStudent_signup',{state:{collegeName:"SRKR"}})
-          }} className='button-text'>Next</button>
+                 navigate('/mentor/signin')
+          }} className='button-text'>Mentor</button>
           </div>
-          <div className='Sc-bottom-text-1'>Already Registered? Sign  in </div>
+          <div className='Ms-right-section-button-2'>
+          <button type='submit'  onClick={()=>{
+                 navigate('/student/signin')
+          }} className='button-text'>Student</button>
+          </div>
+          {/* <div className='Sc-bottom-text-1'>Already Registered? Sign  in </div> */}
           <div className='Sc-bottom-text-2'>Know More About Us  </div>
 
            

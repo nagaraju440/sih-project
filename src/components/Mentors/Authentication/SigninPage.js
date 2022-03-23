@@ -1,8 +1,12 @@
 import React, { Component, useState } from 'react'
 import * as EmailValidator from 'email-validator';
-import { Link, useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  Routes, Route, Link, BrowserRouter as Router,
+  Switch, withRouter, useNavigate
+} from "react-router-dom";
 export default function SignInPage() {
+  const navigate = useNavigate()
   const [email, setemail] = useState("")
   const mailhandler = (e) => {
     setemail(e.target.value)
@@ -21,7 +25,9 @@ export default function SignInPage() {
         // Signed in 
         const user = userCredential.user;
         console.log("user details", user);
+        navigate('/Dashboard')
         // ...
+
       })
       .catch((error) => {
         alert("Please provide valid details")
