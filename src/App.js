@@ -10,6 +10,9 @@ import MentorSignUpPage from './components/Mentors/Authentication/SignUpPage';
 import MentorSignInPage from './components/Mentors/Authentication/SigninPage';
 import StudentSignUpPage from './components/Students/Authentication/SignupPage';
 import StudentSignInPage from './components/Students/Authentication/SigninPage';
+import MenuBarPage from './components/Dashboard/MenuBarPage';
+import TopNavBar from './components/Dashboard/TopNavBar';
+import Dashboard from './components/Dashboard/Dashboard';
 function App() {
   return (
     // <div className="App">
@@ -23,6 +26,9 @@ function App() {
         <Route path="student/signup" element={<StudentSignUpPage/>}  />
         <Route path="student/signin" element={<StudentSignInPage/>}  />
         <Route path="about" element={<About />} />
+        <Route path="menuBarPage" element={<MenuBarPage/>}/>
+        <Route path="topnavbar" element={<TopNavBar/>}/>
+        <Route path="dashboard" element={<Dashboard/>}/>
       </Routes>
       // {/* </Router> */}
       // {/* <CloudFirestore/> */}
@@ -52,7 +58,15 @@ function Home() {
       <nav>
         <Link to="/student/signin">Student Sign in page</Link>
       </nav>
-
+      <nav>
+        <Link to="/menuBarPage">MenuBarPage Page</Link>
+      </nav>
+      <nav>
+        <Link to="/topnavbar">topnavbar</Link>
+      </nav>
+      <nav>
+        <Link to="/dashboard">Dashboard</Link>
+      </nav>
     </>
   );
 }
