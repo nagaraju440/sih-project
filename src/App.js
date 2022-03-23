@@ -16,23 +16,16 @@ import StudentSignInPage from './components/Students/Authentication/SigninPage';
 import MenuBarPage from './components/Dashboard/MenuBarPage';
 import TopNavBar from './components/Dashboard/TopNavBar';
 import Dashboard from './components/Dashboard/Dashboard';
-<<<<<<< HEAD
-import LandingPage from './components/LandingPage/LandingPage';
-import SelectCollege from './components/LandingPage/SelectCollege';
-import MentorOrStu from './components/LandingPage/MentorOrStu'
-=======
 import LandingPage from './components/LandingPage/LandingPage'
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import MentorDashboard from './components/MentorDashboard/MentorDashboard';
 import Authentication from './Authentication';
->>>>>>> d53cec0dd350a28e7f2c2944e429d4fabc29c95c
 function App() {
 
   // }
 
 
   return (
-<<<<<<< HEAD
     // <div className="App">
       // {/* <AntdSample/> */}
       // <h1>Welcome to React Router!</h1>
@@ -57,25 +50,6 @@ function App() {
      
     // {/* </div> */}
   );
-=======
-    // <Router>
-    <Routes>
-      <Route path="/" element={<Authentication />} />
-      <Route path="mentor/signup" element={<MentorSignUpPage />} />
-      {/* <Route path="mentor/signup1" element={<SignUpPage1 />} /> */}
-      <Route path="mentor/signin" element={<MentorSignInPage />} />
-      <Route path="student/signup" element={<StudentSignUpPage />} />
-      <Route path="student/signin" element={<StudentSignInPage />} />
-      <Route path="about" element={<About />} />
-      <Route path="menuBarPage" element={<MenuBarPage />} />
-      <Route path="topnavbar" element={<TopNavBar />} />
-      <Route path="dashboard" element={<Dashboard />} />
-      <Route path="LandingPage" element={<LandingPage />} />
-    </Routes>
-    // </Router>
-  )
-
->>>>>>> d53cec0dd350a28e7f2c2944e429d4fabc29c95c
 }
 
 export default App;
