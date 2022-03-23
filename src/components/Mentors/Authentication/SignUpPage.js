@@ -3,10 +3,10 @@ import * as EmailValidator from 'email-validator';
 import styles from './SignUpPage.css'
 import {
   Routes, Route, Link, BrowserRouter as Router,
-  Switch, withRouter
+  Switch, withRouter,useNavigate  
 } from "react-router-dom";
 import { Redirect } from 'react-router-dom';
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
 // import db from '../firebaseConfig'
 import db from "../../../firebaseConfig.js"
 import MentorSignInPage from './SigninPage.js'
@@ -15,8 +15,11 @@ import { async } from '@firebase/util';
 
 
 
-export default function SignInPage(props) {
+export default function SignUpPage(props) {
   // let history = useHistory();
+  const navigate = useNavigate ();
+  
+  // console.log("props/ in sign up page is",navigate)
   const [name, setname] = useState("")
   const handlename = (e) => {
     setname(e.target.value)
@@ -61,13 +64,15 @@ export default function SignInPage(props) {
           authProvider: "local",
           email,
           password
-        });
-      console.log("test");
-      if (test) {
-        console.log("hii routing has done succesfully");
-
-
-      }
+        })
+      console.log("test",test);
+      console.log("hehe succsess")
+        navigate("/mentor/signup1",{state:{uid:user.uid}});
+      // if (test) {
+      //   console.log("hii routing has done succesfully");
+      //   navigate("signup1");
+      //   // <Route path='*' element={<Navigate to='/mentor/signin' />} />
+      // }
 
     } catch (err) {
       console.error(err);
