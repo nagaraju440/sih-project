@@ -13,8 +13,9 @@ import StudentSignInPage from './components/Students/Authentication/SigninPage';
 import MenuBarPage from './components/Dashboard/MenuBarPage';
 import TopNavBar from './components/Dashboard/TopNavBar';
 import Dashboard from './components/Dashboard/Dashboard';
-import LandingPage from './components/LandingPage/LandingPage'
-import SelectCollege from './components/LandingPage/SelectCollege'
+import LandingPage from './components/LandingPage/LandingPage';
+import SelectCollege from './components/LandingPage/SelectCollege';
+import MentorOrStu from './components/LandingPage/MentorOrStu'
 function App() {
   return (
     // <div className="App">
@@ -33,6 +34,7 @@ function App() {
         <Route path="dashboard" element={<Dashboard/>}/>
         <Route path="LandingPage" element={<LandingPage/>}/>
         <Route path="SelectCollege" element={<SelectCollege/>}/>
+        <Route path="MentorOrStu" element={<MentorOrStu/>}/>
         
       </Routes>
       // {/* </Router> */}
@@ -77,6 +79,9 @@ function Home() {
       </nav>
       <nav>
         <Link to="/SelectCollege">SelectCollege</Link>
+      </nav>
+      <nav>
+        <Link to="/MentorOrStu">MentorOrStu</Link>
       </nav>
     </>
   );
