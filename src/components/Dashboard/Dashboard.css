@@ -7,16 +7,24 @@ padding: 0px;
 }
 .header{
     background-color: white;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* width: 100%; */
+    /* background-color: red; */
+    /* justify-content: space-between; */
+    /* justify-content: center;
+    align-items: center; */
     position: sticky;
     top: 0;
     z-index: 100;
+    box-shadow: 0px 4px #dfdddd;
+    /* opacity: 0.5 */
+    /* border: 1px solid black; */
 }
 .site-layout-background{
     /* position: sticky; */
     /* top: 0; */
+    /* margin-top: 50px; */
     z-index: 100;
     margin-top: 30px;
     width: 300px;
@@ -68,5 +76,33 @@ padding: 0px;
   left: 0;
   background-color: white;
   overflow-x: hidden;
-  padding-top: 20px;
+  padding-top: 80px;
+  box-shadow: 1px 0px #acaaaa;
+}
+.logo{
+    display: flex;
+    /* justify-content: flex-start; */
+    /* align-items: flex-start; */
+    width: 50%;
+    background-color: green;
+    /* background-color: aqua; */
+}
+.logo2{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    background-color: blue;
+}
+.nav{
+    
+    display: flex;
+    width: 50%;
+    justify-content: flex-end;
+    align-items: flex-end; 
+    background-color: aqua;
+    /* width: (100%-50%); */
+}
+.ant-menu-overflow-item .ant-menu-overflow-item-rest .ant-menu-submenu .ant-menu-submenu-horizontal .ant-menu-submenu-selected{
+width: 100%!important;
+background-color: aqua;
 }
