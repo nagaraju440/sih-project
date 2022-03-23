@@ -6,7 +6,7 @@ import {
   Switch, withRouter
 } from "react-router-dom";
 import { Redirect } from 'react-router-dom';
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
 // import db from '../firebaseConfig'
 import db from "../../../firebaseConfig.js"
 import MentorSignInPage from './SigninPage.js'
