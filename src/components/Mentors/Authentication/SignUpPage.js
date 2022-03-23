@@ -1,20 +1,22 @@
-import React, { Component, useState, useEffect } from 'react'
+import React, { Component, useState, useEffect, } from 'react'
 import * as EmailValidator from 'email-validator';
 import styles from './SignUpPage.css'
 import {
   Routes, Route, Link, BrowserRouter as Router,
-  Switch,
+  Switch, withRouter
 } from "react-router-dom";
+import { Redirect } from 'react-router-dom';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 // import db from '../firebaseConfig'
 import db from "../../../firebaseConfig.js"
-
+import MentorSignInPage from './SigninPage.js'
 import { collection, doc, setDoc, addDoc } from "firebase/firestore";
 import { async } from '@firebase/util';
-// const auth = getAuth();
 
-export default function SignInPage() {
 
+
+export default function SignInPage(props) {
+  // let history = useHistory();
   const [name, setname] = useState("")
   const handlename = (e) => {
     setname(e.target.value)
@@ -53,23 +55,33 @@ export default function SignInPage() {
         // const user = userCredential.user;
         console.log(user);
         const test =
-        await addDoc(collection(db, "colleges","srkr","mentors"), {
+        await setDoc(doc(db, "colleges","srkr","mentors",user.uid), {
           uid: user.uid,
           name,
           authProvider: "local",
           email,
           password
         });
-      } catch (err) {
-        console.error(err);
-        alert(err.message);
+      console.log("test");
+      if (test) {
+        console.log("hii routing has done succesfully");
+        // navigate("mentor/signin");
+        // <Route path='*' element={<Navigate to='/mentor/signin' />} />
+
       }
-    };
-  
+
+    } catch (err) {
+      console.error(err);
+      alert(err.message);
+    }
+  };
+
   const submitHandler = (e) => {
     e.preventDefault()
     if (name.length > 6) {
+      
       setnamerr(false)
+      validDetails = 1
       setvalidDetails(1)
     }
     else {
@@ -78,6 +90,8 @@ export default function SignInPage() {
     }
     if (EmailValidator.validate(email)) {
       setmailerr(false)
+      validDetails = 1
+
       setvalidDetails(1)
     }
     else {
@@ -90,6 +104,8 @@ export default function SignInPage() {
     }
     else {
       setphnoerr(false)
+      validDetails = 1
+
       setvalidDetails(1)
     }
     if (Npassword != Cpassword) {
@@ -98,11 +114,13 @@ export default function SignInPage() {
     }
     else {
       setpasserr(false)
+      validDetails = 1
+
       setvalidDetails(1)
     }
     if (validDetails == 1) {
 
-      emailAuth(name,email,Npassword)
+      emailAuth(name, email, Npassword)
     }
     else {
       console.log("this is error");
