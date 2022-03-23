@@ -3,7 +3,6 @@ import styles from "./SignUpPage2.css";
 import { Select } from "antd";
 import Micon from "../../../assets/Icons/Micon.png";
 import { Input } from 'antd';
-
 export default function SignUpPage2(props) {
   const { Option } = Select;
   const children = [];
@@ -31,47 +30,51 @@ export default function SignUpPage2(props) {
           {/* Form element */}
 
           <form className="form-sub">
-          <label className="label">Add Skills</label>
+            <label className="label">Add Skills</label>
             <br />
             <div className="form-select">
-            <Select
-              mode="tags"
-              style={{ width: "80%" }}
-              onChange={handleChange}
-              tokenSeparators={[","]}
-            >
-              {children}
-            </Select>
+              <Select
+                className="form-tags"
+                mode="tags"
+                style={{ width: "80%" }}
+                onChange={handleChange}
+                tokenSeparators={[","]}
+              >
+                {children}
+              </Select>
             </div>
-            <label className="label">Linked IN</label>
-            <br />
-            <div  className="form-select">
-            <Input   style={{ width: "80%" }} placeholder="Enter your linkedin Handle" />
+            <div className="first" style={{ paddingBottom: "15px" }}>
+              <label className="label">Linked IN</label>
+              <br />
+              <div className="form-select">
+                <Input style={{ width: "80%" }} placeholder="Enter your linkedin Handle" />
+              </div>
             </div>
-           
             <label className="label">Languages</label>
             <br />
-            <div  className="form-select">
-            <Select
-              mode="tags"
-              style={{ width: "80%" }}
-              onChange={handleChange}
-              tokenSeparators={[","]}
-            >
-              {children}
-            </Select>
+            <div className="form-select">
+              <Select
+                className="form-tags"
+                mode="tags"
+                style={{ width: "80%" }}
+                onChange={handleChange}
+                tokenSeparators={[","]}
+              >
+                {children}
+              </Select>
             </div>
             <label className="label">Hobbies</label>
             <br />
-            <div  className="form-select">
-            <Select
-              mode="tags"
-              style={{ width: "80%" }}
-              onChange={handleChange}
-              tokenSeparators={[","]}
-            >
-              {children}
-            </Select>
+            <div className="form-select">
+              <Select
+                className="form-tags"
+                mode="tags"
+                style={{ width: "80%" }}
+                onChange={handleChange}
+                tokenSeparators={[","]}
+              >
+                {children}
+              </Select>
             </div>
           </form>
 
@@ -80,11 +83,12 @@ export default function SignUpPage2(props) {
             onClick={() => {
               console.log("hii skip");
             }}
+            style={{display: "flex",justifyContent:'space-between',alignItems: 'center',width: "100%"}}
           >
-            Skip
-          </div>
+           <div> Skip</div>
+          
 
-          <div className="button-class">
+          <div className="button-class" >
             <button
               type="submit"
               onClick={() => {
@@ -94,6 +98,7 @@ export default function SignUpPage2(props) {
             >
               Next
             </button>
+          </div>
           </div>
 
           {/* <-----------End of the form element--------> */}
