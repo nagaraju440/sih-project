@@ -13,14 +13,14 @@ export default function SignInPage() {
   const [mailerr, setmailerr] = useState(false)
   const submithandler = (e) => {
     e.preventDefault()
-    const auth = getAuth();
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in 
-        const user = userCredential.user;
-        console.log("user details", user);
-        // ...
-      })
+    // const auth = getAuth();
+    // signInWithEmailAndPassword(auth, email, password)
+    //   .then((userCredential) => {
+    //     // Signed in 
+    //     const user = userCredential.user;
+    //     console.log("user details", user);
+    //     // ...
+    //   })
       .catch((error) => {
         alert("Please provide valid details")
         const errorCode = error.code;
