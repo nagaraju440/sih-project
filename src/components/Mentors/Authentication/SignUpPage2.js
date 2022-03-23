@@ -3,7 +3,10 @@ import styles from "./SignUpPage2.css";
 import { Select } from "antd";
 import Micon from "../../../assets/Icons/Micon.png";
 import { Input } from 'antd';
+import { useLocation, withRouter, useNavigate } from 'react-router-dom';
 export default function SignUpPage2(props) {
+  let location = useLocation();
+  const navigate = useNavigate();
   const { Option } = Select;
   const children = [];
   for (let i = 10; i < 36; i++) {
@@ -11,7 +14,21 @@ export default function SignUpPage2(props) {
       <Option key={i.toString(36) + i}>{i.toString(36) + i}</Option>
     );
   }
+  var navigateNextPage = () => {
+    console.log("hii this is next page");
+    let data = location.state
+    data['skills'] = ['skill1', 'skill2', 'skill3']
+    data['linked_in'] = "linkedin profile link"
+    data['languages'] = ['l1', 'l2', 'l3']
+    data['hobbies'] = ['h1', 'h2', 'h3']
+    console.log("location is", data)
 
+    navigate("/mentor/signup3", { state: data });
+  }
+  var skipToNextPage = () => {
+    let data = location.state
+    navigate("/mentor/signup3", { state: data });
+  }
   function handleChange(value) {
     console.log(`selected ${value}`);
   }
@@ -80,25 +97,21 @@ export default function SignUpPage2(props) {
 
           <div
             className="skip"
-            onClick={() => {
-              console.log("hii skip");
-            }}
-            style={{display: "flex",justifyContent:'space-between',alignItems: 'center',width: "100%"}}
+            onClick={skipToNextPage()}
+            style={{ display: "flex", justifyContent: 'space-between', alignItems: 'center', width: "100%" }}
           >
-           <div> Skip</div>
-          
+            <div> Skip</div>
 
-          <div className="button-class" >
-            <button
-              type="submit"
-              onClick={() => {
-                console.log("hii mentor");
-              }}
-              className="button-text"
-            >
-              Next
-            </button>
-          </div>
+
+            <div className="button-class" >
+              <button
+                type="submit"
+                onClick={navigateNextPage()}
+                className="button-text"
+              >
+                Next
+              </button>
+            </div>
           </div>
 
           {/* <-----------End of the form element--------> */}
