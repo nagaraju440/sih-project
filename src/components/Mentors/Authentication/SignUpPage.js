@@ -65,8 +65,7 @@ export default function SignInPage(props) {
       console.log("test");
       if (test) {
         console.log("hii routing has done succesfully");
-        // navigate("mentor/signin");
-        // <Route path='*' element={<Navigate to='/mentor/signin' />} />
+
 
       }
 
