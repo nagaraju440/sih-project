@@ -12,12 +12,13 @@ import {
 import NavBar from '../Students/Authentication/NavBar';
 export default function SelectCollege() {
    
-
+   const [collegeName,setCollegeName] =React.useState('')
     const navigate=useNavigate();
     const { Option } = Select;
 
     function onChange(value) {
       console.log(`selected ${value}`);
+      setCollegeName(value)
     }
     
     function onBlur() {
@@ -35,25 +36,27 @@ export default function SelectCollege() {
   return (
     <>
     <NavBar/>
-      <div className='Sc-MainContainer'>
-          
-          {/* <div className='Sc-inner-container'> */}
-          <div className='Sc-left-section'>
-              <h2 className='Sc-left-section-text'>Struggling with Learning</h2>
-           
-              <img src={Landingpage3} alt="Image over here" className="select-image"/>
+    <div className='MainContainer'>
+        <div className='inner-container'>
+          <div className='left-section'>
+            {/* <div className='left-section-1'> */}
+
+            <h2 className='left-section-text'>Struggling with learning</h2>
+
+             <img src={Landingpage3} className='image1' alt="Image over here" /> 
 
 
           </div>
-          <div className='Sc-right-section'>
-          <h1 className='Sc-right-section-text'><b style={{color: '#004E89'}}>Teaching </b>is<br></br>to learn <b style={{color: '#004E89'}}>twice</b> over</h1>
-          <div className='Sc-right-section-icon'>
-          <img src={Micon} alt="logo" className="imgStyles"/>
-          </div>
-          {/* hii */}
-          <label className="Sc-label">college /institute/university*</label>
+          <div className='right-section'>
+           <div>
+             <div className='rs-heading-container'>
+             <div className='right-section-icon'>
+              <img src={Micon} alt="logo" className="imgStyles" />
+            </div>
+           <h1 className='right-section-text'><b style={{color: '#004E89'}}>Teaching </b>is <br></br>to learn <b style={{color: '#004E89'}}>twice</b> over</h1>
+             </div>
+             <label className="Sc-label">college /institute/university*</label>
           <div className="select-tag">
-          {/* <input type="password" placeholder="Enter your college name"/><br /> */}
                 <Select
           showSearch
           style={{ width: 400 }}
@@ -76,7 +79,63 @@ export default function SelectCollege() {
         </div>
           <div className='Sc-right-section-button'>
           <button type='submit' onClick={()=>{
-            navigate('/mentorOrStudent_signup',{state:{collegeName:"SRKR"}})
+            navigate('/mentorOrStudent_signup',{state:{collegeName:collegeName}})
+          }} className='button-text'>Next</button>
+          </div>
+          
+           <div className='bottom-text-1' onClick={() => {
+              navigate('/signin')
+            }}> Already Registered? Sign  in </div>
+            <div className='bottom-text-2'>Know More About Us  </div>
+           </div>
+
+          </div>
+        </div>
+        <div>
+              <img src={Landingpage4} 
+                className="image2"
+              ></img>
+            </div>
+      </div>
+      {/* <div className='Sc-MainContainer'>
+          
+          <div className='Sc-left-section'>
+              <h2 className='Sc-left-section-text'>Struggling with Learning</h2>
+           
+              <img src={Landingpage3} alt="Image over here" className="select-image"/>
+
+
+          </div>
+          <div className='Sc-right-section'>
+          <h1 className='Sc-right-section-text'><b style={{color: '#004E89'}}>Teaching </b>is<br></br>to learn <b style={{color: '#004E89'}}>twice</b> over</h1>
+          <div className='Sc-right-section-icon'>
+          <img src={Micon} alt="logo" className="imgStyles"/>
+          </div>
+          <label className="Sc-label">college /institute/university*</label>
+          <div className="select-tag">
+                <Select
+          showSearch
+          style={{ width: 400 }}
+          placeholder="Select a College"
+          optionFilterProp="children"
+          onChange={onChange}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          onSearch={onSearch}
+          filterOption={(input, option) =>
+            option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+          }
+        >
+          <Option value="Srkr">SRKR</Option>
+          <Option value="Vishnu">Vishnu</Option>
+          <Option value="Stanford">Stanford</Option>
+          <Option value="mit">MIT</Option>
+          <Option value="Pixar">Pixar</Option>
+        </Select>,
+        </div>
+          <div className='Sc-right-section-button'>
+          <button type='submit' onClick={()=>{
+            navigate('/mentorOrStudent_signup',{state:{collegeName:collegeName}})
           }} className='button-text'>Next</button>
           </div>
           <div onClick={() => {
@@ -91,8 +150,7 @@ export default function SelectCollege() {
            
 
           </div>
-          </div>
-      {/* </div> */}
+          </div> */}
     </>
   )
 }
