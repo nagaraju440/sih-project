@@ -13,6 +13,7 @@ import { collection, doc, setDoc, addDoc } from "firebase/firestore";
 import SignUp_img from '../../../assets/Images/Student_ Sign Up_Page_ Img.png'
 import { Input, Space } from "antd";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
+import NavBar from './NavBar';
 export default function SignInPage() {
   const navigate = useNavigate();
 
@@ -126,6 +127,7 @@ export default function SignInPage() {
   }
   return (
     <>
+    <NavBar/>
       <div className='container'>
         <div className='student_img'> <img src={SignUp_img} /></div>
         <div className='form'>
