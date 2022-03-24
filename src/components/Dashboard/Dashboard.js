@@ -38,16 +38,21 @@ export default function Dashboard() {
     <Header   
     className="header"
     >
+      <div style={{display:"flex",flexDirection:'row'}}>
       <div 
       className="logo" 
-      />
+      >senior M junior</div>
     {/* <Router> */}
-    <Menu theme="light" mode="horizontal" defaultSelectedKeys={['1']}>
-        <Menu.Item key="1"><Link to="/Dashboard">Home</Link></Menu.Item>
+    <div className='logo2'>
+    <Menu theme="light" mode="horizontal" defaultSelectedKeys={['1']} className='nav'>
+      {/* <div style={{justifyContent:"flex-start",alignItems:'flex-start'}}>senior M junior</div> */}
+        <Menu.Item key="1"><Link to="/Dashboard" >Home</Link></Menu.Item>
         <Menu.Item key="2"><Link to="/Dashboard">Ideana</Link></Menu.Item>
         <Menu.Item key="3"><Link to="/Dashboard">Connect</Link></Menu.Item>
         <Menu.Item key="4"><Link to="/Dashboard">About Us</Link></Menu.Item>
       </Menu>
+      </div>
+      </div>
     {/* </Router> */}
     </Header>
     <div style={{display:'flex'}}>

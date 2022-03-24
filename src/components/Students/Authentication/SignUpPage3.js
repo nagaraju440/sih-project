@@ -11,7 +11,7 @@ import {
 import { collection, doc, setDoc, addDoc } from "firebase/firestore";
 import db from "../../../firebaseConfig.js";
 import { Input } from 'antd';
-import NavBar from "../../Students/Authentication/NavBar";
+
 
 export default function SignUpPage3(props) {
   let location = useLocation();
@@ -39,7 +39,7 @@ export default function SignUpPage3(props) {
       // const user = userCredential.user;
       console.log(user);
       const test = await setDoc(
-        doc(db, "colleges", "srkr", "mentors", user.uid),
+        doc(db, "colleges", "srkr", "students", user.uid),
         {
           data
         }
@@ -47,7 +47,7 @@ export default function SignUpPage3(props) {
       const test1 = await setDoc(
         doc(db, "colleges", "srkr", "users", user.uid),
         {
-          role: 'mentor'
+          role: 'student'
         }
       );
 
@@ -55,7 +55,6 @@ export default function SignUpPage3(props) {
       console.error(err);
       alert(err.message);
     }
-
 
   }
   function handleChange(value) {
@@ -70,7 +69,6 @@ export default function SignUpPage3(props) {
   };
   return (
     <>
-    <NavBar/>
       <div className="SignUpPage3-container">
         <div className="SignUpPage3-form">
 
@@ -117,7 +115,6 @@ export default function SignUpPage3(props) {
                 Next
               </button>
             </div> */}
-            <br />
 
             <div className="SignUpPage3-button-class">
               <button onClick={onSubmitdata} className="SignUpPage3-button-text" >Next </button>

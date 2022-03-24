@@ -3,12 +3,13 @@ import * as EmailValidator from 'email-validator';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import {
   Routes, Route, Link, BrowserRouter as Router,
-  Switch, withRouter,useNavigate  
+  Switch, withRouter, useNavigate
 } from "react-router-dom";
 import { Input, Space } from "antd";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
+import NavBar from '../../Students/Authentication/NavBar';
 export default function SignInPage() {
-  const navigate=useNavigate()
+  const navigate = useNavigate()
   const [email, setemail] = useState("")
   const mailhandler = (e) => {
     setemail(e.target.value)
@@ -41,6 +42,7 @@ export default function SignInPage() {
 
   return (
     <>
+    <NavBar/>
       <div className='container'>
         <div>
          

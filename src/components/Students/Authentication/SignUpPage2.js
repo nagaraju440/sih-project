@@ -4,7 +4,6 @@ import { Select } from "antd";
 import Micon from "../../../assets/Icons/Micon.png";
 import { Input } from 'antd';
 import { useLocation, withRouter, useNavigate } from 'react-router-dom';
-import NavBar from "../../Students/Authentication/NavBar";
 export default function SignUpPage2(props) {
   let location = useLocation();
   const navigate = useNavigate();
@@ -39,11 +38,11 @@ export default function SignUpPage2(props) {
     data['hobbies'] = ['h1', 'h2', 'h3']
     console.log("location is", data)
 
-    navigate("/mentor/signup3", { state: data });
+    navigate("/student/signup3", { state: data });
   }
   var skipToNextPage = () => {
     let data = location.state
-    navigate("/mentor/signup3", { state: data });
+    navigate("/student/signup3", { state: data });
   }
   function handleChange(value) {
     console.log(`selected ${value}`);
@@ -56,7 +55,6 @@ export default function SignUpPage2(props) {
   }
   return (
     <>
-    <NavBar/>
       <div className="SignUpPage2-container">
         <div className="SignUpPage2-form">
 
