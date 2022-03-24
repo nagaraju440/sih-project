@@ -1,5 +1,5 @@
 import React, { Component, useState, useEffect } from "react";
-import styles from "./SignUpPage2.css";
+import styles from "./SignUpPage3.css";
 import { Select } from "antd";
 import Micon from "../../../assets/Icons/Micon.png";
 import { useLocation, withRouter, useNavigate } from 'react-router-dom';
@@ -12,15 +12,15 @@ import { collection, doc, setDoc, addDoc } from "firebase/firestore";
 import db from "../../../firebaseConfig.js";
 import { Input } from 'antd';
 
-export default function SignUpPage2(props) {
 
-  let location = useLocation();
-  const navigate = useNavigate();
+export default function SignUpPage3(props) {
   const { Option } = Select;
-  const children = [];
-  for (let i = 10; i < 36; i++) {
-    children.push(
-      <Option key={i.toString(36) + i}>{i.toString(36) + i}</Option>
+  const { TextArea } = Input;
+
+  const projects = ['online-shopping', 'bug-tracking', 'e-waste-collection'];
+  for (let i = 0; i < 3; i++) {
+    projects.push(
+      <Option key={projects[i]} ></Option>
     );
   }
   var onSubmitdata = async () => {
@@ -51,63 +51,68 @@ export default function SignUpPage2(props) {
   function handleChange(value) {
     console.log(`selected ${value}`);
   }
+  function About(value) {
+    console.log(`hii${value}`);
+  }
+  function onChange(value) {
+    console.log(`hii${value}`);
+
+  };
   return (
     <>
-      <div className="container">
-        <div className="form">
-          <div className="main-heading">
-            <img src={Micon} className="Micon"></img>
-            <div className="heading">Mentor Registartion</div>
+      <div className="SignUpPage3-container">
+        <div className="SignUpPage3-form">
+
+          <div className="SignUpPage3-main-heading">
+            <img src={Micon} className="SignUpPage3-Micon"></img>
+            <div className="SignUpPage3-heading">Mentor Registartion</div>
           </div>
-          <div className="subheading">
+
+          <div className="SignUpPage3-subheading">
             Please, provide the information below
           </div>
 
-          {/* Form element */}
 
-          <form className="form-sub">
-            <label className="label">Completed Projects</label>
+
+          <form className="SignUpPage3-form-sub">
+            <label className="SignUpPage3-label">Completed Projects</label>
             <br />
-            <div className="form-select">
+            <div className="SignUpPage3-form-select">
               <Select
                 mode="tags"
-                style={{ width: "80%" }}
-                onChange={handleChange}
+                style={{ width: "100%" }}
+                onChange={Projects}
                 tokenSeparators={[","]}
               >
-                {children}
+                {projects}
               </Select>
             </div>
-            <label className="label">Experience</label>
+            <label className="SignUpPage3-label">Experience</label>
             <br />
-            <div className="form-select">
-              <Input style={{ width: "80%" }} placeholder="Give your years of experience" />
+            <div className="SignUpPage3-form-select">
+              <Input style={{ width: "100%" }} placeholder="Give your years of experience" onChange={onChange} />
+            </div>
+            <label className="SignUpPage3-label">About</label>
+            <br />
+            <TextArea rows={4} onChange={About} />
+
+
+            <div className="button-class">
+              <button
+                type="submit"
+                onClick={onSubmitdata()}
+                className="button-text"
+              >
+                Next
+              </button>
             </div>
 
-
-
+            <div className="SignUpPage3-button-class">
+              <button type="submit" onClick={() => {
+                console.log("hii mentor");
+              }} className="SignUpPage3-button-text" >Next </button>
+            </div>
           </form>
-
-          <div
-            className="skip"
-            onClick={() => {
-              console.log("hii skip");
-            }}
-          >
-            Skip
-          </div>
-
-          <div className="button-class">
-            <button
-              type="submit"
-              onClick={onSubmitdata()}
-              className="button-text"
-            >
-              Next
-            </button>
-          </div>
-
-          {/* <-----------End of the form element--------> */}
         </div>
       </div>
     </>

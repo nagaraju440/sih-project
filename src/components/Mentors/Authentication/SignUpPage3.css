@@ -1,20 +1,26 @@
-.container{
+.SignUpPage3-container{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding-top: 120px;
+    padding-top: 80px;
 
 }
-.form{
+.SignUpPage3-form{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: left;
     width: 60%;
 }
-.form-select
+.SignUpPage3-form-select
 {
+    text-align: center;
+}
+.SignUpPage3-main-heading{
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items:center;
     text-align: center;
 }
 input{
@@ -25,27 +31,26 @@ input{
     height: 40px;
     font-family: Rubik;
 }
-.heading{
+.SignUpPage3-heading{
     font-size: 20px;
     font-weight:bold;
     font-family: Rubik;
-    padding-left: 40px;
-    margin-top: -25px;
+    text-align: center;
+
 }
-.subheading{
+.SignUpPage3-subheading{
  font-size: 16px;
  font-weight: 500 ;
  color: #514D57;
  text-align: center;
  padding-top:10px;
 }
-.label{
+.SignUpPage3-label{
     font-size: 16px;
     font-weight: bold;
     color: #180126;
     font-family: Rubik;
-    padding-left:80px;
-    padding-top: 100px;
+    margin-bottom:-13px
 }
 button{
     width: 180px;
@@ -54,45 +59,47 @@ button{
     border-style: none;
     border-radius: 20px;
 }
-.button-text{
+.SignUpPage3-button-text{
 color:  #FFFFFF;
 font-weight: bold;
 font-size: 16px;
 font-family: Rubik;
 }
-.forget-password{
-   font-size: 14px;
-   font-weight: 400;
-   color: #FFC914;
-}
-.err{
-    font-size: 14px;
-    color: red;
-    font-family: Rubik;
-}
-.button-class{
-    margin-top:20px;
+
+
+.SignUpPage3-button-class{
+    margin-top:-8px;
     display: flex;
+    place-content: flex-end;
     justify-content: flex-end;
 }
-.container-end{
+.SignUpPage3-container-end{
     display: flex;
     flex-direction: row;
 }
-.skip{
+.SignUpPage3-skip{
     display: flex;
     padding-top:20px;
+    cursor:pointer;
 }
-.Micon{
+.SignUpPage3-Micon{
     width: 30px;
     height: 30px;
-    padding-right: 2px;
+    margin-right: 10px;
 }
-.main-heading
-{
-    padding-left:290px;
+.SignUpPage3-form-sub{
+    display: flex;
+    padding-top: 30px;
+    width:90%;
+    flex-direction: column;
+    justify-content:center;
 }
-.form-sub{
-    padding-top: 20px;
+.SignUpPage3-form-select{
+  margin-bottom: 8px;
 }
+.SignUpPage3-footer{
+    display:flex; 
+    flex-direction: row;
+}
+
 
