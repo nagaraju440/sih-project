@@ -2,14 +2,16 @@
     display:flex;
     flex-direction:column;
     align-items:center;
-    width:100%;
+    justify-content: center;
+    place-content:  center;
+    padding-top:80px
 }
 .Sc-inner-container{
     display:flex;
     flex-direction:row;
     /* background-color:aqua; */
-    width:90%;
-    /* justify-content:center; */
+    width:75%;
+    justify-content:center;
 }
 .Sc-left-section{
     display:flex;
