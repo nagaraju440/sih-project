@@ -7,10 +7,12 @@ import {
   Routes, Route, Link, BrowserRouter as Router,
   Switch, withRouter,useNavigate  
 } from "react-router-dom";
+import NavBar from '../Students/Authentication/NavBar';
 export default function LandingPage() {  
   const navigate=useNavigate();
   return (
     <>
+    <NavBar/>
       <div className='MainContainer'>
           <div className='inner-container'>
           <div className='left-section'>

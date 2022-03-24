@@ -12,13 +12,13 @@ import {
   Routes, Route, Link, BrowserRouter as Router,
   Switch,
 } from "react-router-dom";
-// import MentorDashboard from '../Mentors/Dashboard/MentorDashboard'
+import MentorDashboard from '../Mentors/Dashboard/MentorDashboard'
 import MentorProfile from '../Mentors/Profile/MentorProfile'
 import MentorAssignments from '../Mentors/MentorAssignments/MentorAssignments'
 // const { SubMenu } = Menu;
 // import { Link } from 'react-router-dom';
 const { Header, Content, Sider } = Layout;
-export default function MentorDashboard() {
+export default function Dashboard() {
   return (
     <Router>
     <div style={{width:'100%',height:'100%'}}>

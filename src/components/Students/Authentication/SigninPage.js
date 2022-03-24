@@ -11,6 +11,9 @@ import {
   Routes, Route, Link, BrowserRouter as Router,
   Switch, withRouter, useNavigate
 } from "react-router-dom";
+// import { Input, Space } from "antd";
+// import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
+import NavBar from './NavBar';
 export default function SignInPage() {
   const navigate=useNavigate()
   const [email, setemail] = useState("")
@@ -46,6 +49,7 @@ export default function SignInPage() {
   }
   return (
     <>
+    <NavBar/>
       <div className='container'>
         <div></div>
         <div>
@@ -70,7 +74,7 @@ export default function SignInPage() {
             </Space>
               {/* <input type="password" required onChange={(value) => passwordhandler(value)} /><br /> */}
               <div className='forget-password'>Forget Password ? click here !</div><br />
-              <button className='button-text'>Sign in</button>
+              <button className='button-text' type='submit'>Sign in</button>
             </form>
             <li>
               <Link to="/student/signup">

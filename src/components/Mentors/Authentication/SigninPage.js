@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import { Input, Space } from "antd";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
+import NavBar from '../../Students/Authentication/NavBar';
 export default function SignInPage() {
   const navigate = useNavigate()
   const [email, setemail] = useState("")
@@ -41,6 +42,7 @@ export default function SignInPage() {
 
   return (
     <>
+    <NavBar/>
       <div className='container'>
         <div>
          

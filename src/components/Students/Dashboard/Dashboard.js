@@ -12,7 +12,9 @@ import {
   Routes, Route, Link, BrowserRouter as Router,
   Switch,
 } from "react-router-dom";
-// import Dashboard from '../Dashboard/Dashboard'
+import StudentDashboard from './StudentDashboard'
+// import MentorProfile from '../Mentors/Profile/MentorProfile'
+// import MentorAssignments from '../Mentors/MentorAssignments/MentorAssignments'
 import Profile from '../Profile/Profile'
 import Assignments from '../Assignments/Assignments'
 // const { SubMenu } = Menu;
@@ -110,8 +112,9 @@ export default function Dashboard() {
         {/* <Content> */}
          {/* <Router> */}
            <Routes>
-           <Route  path='/'  element={<Dashboard/>}></Route>
-           <Route  path='/Dashboard' element={<Dashboard/>}></Route>
+           <Route  path='/'  element={<StudentDashboard/>}></Route>
+
+             <Route  path='/Dashboard' element={<StudentDashboard/>}></Route>
            <Route path='/Dashboard/profile' element={<Profile/>}></Route>
            <Route path='/Dashboard/assignments' element={<Assignments/>}></Route>
            </Routes>

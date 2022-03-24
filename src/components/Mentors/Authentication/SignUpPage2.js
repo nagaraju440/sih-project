@@ -5,6 +5,7 @@ import Micon from "../../../assets/Icons/Micon.png";
 // import {Navigate, useLocation,withRouter} from 'react-router-dom';
 import { Input } from 'antd';
 import { useLocation, withRouter, useNavigate } from 'react-router-dom';
+import NavBar from "../../Students/Authentication/NavBar";
 export default function SignUpPage2(props) {
   let location = useLocation();
   const navigate = useNavigate();
@@ -56,6 +57,7 @@ export default function SignUpPage2(props) {
   }
   return (
     <>
+    <NavBar/>
       <div className="SignUpPage2-container">
         <div className="SignUpPage2-form">
 
