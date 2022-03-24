@@ -15,6 +15,8 @@ import {
 import MentorDashboard from '../Mentors/Dashboard/MentorDashboard'
 import MentorProfile from '../Mentors/Profile/MentorProfile'
 import MentorAssignments from '../Mentors/MentorAssignments/MentorAssignments'
+import MCourses from '../Mentors/M-Courses/MCourses'
+import MCreateCourseForm from '../Mentors/M-Courses/MCreateCourseForm'
 // const { SubMenu } = Menu;
 // import { Link } from 'react-router-dom';
 const { Header, Content, Sider } = Layout;
@@ -69,7 +71,7 @@ export default function Dashboard() {
               <Link to="/Dashboard/profile">Profile</Link>
           </Menu.Item>
           <Menu.Item icon={<UserOutlined />}>
-              <Link to="/Dashboard">Courses</Link>
+              <Link to="/Dashboard/courses">Courses</Link>
           </Menu.Item>
           <Menu.Item icon={<UserOutlined />}>
               <Link to="/Dashboard/assignments">Assignments</Link>
@@ -115,6 +117,8 @@ export default function Dashboard() {
              <Route  path='/Dashboard' element={<MentorDashboard/>}></Route>
            <Route path='/Dashboard/profile' element={<MentorProfile/>}></Route>
            <Route path='/Dashboard/assignments' element={<MentorAssignments/>}></Route>
+           <Route path='/Dashboard/courses' element={<MCourses/>}></Route>
+           <Route path='/Dashboard/courses/createCourse' element={<MCreateCourseForm/>}></Route>
            </Routes>
 
          {/* </Router> */}

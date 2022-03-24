@@ -32,6 +32,7 @@ function Authentication() {
     // useEffect = () => {
     onAuthStateChanged(auth, async (user) => {
         console.log("user is,", user)
+
         if (user) {
             const test = await getDoc(doc(db, "colleges", "srkr", "users", user.uid));
             console.log("user details in main page", test.data().role);
