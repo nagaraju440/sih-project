@@ -1,0 +1,105 @@
+.SignUpPage3-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-top: 80px;
+
+}
+.SignUpPage3-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+}
+.SignUpPage3-form-select
+{
+    text-align: center;
+}
+.SignUpPage3-main-heading{
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items:center;
+    text-align: center;
+}
+input{
+    border-style: none;
+    border: 1.5px solid  #C4C4C4;
+    border-radius: 5px;
+    width: 296px;
+    height: 40px;
+    font-family: Rubik;
+}
+.SignUpPage3-heading{
+    font-size: 20px;
+    font-weight:bold;
+    font-family: Rubik;
+    text-align: center;
+
+}
+.SignUpPage3-subheading{
+ font-size: 16px;
+ font-weight: 500 ;
+ color: #514D57;
+ text-align: center;
+ padding-top:10px;
+}
+.SignUpPage3-label{
+    font-size: 16px;
+    font-weight: bold;
+    color: #180126;
+    font-family: Rubik;
+    margin-bottom:-13px
+}
+button{
+    width: 180px;
+    height: 40px;
+    background-color: #004E89;
+    border-style: none;
+    border-radius: 20px;
+}
+.SignUpPage3-button-text{
+color:  #FFFFFF;
+font-weight: bold;
+font-size: 16px;
+font-family: Rubik;
+}
+
+
+.SignUpPage3-button-class{
+    margin-top:-8px;
+    display: flex;
+    place-content: flex-end;
+    justify-content: flex-end;
+}
+.SignUpPage3-container-end{
+    display: flex;
+    flex-direction: row;
+}
+.SignUpPage3-skip{
+    display: flex;
+    padding-top:20px;
+    cursor:pointer;
+}
+.SignUpPage3-Micon{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+.SignUpPage3-form-sub{
+    display: flex;
+    padding-top: 30px;
+    width:90%;
+    flex-direction: column;
+    justify-content:center;
+}
+.SignUpPage3-form-select{
+  margin-bottom: 8px;
+}
+.SignUpPage3-footer{
+    display:flex; 
+    flex-direction: row;
+}
+
+
