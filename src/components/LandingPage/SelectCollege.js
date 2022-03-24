@@ -8,6 +8,7 @@ import {
   Routes, Route, Link, BrowserRouter as Router,
   Switch, withRouter,useNavigate  
 } from "react-router-dom";
+import NavBar from '../Students/Authentication/NavBar';
 export default function SelectCollege() {
    
 
@@ -32,6 +33,7 @@ export default function SelectCollege() {
   
   return (
     <>
+    <NavBar/>
       <div className='Sc-MainContainer'>
           
           <div className='Sc-inner-container'>
