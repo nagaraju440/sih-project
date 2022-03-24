@@ -43,6 +43,7 @@ export default function SignUpPage2(props) {
     navigate("/mentor/signup3", { state: data });
   }
   var skipToNextPage = () => {
+    console.log("hii signuptonxtpage");
     let data = location.state
     navigate("/mentor/signup3", { state: data });
   }
@@ -57,7 +58,7 @@ export default function SignUpPage2(props) {
   }
   return (
     <>
-    <NavBar/>
+      <NavBar />
       <div className="SignUpPage2-container">
         <div className="SignUpPage2-form">
 
@@ -124,7 +125,7 @@ export default function SignUpPage2(props) {
             </div>
 
 
-            <div className="SignUpPage2-skip" onClick={skipToNextPage()} >Skip</div>
+            <div className="SignUpPage2-skip" onClick={skipToNextPage} >Skip</div>
 
             <div className="SignUpPage2-button-class">
               <button onClick={navigateNextPage} className="SignUpPage2-button-text" >Next </button>

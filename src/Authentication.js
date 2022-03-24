@@ -35,8 +35,9 @@ function Authentication() {
 
         if (user) {
             const test = await getDoc(doc(db, "colleges", "srkr", "users", user.uid));
-            console.log("user details in main page", test.data().role);
-            setUserRole(test.data().role)
+            console.log("user details in main page", test.data());
+            userRole = test.data().role
+            setUserRole(userRole)
             // auth.signOut()
             // User is signed in.
             setAuthenticated(true);
