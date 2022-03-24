@@ -117,6 +117,7 @@ export default function SignUpPage3(props) {
                 Next
               </button>
             </div> */}
+            <br />
 
             <div className="SignUpPage3-button-class">
               <button onClick={onSubmitdata} className="SignUpPage3-button-text" >Next </button>

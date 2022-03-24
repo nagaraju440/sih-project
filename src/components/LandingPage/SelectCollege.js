@@ -52,6 +52,7 @@ export default function SelectCollege() {
           </div>
           {/* hii */}
           <label>college /institute/university*</label>
+          <div className="select-tag">
           {/* <input type="password" placeholder="Enter your college name"/><br /> */}
                 <Select
           showSearch
@@ -72,6 +73,7 @@ export default function SelectCollege() {
           <Option value="mit">MIT</Option>
           <Option value="Pixar">Pixar</Option>
         </Select>,
+        </div>
           <div className='Sc-right-section-button'>
           <button type='submit' onClick={()=>{
             navigate('/mentorOrStudent_signup',{state:{collegeName:"SRKR"}})
