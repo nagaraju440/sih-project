@@ -1,6 +1,7 @@
 import React, { Component, useState, useEffect } from 'react'
  import styles from './SelectCollege.css'
-import LandingPageImg from '../../assets/Images/LandingPage.png'
+import Landingpage3 from '../../assets/Images/landingpage3.png'
+import Landingpage4 from '../../assets/Images/Landingpage4.png'
 import Micon from '../../assets/Icons/Micon.png'
 import { Select } from 'antd';
 
@@ -38,20 +39,19 @@ export default function SelectCollege() {
           
           {/* <div className='Sc-inner-container'> */}
           <div className='Sc-left-section'>
-              <h2 className='Sc-left-section-text'>Struggling with learning</h2>
+              <h2 className='Sc-left-section-text'>Struggling with Learning</h2>
            
-              <img src={LandingPageImg} alt="Image over here" className="select-image"/>
+              <img src={Landingpage3} alt="Image over here" className="select-image"/>
 
 
           </div>
           <div className='Sc-right-section'>
-          <h2 className='Sc-right-section-text-1'>Teaching is</h2>
-          <h2 className='Sc-right-section-text-2'>to learn twice over</h2>
+          <h1 className='Sc-right-section-text'><b style={{color: '#004E89'}}>Teaching </b>is<br></br>to learn <b style={{color: '#004E89'}}>twice</b> over</h1>
           <div className='Sc-right-section-icon'>
           <img src={Micon} alt="logo" className="imgStyles"/>
           </div>
           {/* hii */}
-          <label>college /institute/university*</label>
+          <label className="Sc-label">college /institute/university*</label>
           <div className="select-tag">
           {/* <input type="password" placeholder="Enter your college name"/><br /> */}
                 <Select
@@ -81,7 +81,11 @@ export default function SelectCollege() {
           </div>
           <div className='Sc-bottom-text-1'>Already Registered? Sign  in </div>
           <div className='Sc-bottom-text-2'>Know More About Us  </div>
-
+          <div>
+              <img src={Landingpage4}
+                className="image2"
+              ></img>
+            </div>
            
 
           </div>
