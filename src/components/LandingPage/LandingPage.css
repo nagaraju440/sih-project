@@ -2,14 +2,16 @@
     display:flex;
     flex-direction:column;
     align-items:center;
-    width:100%;
+    justify-content: center;
+    place-content:  center;
+    padding-top:80px
 }
 .inner-container{
     display:flex;
     flex-direction:row;
     /* background-color:aqua; */
-    width:90%;
-    /* justify-content:center; */
+    width:75%;
+    justify-content:center;
 }
 .left-section{
     display:flex;
@@ -55,6 +57,7 @@ font-family: Rubik;
     color:#004E89;
     font-size: 12px;
     font-family: Rubik;
+    cursor: pointer;
 
 }
 .bottom-text-2{
