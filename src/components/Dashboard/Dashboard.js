@@ -38,6 +38,7 @@ export default function Dashboard() {
     <Header   
     className="header"
     >
+      <div style={{display:"flex",flexDirection:'row'}}>
       <div 
       className="logo" 
       >senior M junior</div>
@@ -50,6 +51,7 @@ export default function Dashboard() {
         <Menu.Item key="3"><Link to="/Dashboard">Connect</Link></Menu.Item>
         <Menu.Item key="4"><Link to="/Dashboard">About Us</Link></Menu.Item>
       </Menu>
+      </div>
       </div>
     {/* </Router> */}
     </Header>
