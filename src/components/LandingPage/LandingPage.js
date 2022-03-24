@@ -26,21 +26,28 @@ export default function LandingPage() {
 
           </div>
           <div className='right-section'>
-            <h1 className='right-section-text'><b style={{color: '#004E89'}}>Teaching </b>is<br></br>to learn <b style={{color: '#004E89'}}>twice</b> over</h1>
-            <div className='right-section-icon'>
+           <div>
+             <div className='rs-heading-container'>
+             <div className='right-section-icon'>
               <img src={Micon} alt="logo" className="imgStyles" />
             </div>
+           <h1 className='right-section-text'><b style={{color: '#004E89'}}>Teaching </b>is <br></br>to learn <b style={{color: '#004E89'}}>twice</b> over</h1>
+             </div>
+           <div className='below-text'>
+          
             <div className='right-section-button'>
               <button type='submit' onClick={() => {
                 navigate('/selectCollege')
               }} className='button-text'>Register</button>
             </div>
-            <div className='bottom-text-1' onClick={() => {
+           
+
+           </div>
+           <div className='bottom-text-1' onClick={() => {
               navigate('/signin')
             }}> Already Registered? Sign  in </div>
             <div className='bottom-text-2'>Know More About Us  </div>
-
-           
+           </div>
 
           </div>
         </div>
