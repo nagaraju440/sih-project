@@ -19,10 +19,10 @@ import TopNavBar from './components/Dashboard/TopNavBar';
 import LandingPage from './components/LandingPage/LandingPage'
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { collection, doc, setDoc, addDoc, getDoc } from "firebase/firestore";
-import Dashboard from './components/Dashboard/Dashboard';
+import MentorDashboard from './components/Dashboard/Dashboard';
 import NotAuthenticated from './NotAuthenticated';
 import db from "./firebaseConfig.js";
-import StudentDashboard from './components/Students/Dashboard/StudentDashboard';
+import StudentDashboard from './components/Students/Dashboard/Dashboard';
 function Authentication() {
     var [authenticated, setAuthenticated] = useState(false);
     var [userRole, setUserRole] = useState('');
@@ -32,7 +32,6 @@ function Authentication() {
     // useEffect = () => {
     onAuthStateChanged(auth, async (user) => {
         console.log("user is,", user)
-
         if (user) {
             const test = await getDoc(doc(db, "colleges", "srkr", "users", user.uid));
             console.log("user details in main page", test.data().role);
@@ -51,7 +50,7 @@ function Authentication() {
     if (authenticated) {
         if (userRole == 'mentor') {
             console.log("authenticated in if", authenticated);
-            return <Dashboard />
+            return <MentorDashboard />
         }
         else {
             return <StudentDashboard />

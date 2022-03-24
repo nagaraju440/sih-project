@@ -1,13 +1,21 @@
 import React, { Component, useState } from 'react'
 import * as EmailValidator from 'email-validator';
-import {
-  Routes, Route, Link, BrowserRouter as Router,
-  Switch, withRouter,useNavigate  
-} from "react-router-dom";
+// import {
+//   Routes, Route, Link, BrowserRouter as Router,
+//   Switch, withRouter,useNavigate  
+// } from "react-router-dom";
 import { Input, Space } from "antd";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  Routes, Route, Link, BrowserRouter as Router,
+  Switch, withRouter, useNavigate
+} from "react-router-dom";
+// import { Input, Space } from "antd";
+// import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import NavBar from './NavBar';
 export default function SignInPage() {
+  const navigate=useNavigate()
   const [email, setemail] = useState("")
   const mailhandler = (e) => {
     setemail(e.target.value)
@@ -17,11 +25,28 @@ export default function SignInPage() {
     setpassword(e.target.value)
   }
   const [mailerr, setmailerr] = useState(false)
+  // const submithandler = (e) => {
+  //   e.preventDefault()
+  // }
   const submithandler = (e) => {
     e.preventDefault()
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+
+        // Signed in 
+        const user = userCredential.user;
+        console.log("user details", user);
+        navigate('/Dashboard')
+        // ...
+      })
+      .catch((error) => {
+        alert("Please provide valid details")
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
 
   }
-
   return (
     <>
     <NavBar/>

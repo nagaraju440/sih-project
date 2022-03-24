@@ -23,8 +23,11 @@ import Authentication from './Authentication';
 import SignUpPage1 from './components/Mentors/Authentication/SignUpPage1'
 import SignUpPage2 from './components/Mentors/Authentication/SignUpPage2'
 import SignUpPage3 from './components/Mentors/Authentication/SignUpPage3'
-function App() {
+// import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 
+function App() {
+    // const auth=getAuth()
+    // auth.signOut()
   // }
 
 

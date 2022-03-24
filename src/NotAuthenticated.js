@@ -46,9 +46,9 @@ export default function NotAuthenticated() {
         {/* *************student pages*******************  */}
 
 
-        <Route path="student/signup1" element={<StudentSignUpPage1 />} />
-        <Route path="student/signup2" element={<StudentSignUpPage2 />} />
-        <Route path="student/signup3" element={<StudentSignUpPage3 />} />
+        {/* <Route path="student/signup1" element={<StudentSignUpPage1 />} /> */}
+        {/* <Route path="student/signup2" element={<StudentSignUpPage2 />} /> */}
+         {/* <Route path="student/signup3" element={<StudentSignUpPage3 />} /> */}
         <Route path="student/signup" element={<StudentSignUpPage />} />
         <Route path="student/signin" element={<StudentSignInPage />} />
         {/* <Route path="about" element={<About />} /> */}
