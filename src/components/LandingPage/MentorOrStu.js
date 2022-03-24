@@ -7,13 +7,14 @@ import {
   Routes, Route, Link, BrowserRouter as Router,
   Switch, withRouter,useNavigate  
 } from "react-router-dom";
-
+import NavBar from '../Students/Authentication/NavBar';
 export default function MentorOrStu() {
    
   const navigate=useNavigate();
   
   return (
     <>
+    <NavBar/>
       <div className='Sc-MainContainer'>
           
           <div className='Sc-inner-container'>
