@@ -23,13 +23,15 @@ import Authentication from './Authentication';
 import SignUpPage1 from './components/Mentors/Authentication/SignUpPage1'
 import SignUpPage2 from './components/Mentors/Authentication/SignUpPage2'
 import SignUpPage3 from './components/Mentors/Authentication/SignUpPage3'
+import Test_Card from './components/Mentors/test_Card';
 function App() {
 
   // }
 
 
   return (
-    <Authentication/>
+    // <Authentication/>
+    <Test_Card/>
   )
 
 }
