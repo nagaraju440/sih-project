@@ -11,7 +11,7 @@ import {
 import { collection, doc, setDoc, addDoc } from "firebase/firestore";
 import db from "../../../firebaseConfig.js";
 import { Input } from 'antd';
-
+import NavBar from "../../Students/Authentication/NavBar";
 
 export default function SignUpPage3(props) {
   let location = useLocation();
@@ -70,6 +70,7 @@ export default function SignUpPage3(props) {
   };
   return (
     <>
+    <NavBar/>
       <div className="SignUpPage3-container">
         <div className="SignUpPage3-form">
 
