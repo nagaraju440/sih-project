@@ -41,14 +41,12 @@ export default function Dashboard() {
       <div 
       className="logo" 
       />
-    {/* <Router> */}
     <Menu theme="light" mode="horizontal" defaultSelectedKeys={['1']}>
         <Menu.Item key="1"><Link to="/Dashboard">Home</Link></Menu.Item>
         <Menu.Item key="2"><Link to="/Dashboard">Ideana</Link></Menu.Item>
         <Menu.Item key="3"><Link to="/Dashboard">Connect</Link></Menu.Item>
         <Menu.Item key="4"><Link to="/Dashboard">About Us</Link></Menu.Item>
       </Menu>
-    {/* </Router> */}
     </Header>
     <div style={{display:'flex'}}>
       <div className='sidenav-container'>

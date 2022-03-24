@@ -2,8 +2,12 @@ import React, { Component, useState, useEffect } from "react";
 import styles from "./SignUpPage2.css";
 import { Select } from "antd";
 import Micon from "../../../assets/Icons/Micon.png";
+import {Navigate, useLocation,withRouter} from 'react-router-dom';
 import { Input } from 'antd';
 export default function SignUpPage2(props) {
+  let location = useLocation();
+  // console.log("location is",location.state.uid)
+
   const { Option } = Select;
   const children = [];
   for (let i = 10; i < 36; i++) {
@@ -90,6 +94,9 @@ export default function SignUpPage2(props) {
                 console.log("hii mentor");
               }}
               className="button-text"
+              // onClick={()=>{
+              
+              // }}
             >
               Next
             </button>
