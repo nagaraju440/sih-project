@@ -24,6 +24,7 @@ import { async } from "@firebase/util";
 import { Input, Space } from "antd";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import Mentor_img from '../../../assets/Images/Mentor_SignUp_img.png'
+import NavBar from "../../Students/Authentication/NavBar";
 // const auth = getAuth();
 
 export default function SignUpPage(props) {
@@ -134,7 +135,8 @@ export default function SignUpPage(props) {
   };
 
   return (
-    <>
+    <>    
+    <NavBar/>
       <div className="container">
         <div>
           <img src={Mentor_img} className="mentor_img" />
