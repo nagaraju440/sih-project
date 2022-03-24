@@ -56,7 +56,7 @@ export default function SelectCollege() {
           {/* <input type="password" placeholder="Enter your college name"/><br /> */}
                 <Select
           showSearch
-          style={{ width: 200 }}
+          style={{ width: 400 }}
           placeholder="Select a College"
           optionFilterProp="children"
           onChange={onChange}
@@ -85,7 +85,7 @@ export default function SelectCollege() {
           <div className='Sc-bottom-text-2'>Know More About Us  </div>
           <div>
               <img src={Landingpage4}
-                className="image2"
+                className="sc-image2"
               ></img>
             </div>
            

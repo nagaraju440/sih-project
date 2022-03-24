@@ -20,7 +20,9 @@
 
 }
 .select-tag{
-    margin-top:20px
+    margin-top:10px;
+    padding-left: 100px;
+
 }
 .Sc-left-section-text{
     color:black;
@@ -39,7 +41,7 @@
     font-size:55px;
     height:20px;
     margin-top:150px;
-    padding-left: 100px;
+    padding-left: 80px;
 
 }
 button{
@@ -48,24 +50,29 @@ button{
     background-color: #004E89;
     border-style: none;
     border-radius: 20px;
+    margin-bottom:60px;
+    margin-right: 400px;
+
 }
 .Sc-button-text{
 color:  #FFFFFF;
 font-weight: bold;
 font-size: 16px;
 font-family: Rubik;
+
 }
 .Sc-bottom-text-1{
     color:#004E89;
-    font-size: 12px;
+    font-size: 14px;
     font-family: Rubik;
+    margin-left:80px;
 
 }
 .Sc-bottom-text-2{
     color:#004E89;
-    font-size: 12px;
+    font-size: 14px;
     font-family: Rubik;
-
+    margin-left:80px;
 
 }
 .Sc-imgStyles{
@@ -78,6 +85,8 @@ font-family: Rubik;
     align-items:center;
     display:flex;
     height:100px;
+    padding-top:160px;
+    margin-right:440px
     /* background-color:navy; */
 }
 .Sc-right-section-button{
@@ -94,5 +103,11 @@ font-family: Rubik;
 }
 .Sc-label
 {
-    
+    padding-left:185px;
+    padding-top: 40px;
+}
+.sc-image2
+{
+    margin-top: -73px;
+    margin-left:190px
 }
