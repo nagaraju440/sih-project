@@ -3,7 +3,7 @@ import * as EmailValidator from 'email-validator';
 import styles from './SignUpPage.css'
 import {
   Routes, Route, Link, BrowserRouter as Router,
-  Switch,
+  Switch, useNavigate
 } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 // import db from '../firebaseConfig'
@@ -14,6 +14,7 @@ import SignUp_img from '../../../assets/Images/Student_ Sign Up_Page_ Img.png'
 import { Input, Space } from "antd";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 export default function SignInPage() {
+  const navigate = useNavigate();
 
   const [name, setname] = useState("")
   const handlename = (e) => {
@@ -46,29 +47,35 @@ export default function SignInPage() {
   const [passerr, setpasserr] = useState(false)
   var [validDetails, setvalidDetails] = useState(0)
   const emailAuth = async (name, email, password) => {
-    try {
-      const auth = getAuth();
-      const res = await createUserWithEmailAndPassword(auth, email, password);
-      const user = res.user;
-      // const user = userCredential.user;
-      console.log(user);
-      const test =
-        await setDoc(doc(db, "colleges", "srkr", "students", user.uid), {
-          uid: user.uid,
-          name,
-          authProvider: "local",
-          email,
-          password
-        });
-      console.log("test");
-      if (test) {
-        console.log("hii routing has done succesfully");
-      }
-
-    } catch (err) {
-      console.error(err);
-      alert(err.message);
+    const data = {
+      name: name,
+      email: email,
+      password: password,
     }
+    navigate("/student/signup2", { state: data });
+    // try {
+    //   const auth = getAuth();
+    //   const res = await createUserWithEmailAndPassword(auth, email, password);
+    //   const user = res.user;
+    //   // const user = userCredential.user;
+    //   console.log(user);
+    //   const test =
+    //     await setDoc(doc(db, "colleges", "srkr", "students", user.uid), {
+    //       uid: user.uid,
+    //       name,
+    //       authProvider: "local",
+    //       email,
+    //       password
+    //     });
+    //   console.log("test");
+    //   if (test) {
+    //     console.log("hii routing has done succesfully");
+    //   }
+
+    // } catch (err) {
+    //   console.error(err);
+    //   alert(err.message);
+    // }
   };
 
   const submitHandler = (e) => {
@@ -120,7 +127,7 @@ export default function SignInPage() {
   return (
     <>
       <div className='container'>
-        <div className='student_img'> <img src={SignUp_img}/></div>
+        <div className='student_img'> <img src={SignUp_img} /></div>
         <div className='form'>
           <div className='heading'>Student Registartion</div>
           <div className="subheading">
@@ -142,7 +149,7 @@ export default function SignInPage() {
             <label className='label'>New Password*</label><br />
             <Space direction="vertical">
               <Input.Password
-               className="pwd-input"
+                className="pwd-input"
                 type="password"
                 required
                 onChange={(value) => handleNpassword(value)}
@@ -166,16 +173,16 @@ export default function SignInPage() {
           {/* <Routes>
           <Route path="SignUpPage" element={<SignUpPage/>}>Already Registered? Sign  in ></Route>
         </Routes> */}
-        <li>
-        <Link to="/student/signin">
-        Already Registered? Sign  in 
-        </Link>
-        </li>
-        <li>
-        <Link to="/student/signup">
-        Learn More About Us  
-        </Link>
-        </li>
+          <li>
+            <Link to="/student/signin">
+              Already Registered? Sign  in
+            </Link>
+          </li>
+          <li>
+            <Link to="/student/signup">
+              Learn More About Us
+            </Link>
+          </li>
         </div>
       </div>
     </>

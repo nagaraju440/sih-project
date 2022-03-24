@@ -6,19 +6,19 @@ import { Card } from 'antd'
 import { Layout, Menu, Breadcrumb } from 'antd';
 import { UserOutlined, LaptopOutlined, NotificationOutlined,EditFilled,PlusOutlined } from '@ant-design/icons';
 import { ProSidebar, MenuItem, SubMenu, SidebarHeader, SidebarContent, SidebarFooter } from 'react-pro-sidebar';
-import Avatar from '../../assets/Images/avtar.jpg'
+// import Avatar from '../../assets/Images/avtar.jpg'
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import {
   Routes, Route, Link, BrowserRouter as Router,
   Switch,
 } from "react-router-dom";
-// import MentorDashboard from '../Mentors/Dashboard/MentorDashboard'
-import MentorProfile from '../Mentors/Profile/MentorProfile'
-import MentorAssignments from '../Mentors/MentorAssignments/MentorAssignments'
+// import Dashboard from '../Dashboard/Dashboard'
+import Profile from '../Profile/Profile'
+import Assignments from '../Assignments/Assignments'
 // const { SubMenu } = Menu;
 // import { Link } from 'react-router-dom';
 const { Header, Content, Sider } = Layout;
-export default function MentorDashboard() {
+export default function Dashboard() {
   return (
     <Router>
     <div style={{width:'100%',height:'100%'}}>
@@ -110,11 +110,10 @@ export default function MentorDashboard() {
         {/* <Content> */}
          {/* <Router> */}
            <Routes>
-           <Route  path='/'  element={<MentorDashboard/>}></Route>
-
-             <Route  path='/Dashboard' element={<MentorDashboard/>}></Route>
-           <Route path='/Dashboard/profile' element={<MentorProfile/>}></Route>
-           <Route path='/Dashboard/assignments' element={<MentorAssignments/>}></Route>
+           <Route  path='/'  element={<Dashboard/>}></Route>
+           <Route  path='/Dashboard' element={<Dashboard/>}></Route>
+           <Route path='/Dashboard/profile' element={<Profile/>}></Route>
+           <Route path='/Dashboard/assignments' element={<Assignments/>}></Route>
            </Routes>
 
          {/* </Router> */}

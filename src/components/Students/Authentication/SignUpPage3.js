@@ -39,7 +39,7 @@ export default function SignUpPage3(props) {
       // const user = userCredential.user;
       console.log(user);
       const test = await setDoc(
-        doc(db, "colleges", "srkr", "mentors", user.uid),
+        doc(db, "colleges", "srkr", "students", user.uid),
         {
           data
         }
@@ -47,7 +47,7 @@ export default function SignUpPage3(props) {
       const test1 = await setDoc(
         doc(db, "colleges", "srkr", "users", user.uid),
         {
-          role: 'mentor'
+          role: 'student'
         }
       );
 
@@ -55,7 +55,6 @@ export default function SignUpPage3(props) {
       console.error(err);
       alert(err.message);
     }
-
 
   }
   function handleChange(value) {
