@@ -9,6 +9,7 @@ import {
   Switch,
   withRouter,
   useNavigate,
+  useLocation
 } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 import {
@@ -28,8 +29,11 @@ import NavBar from "../../Students/Authentication/NavBar";
 // const auth = getAuth();
 
 export default function SignUpPage(props) {
+ 
   // let history = useHistory();
   const navigate = useNavigate();
+   const location=useLocation()
+   console.log("college name is in sign up page is",location.state)
 
   // console.log("props/ in sign up page is",navigate)
   const [name, setname] = useState("");
@@ -65,7 +69,10 @@ export default function SignUpPage(props) {
       name: name,
       email: email,
       password: password,
+      collegeName:location.state.collegeName,
     }
+    // console.log("college name is in sign up page is",data)
+
     navigate("/mentor/signup2", { state: data });
     // try {
     //   const auth = getAuth();

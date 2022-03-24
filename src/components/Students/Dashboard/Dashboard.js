@@ -10,7 +10,7 @@ import { ProSidebar, MenuItem, SubMenu, SidebarHeader, SidebarContent, SidebarFo
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import {
   Routes, Route, Link, BrowserRouter as Router,
-  Switch,
+  Switch,Navigate
 } from "react-router-dom";
 import StudentDashboard from './StudentDashboard'
 // import MentorProfile from '../Mentors/Profile/MentorProfile'
@@ -113,6 +113,7 @@ export default function Dashboard() {
          {/* <Router> */}
            <Routes>
            <Route  path='/'  element={<StudentDashboard/>}></Route>
+           <Route path="/student/signup" element={<Navigate replace={true} to="/Dashboard"></Navigate>} >  </Route>
 
              <Route  path='/Dashboard' element={<StudentDashboard/>}></Route>
            <Route path='/Dashboard/profile' element={<Profile/>}></Route>

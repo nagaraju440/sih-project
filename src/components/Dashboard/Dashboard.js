@@ -9,7 +9,7 @@ import { ProSidebar, MenuItem, SubMenu, SidebarHeader, SidebarContent, SidebarFo
 import Avatar from '../../assets/Images/avtar.jpg'
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import {
-  Routes, Route, Link, BrowserRouter as Router,
+  Routes, Route, Link, BrowserRouter as Router,Redirect,Navigate,
   Switch,
 } from "react-router-dom";
 import MentorDashboard from '../Mentors/Dashboard/MentorDashboard'
@@ -114,7 +114,7 @@ export default function Dashboard() {
          {/* <Router> */}
            <Routes>
            <Route  path='/'  element={<MentorDashboard/>}></Route>
-
+            <Route path="/mentor/signup3" element={<Navigate replace={true} to="/Dashboard"></Navigate>} >  </Route>
              <Route  path='/Dashboard' element={<MentorDashboard/>}></Route>
            <Route path='/Dashboard/profile' element={<MentorProfile/>}></Route>
            <Route path='/Dashboard/assignments' element={<MentorAssignments/>}></Route>
