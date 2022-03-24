@@ -19,7 +19,7 @@ export default function LandingPage() {
           <div className='left-section'>
             <h2 className='left-section-text'>Struggling with learning</h2>
 
-            <img src={Landingpage3} className='image1' alt="Image over here" />
+             <img src={Landingpage3} className='image1' alt="Image over here" /> 
 
 
           </div>
