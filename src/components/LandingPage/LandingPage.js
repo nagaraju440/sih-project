@@ -8,14 +8,9 @@ import {
   Routes, Route, Link, BrowserRouter as Router,
   Switch, withRouter, useNavigate
 } from "react-router-dom";
-<<<<<<< HEAD
-export default function LandingPage() {
-  const navigate = useNavigate();
-=======
 import NavBar from '../Students/Authentication/NavBar';
 export default function LandingPage() {  
   const navigate=useNavigate();
->>>>>>> 41374d8c90ac3758b20b562908604b5968a1179e
   return (
     <>
     <NavBar/>
@@ -41,7 +36,7 @@ export default function LandingPage() {
             <div className='bottom-text-1' onClick={() => {
               navigate('/mentorOrStudent_signin')
             }}> Already Registered? Sign  in </div>
-            {/* <div className='bottom-text-2'>Know More About Us  </div> */}
+            <div className='bottom-text-2'>Know More About Us  </div>
 
             <div>
               <img src={Landingpage4}
