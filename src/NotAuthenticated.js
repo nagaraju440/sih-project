@@ -29,6 +29,7 @@ import MentorSignUpPage3 from './components/Mentors/Authentication/SignUpPage3';
 import StudentSignUpPage1 from './components/Students/Authentication/SignUpPage1';
 import StudentSignUpPage2 from './components/Students/Authentication/SignUpPage2';
 import StudentSignUpPage3 from './components/Students/Authentication/SignUpPage3';
+import SignIn from './SignIn'
 // import Dashboard from './components/Dashboard/Dashboard';
 export default function NotAuthenticated() {
   return (
@@ -41,14 +42,15 @@ export default function NotAuthenticated() {
         <Route path="mentor/signup2" element={<MentorSignUpPage2 />} />
         <Route path="mentor/signup3" element={<MentorSignUpPage3 />} />
         <Route path="mentor/signin" element={<MentorSignInPage />} />
+        <Route path="signin" element={<SignIn />} />
 
 
         {/* *************student pages*******************  */}
 
 
-        <Route path="student/signup1" element={<StudentSignUpPage1 />} />
-        <Route path="student/signup2" element={<StudentSignUpPage2 />} />
-        <Route path="student/signup3" element={<StudentSignUpPage3 />} />
+        {/* <Route path="student/signup1" element={<StudentSignUpPage1 />} /> */}
+        {/* <Route path="student/signup2" element={<StudentSignUpPage2 />} /> */}
+         {/* <Route path="student/signup3" element={<StudentSignUpPage3 />} /> */}
         <Route path="student/signup" element={<StudentSignUpPage />} />
         <Route path="student/signin" element={<StudentSignInPage />} />
         {/* <Route path="about" element={<About />} /> */}

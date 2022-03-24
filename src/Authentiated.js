@@ -1,5 +1,5 @@
 import React from 'react'
-import Dashboard from './components/Dashboard/Dashboard'
+import Dashboard from './assets/Icons/Dashboard/Dashboard'
 
 export default function Authentiated() {
   return (

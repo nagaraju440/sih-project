@@ -2,6 +2,7 @@ import React, { Component, useState, useEffect } from "react";
 import styles from "./SignUpPage2.css";
 import { Select } from "antd";
 import Micon from "../../../assets/Icons/Micon.png";
+// import {Navigate, useLocation,withRouter} from 'react-router-dom';
 import { Input } from 'antd';
 import { useLocation, withRouter, useNavigate } from 'react-router-dom';
 import NavBar from "../../Students/Authentication/NavBar";

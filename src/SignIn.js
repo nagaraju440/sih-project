@@ -13,7 +13,7 @@ import {
 } from "react-router-dom";
 // import { Input, Space } from "antd";
 // import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
-import NavBar from './NavBar';
+import NavBar from './components/Students/Authentication/NavBar';
 export default function SignInPage() {
   const navigate=useNavigate()
   const [email, setemail] = useState("")
@@ -53,7 +53,7 @@ export default function SignInPage() {
       <div className='container'>
         <div></div>
         <div>
-          <div className='heading'>Student Sign in</div>
+          <div className='heading'> Sign in</div>
           <div>
             <div className='subheading'>Please, provide  the information below</div><br />
             <form onSubmit={submithandler}>

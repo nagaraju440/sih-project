@@ -19,10 +19,11 @@ import TopNavBar from './components/Dashboard/TopNavBar';
 import LandingPage from './components/LandingPage/LandingPage'
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { collection, doc, setDoc, addDoc, getDoc } from "firebase/firestore";
-import Dashboard from './components/Dashboard/Dashboard';
+import MentorDashboard from './components/Dashboard/Dashboard';
 import NotAuthenticated from './NotAuthenticated';
 import db from "./firebaseConfig.js";
-import StudentDashboard from './components/Students/Dashboard/StudentDashboard';
+import StudentDashboard from './components/Students/Dashboard/Dashboard';
+import MCourses from './components/Mentors/M-Courses/MCourses';
 function Authentication() {
     var [authenticated, setAuthenticated] = useState(false);
     var [userRole, setUserRole] = useState('');
@@ -51,16 +52,21 @@ function Authentication() {
     if (authenticated) {
         if (userRole == 'mentor') {
             console.log("authenticated in if", authenticated);
-            return <Dashboard />
+            return <MCourses/>
+            // <MentorDashboard />
         }
         else {
-            return <StudentDashboard />
+            return 
+            <MCourses/>
+            // <StudentDashboard />
         }
 
     }
     else {
         console.log("authenticated in else", authenticated);
-        return <NotAuthenticated />
+        return 
+        <MCourses/>
+        // <NotAuthenticated />
     }
 }
 
