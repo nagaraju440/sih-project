@@ -3,7 +3,7 @@ import * as EmailValidator from 'email-validator';
 import styles from './SignUpPage.css'
 import {
   Routes, Route, Link, BrowserRouter as Router,
-  Switch, useNavigate
+  Switch, useNavigate,useLocation
 } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 // import db from '../firebaseConfig'
@@ -16,7 +16,7 @@ import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import NavBar from './NavBar';
 export default function SignInPage() {
   const navigate = useNavigate();
-
+  const location=useLocation()
   const [name, setname] = useState("")
   const handlename = (e) => {
     setname(e.target.value)
@@ -52,31 +52,39 @@ export default function SignInPage() {
       name: name,
       email: email,
       password: password,
+      collegeName:location.state.collegeName
     }
-    navigate("/student/signup2", { state: data });
-    // try {
-    //   const auth = getAuth();
-    //   const res = await createUserWithEmailAndPassword(auth, email, password);
-    //   const user = res.user;
-    //   // const user = userCredential.user;
-    //   console.log(user);
-    //   const test =
-    //     await setDoc(doc(db, "colleges", "srkr", "students", user.uid), {
-    //       uid: user.uid,
-    //       name,
-    //       authProvider: "local",
-    //       email,
-    //       password
-    //     });
-    //   console.log("test");
-    //   if (test) {
-    //     console.log("hii routing has done succesfully");
-    //   }
-
-    // } catch (err) {
-    //   console.error(err);
-    //   alert(err.message);
-    // }
+    // navigate("/student/signup2", { state: data });
+    try {
+      const auth = getAuth();
+      const res = await createUserWithEmailAndPassword(auth, email, password);
+      const user = res.user;
+      // const user = userCredential.user;
+      console.log(user);
+      const test1 = await setDoc(
+        doc(db,  "users", user.uid),
+        {
+          role: 'student',
+          collegeName:data.collegeName
+        }
+      );
+      const test =
+        await setDoc(doc(db, "colleges", data.collegeName, "students", user.uid), {
+          uid: user.uid,
+          name,
+          authProvider: "local",
+          email,
+          password
+        });
+      console.log("test");
+      if (test) {
+        console.log("hii routing has done succesfully");
+      }
+     
+    } catch (err) {
+      console.error(err);
+      alert(err.message);
+    }
   };
 
   const submitHandler = (e) => {

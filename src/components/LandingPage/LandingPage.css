@@ -30,7 +30,9 @@
     /* padding-top:180px; */
     font-size: 30px;
     position: relative;
-    top: 150px;
+    /* left: 0; */
+    top: 100px;
+
 }
 .right-section{
     display:flex;
@@ -113,15 +115,20 @@ font-family: Rubik;
     right: 0px;
     bottom: 0px;
     /* justify-self: flex-end; */
-    height: auto;
+    /* width: 60%; */
+    /* width: auto; */
+    /* height: auto; */
+    height: 40%;
+    /* width: 50%; */
 }
 .image1
 {
-    /* margin-top:-180px;*/
-    width:auto;
+    /* margin-top:-180px; */
+    /* width:900px;
+    height: 700px; */
+    width: auto;
     height: auto;
-    /* margin-top: -180px; */
-    /* position: absolute; */
-    /* left: 0px; */
-    /* top: 200px */
+    /* position: absolute;
+    left: 0px;
+    top: 100px */
 }

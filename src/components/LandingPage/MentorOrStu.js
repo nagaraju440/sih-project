@@ -5,13 +5,15 @@ import Micon from '../../assets/Icons/Micon.png'
 
 import {
   Routes, Route, Link, BrowserRouter as Router,
-  Switch, withRouter,useNavigate  
+  Switch, withRouter,useNavigate ,useLocation 
 } from "react-router-dom";
 import NavBar from '../Students/Authentication/NavBar';
 export default function MentorOrStu() {
-   
+ 
+
   const navigate=useNavigate();
-  
+  var location=useLocation();
+  // console.log("selected college name is",location.state.collegeName) 
   return (
     <>
     <NavBar/>
@@ -39,12 +41,12 @@ export default function MentorOrStu() {
 
           <div className='Ms-right-section-button-1'>
           <button type='submit' onClick={()=>{
-                 navigate('/mentor/signup')
+                 navigate('/mentor/signup',{state:{collegeName:location.state.collegeName}})
           }} className='button-text'>Mentor</button>
           </div>
           <div className='Ms-right-section-button-2'>
           <button type='submit'  onClick={()=>{
-                 navigate('/student/signup')
+                 navigate('/student/signup',{state:{collegeName:location.state.collegeName}})
           }} className='button-text'>Student</button>
           </div>
           <li>
