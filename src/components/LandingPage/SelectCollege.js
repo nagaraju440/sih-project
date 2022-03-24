@@ -36,11 +36,11 @@ export default function SelectCollege() {
     <NavBar/>
       <div className='Sc-MainContainer'>
           
-          <div className='Sc-inner-container'>
+          {/* <div className='Sc-inner-container'> */}
           <div className='Sc-left-section'>
               <h2 className='Sc-left-section-text'>Struggling with learning</h2>
            
-              <img src={LandingPageImg} alt="Image over here"/>
+              <img src={LandingPageImg} alt="Image over here" className="select-image"/>
 
 
           </div>
@@ -88,7 +88,7 @@ export default function SelectCollege() {
 
           </div>
           </div>
-      </div>
+      {/* </div> */}
     </>
   )
 }

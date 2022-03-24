@@ -62,15 +62,15 @@ font-family: Rubik;
     color:#004E89;
     font-size: 14px;
     font-family: Rubik;
-    padding-left:235px;
-    padding-top: 10px;
+    padding-left:125px;
+    padding-top: 20px;
 
 }
 .bottom-text-2{
     color:#004E89;
     font-size: 14px;
     font-family: Rubik;
-    padding-left:235px;
+    padding-left:125px;
     padding-top: 10px;
 
 
@@ -99,8 +99,8 @@ font-family: Rubik;
 }
 .image2
 {
-    /* padding-top:55px;  */
-    padding-left: 250px;
+    margin-top:-10px; 
+    padding-left: 251px;
     height: 335px;
 
 }

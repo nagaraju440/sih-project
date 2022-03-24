@@ -1,22 +1,22 @@
 .Sc-MainContainer{
     display:flex;
-    flex-direction:column;
-    align-items:center;
+    flex-direction:row;
+    /* align-items:center;
     justify-content: center;
-    place-content:  center;
-    padding-top:80px
+    place-content:  center; */
 }
 .Sc-inner-container{
     display:flex;
     flex-direction:row;
-    /* background-color:aqua; */
-    width:75%;
+    background-color:aqua;
+    width:100%;
     justify-content:center;
 }
 .Sc-left-section{
     display:flex;
     flex-direction:column;
-    /* background-color:blueviolet */
+    background-color:blueviolet;
+    
     
 
 }
@@ -32,7 +32,7 @@
 .Sc-right-section{
     display:flex;
     flex-direction:column;
-    /* background-color:saddlebrown; */
+    background-color:rgb(240, 179, 135);
 }
 .Sc-right-section-text-1{
     font-size:25px;
