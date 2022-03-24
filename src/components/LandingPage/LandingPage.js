@@ -38,14 +38,15 @@ export default function LandingPage() {
             }}> Already Registered? Sign  in </div>
             <div className='bottom-text-2'>Know More About Us  </div>
 
-            <div>
+           
+
+          </div>
+        </div>
+        <div>
               <img src={Landingpage4}
                 className="image2"
               ></img>
             </div>
-
-          </div>
-        </div>
       </div>
     </>
   )
