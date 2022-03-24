@@ -79,7 +79,9 @@ export default function SelectCollege() {
             navigate('/mentorOrStudent_signup',{state:{collegeName:"SRKR"}})
           }} className='button-text'>Next</button>
           </div>
-          <div className='Sc-bottom-text-1'>Already Registered? Sign  in </div>
+          <div onClick={() => {
+              navigate('/signin')
+            }} className='Sc-bottom-text-1'>Already Registered? Sign  in </div>
           <div className='Sc-bottom-text-2'>Know More About Us  </div>
           <div>
               <img src={Landingpage4}
