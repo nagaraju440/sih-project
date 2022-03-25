@@ -100,3 +100,7 @@ padding: 0px;
 width: 100%!important;
 background-color: aqua;
 }
+.card_style{
+    border-radius: 20px;
+    box-shadow: grey;
+}
