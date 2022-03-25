@@ -330,10 +330,7 @@ function MCreateCourseForm() {
             setDayWiseValue(e.target.value)
           }}
         />
-        {/* <TextArea
-          className="MCreateCourseFormProjectInput"
-          placeholder="Enter the project descripition"
-        ></TextArea> */}
+       
         <div className="MCreateCourseFormProjectCardBtn" onClick={AddDayWiseData} >Done</div>
       </Modal>  
       </div>
