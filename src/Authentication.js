@@ -23,6 +23,7 @@ import MentorDashboard from './components/Dashboard/Dashboard';
 import NotAuthenticated from './NotAuthenticated';
 import db from "./firebaseConfig.js";
 import StudentDashboard from './components/Students/Dashboard/Dashboard';
+import Chat from './firebasechat/Chat';
 function Authentication() {
     var [authenticated, setAuthenticated] = useState(false);
     var [userRole, setUserRole] = useState('');
@@ -53,9 +54,11 @@ function Authentication() {
         if (userRole == 'mentor') {
             console.log("authenticated in if", authenticated);
             return <MentorDashboard />
+            // return <Chat />
         }
         else {
             return <StudentDashboard />
+            // return <Chat />
         }
 
     }

@@ -26,14 +26,14 @@ import SignUpPage3 from './components/Mentors/Authentication/SignUpPage3'
 // import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 
 function App() {
-    // const auth=getAuth()
-    // auth.signOut()
+  // const auth=getAuth()
+  // auth.signOut()
   // }
 
 
   return (
-    <Authentication/>
-    
+    <Authentication />
+
   )
 
 }
