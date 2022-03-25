@@ -17,6 +17,7 @@ import NavBar from './NavBar';
 export default function SignInPage() {
   const navigate = useNavigate();
   const location=useLocation()
+  console.log("coolege name in student sign up page is",location)
   const [name, setname] = useState("")
   const handlename = (e) => {
     setname(e.target.value)
