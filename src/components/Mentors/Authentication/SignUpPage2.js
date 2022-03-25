@@ -15,10 +15,9 @@ export default function SignUpPage2(props) {
   const skills = ['html', 'css', 'js'];
   const languages = ['english', 'telugu', 'hindi'];
   const hobbies = ['cricket', 'sleeping', 'eating'];
-  const [linkedin,setLinkedIn]=useState("")
+  // const [linkedin,setLinkedIn]=useState("")
   // const [LinkedIn1,setLinkedin] = useState("");
-
-  
+   const [linkedInValue,setLinkedInValue]=useState("")  
   for (let i = 0; i < 3; i++) {
     skills.push(
       <Option key={skills[i]} ></Option>
@@ -37,7 +36,7 @@ export default function SignUpPage2(props) {
   }
 const Linked=(e)=>{
   
-  setLinkedIn(e.target.value)
+  // setLinkedIn(e.target.value)
   console.log(e.target.value)
 }
 //  const LinkedIn=(x)=> {
@@ -49,7 +48,7 @@ const Linked=(e)=>{
     console.log("hii this is next page");
     let data = location.state
     data['skills'] = skills
-    data['linked_in'] = linkedin
+    data['linked_in'] = linkedInValue
     data['languages'] = languages
     data['hobbies'] = hobbies
     console.log("location is", data)
@@ -105,7 +104,11 @@ const Linked=(e)=>{
             <label className="label">Linked IN</label>
             <br />
             <div className="form-select">
-              <Input type="text" placeholder="dfghj" style={{ width: "100%" }}onChange={(value)=>Linked(value)}/>
+              <Input type="text" placeholder="enter linked in profile" style={{ width: "100%" }}  onChange={(e)=>{
+                console.log("changing")
+                setLinkedInValue(e.target.value)
+                //  setLinkedIn(e.target.value)
+              }}/>
               {/* <Input
                 style={{ width: "100%" }}
                 placeholder="Enter your linkedin Handle"
@@ -144,7 +147,8 @@ const Linked=(e)=>{
             </div>
 
 
-            <div className="SignUpPage2-skip" onClick={skipToNextPage()} >Skip</div>
+            <div className="SignUpPage2-skip" onClick={skipToNextPage
+            } >Skip</div>
 
             <div className="SignUpPage2-button-class">
               <button onClick={navigateNextPage} className="SignUpPage2-button-text" >Next </button>
