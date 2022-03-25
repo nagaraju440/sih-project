@@ -12,32 +12,23 @@ import {
 } from "antd";
 import { DownOutlined, UserOutlined } from "@ant-design/icons";
 import AddIcon from "../../../assets/Icons/Plus.svg";
-import EditIcon from "../../../assets/Icons/edit.svg";
-import db from "../../../firebaseConfig";
-import { doc, getDoc } from "firebase/firestore";
-// import { useEffect } from "react";
-// import { collection, getDocs } from "firebase/firestore"; 
 
+import EditIcon from "../../../assets/Icons/edit.svg";
+import { useLocation, withRouter, useNavigate } from 'react-router-dom';
+import { collection, doc, setDoc, addDoc } from "firebase/firestore";
+import db from "../../../firebaseConfig.js";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged
+} from "firebase/auth";
+
+import { Modal } from 'antd';
+
+import { SidebarFooter } from "react-pro-sidebar";
 
 function MCreateCourseForm() {
-  const [info , setInfo] = useState([]);
-  const [crds,setCrds]=useState([1])
-  const [value, setValue] = useState(null);
-  
-//   const querySnapshot = await getDocs(collection(db, "users"));
-// querySnapshot.forEach((doc) => {
-//   console.log(`${doc.id} => ${doc.data()}`);
-// });
-  // useEffect=(()=>{
-  //   const fetchData=async()=>{
-
-  //     const docRef = doc(db, "colleges", "srkr","courses","courses");
-  //     const docSnap= await  getDoc(docRef)
-  //     console.log(docSnap.data().Category,"kjkjkjk");
-  //   }
-  //   fetchData()
-  // })
-
   const category = [
     'Fornt End',
     'Back End',
@@ -49,14 +40,105 @@ function MCreateCourseForm() {
     'Communication skills',
     'othere',
   ]
-   
+  const language = [
+    'HTML',
+    'CSS',
+    'JS',
+    'React',
+  ]
+  
+  const standard = [
+    'beginner',
+    'medium',
+    'Advanced',
+  ]
+  let location = useLocation();
+  const [value, setValue] = useState(null);
+  const [Category1, setCategory1] = useState("");
+  const [Language1, setLanguage1] = useState("");
+  const [Standard1, setStandard1] = useState("");
+  const [Title, setTitle] = useState("");
+  const [Link, setLink] = useState("");
   const { RangePicker } = TimePicker;
   const { TextArea } = Input;
+  const [Ptitle,setPTitle]=useState("")
+  const [Pdes,setPDes]=useState("")
+  const [count,setcount]=useState(0)
+  const [titleValue, setTitleValue] = useState('');
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [projectsData,setProjectsData]=useState([])
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
 
-  function handleMenuClick(e) {
-    message.info("Click on menu item.");
-    console.log("click", e);
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
+
+  const AddProject=()=>{
+
+    setIsModalVisible(false);
+   var d={
+     title:titleValue,
+     description:"project description"
+   }
+   projectsData.push(d)
+   setProjectsData(projectsData)
+   console.log("projects data is",projectsData)
+   setTitleValue("")
   }
+  
+ 
+
+  var onSubmitdata = async (e) => {
+    console.log("hii",Category1,Language1,Standard1,Title,Link)      
+    // console.log(user.email)
+    let data = location.state
+    try {
+      const auth = getAuth();
+      onAuthStateChanged(auth,user =>{
+        console.log(user.uid,user.email)
+
+     setDoc(doc(db, "colleges", "srkr","mentors",user.uid,"courses","course8"), {
+       Category:Category1,
+       Language:Language1,
+       Standard:Standard1,
+       Link:Link,
+       Title:Title,
+
+      Projects:[{title:Ptitle,des:Pdes}]
+       
+    // title: "Hello world!",
+    // link:"zoom.com",
+    // category: {
+    //     Machinelearning:["Tensorflow", "pandas", "numpy"],
+    //     Backend:["node", "php", "jsp"],
+    //     Frontend:["html", "css", "react"],
+    //     GameDevelopmemt:["android", "ios", "native"],
+        
+    // },
+    // Standard:["Easy", "Medium", "Hard"],
+    // date:"5/10/2020",
+    // time:"10:00",
+    // date: Timestamp.fromDate(new Date("December 10, 1815")),
+    })
+  })
+
+  
+} catch (err) {
+  console.error(err);
+  alert(err.message);
+}
+  }
+
+
+
+
   function selectDate(date, dateString) {
     console.log(dateString);
   }
@@ -65,55 +147,77 @@ function MCreateCourseForm() {
     setValue(time);
     console.log(time.value);
   };
-const AddCard=()=>{
-  setCrds([...crds,1])
-console.log('././.',crds);
-}
-const fetchData=async()=>{
-  const docRef=doc(db, "colleges", "srkr","courses","courses");
-  try{
-    const docSnap= await  getDoc(docRef)
-    console.log(docSnap.data().Category,"kjkjkjk");
+  function Categories(e) {
+    console.log(e.target.value);
+    setCategory1(e.target.value);
   }
-  catch(e)
-  {
-    console.log(e,"error");
+  function languages(e) {
+    console.log(e.target.value);
+    setLanguage1(e.target.value);
   }
-}
+  function standards(e) {
+    console.log(e.target.value);
+    setStandard1(e.target.value);
+  }
+  function title(e) {
+    console.log(e.target.value);
+    setTitle(e.target.value);
+  }
+  function link(e) {
+    console.log(e.target.value);
+    setLink(e.target.value);
+  }
+  function handleTitle(e) {
+    console.log(e.target.value);
+    setPTitle(e.target.value);
+  }
+  function handleDes(e) {
+    console.log(e.target.value);
+    setPDes(e.target.value);
+  }
+
   return (
     <div className="MCreateCourseForm">
       <p className="MCreateCourseFormTitle">Course Registration</p>
       <div className="MCreateCourseFormInputSection">
         <div className="MCreateCourseFormSubTitle">Categories</div>
-        {/* {fetchData()} */}
-        <select name="cars" className="MCreateCourseFormTitleInput">
+        <select name="cars" className="MCreateCourseFormTitleInput" onChange={Categories}>
           {
             category.map((e) => {
+              return(
               <option value={e}>{e}</option>
-             
-            
+              );
           })
           }
+            
          
         </select>
       </div>
       <div className="MCreateCourseFormInputSection">
         <div className="MCreateCourseFormSubTitle">Language</div>
         
-        <select name="cars" className="MCreateCourseFormTitleInput">
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="mercedes">Mercedes</option>
-          <option value="audi">Audi</option>
+        <select name="cars" className="MCreateCourseFormTitleInput"  onChange={languages}>
+        {
+            language.map((e) => {
+              return(
+              <option value={e}>{e}</option>
+              );
+          })
+          }
+         
         </select>
       </div>
       <div className="MCreateCourseFormInputSection">
         <div className="MCreateCourseFormSubTitle">Standard</div>
-        <select name="cars" className="MCreateCourseFormTitleInput">
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="mercedes">Mercedes</option>
-          <option value="audi">Audi</option>
+        <select name="cars" className="MCreateCourseFormTitleInput" onChange={standards}>
+        {
+            standard.map((e) => {
+              return(
+              <option value={e}>{e}</option>
+              );
+          })
+          }
+         
         </select>
       </div>
       <div className="MCreateCourseFormInputSection">
@@ -121,17 +225,19 @@ const fetchData=async()=>{
         <input
           className="MCreateCourseFormTitleInput"
           placeholder="Enter the course title "
+          value={Title}
+          onChange={title}
         />
       </div>
       <div className="MCreateCourseFormInputSection">
         <div className="MCreateCourseFormSubTitle">Start date </div>
-        <DatePicker onChange={()=>selectDate()} className="MCreateCourseFormDate" />
+        <DatePicker onChange={selectDate} className="MCreateCourseFormDate" />
       </div>
       <div className="MCreateCourseFormInputSection">
         <div className="MCreateCourseFormSubTitle">Start date </div>
         <RangePicker
           value={value}
-          onChange={()=>onChange()}
+          onChange={onChange}
           className="MCreateCourseFormDate"
         />
       </div>
@@ -140,12 +246,12 @@ const fetchData=async()=>{
         <input
           className="MCreateCourseFormTitleInput"
           placeholder="provide the zoom link or Google meet link "
+          value={Link}
+          onChange={link}
         />
       </div>
-      {
-            Object.values(crds).map((x,i)=>{
-              return(
-<div className="MCreateCourseFormProjectCard">
+      <div>
+      <div className="MCreateCourseFormProjectCard">
         <div className="MCreateCourseFormProjectTitleSection">
           <div className="MCreateCourseFormProjectTitle">Project</div>
           <div className="MCreateCourseFormProjectIconSection">
@@ -153,7 +259,51 @@ const fetchData=async()=>{
               src={AddIcon}
               alt="add icon"
               className="MCreateCourseFormProjectAddIcon"
-              onClick={()=>AddCard()}
+              onClick={showModal}
+            ></img>
+            <img
+              src={EditIcon}
+              alt="Edit icon"
+              className="MCreateCourseFormProjectEditIcon"
+            ></img>
+          </div>
+        </div>
+       <div>
+         <ul>
+           {projectsData.map((l,i)=>{
+                 return(
+                  <li><b>{l.title}</b></li>
+                 )
+           })}
+         </ul>
+       </div>
+
+      </div>  
+      <Modal title="Add Project" visible={isModalVisible} footer={null} onOk={handleOk} onCancel={handleCancel} closable={null} width={600}>
+      <input
+          className="MCreateCourseFormProjectInput"
+          placeholder="Enter the title of the project"
+          value={titleValue}
+          onChange={(e)=>{
+            console.log("value is",e.target.value)
+            setTitleValue(e.target.value)
+          }}
+        />
+        <TextArea
+          className="MCreateCourseFormProjectInput"
+          placeholder="Enter the project descripition"
+        ></TextArea>
+        <div className="MCreateCourseFormProjectCardBtn" onClick={AddProject} >Done</div>
+      </Modal>
+    </div>
+      {/* <div className="MCreateCourseFormProjectCard">
+        <div className="MCreateCourseFormProjectTitleSection">
+          <div className="MCreateCourseFormProjectTitle">Project</div>
+          <div className="MCreateCourseFormProjectIconSection">
+            <img
+              src={AddIcon}
+              alt="add icon"
+              className="MCreateCourseFormProjectAddIcon"
             ></img>
             <img
               src={EditIcon}
@@ -165,22 +315,47 @@ const fetchData=async()=>{
         <input
           className="MCreateCourseFormProjectInput"
           placeholder="Enter the title of the project"
-          // value="title"
-          // onChange={(value)=>}
+          onChange={value =>{handleTitle(value)}}
         />
         <TextArea
           className="MCreateCourseFormProjectInput"
           placeholder="Enter the project descripition"
+          onChange={value =>{handleDes(value)}}
         ></TextArea>
         <div className="MCreateCourseFormProjectCardBtn">Done</div>
-      </div> 
-              )
-      
+      </div>
 
 
-        })}
-      
-      <div className="MCreateCourseFormCreateCourseBtn">Create Course</div>
+      <div className="MCreateCourseFormProjectCard">
+        <div className="MCreateCourseFormProjectTitleSection">
+          <div className="MCreateCourseFormProjectTitle">Project</div>
+          <div className="MCreateCourseFormProjectIconSection">
+            <img
+              src={AddIcon}
+              alt="add icon"
+              className="MCreateCourseFormProjectAddIcon"
+            ></img>
+            <img
+              src={EditIcon}
+              alt="Edit icon"
+              className="MCreateCourseFormProjectEditIcon"
+            ></img>
+          </div>
+        </div>
+        <input
+          className="MCreateCourseFormProjectInput"
+          placeholder="Enter the title of the project"
+          onChange={value =>{handleTitle(value)}}
+        />
+        <TextArea
+          className="MCreateCourseFormProjectInput"
+          placeholder="Enter the project descripition"
+          onChange={value =>{handleDes(value)}}
+        ></TextArea>
+        <div className="MCreateCourseFormProjectCardBtn">Done</div>
+      </div> */}
+
+      <div className="MCreateCourseFormCreateCourseBtn" onClick={onSubmitdata}>Create Course</div>
     </div>
   );
 }

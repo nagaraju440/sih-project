@@ -21,7 +21,7 @@ import Chat from '../Chat/Chat'
 // const { SubMenu } = Menu;
 // import { Link } from 'react-router-dom';
 const { Header, Content, Sider } = Layout;
-export default function Dashboard() {
+export default function Dashboard(props) {
   return (
     <Router>
     <div style={{width:'100%',height:'100%'}}>
@@ -116,7 +116,7 @@ export default function Dashboard() {
            <Route  path='/'  element={<MentorDashboard/>}></Route>
             <Route path="/mentor/signup3" element={<Navigate replace={true} to="/Dashboard"></Navigate>} >  </Route>
              <Route  path='/Dashboard' element={<MentorDashboard/>}></Route>
-           <Route path='/Dashboard/profile' element={<MentorProfile/>}></Route>
+           <Route path='/Dashboard/profile' element={<MentorProfile collegeName={props.collegeName} userUid={props.userUid} />}></Route>
            <Route path='/Dashboard/assignments' element={<MentorAssignments/>}></Route>
            <Route path='/Dashboard/courses' element={<MCourses/>}></Route>
            <Route path='/Dashboard/courses/createCourse' element={<MCreateCourseForm/>}></Route>
