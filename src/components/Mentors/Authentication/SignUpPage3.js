@@ -18,6 +18,8 @@ export default function SignUpPage3(props) {
 
   const { Option } = Select;
   const { TextArea } = Input;
+  const [about, setabout] = useState("");
+  const[exp,setexp]=useState("");
 
   const projects = ['online-shopping', 'bug-tracking', 'e-waste-collection'];
   for (let i = 0; i < 3; i++) {
@@ -26,12 +28,15 @@ export default function SignUpPage3(props) {
     );
   }
   var onSubmitdata = async (e) => {
-    let data = location.state
-    data['projects'] = ['p1', 'p2', 'p3']
-    data['expeience'] = "Tell me about your experience"
-    data['about'] = 'about yourself'
-    console.log("data in s3", data);
     e.preventDefault();
+    let data = location.state
+    data['projects'] = projects
+    data['expeience'] = exp
+    data['about'] = about
+    console.log(about)
+    console.log(exp)
+    console.log("data in s3", data);
+    
     try {
       const auth = getAuth();
       const res = await createUserWithEmailAndPassword(auth, data.email, data.password);
@@ -44,8 +49,6 @@ export default function SignUpPage3(props) {
         }
       );
 
-      
-      // const user = userCredential.user;
       console.log(user);
       const test = await setDoc(
         doc(db, "colleges", data.collegeName, "mentors", user.uid),
@@ -61,16 +64,16 @@ export default function SignUpPage3(props) {
 
 
   }
-  function handleChange(value) {
-    console.log(`selected ${value}`);
+  
+  function About(e) {
+    console.log(e.target.value);
+    setabout(e.target.value)
   }
-  function About(value) {
-    console.log(`hii${value}`);
-  }
-  function onChange(value) {
-    console.log(`hii${value}`);
-
+  function onChange(e) {
+    console.log(e.target.value);
+    setexp(e.target.value);
   };
+
   return (
     <>
     <NavBar/>
@@ -95,7 +98,6 @@ export default function SignUpPage3(props) {
               <Select
                 mode="tags"
                 style={{ width: "100%" }}
-                // onChange={Projects}
                 tokenSeparators={[","]}
               >
                 {projects}
@@ -109,17 +111,6 @@ export default function SignUpPage3(props) {
             <label className="SignUpPage3-label">About</label>
             <br />
             <TextArea rows={4} onChange={About} />
-
-
-            {/* <div className="button-class">
-              <button
-                
-                onClick={onSubmitdata}
-                className="button-text"
-              >
-                Next
-              </button>
-            </div> */}
             <br />
 
             <div className="SignUpPage3-button-class">
