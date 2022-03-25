@@ -39,11 +39,8 @@ const Linked=(e)=>{
   // setLinkedIn(e.target.value)
   console.log(e.target.value)
 }
-//  const LinkedIn=(x)=> {
-//     console.log(x.target.value);
-//    const y=x.target.value
-//     setLinkedin(y);
-//   }
+const skills1=[]
+
   var navigateNextPage = () => {
     console.log("hii this is next page");
     let data = location.state
@@ -104,18 +101,7 @@ const Linked=(e)=>{
             <label className="label">Linked IN</label>
             <br />
             <div className="form-select">
-              <Input type="text" placeholder="enter linked in profile" style={{ width: "100%" }}  onChange={(e)=>{
-                console.log("changing")
-                setLinkedInValue(e.target.value)
-                //  setLinkedIn(e.target.value)
-              }}/>
-              {/* <Input
-                style={{ width: "100%" }}
-                placeholder="Enter your linkedin Handle"
-                // value={LinkedIn1}
-                onChange={(value)=>Linked(value)}
-
-              /> */}
+              <Input type="text" placeholder="dfghj" style={{ width: "100%" }}onChange={(value)=>Linked(value)}/>
             </div>
 
             <label className="SignUpPage2-label">Languages</label>
@@ -147,14 +133,11 @@ const Linked=(e)=>{
             </div>
 
 
-            <div className="SignUpPage2-skip" onClick={skipToNextPage
-            } >Skip</div>
+            <div className="SignUpPage2-skip" onClick={skipToNextPage} >Skip</div>
 
             <div className="SignUpPage2-button-class">
               <button onClick={navigateNextPage} className="SignUpPage2-button-text" >Next </button>
             </div>
-
-
           </form>
 
           {/* <div
