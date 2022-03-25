@@ -18,8 +18,8 @@ import MentorAssignments from '../Mentors/MentorAssignments/MentorAssignments'
 import MCourses from '../Mentors/M-Courses/MCourses'
 import MCreateCourseForm from '../Mentors/M-Courses/MCreateCourseForm'
 import Chat from '../Chat/Chat'
-import IdeanaHome from '../Ideana/IdeanaHome'
-import IdeanaAdd from '../Ideana/IdeanaAdd'
+// import IdeanaHome from '../Ideana/IdeanaHome'
+// import IdeanaAdd from '../Ideana/IdeanaAdd'
 // const { SubMenu } = Menu;
 // import { Link } from 'react-router-dom';
 const { Header, Content, Sider } = Layout;
@@ -123,8 +123,8 @@ export default function Dashboard(props) {
            <Route path='/Dashboard/courses' element={<MCourses/>}></Route>
            <Route path='/Dashboard/courses/createCourse' element={<MCreateCourseForm/>}></Route>
            <Route path='/Dashboard/chat' element={<Chat/>}></Route>
-           <Route path='/Dashboard/ideana' element={<IdeanaHome/>}></Route>
-           <Route path='/Dashboard/ideana/addIdea' element={<IdeanaAdd/>}></Route>
+           {/* <Route path='/Dashboard/ideana' element={<IdeanaHome/>}></Route>
+           <Route path='/Dashboard/ideana/addIdea' element={<IdeanaAdd/>}></Route> */}
            </Routes>
 
          {/* </Router> */}

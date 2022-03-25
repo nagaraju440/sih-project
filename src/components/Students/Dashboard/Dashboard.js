@@ -19,8 +19,8 @@ import Profile from '../Profile/Profile'
 import Assignments from '../Assignments/Assignments'
 import StudentRegisteredCourses from './StudentMainDashboard/StudentRegisteredCourses'
 import RegisterForCourses from '../RegisterForCourses/RegisterForCourses'
-import IdeanaHome from '../../Ideana/IdeanaHome'
-import IdeanaAdd from '../../Ideana/IdeanaAdd'
+// import IdeanaHome from '../../Ideana/IdeanaHome'
+// import IdeanaAdd from '../../Ideana/IdeanaAdd'
 // const { SubMenu } = Menu;
 // import { Link } from 'react-router-dom';
 const { Header, Content, Sider } = Layout;
