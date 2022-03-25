@@ -121,56 +121,8 @@ function MCreateCourseForm() {
     let data = location.state;
     try {
       const auth = getAuth();
-<<<<<<< HEAD
-      onAuthStateChanged(auth,user =>{
-        console.log(user.uid,user.email)
-
-       addDoc(collection(db, "colleges", "Srkr","mentors",user.uid,"courses"), {
-       Category:Category1,
-       Language:Language1,
-       Standard:Standard1,
-       Link:Link,
-       Title:Title,
-       Projects:projectsData,
-       Schedule:dayWiseData
-      // Projects:[{title:Ptitle,des:Pdes}]
-       
-    // title: "Hello world!",
-    // link:"zoom.com",
-    // category: {
-    //     Machinelearning:["Tensorflow", "pandas", "numpy"],
-    //     Backend:["node", "php", "jsp"],
-    //     Frontend:["html", "css", "react"],
-    //     GameDevelopmemt:["android", "ios", "native"],
-        
-    // },
-    // Standard:["Easy", "Medium", "Hard"],
-    // date:"5/10/2020",
-    // time:"10:00",
-    // date: Timestamp.fromDate(new Date("December 10, 1815")),
-    })
-    addDoc (collection(db,"colleges","Srkr","courses"),{
-      Category:Category1,
-       Language:Language1,
-       Standard:Standard1,
-       Link:Link,
-       Title:Title,
-       Projects:projectsData,
-       Schedule:dayWiseData,
-       uid:user.uid
-    })
-  })
-
-  
-} catch (err) {
-  console.error(err);
-  alert(err.message);
-}
-  }
-=======
       onAuthStateChanged(auth, (user) => {
         console.log(user.uid, user.email);
->>>>>>> 0a1ccd9f5a7b00afc86da02bed01c035e654e5df
 
         setDoc(
           doc(
