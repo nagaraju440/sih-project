@@ -13,8 +13,31 @@ import {
 import { DownOutlined, UserOutlined } from "@ant-design/icons";
 import AddIcon from "../../../assets/Icons/Plus.svg";
 import EditIcon from "../../../assets/Icons/edit.svg";
+import db from "../../../firebaseConfig";
+import { doc, getDoc } from "firebase/firestore";
+// import { useEffect } from "react";
+// import { collection, getDocs } from "firebase/firestore"; 
+
 
 function MCreateCourseForm() {
+  const [info , setInfo] = useState([]);
+  const [crds,setCrds]=useState([1])
+  const [value, setValue] = useState(null);
+  
+//   const querySnapshot = await getDocs(collection(db, "users"));
+// querySnapshot.forEach((doc) => {
+//   console.log(`${doc.id} => ${doc.data()}`);
+// });
+  // useEffect=(()=>{
+  //   const fetchData=async()=>{
+
+  //     const docRef = doc(db, "colleges", "srkr","courses","courses");
+  //     const docSnap= await  getDoc(docRef)
+  //     console.log(docSnap.data().Category,"kjkjkjk");
+  //   }
+  //   fetchData()
+  // })
+
   const category = [
     'Fornt End',
     'Back End',
@@ -26,9 +49,7 @@ function MCreateCourseForm() {
     'Communication skills',
     'othere',
   ]
-  
-    
-  const [value, setValue] = useState(null);
+   
   const { RangePicker } = TimePicker;
   const { TextArea } = Input;
 
@@ -44,12 +65,27 @@ function MCreateCourseForm() {
     setValue(time);
     console.log(time.value);
   };
-
+const AddCard=()=>{
+  setCrds([...crds,1])
+console.log('././.',crds);
+}
+const fetchData=async()=>{
+  const docRef=doc(db, "colleges", "srkr","courses","courses");
+  try{
+    const docSnap= await  getDoc(docRef)
+    console.log(docSnap.data().Category,"kjkjkjk");
+  }
+  catch(e)
+  {
+    console.log(e,"error");
+  }
+}
   return (
     <div className="MCreateCourseForm">
       <p className="MCreateCourseFormTitle">Course Registration</p>
       <div className="MCreateCourseFormInputSection">
         <div className="MCreateCourseFormSubTitle">Categories</div>
+        {/* {fetchData()} */}
         <select name="cars" className="MCreateCourseFormTitleInput">
           {
             category.map((e) => {
@@ -58,7 +94,6 @@ function MCreateCourseForm() {
             
           })
           }
-         
          
         </select>
       </div>
@@ -90,13 +125,13 @@ function MCreateCourseForm() {
       </div>
       <div className="MCreateCourseFormInputSection">
         <div className="MCreateCourseFormSubTitle">Start date </div>
-        <DatePicker onChange={selectDate} className="MCreateCourseFormDate" />
+        <DatePicker onChange={()=>selectDate()} className="MCreateCourseFormDate" />
       </div>
       <div className="MCreateCourseFormInputSection">
         <div className="MCreateCourseFormSubTitle">Start date </div>
         <RangePicker
           value={value}
-          onChange={onChange}
+          onChange={()=>onChange()}
           className="MCreateCourseFormDate"
         />
       </div>
@@ -107,7 +142,10 @@ function MCreateCourseForm() {
           placeholder="provide the zoom link or Google meet link "
         />
       </div>
-      <div className="MCreateCourseFormProjectCard">
+      {
+            Object.values(crds).map((x,i)=>{
+              return(
+<div className="MCreateCourseFormProjectCard">
         <div className="MCreateCourseFormProjectTitleSection">
           <div className="MCreateCourseFormProjectTitle">Project</div>
           <div className="MCreateCourseFormProjectIconSection">
@@ -115,6 +153,7 @@ function MCreateCourseForm() {
               src={AddIcon}
               alt="add icon"
               className="MCreateCourseFormProjectAddIcon"
+              onClick={()=>AddCard()}
             ></img>
             <img
               src={EditIcon}
@@ -126,14 +165,21 @@ function MCreateCourseForm() {
         <input
           className="MCreateCourseFormProjectInput"
           placeholder="Enter the title of the project"
+          // value="title"
+          // onChange={(value)=>}
         />
         <TextArea
           className="MCreateCourseFormProjectInput"
           placeholder="Enter the project descripition"
         ></TextArea>
         <div className="MCreateCourseFormProjectCardBtn">Done</div>
-      </div>
+      </div> 
+              )
+      
 
+
+        })}
+      
       <div className="MCreateCourseFormCreateCourseBtn">Create Course</div>
     </div>
   );
