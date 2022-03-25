@@ -14,7 +14,7 @@ export default function IdeanaAdd() {
     console.log('search:', val);
   }
   return (
-    <div>
+    <div className="postmain">
       <div className="Ideana_container">
         <div className="Ideana_heading">Post Your Idea</div>
         <div className="Ideana_postcard">
@@ -50,10 +50,10 @@ export default function IdeanaAdd() {
             </div>
           </div>
         </div>
-      </div>
-      <div className="Ideana_button">
+        <div className="Ideana_postbutton">
         <button>Post</button>
       </div>
+      </div> 
     </div>
   )
 }
