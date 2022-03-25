@@ -12,13 +12,23 @@ import {
 import NavBar from '../Students/Authentication/NavBar';
 export default function SelectCollege() {
    
-   const [collegeName,setCollegeName] =React.useState('')
+   const [collegeName,setCollegeName] = React.useState('')
+   const [disable, setDisable] = React.useState(true);
     const navigate=useNavigate();
     const { Option } = Select;
 
     function onChange(value) {
       console.log(`selected ${value}`);
       setCollegeName(value)
+      console.log(value,"yuyiuouo")
+      if(value!=""){
+        setDisable(false); 
+        console.log(disable)
+      }
+      else{
+        setDisable(true); 
+        console.log(disable)
+      }
     }
     
     function onBlur() {
@@ -80,7 +90,7 @@ export default function SelectCollege() {
           <div className='Sc-right-section-button'>
           <button type='submit' onClick={()=>{
             navigate('/mentorOrStudent_signup',{state:{collegeName:collegeName}})
-          }} className='button-text'>Next</button>
+          }} className='button-text' disabled={disable} >Next</button>
           </div>
           
            <div className='bottom-text-1' onClick={() => {
