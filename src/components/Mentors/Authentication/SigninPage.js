@@ -42,6 +42,7 @@ export default function SignInPage() {
 
   return (
     <>
+    <div className='signUpPage'>
     <NavBar/>
       <div className='container'>
         <div>
@@ -79,6 +80,7 @@ export default function SignInPage() {
             </li>
           </div>
         </div>
+      </div>
       </div>
     </>
   )

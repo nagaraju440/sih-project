@@ -14,7 +14,7 @@ export default function MentorOrStu() {
 
   const navigate=useNavigate();
   var location=useLocation();
-  // console.log("selected college name is",location.state.collegeName) 
+  console.log("selected college name is",location.state.collegeName) 
   return (
     <>
     <NavBar/>

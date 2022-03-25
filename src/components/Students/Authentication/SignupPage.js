@@ -3,7 +3,7 @@ import * as EmailValidator from 'email-validator';
 import styles from './SignUpPage.css'
 import {
   Routes, Route, Link, BrowserRouter as Router,
-  Switch, useNavigate,useLocation
+  Switch, useNavigate, useLocation
 } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 // import db from '../firebaseConfig'
@@ -14,9 +14,10 @@ import SignUp_img from '../../../assets/Images/Student_ Sign Up_Page_ Img.png'
 import { Input, Space } from "antd";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import NavBar from './NavBar';
+import Logo from "../../../assets/Icons/Micon.png";
 export default function SignInPage() {
   const navigate = useNavigate();
-  const location=useLocation()
+  const location = useLocation()
   const [name, setname] = useState("")
   const handlename = (e) => {
     setname(e.target.value)
@@ -52,7 +53,7 @@ export default function SignInPage() {
       name: name,
       email: email,
       password: password,
-      collegeName:location.state.collegeName
+      collegeName: location.state.collegeName
     }
     // navigate("/student/signup2", { state: data });
     try {
@@ -62,10 +63,10 @@ export default function SignInPage() {
       // const user = userCredential.user;
       console.log(user);
       const test1 = await setDoc(
-        doc(db,  "users", user.uid),
+        doc(db, "users", user.uid),
         {
           role: 'student',
-          collegeName:data.collegeName
+          collegeName: data.collegeName
         }
       );
       const test =
@@ -80,7 +81,7 @@ export default function SignInPage() {
       if (test) {
         console.log("hii routing has done succesfully");
       }
-     
+
     } catch (err) {
       console.error(err);
       alert(err.message);
@@ -135,64 +136,90 @@ export default function SignInPage() {
   }
   return (
     <>
-    <NavBar/>
+      <NavBar />
       <div className='container'>
-        <div className='student_img'> <img src={SignUp_img} /></div>
-        <div className='form'>
-          <div className='heading'>Student Registartion</div>
-          <div className="subheading">
-            Please, provide  the information below
-          </div>
-          <form onSubmit={submitHandler} className="form-sub">
-            <label className='label'>Full Name*</label><br />
-            <input type="name" autoComplete="name" required onChange={(value) => handlename(value)} />
-            {namerr ? <div className='err'>Name error bro</div> : <div></div>}
-            <br />
-            <label className='label'>Email*</label><br />
-            <input type="email" autoComplete="email" required onChange={(value) => handlemail(value)} />
-            {mailerr ? <div className='err'>Email error bro</div> : <div></div>}
-            <br />
-            <label className='label'>Phone No*</label><br />
-            <input type="text" pattern="[0-9]*" maxLength="10" required onChange={(value) => handlephno(value)} />
-            {phnoerr ? <div className='err'>Number error bro</div> : <div></div>}
-            <br />
-            <label className='label'>New Password*</label><br />
-            <Space direction="vertical">
-              <Input.Password
-                className="pwd-input"
+        <div className='signUpLeftContainer'>
+          <img src={SignUp_img} className="Student_img"/></div>
+        <div>
+          <div className='form'>
+            <div className="signUpFormHeaderSection">
+              <img src={Logo} alt="" className="Logo" />
+              <div className="heading">Student Registartion</div>
+            </div>
+            <div className="subheading">
+              Please, provide the information below
+            </div>
+            <form onSubmit={submitHandler} className="form-sub">
+              <label className="label">Full Name*</label>
+              <br />
+              <input
+                type="name"
+                autoComplete="name"
+                required
+                onChange={(value) => handlename(value)}
+              />
+              {namerr ? <div className="err">Name error bro</div> : <div></div>}
+              <br />
+              <label className="label">Email*</label>
+              <br />
+              <input
+                type="email"
+                autoComplete="email"
+                required
+                onChange={(value) => handlemail(value)}
+              />
+              {mailerr ? <div className="err">Email error bro</div> : <div></div>}
+              <br />
+              <label className="label">Phone No*</label>
+              <br />
+              <input
+                type="text"
+                pattern="[0-9]*"
+                maxLength="10"
+                required
+                onChange={(value) => handlephno(value)}
+              />
+              {phnoerr ? (
+                <div className="err">Number error bro</div>
+              ) : (
+                <div></div>
+              )}
+              <br />
+              <label className="label">New Password*</label>
+              <br />
+              <Space direction="vertical">
+                <Input.Password
+                  className="pwd-input"
+                  type="password"
+                  required
+                  onChange={(value) => handleNpassword(value)}
+                  iconRender={(visible) =>
+                    visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+                  }
+                />
+              </Space>
+              <br />
+              <br />
+              <label className="label">Confirm Password*</label>
+              <br />
+              <input
                 type="password"
                 required
-                onChange={(value) => handleNpassword(value)}
-                iconRender={(visible) =>
-                  visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
-                }
+                onChange={(value) => handleCpassword(value)}
               />
-            </Space>
-            {/* <input type="password" required onChange={(value) => handleNpassword(value)} /> */}
-            <br />
-            <br />
-            <label className='label'>Confirm Password*</label><br />
-            <input type="password" required onChange={(value) => handleCpassword(value)} />
-            {passerr ? <div className='err'>password error</div> : <div></div>}
-            <br />
-            <button type='submit' className='button-text'>Register</button>
-          </form>
-          {/* <Routes>
-          <Route path="SignUpPage" element={<SignUpPage/>}/>
-        </Routes> */}
-          {/* <Routes>
-          <Route path="SignUpPage" element={<SignUpPage/>}>Already Registered? Sign  in ></Route>
-        </Routes> */}
-          <li>
-            <Link to="/student/signin">
-              Already Registered? Sign  in
-            </Link>
-          </li>
-          <li>
-            <Link to="/student/signup">
-              Learn More About Us
-            </Link>
-          </li>
+              {passerr ? <div className="err">password error</div> : <div></div>}
+              <div className="button-section">
+                <button type="submit" className="button-text">
+                  Register
+                </button>
+              </div>
+            </form>
+            <div className="bottom-text">
+              <Link to="/mentor/signin">Already Registered? Sign in</Link>
+              {/* <div>Already Registered? Sign in </div> */}
+              <div>Know More About Us </div>
+            </div>
+          </div>
         </div>
       </div>
     </>

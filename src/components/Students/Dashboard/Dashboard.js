@@ -17,6 +17,7 @@ import StudentDashboard from './StudentDashboard'
 // import MentorAssignments from '../Mentors/MentorAssignments/MentorAssignments'
 import Profile from '../Profile/Profile'
 import Assignments from '../Assignments/Assignments'
+import StudentRegisteredCourses from './StudentMainDashboard/StudentRegisteredCourses'
 // const { SubMenu } = Menu;
 // import { Link } from 'react-router-dom';
 const { Header, Content, Sider } = Layout;
@@ -112,12 +113,12 @@ export default function Dashboard() {
         {/* <Content> */}
          {/* <Router> */}
            <Routes>
-           <Route  path='/'  element={<StudentDashboard/>}></Route>
+           <Route  path='/'  element={<StudentRegisteredCourses/>}></Route>
            <Route path="/student/signup" element={<Navigate replace={true} to="/Dashboard"></Navigate>} >  </Route>
-
-             <Route  path='/Dashboard' element={<StudentDashboard/>}></Route>
+             <Route  path='/Dashboard' element={<StudentRegisteredCourses/>}></Route>
            <Route path='/Dashboard/profile' element={<Profile/>}></Route>
            <Route path='/Dashboard/assignments' element={<Assignments/>}></Route>
+           {/* <Route path='/Dashboard' element={<StudentRegisteredCourses/>} ></Route> */}
            </Routes>
 
          {/* </Router> */}

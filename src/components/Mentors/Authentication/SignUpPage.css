@@ -49,6 +49,8 @@ input{
 .heading{
     font-size: 32px;
     font-family: Rubik;
+    font-weight:bold;
+    /* background-color: #004E89; */
 }
 .subheading{
  font-size: 18px;
@@ -69,13 +71,16 @@ button{
     border-style: none;
     border-radius: 20px;
     cursor: pointer;
+    /* margin-top: 100px !important; */
 }
 .button-text{
 color:  #FFFFFF;
 font-weight: bold;
 font-size: 16px;
 font-family: Rubik;
-margin: 16px 0px;
+margin: 16px 10px;
+/* background-color:pink */
+/* margin-top:10px; */
 }
 /* .button:hover{
 opacity: 0.6
@@ -129,4 +134,12 @@ width: 296px !important;
 .mentor_img{
    width: auto;
    height: auto;
+}
+.button-section
+{
+    padding-top:20px;
+}
+.bottom-text
+{
+    padding-top:10px;
 }
