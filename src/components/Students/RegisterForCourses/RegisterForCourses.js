@@ -9,31 +9,40 @@ import db from "../../../firebaseConfig";
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { useState } from 'react';
 export default function RegisterForCourses(props) {
-  useEffect(async()=>{
+  const [coursesData,setCoursesData]=useState([])
+  useEffect( async()=>{
+    console.log("hehehehehhe i am from register for course page")
     const test = await getDocs(collection(db,  "colleges",props.collegeName,"courses"));
+    // console.log("test is",test)
     test.forEach((doc)=>{
-      console.log(doc.data().Title,"dfghjk");
+      // console.log(doc.data(),"dfghjk");
+      coursesData.push(doc.data())
+      setCoursesData(coursesData)
       // y.push(doc.data())
-
-
-      
     })
-    setDetails(y)
-    console.log(details,"dhgSJ");
-    try {
-      const auth = getAuth();
-      onAuthStateChanged(auth,user =>{
-        console.log(user.uid,user.email)
+    console.log("course data finaly is in ",coursesData)
   })
+  // useEffect(async()=>{
+    // test.forEach((doc)=>{
+    //   console.log(doc.data().Title,"dfghjk");
+    //   y.push(doc.data())
+    // })
+    // setDetails(y)
+    // console.log(details,"dhgSJ");
+//     try {
+//       const auth = getAuth();
+//       onAuthStateChanged(auth,user =>{
+//         console.log(user.uid,user.email)
+//   })
  
-} catch (err) {
-  console.error(err);
-  alert(err.message);
-}
-  })
+// } catch (err) {
+//   console.error(err);
+//   alert(err.message);
+// }
+  // })
   const [details,setDetails]=useState({})
   const y=[]
-  const auth=getAuth()
+  // const auth=getAuth()
   
   // useEffect=(async()=>{
   //   const data=await getDoc(doc(db,"colleges",props.collegeName,"students",props.userUid))
