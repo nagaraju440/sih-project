@@ -34,7 +34,12 @@ export default function IdeanaHome() {
               <div className="Ideana_views">20 views</div>
          </div>
          <div>
-             1
+         <div>
+                 <img src={img3}/>
+             </div>
+             <div className="Ideana_heading">Artificial Hand - Project Idea</div>
+              <div className="Ideana_text">Project Description in detail 3 lines hfghsgdh bkfzjsd.: Hey cleo! Can you clarity my to react native..? I was confused what to choose in developing....</div>
+              <div className="Ideana_views">20 views</div>
          </div>
          </Carousel> 
          <div className="Ideana_buttonpart">

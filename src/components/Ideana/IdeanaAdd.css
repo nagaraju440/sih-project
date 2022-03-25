@@ -2,13 +2,13 @@
 {
     display: flex;
     flex-direction:column;
-    padding-left:50px;
     padding-top: 50px;
 }
 .Ideana_heading
 {
     font-size:24px;
     font-weight:bold;
+    /* text-align: center; */
 }
 .Ideana_postcard
 {
@@ -44,4 +44,20 @@
    width: 95%;
    margin-left: 15px;
    margin-top: 10px;
+}
+.Ideana_postbutton
+{
+    padding-top: 20px;
+    /* padding-left: 55px; */
+    width: 180px;
+    font-size:18px;
+    font-weight:600;
+    color: #fff
+}
+.postmain
+{
+    display: flex;
+    justify-content:center;
+    /* align-items:center; */
+    /* text-align:center; */
 }
