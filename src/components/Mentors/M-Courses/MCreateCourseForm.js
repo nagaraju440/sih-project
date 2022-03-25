@@ -23,6 +23,9 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged
 } from "firebase/auth";
+
+import { Modal } from 'antd';
+
 import { SidebarFooter } from "react-pro-sidebar";
 
 function MCreateCourseForm() {
@@ -61,7 +64,34 @@ function MCreateCourseForm() {
   const [Ptitle,setPTitle]=useState("")
   const [Pdes,setPDes]=useState("")
   const [count,setcount]=useState(0)
-  
+  const [titleValue, setTitleValue] = useState('');
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [projectsData,setProjectsData]=useState([])
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
+
+  const AddProject=()=>{
+
+    setIsModalVisible(false);
+   var d={
+     title:titleValue,
+     description:"project description"
+   }
+   projectsData.push(d)
+   setProjectsData(projectsData)
+   console.log("projects data is",projectsData)
+   setTitleValue("")
+  }
   
  
 
@@ -220,7 +250,53 @@ function MCreateCourseForm() {
           onChange={link}
         />
       </div>
+      <div>
       <div className="MCreateCourseFormProjectCard">
+        <div className="MCreateCourseFormProjectTitleSection">
+          <div className="MCreateCourseFormProjectTitle">Project</div>
+          <div className="MCreateCourseFormProjectIconSection">
+            <img
+              src={AddIcon}
+              alt="add icon"
+              className="MCreateCourseFormProjectAddIcon"
+              onClick={showModal}
+            ></img>
+            <img
+              src={EditIcon}
+              alt="Edit icon"
+              className="MCreateCourseFormProjectEditIcon"
+            ></img>
+          </div>
+        </div>
+       <div>
+         <ul>
+           {projectsData.map((l,i)=>{
+                 return(
+                  <li><b>{l.title}</b></li>
+                 )
+           })}
+         </ul>
+       </div>
+
+      </div>  
+      <Modal title="Add Project" visible={isModalVisible} footer={null} onOk={handleOk} onCancel={handleCancel} closable={null} width={600}>
+      <input
+          className="MCreateCourseFormProjectInput"
+          placeholder="Enter the title of the project"
+          value={titleValue}
+          onChange={(e)=>{
+            console.log("value is",e.target.value)
+            setTitleValue(e.target.value)
+          }}
+        />
+        <TextArea
+          className="MCreateCourseFormProjectInput"
+          placeholder="Enter the project descripition"
+        ></TextArea>
+        <div className="MCreateCourseFormProjectCardBtn" onClick={AddProject} >Done</div>
+      </Modal>
+    </div>
+      {/* <div className="MCreateCourseFormProjectCard">
         <div className="MCreateCourseFormProjectTitleSection">
           <div className="MCreateCourseFormProjectTitle">Project</div>
           <div className="MCreateCourseFormProjectIconSection">
@@ -277,7 +353,7 @@ function MCreateCourseForm() {
           onChange={value =>{handleDes(value)}}
         ></TextArea>
         <div className="MCreateCourseFormProjectCardBtn">Done</div>
-      </div>
+      </div> */}
 
       <div className="MCreateCourseFormCreateCourseBtn" onClick={onSubmitdata}>Create Course</div>
     </div>
