@@ -1,5 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import { Card } from 'antd'
+import { Modal, Button } from 'antd';
 // import { Layout, Menu, Breadcrumb } from 'antd';
 import { UserOutlined, LaptopOutlined, NotificationOutlined,EditFilled,PlusOutlined } from '@ant-design/icons';
 import { ProSidebar, MenuItem, SubMenu, SidebarHeader, SidebarContent, SidebarFooter } from 'react-pro-sidebar';
@@ -11,7 +12,7 @@ import MCreateCourseForm from '../M-Courses/MCreateCourseForm';
 import {
   Menu,
   Dropdown,
-  Button,
+  // Button,
   message,
   Space,
   Tooltip,
@@ -24,17 +25,39 @@ import AddIcon from "../../../assets/Icons/Plus.svg";
 import EditIcon from "../../../assets/Icons/edit.svg";
 export default function MentorProfile(props) {
    const auth=getAuth()
+   
   useEffect(async () => {
     const test = await getDoc(doc(db,  "colleges",props.collegeName,"mentors",props.userUid));
     console.log("data of amentor at profile page is",test.data().data)
   }, [])
   const [info , setInfo] = useState([]);
   const [crds,setCrds]=useState([1])
-  const [value, setValue] = useState(null);
-  
-  const AddCard=()=>{
-    setCrds([...crds,1])
-  console.log('././.',crds);
+  const [titleValue, setTitleValue] = useState('');
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [projectsData,setProjectsData]=useState([])
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
+  const AddProject=()=>{
+
+    setIsModalVisible(false);
+   var d={
+     title:titleValue,
+     description:"project description"
+   }
+   projectsData.push(d)
+   setProjectsData(projectsData)
+   console.log("projects data is",projectsData)
+   setTitleValue("")
   }
   const { TextArea } = Input;
     // console.log("mentor profle",props.collegeName,"is college name of a mentor","user uid is",props.userUid)
@@ -49,7 +72,7 @@ export default function MentorProfile(props) {
               src={AddIcon}
               alt="add icon"
               className="MCreateCourseFormProjectAddIcon"
-              onClick={()=>AddCard()}
+              onClick={showModal}
             ></img>
             <img
               src={EditIcon}
@@ -58,18 +81,33 @@ export default function MentorProfile(props) {
             ></img>
           </div>
         </div>
-        <input
+       <div>
+         <ul>
+           {projectsData.map((l,i)=>{
+                 return(
+                  <li><b>{l.title}</b></li>
+                 )
+           })}
+         </ul>
+       </div>
+
+      </div>  
+      <Modal title="Add Project" visible={isModalVisible} footer={null} onOk={handleOk} onCancel={handleCancel} closable={null} width={600}>
+      <input
           className="MCreateCourseFormProjectInput"
           placeholder="Enter the title of the project"
-          // value="title"
-          // onChange={(value)=>}
+          value={titleValue}
+          onChange={(e)=>{
+            console.log("value is",e.target.value)
+            setTitleValue(e.target.value)
+          }}
         />
         <TextArea
           className="MCreateCourseFormProjectInput"
           placeholder="Enter the project descripition"
         ></TextArea>
-        <div className="MCreateCourseFormProjectCardBtn">Done</div>
-      </div> 
+        <div className="MCreateCourseFormProjectCardBtn" onClick={AddProject} >Done</div>
+      </Modal>
     </div>
 //     <div>
 //         <Card>
