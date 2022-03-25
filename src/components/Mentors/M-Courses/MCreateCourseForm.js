@@ -137,7 +137,7 @@ function MCreateCourseForm() {
       onAuthStateChanged(auth,user =>{
         console.log(user.uid,user.email)
 
-     setDoc(doc(db, "colleges", "srkr","mentors",user.uid,"courses","course8"), {
+       addDoc(collection(db, "colleges", "srkr","mentors",user.uid,"courses"), {
        Category:Category1,
        Language:Language1,
        Standard:Standard1,
@@ -161,7 +161,7 @@ function MCreateCourseForm() {
     // time:"10:00",
     // date: Timestamp.fromDate(new Date("December 10, 1815")),
     })
-    setDoc(doc(db,"colleges","srkr","courses",user.uid),{
+    addDoc (collection(db,"colleges","srkr","courses"),{
       Category:Category1,
        Language:Language1,
        Standard:Standard1,
