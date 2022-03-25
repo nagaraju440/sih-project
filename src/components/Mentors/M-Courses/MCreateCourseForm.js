@@ -134,10 +134,6 @@ function MCreateCourseForm() {
     let data = location.state
     try {
       const auth = getAuth();
-<<<<<<< HEAD
-      onAuthStateChanged(auth, (user) => {
-        console.log(user.uid, user.email);
-=======
       onAuthStateChanged(auth,user =>{
         console.log(user.uid,user.email)
 
@@ -183,7 +179,6 @@ function MCreateCourseForm() {
   alert(err.message);
 }
   }
->>>>>>> b69c94b511d9ca46cbfc36080ca060bd5667d63d
 
 
 
