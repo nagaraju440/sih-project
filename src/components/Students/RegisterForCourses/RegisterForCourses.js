@@ -1,9 +1,26 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import '../RegisterForCourses/RegisterForCourses.css'
 import img1 from '../../../assets/Images/Courses.png'
 import HeartIcon from "../../../assets/Icons/heart.svg";
 import star from "../../../assets/Icons/Star.svg";
-export default function RegisterForCourses() {
+import { collection, doc, setDoc, addDoc,getDoc } from "firebase/firestore";
+import db from "../../../firebaseConfig.js";
+
+
+export default function RegisterForCourses(props) {
+
+ 
+  // useEffect=(async()=>{
+  //   const x=await getDoc(doc(db,"colleges",props.collegeName,"mentors"))
+  //     console.log(x,'fghjkl');
+
+  // })
+
+  useEffect(async() => {
+    const x=await getDoc(doc(db,"colleges",props.collegeName,"mentors"))
+      console.log(x,'fghjkl');
+  });
+  
   return (
     <div >
       <div className="card1">
