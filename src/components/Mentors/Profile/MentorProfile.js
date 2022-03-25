@@ -23,7 +23,7 @@ export default function MentorProfile() {
     // })
   return (
     <div>
-        <Card>
+        <Card className='card_style'>
   {/* <p style="background-image:url('../../../assets/Images/avtar.jpg')"> */}
 
   {/* </p>  */}
