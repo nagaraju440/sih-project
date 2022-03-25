@@ -51,7 +51,7 @@ export default function IdeanaAdd() {
           </div>
         </div>
       </div>
-      <div>
+      <div className="Ideana_button">
         <button>Post</button>
       </div>
     </div>
