@@ -1,5 +1,6 @@
 import React, { Component, useState } from 'react'
 import * as EmailValidator from 'email-validator';
+import './SignIn.css'
 // import {
 //   Routes, Route, Link, BrowserRouter as Router,
 //   Switch, withRouter,useNavigate  
@@ -11,6 +12,7 @@ import {
   Routes, Route, Link, BrowserRouter as Router,
   Switch, withRouter, useNavigate
 } from "react-router-dom";
+import Micon from './assets/Icons/Micon.png'
 // import { Input, Space } from "antd";
 // import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import NavBar from './components/Students/Authentication/NavBar';
@@ -48,12 +50,16 @@ export default function SignInPage() {
 
   }
   return (
-    <>
-    <NavBar/>
-      <div className='container'>
-        <div></div>
-        <div>
-          <div className='heading'> Sign in</div>
+    <div className='signin-main-container'>
+    <div ><NavBar/></div>
+      <div className='signin-main-inner-container'>
+      <div className='signin-container'>
+        <div > 
+            <div className='signin-heading-container'>
+            <img src={Micon} alt="logo" className="micon-style" />
+            
+            <div className='heading'> Sign in</div>
+            </div>
           <div>
             <div className='subheading'>Please, provide  the information below</div><br />
             <form onSubmit={submithandler}>
@@ -76,21 +82,22 @@ export default function SignInPage() {
               <div className='forget-password'>Forget Password ? click here !</div><br />
               <button className='button-text' type='submit'>Sign in</button>
             </form>
-            <li>
+            <div className='signin-bottom-text1'>
               <Link to="/student/signup">
               Don’t have an account ? Sign  up 
               </Link>
-            </li>
-            <li>
+            </div>
+            <div>
               <Link to="/Dashboard">
               Know More About Us
               </Link>
-            </li>
+            </div>
             {/* <div >Don’t have an account ? Sign  up </div> */}
             {/* <div>Know More About Us </div> */}
           </div>
         </div>
       </div>
-    </>
+      </div>
+    </div>
   )
 }

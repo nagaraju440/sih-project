@@ -36,21 +36,24 @@ export default function SignUpPage3(props) {
       const auth = getAuth();
       const res = await createUserWithEmailAndPassword(auth, data.email, data.password);
       const user = res.user;
+      const test1 = await setDoc(
+        doc(db,  "users", user.uid),
+        {
+          role: 'mentor',
+          collegeName:data.collegeName
+        }
+      );
+
+      
       // const user = userCredential.user;
       console.log(user);
       const test = await setDoc(
-        doc(db, "colleges", "srkr", "mentors", user.uid),
+        doc(db, "colleges", data.collegeName, "mentors", user.uid),
         {
           data
         }
       );
-      const test1 = await setDoc(
-        doc(db, "colleges", "srkr", "users", user.uid),
-        {
-          role: 'mentor'
-        }
-      );
-
+    
     } catch (err) {
       console.error(err);
       alert(err.message);
