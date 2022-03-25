@@ -286,9 +286,9 @@ function MCreateCourseForm() {
         />
       </div>
       {/* ......................for schedule and syllabus modal and code.............................. */}
-      <div>
+      <div >
       <div className="MCreateCourseFormSubTitle">Schedule and syllabus </div>
-      <div className="MCreateCourseFormProjectCard">
+      <div className="MCreateCourseFormProjectCard MCreateCourseFormContainer">
         <div className="MCreateCourseFormProjectTitleSection">
           <div className="MCreateCourseFormProjectTitle"></div>
           <div className="MCreateCourseFormProjectIconSection">
@@ -348,9 +348,11 @@ function MCreateCourseForm() {
         />
       </div>
       <div>
-      <div className="MCreateCourseFormProjectCard">
-        <div className="MCreateCourseFormProjectTitleSection">
-          <div className="MCreateCourseFormProjectTitle">Project</div>
+      <div className="MCreateCourseFormSubTitle">Add Projects </div>
+
+      <div className="MCreateCourseFormProjectCard MCreateCourseFormContainer">
+        <div className="MCreateCourseFormProjectTitleSection ">
+          <div className="MCreateCourseFormProjectTitle"></div>
           <div className="MCreateCourseFormProjectIconSection">
             <img
               src={AddIcon}
