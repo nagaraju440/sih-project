@@ -3,12 +3,18 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    /* background-color:pink */
 }
 .form{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: left;
+    /* justify-content: left;
+    align-items: left; */
+    /* background-color:pink; */
+    width: 50%;
+    text-align: left;
+    padding-left:80px
 }
 input{
     border-style: none;
@@ -21,11 +27,14 @@ input{
 .heading{
     font-size: 24px;
     font-family: Rubik;
+    font-weight:bold;
+    background-color: #004E89;
 }
 .subheading{
- font-size: 18px;
- font-weight: 500 ;
- color: #514D57;
+ font-size: 12px;
+ font-weight: 400 ;
+ color: #878191;
+ background-color: #95a5b1;
 }
 label{
     font-size: 16px;
@@ -97,8 +106,15 @@ width: 296px !important;
    background: none !important;
 }
 .mentor_img{
-    width: 82%;
-    height: auto;
-    padding-left: -40%;
-    /* left: -200; */
+    width: 100%;
+    height: 896px;
+    margin-right:200px
+
 }
+.image_container{
+    /* background-color: #514D57; */
+    width: 60%;
+    /* padding: 10px; */
+    /* margin-right: 800px; */
+}
+

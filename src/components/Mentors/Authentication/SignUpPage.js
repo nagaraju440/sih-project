@@ -138,7 +138,7 @@ export default function SignUpPage(props) {
     <>    
     <NavBar/>
       <div className="container">
-        <div>
+        <div className="image_container">
           <img src={Mentor_img} className="mentor_img" />
         </div>
         <div className="form">
