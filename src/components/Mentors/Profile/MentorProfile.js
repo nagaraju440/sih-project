@@ -33,6 +33,7 @@ export default function MentorProfile(props) {
   const [info , setInfo] = useState([]);
   const [crds,setCrds]=useState([1])
   const [titleValue, setTitleValue] = useState('');
+  const [descValue,setDescvalue]=useState("");
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [projectsData,setProjectsData]=useState([])
   const showModal = () => {
@@ -52,12 +53,13 @@ export default function MentorProfile(props) {
     setIsModalVisible(false);
    var d={
      title:titleValue,
-     description:"project description"
+     description:descValue
    }
    projectsData.push(d)
    setProjectsData(projectsData)
    console.log("projects data is",projectsData)
    setTitleValue("")
+   setDescvalue("")
   }
   const { TextArea } = Input;
     // console.log("mentor profle",props.collegeName,"is college name of a mentor","user uid is",props.userUid)
@@ -85,7 +87,11 @@ export default function MentorProfile(props) {
          <ul>
            {projectsData.map((l,i)=>{
                  return(
+                   <>
+                   {console.log(l,"ohohoh")}
                   <li><b>{l.title}</b></li>
+                  <li><b>{l.description}</b></li>
+                  </>
                  )
            })}
          </ul>
@@ -100,11 +106,16 @@ export default function MentorProfile(props) {
           onChange={(e)=>{
             console.log("value is",e.target.value)
             setTitleValue(e.target.value)
+            // setDescvalue(e.)
           }}
         />
         <TextArea
           className="MCreateCourseFormProjectInput"
           placeholder="Enter the project descripition"
+          value={descValue}
+          onChange={(e)=>{
+            setDescvalue(e.target.value)
+          }}
         ></TextArea>
         <div className="MCreateCourseFormProjectCardBtn" onClick={AddProject} >Done</div>
       </Modal>
