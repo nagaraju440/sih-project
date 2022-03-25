@@ -15,6 +15,9 @@ export default function SignUpPage2(props) {
   const skills = ['html', 'css', 'js'];
   const languages = ['english', 'telugu', 'hindi'];
   const hobbies = ['cricket', 'sleeping', 'eating'];
+  const [selectedSkills,setSelectedSkills]=useState([])
+  const [selectedHobbies,setSelectedHobbies]=useState([])
+  const [selectedLanguages,setSelectedLanguages]=useState([])
   // const [linkedin,setLinkedIn]=useState("")
   // const [LinkedIn1,setLinkedin] = useState("");
    const [linkedInValue,setLinkedInValue]=useState("")  
@@ -23,7 +26,7 @@ export default function SignUpPage2(props) {
       <Option key={skills[i]} ></Option>
     );
   }
-  console.log(skills)
+  console.log("skills after for loop",skills)
   for (let i = 0; i < 3; i++) {
     languages.push(
       <Option key={languages[i]} ></Option>
@@ -38,16 +41,18 @@ const Linked=(e)=>{
   
   // setLinkedIn(e.target.value)
   console.log(e.target.value)
+
 }
 const skills1=[]
 
-  var navigateNextPage = () => {
-    console.log("hii this is next page");
+  var navigateNextPage = (e) => {
+    
     let data = location.state
-    data['skills'] = skills
+
+    data['skills'] = selectedSkills
     data['linked_in'] = linkedInValue
-    data['languages'] = languages
-    data['hobbies'] = hobbies
+    // data['languages'] = languages
+    data['hobbies'] = selectedHobbies
     console.log("location is", data)
 
     navigate("/mentor/signup3", { state: data });
@@ -59,12 +64,20 @@ const skills1=[]
 
   function Languages(value1) {
     console.log(`selected language ${value1}`);
+    setSelectedLanguages(Object.values(value1))
   }
   function Hobbies(value2) {
     console.log(`selected hoby ${value2}`);
+    setSelectedHobbies(Object.values(value2))
+
   }
   function Skills(x) {
-    console.log(`selected skill ${x}`);
+    // console.log(`selected skill ${x}`,typeof(x),Object.values(x));
+
+    // setSelectedSkills([])
+
+    setSelectedSkills(Object.values(x))
+    // console.log("selected skills are ",selectedSkills)
   }
   
   return (
@@ -84,7 +97,7 @@ const skills1=[]
 
 
 
-          <form className="SignUpPage2-form-sub">
+          <div className="SignUpPage2-form-sub">
             <label className="SignUpPage2-label">Add Skills</label>
             <br />
             <div className="SignUpPage2-form-select">
@@ -92,7 +105,7 @@ const skills1=[]
                 className="SignUpPage2-form-tags"
                 mode="tags"
                 style={{ width: "100%" }}
-                tokenSeparators={[","]}
+                tokenSeparators={[""]}
                 onChange={Skills}
               >
                 {skills}
@@ -138,7 +151,7 @@ const skills1=[]
             <div className="SignUpPage2-button-class">
               <button onClick={navigateNextPage} className="SignUpPage2-button-text" >Next </button>
             </div>
-          </form>
+          </div>
 
           {/* <div
             className="skip"
