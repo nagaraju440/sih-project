@@ -64,10 +64,13 @@ function MCreateCourseForm() {
   const [Ptitle,setPTitle]=useState("")
   const [Pdes,setPDes]=useState("")
   const [count,setcount]=useState(0)
-  const [titleValue, setTitleValue] = useState('');
+  // const [titleValue, setTitleValue] = useState('');
+  // const [descValue,setDescvalue]=useState("");
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isSSModalVisible, setIsSSModalVisible] = useState(false);
   const [projectsData,setProjectsData]=useState([])
+  const [descValue,setDescvalue]=useState("");
+  const [titleValue, setTitleValue] = useState('');
   const [dayWiseData,setDayWiseData]=useState([])
   const [dayWiseValue, setDayWiseValue] = useState('');
   const [dayValue,setDayValue]=useState(1)
@@ -94,19 +97,21 @@ function MCreateCourseForm() {
     setIsSSModalVisible(false);
   };
 
-
   const AddProject=()=>{
+
     setIsModalVisible(false);
    var d={
      title:titleValue,
-     description:"project description"
+     description:descValue
    }
    projectsData.push(d)
    setProjectsData(projectsData)
    console.log("projects data is",projectsData)
    setTitleValue("")
+   setDescvalue("")
   }
-  
+ 
+
   const AddDayWiseData=()=>{
     setIsSSModalVisible(false);
    var d={
@@ -138,7 +143,9 @@ function MCreateCourseForm() {
        Standard:Standard1,
        Link:Link,
        Title:Title,
-      Projects:[{title:Ptitle,des:Pdes}]
+       Projects:projectsData,
+       Schedule:dayWiseData
+      // Projects:[{title:Ptitle,des:Pdes}]
        
     // title: "Hello world!",
     // link:"zoom.com",
@@ -153,6 +160,16 @@ function MCreateCourseForm() {
     // date:"5/10/2020",
     // time:"10:00",
     // date: Timestamp.fromDate(new Date("December 10, 1815")),
+    })
+    setDoc(doc(db,"colleges","srkr","courses",user.uid),{
+      Category:Category1,
+       Language:Language1,
+       Standard:Standard1,
+       Link:Link,
+       Title:Title,
+       Projects:projectsData,
+       Schedule:dayWiseData,
+       uid:user.uid
     })
   })
 
@@ -269,9 +286,9 @@ function MCreateCourseForm() {
         />
       </div>
       {/* ......................for schedule and syllabus modal and code.............................. */}
-      <div>
+      <div >
       <div className="MCreateCourseFormSubTitle">Schedule and syllabus </div>
-      <div className="MCreateCourseFormProjectCard">
+      <div className="MCreateCourseFormProjectCard MCreateCourseFormContainer">
         <div className="MCreateCourseFormProjectTitleSection">
           <div className="MCreateCourseFormProjectTitle"></div>
           <div className="MCreateCourseFormProjectIconSection">
@@ -331,9 +348,11 @@ function MCreateCourseForm() {
         />
       </div>
       <div>
-      <div className="MCreateCourseFormProjectCard">
-        <div className="MCreateCourseFormProjectTitleSection">
-          <div className="MCreateCourseFormProjectTitle">Project</div>
+      <div className="MCreateCourseFormSubTitle">Add Projects </div>
+
+      <div className="MCreateCourseFormProjectCard MCreateCourseFormContainer">
+        <div className="MCreateCourseFormProjectTitleSection ">
+          <div className="MCreateCourseFormProjectTitle"></div>
           <div className="MCreateCourseFormProjectIconSection">
             <img
               src={AddIcon}
@@ -372,6 +391,10 @@ function MCreateCourseForm() {
         <TextArea
           className="MCreateCourseFormProjectInput"
           placeholder="Enter the project descripition"
+          value={descValue}
+          onChange={(e)=>{
+            setDescvalue(e.target.value)
+          }}
         ></TextArea>
         <div className="MCreateCourseFormProjectCardBtn" onClick={AddProject} >Done</div>
       </Modal>
