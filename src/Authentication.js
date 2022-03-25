@@ -35,8 +35,8 @@ function Authentication() {
         console.log("user is,", user)
 
         if (user) {
-            const test = await getDoc(doc(db,  "users", user.uid));
-            console.log("user details in main page", test.data().role,test.data());
+            const test = await getDoc(doc(db, "colleges", "srkr", "users", user.uid));
+            console.log("user details in main page", test.data().role);
             setUserRole(test.data().role)
             // auth.signOut()
             // User is signed in.
@@ -52,21 +52,25 @@ function Authentication() {
     if (authenticated) {
         if (userRole == 'mentor') {
             console.log("authenticated in if", authenticated);
-            return <MCourses/>
-            // <MentorDashboard />
+            return(
+                <>
+                 <MentorDashboard />
+                 {/* <MCourses/> */}
+                 </>
+            )
         }
         else {
             return 
-            <MCourses/>
-            // <StudentDashboard />
+            (<>
+            <StudentDashboard />
+            </>
+            )
         }
 
     }
     else {
         console.log("authenticated in else", authenticated);
-        return 
-        <MCourses/>
-        // <NotAuthenticated />
+        return <NotAuthenticated />
     }
 }
 

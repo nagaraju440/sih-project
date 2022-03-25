@@ -1,11 +1,26 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { Card } from 'antd'
 import { Layout, Menu, Breadcrumb } from 'antd';
 import { UserOutlined, LaptopOutlined, NotificationOutlined,EditFilled,PlusOutlined } from '@ant-design/icons';
 import { ProSidebar, MenuItem, SubMenu, SidebarHeader, SidebarContent, SidebarFooter } from 'react-pro-sidebar';
 import Avatar from '../../../assets/Images/avtar.jpg'
+import MCreateCourseForm from '../M-Courses/MCreateCourseForm';
+// import { collection, doc, setDoc } from "firebase/firestore"; 
+import db from '../../../firebaseConfig';
+import { doc, getDoc } from "firebase/firestore";
+// import { useEffect } from 'react';
 export default function MentorProfile() {
     console.log("mentor profle")
+    const docRef = doc(db, "colleges", "srkr","courses","courses");
+    // useEffect=(()=>{
+    //   const docSnap=await getDoc(docRef)
+    // })
+    // useEffect=(async()=>{
+    //   // const getdoc=async()=>{
+    //     const docSnap = await getDoc(docRef);
+    //     // console.log(docSnap.data(),"....");
+    //   // }
+    // })
   return (
     <div>
         <Card>
@@ -26,6 +41,7 @@ export default function MentorProfile() {
       <div>sunilkalikayi2580@gmail.com</div>
     </div>
   </div>
+  {/* {getdoc()} */}
 </Card>
 <Card bordered="true" title="About" hoverable="true" extra={<I/>}>
       I am a Frontend Developer, and use to teach the programming languages .
@@ -90,6 +106,8 @@ https://github.com/sunilkalikayi
 hehhehehe
 </div> */}
 </Card> 
+{/* <MCourses/> */}
+<MCreateCourseForm/>
     </div>
   )
 }
