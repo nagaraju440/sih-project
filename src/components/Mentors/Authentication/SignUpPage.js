@@ -217,15 +217,15 @@ export default function SignUpPage(props) {
             />
             {passerr ? <div className="err">password error</div> : <div></div>}
             <div className="button-section">
-            <button type="submit" className="button-text">
-              Register
-            </button>
+              <button type="submit" className="button-text">
+                Register
+              </button>
             </div>
           </form>
           <div className="bottom-text">
-          <Link to="/mentor/signin">Already Registered? Sign in</Link>
-          {/* <div>Already Registered? Sign in </div> */}
-          <div>Know More About Us </div>
+            <Link to="/mentor/signin">Already Registered? Sign in</Link>
+            {/* <div>Already Registered? Sign in </div> */}
+            <div>Know More About Us </div>
           </div>
         </div>
       </div>
