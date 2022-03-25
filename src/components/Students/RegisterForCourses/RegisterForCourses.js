@@ -12,24 +12,24 @@ export default function RegisterForCourses(props) {
   useEffect(async()=>{
     const test = await getDocs(collection(db,  "colleges",props.collegeName,"courses"));
     test.forEach((doc)=>{
-      console.log(doc.data().Title,"dfghjk");
-      // y.push(doc.data())
-
+      // console.log(doc.data().Title,"dfghjk");
+      y.push(doc.data(),"yeeeey")
+      try {
+        const auth = getAuth();
+        onAuthStateChanged(auth,user =>{
+          console.log(user.uid,user.email)
+    })
+   
+  } catch (err) {
+    console.error(err);
+    alert(err.message);
+  }
 
       
     })
     setDetails(y)
     console.log(details,"dhgSJ");
-    try {
-      const auth = getAuth();
-      onAuthStateChanged(auth,user =>{
-        console.log(user.uid,user.email)
-  })
- 
-} catch (err) {
-  console.error(err);
-  alert(err.message);
-}
+  
   })
   const [details,setDetails]=useState({})
   const y=[]
