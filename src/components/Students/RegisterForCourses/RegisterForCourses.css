@@ -53,15 +53,39 @@
      padding-left: 10px;
  }
  .Card1_button
- {
-     justify-content:center;
-     text-align:center;
-     padding:10px
+ {  
+     display: flex;
+     flex-direction: row;
+     padding-top: 10px;
+     padding-bottom: 10px; 
+     justify-content:space-around;
  }
 .Card1_Register
 {
     width: 100%;
     color: #fff;
-    font-size:16px;
-    font-weight:500px
+    font-size:14px;
+    font-weight:500px;
+    padding:30px;
+    padding-top:8px;
+}
+.Card1_Rating
+{
+    width: 40px;
+    height: 30px;
+    border-radius:4px;
+    border:1px solid #ccc;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+}
+.Card1_ratingtext
+{
+    font-weight:bold;
+    padding-top:2px
+}
+.Card1_ratingicon
+{
+    padding-left:2px;
 }

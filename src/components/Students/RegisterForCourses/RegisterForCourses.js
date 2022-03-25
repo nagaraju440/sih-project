@@ -2,6 +2,7 @@ import React from 'react'
 import '../RegisterForCourses/RegisterForCourses.css'
 import img1 from '../../../assets/Images/Courses.png'
 import HeartIcon from "../../../assets/Icons/heart.svg";
+import star from "../../../assets/Icons/Star.svg";
 export default function RegisterForCourses() {
   return (
     <div >
@@ -19,7 +20,12 @@ export default function RegisterForCourses() {
           <div className="Card1_time">• 5pm to 7 pm</div>
         </div>
         <div className="Card1_button">
+          <div>
           <button className="Card1_Register">Register Now</button>
+          </div>
+          <div className="Card1_Rating"><div className="Card1_ratingtext">4</div>
+          <div className="Card1_ratingicon"><img src={star} style={{width: '20px', height: '20px'}}/></div>
+          </div>
         </div>
       </div>
       
