@@ -9,6 +9,7 @@ import {
   Switch,
   withRouter,
   useNavigate,
+  useLocation,
 } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 import {
@@ -23,13 +24,17 @@ import { collection, doc, setDoc, addDoc } from "firebase/firestore";
 import { async } from "@firebase/util";
 import { Input, Space } from "antd";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
-import Mentor_img from '../../../assets/Images/Mentor_SignUp_img.png'
+import Mentor_img from "../../../assets/Images/Mentor_SignUp_img.png";
 import NavBar from "../../Students/Authentication/NavBar";
 // const auth = getAuth();
+
+import Logo from "../../../assets/Icons/Micon.png";
 
 export default function SignUpPage(props) {
   // let history = useHistory();
   const navigate = useNavigate();
+  const location = useLocation();
+  console.log("college name is in sign up page is", location.state);
 
   // console.log("props/ in sign up page is",navigate)
   const [name, setname] = useState("");
@@ -65,7 +70,10 @@ export default function SignUpPage(props) {
       name: name,
       email: email,
       password: password,
-    }
+      collegeName: location.state.collegeName,
+    };
+    // console.log("college name is in sign up page is",data)
+
     navigate("/mentor/signup2", { state: data });
     // try {
     //   const auth = getAuth();
@@ -135,14 +143,17 @@ export default function SignUpPage(props) {
   };
 
   return (
-    <>    
-    <NavBar/>
+    <div className="singUpPage">
+      <NavBar />
       <div className="container">
-        <div>
+        <div className="signUpLeftContainer">
           <img src={Mentor_img} className="mentor_img" />
         </div>
         <div className="form">
-          <div className="heading">Mentor Registartion</div>
+          <div className="signUpFormHeaderSection">
+            <img src={Logo} alt="" className="Logo" />
+            <div className="heading">Mentor Registartion</div>
+          </div>
           <div className="subheading">
             Please, provide the information below
           </div>
@@ -205,18 +216,19 @@ export default function SignUpPage(props) {
               onChange={(value) => handleCpassword(value)}
             />
             {passerr ? <div className="err">password error</div> : <div></div>}
-            <br />
-            <button type="submit" className="button-text" >
-              Register
-            </button>
+            <div className="button-section">
+              <button type="submit" className="button-text">
+                Register
+              </button>
+            </div>
           </form>
-          <li>
-            <Link to='/mentor/signin'>Already Registered? Sign in</Link>
-          </li>
-          {/* <div>Already Registered? Sign in </div> */}
-          <div>Know More About Us </div>
+          <div className="bottom-text">
+            <Link to="/mentor/signin">Already Registered? Sign in</Link>
+            {/* <div>Already Registered? Sign in </div> */}
+            <div>Know More About Us </div>
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

@@ -9,7 +9,7 @@ import { ProSidebar, MenuItem, SubMenu, SidebarHeader, SidebarContent, SidebarFo
 import Avatar from '../../assets/Images/avtar.jpg'
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import {
-  Routes, Route, Link, BrowserRouter as Router,
+  Routes, Route, Link, BrowserRouter as Router,Redirect,Navigate,
   Switch,
 } from "react-router-dom";
 import MentorDashboard from '../Mentors/Dashboard/MentorDashboard'
@@ -17,10 +17,11 @@ import MentorProfile from '../Mentors/Profile/MentorProfile'
 import MentorAssignments from '../Mentors/MentorAssignments/MentorAssignments'
 import MCourses from '../Mentors/M-Courses/MCourses'
 import MCreateCourseForm from '../Mentors/M-Courses/MCreateCourseForm'
+import Chat from '../Chat/Chat'
 // const { SubMenu } = Menu;
 // import { Link } from 'react-router-dom';
 const { Header, Content, Sider } = Layout;
-export default function Dashboard() {
+export default function Dashboard(props) {
   return (
     <Router>
     <div style={{width:'100%',height:'100%'}}>
@@ -77,7 +78,7 @@ export default function Dashboard() {
               <Link to="/Dashboard/assignments">Assignments</Link>
           </Menu.Item >
           <Menu.Item icon={<UserOutlined />}>
-              <Link to="/Dashboard">Chat</Link>
+              <Link to="/Dashboard/chat">Chat</Link>
           </Menu.Item>
           <Menu.Item icon={<UserOutlined />}>
               <Link to="/Dashboard">Notifications</Link>
@@ -113,12 +114,13 @@ export default function Dashboard() {
          {/* <Router> */}
            <Routes>
            <Route  path='/'  element={<MentorDashboard/>}></Route>
-
+            <Route path="/mentor/signup3" element={<Navigate replace={true} to="/Dashboard"></Navigate>} >  </Route>
              <Route  path='/Dashboard' element={<MentorDashboard/>}></Route>
-           <Route path='/Dashboard/profile' element={<MentorProfile/>}></Route>
+           <Route path='/Dashboard/profile' element={<MentorProfile collegeName={props.collegeName} userUid={props.userUid} />}></Route>
            <Route path='/Dashboard/assignments' element={<MentorAssignments/>}></Route>
            <Route path='/Dashboard/courses' element={<MCourses/>}></Route>
            <Route path='/Dashboard/courses/createCourse' element={<MCreateCourseForm/>}></Route>
+           <Route path='/Dashboard/chat' element={<Chat/>}></Route>
            </Routes>
 
          {/* </Router> */}

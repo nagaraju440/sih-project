@@ -1,0 +1,38 @@
+.signin-main-container{
+    width: 100vw;
+    height: 100vh;
+    /* background-color: red; */
+    /* text-align: c; */
+}
+.signin-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid black; */
+    padding: 20px;
+    margin-top: 100px;
+   width: 400px;
+   box-shadow:0px 4px 5px 2px rgba(0, 78, 137, 0.38);
+   /* height:100vh; */
+
+}
+.signin-main-inner-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.signin-bottom-text1{
+    padding-top: 5px;
+    /* padding-bottom: 10px; */
+}
+.micon-style{
+    width: 70px;
+    height: 70px;
+    margin-right: 10px;
+}
+.signin-heading-container{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    padding-bottom: 10px;
+}

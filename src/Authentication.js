@@ -23,11 +23,14 @@ import MentorDashboard from './components/Dashboard/Dashboard';
 import NotAuthenticated from './NotAuthenticated';
 import db from "./firebaseConfig.js";
 import StudentDashboard from './components/Students/Dashboard/Dashboard';
+import MCourses from './components/Mentors/M-Courses/MCourses';
 import Chat from './firebasechat/Chat';
 function Authentication() {
     var [authenticated, setAuthenticated] = useState(false);
     var [userRole, setUserRole] = useState('');
-
+    var [collegeName, setCollegeName] = useState('')
+    var [userUid, setUserUid] = useState('')
+    // var [role,setRole]=useState('')
     const auth = getAuth();
 
     // useEffect = () => {
@@ -35,10 +38,13 @@ function Authentication() {
         console.log("user is,", user)
 
         if (user) {
-            const test = await getDoc(doc(db, "colleges", "srkr", "users", user.uid));
-            console.log("user details in main page", test.data());
-            userRole = test.data().role
-            setUserRole(userRole)
+            setUserUid(user.uid)
+
+            const test = await getDoc(doc(db, "users", user.uid));
+
+            console.log("user details in main page", test.data().role, test.data());
+            setCollegeName(test.data().collegeName)
+            setUserRole(test.data().role)
             // auth.signOut()
             // User is signed in.
             setAuthenticated(true);
@@ -53,12 +59,13 @@ function Authentication() {
     if (authenticated) {
         if (userRole == 'mentor') {
             console.log("authenticated in if", authenticated);
-            return <MentorDashboard />
-            // return <Chat />
+            // return <MentorDashboard collegeName={collegeName} role={userRole} userUid={userUid} />
+            return <Chat />
         }
         else {
-            return <StudentDashboard />
-            // return <Chat />
+            // return <StudentDashboard collegeName={collegeName} role={userRole} userUid={userUid} />
+            return <Chat />
+
         }
 
     }
