@@ -70,7 +70,7 @@ export default function SignInPage() {
         }
       );
       const test =
-        await setDoc(doc(db, "colleges", data.collegeName, "students", user.uid), {
+        await setDoc(doc(db, "colleges", location.state.collegeName, "students", user.uid), {
           uid: user.uid,
           name,
           authProvider: "local",
