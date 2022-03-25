@@ -15,21 +15,29 @@ import AddIcon from "../../../assets/Icons/Plus.svg";
 import EditIcon from "../../../assets/Icons/edit.svg";
 import db from "../../../firebaseConfig";
 import { doc, getDoc } from "firebase/firestore";
-import { useEffect } from "react";
+// import { useEffect } from "react";
+// import { collection, getDocs } from "firebase/firestore"; 
+
+
 function MCreateCourseForm() {
   const [info , setInfo] = useState([]);
   const [crds,setCrds]=useState([1])
   const [value, setValue] = useState(null);
   
+//   const querySnapshot = await getDocs(collection(db, "users"));
+// querySnapshot.forEach((doc) => {
+//   console.log(`${doc.id} => ${doc.data()}`);
+// });
   // useEffect=(()=>{
-  //   // const fetchData=async()=>{
+  //   const fetchData=async()=>{
 
-  //   //   const docRef = doc(db, "colleges", "srkr");
-  //   //   const docSnap= await  getDoc(docRef)
-  //   //   console.log(docSnap,"kjkjkjk");
-  //   // }
-  //   // fetchData()
+  //     const docRef = doc(db, "colleges", "srkr","courses","courses");
+  //     const docSnap= await  getDoc(docRef)
+  //     console.log(docSnap.data().Category,"kjkjkjk");
+  //   }
+  //   fetchData()
   // })
+
   const category = [
     'Fornt End',
     'Back End',
@@ -61,11 +69,23 @@ const AddCard=()=>{
   setCrds([...crds,1])
 console.log('././.',crds);
 }
+const fetchData=async()=>{
+  const docRef=doc(db, "colleges", "srkr","courses","courses");
+  try{
+    const docSnap= await  getDoc(docRef)
+    console.log(docSnap.data().Category,"kjkjkjk");
+  }
+  catch(e)
+  {
+    console.log(e,"error");
+  }
+}
   return (
     <div className="MCreateCourseForm">
       <p className="MCreateCourseFormTitle">Course Registration</p>
       <div className="MCreateCourseFormInputSection">
         <div className="MCreateCourseFormSubTitle">Categories</div>
+        {/* {fetchData()} */}
         <select name="cars" className="MCreateCourseFormTitleInput">
           {
             category.map((e) => {
@@ -74,7 +94,6 @@ console.log('././.',crds);
             
           })
           }
-         
          
         </select>
       </div>
@@ -146,6 +165,8 @@ console.log('././.',crds);
         <input
           className="MCreateCourseFormProjectInput"
           placeholder="Enter the title of the project"
+          // value="title"
+          // onChange={(value)=>}
         />
         <TextArea
           className="MCreateCourseFormProjectInput"
