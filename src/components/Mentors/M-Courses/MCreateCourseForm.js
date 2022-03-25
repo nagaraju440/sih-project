@@ -348,9 +348,11 @@ function MCreateCourseForm() {
         />
       </div>
       <div>
-      <div className="MCreateCourseFormProjectCard">
+      <div className="MCreateCourseFormSubTitle">Add Projects </div>
+
+      <div className="MCreateCourseFormProjectCard MCreateCourseFormContainer">
         <div className="MCreateCourseFormProjectTitleSection ">
-          <div className="MCreateCourseFormProjectTitle">Project</div>
+          <div className="MCreateCourseFormProjectTitle"></div>
           <div className="MCreateCourseFormProjectIconSection">
             <img
               src={AddIcon}
