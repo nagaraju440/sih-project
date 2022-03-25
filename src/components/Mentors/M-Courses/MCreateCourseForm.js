@@ -66,7 +66,11 @@ function MCreateCourseForm() {
   const [count,setcount]=useState(0)
   const [titleValue, setTitleValue] = useState('');
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isSSModalVisible, setIsSSModalVisible] = useState(false);
   const [projectsData,setProjectsData]=useState([])
+  const [dayWiseData,setDayWiseData]=useState([])
+  const [dayWiseValue, setDayWiseValue] = useState('');
+  const [dayValue,setDayValue]=useState(1)
   const showModal = () => {
     setIsModalVisible(true);
   };
@@ -78,10 +82,20 @@ function MCreateCourseForm() {
   const handleCancel = () => {
     setIsModalVisible(false);
   };
+  const showModalSs = () => {
+    setIsSSModalVisible(true);
+  };
+
+  const handleOkSS = () => {
+    setIsSSModalVisible(false);
+  };
+
+  const handleCancelSS = () => {
+    setIsSSModalVisible(false);
+  };
 
 
   const AddProject=()=>{
-
     setIsModalVisible(false);
    var d={
      title:titleValue,
@@ -91,6 +105,20 @@ function MCreateCourseForm() {
    setProjectsData(projectsData)
    console.log("projects data is",projectsData)
    setTitleValue("")
+  }
+  
+  const AddDayWiseData=()=>{
+    setIsSSModalVisible(false);
+   var d={
+     data:dayWiseValue,
+     day:dayValue
+    //  description:"project description"
+   }
+   dayWiseData.push(d)
+   setDayWiseData(dayWiseData)
+   setDayValue(dayValue+1)
+   console.log("day wise data is",dayWiseData)
+   setDayWiseValue("")
   }
   
  
@@ -110,7 +138,6 @@ function MCreateCourseForm() {
        Standard:Standard1,
        Link:Link,
        Title:Title,
-
       Projects:[{title:Ptitle,des:Pdes}]
        
     // title: "Hello world!",
@@ -241,6 +268,59 @@ function MCreateCourseForm() {
           className="MCreateCourseFormDate"
         />
       </div>
+      {/* ......................for schedule and syllabus modal and code.............................. */}
+      <div>
+      <div className="MCreateCourseFormSubTitle">Schedule and syllabus </div>
+      <div className="MCreateCourseFormProjectCard">
+        <div className="MCreateCourseFormProjectTitleSection">
+          <div className="MCreateCourseFormProjectTitle"></div>
+          <div className="MCreateCourseFormProjectIconSection">
+            <img
+              src={AddIcon}
+              alt="add icon"
+              className="MCreateCourseFormProjectAddIcon"
+              onClick={showModalSs}
+            ></img>
+            <img
+              src={EditIcon}
+              alt="Edit icon"
+              className="MCreateCourseFormProjectEditIcon"
+            ></img>
+          </div>
+        </div>
+       <div>
+         <ul>
+           {dayWiseData.map((l,i)=>{
+                 return(
+                  <div>
+                    <b>Day {l.day}</b>
+                    <li><b>{l.data}</b></li>
+
+                  </div>
+                 )
+           })}
+         </ul>
+       </div>
+
+      </div>
+      <Modal title="Add Schedule and Syllabus" visible={isSSModalVisible} footer={null} onOk={handleOkSS} onCancel={handleCancelSS} closable={null} width={600}>
+      <input
+          className="MCreateCourseFormProjectInput"
+          placeholder="Enter the schedule"
+          value={dayWiseValue}
+          onChange={(e)=>{
+            console.log("value is",e.target.value)
+            setDayWiseValue(e.target.value)
+          }}
+        />
+        {/* <TextArea
+          className="MCreateCourseFormProjectInput"
+          placeholder="Enter the project descripition"
+        ></TextArea> */}
+        <div className="MCreateCourseFormProjectCardBtn" onClick={AddDayWiseData} >Done</div>
+      </Modal>  
+      </div>
+
       <div className="MCreateCourseFormInputSection">
         <div className="MCreateCourseFormSubTitle">link for class </div>
         <input
