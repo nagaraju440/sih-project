@@ -23,19 +23,25 @@ import MentorDashboard from './components/Dashboard/Dashboard';
 import NotAuthenticated from './NotAuthenticated';
 import db from "./firebaseConfig.js";
 import StudentDashboard from './components/Students/Dashboard/Dashboard';
+import MCourses from './components/Mentors/M-Courses/MCourses';
 function Authentication() {
     var [authenticated, setAuthenticated] = useState(false);
     var [userRole, setUserRole] = useState('');
-
+    var [collegeName,setCollegeName]=useState('')
+    var [userUid,setUserUid]=useState('')
+    // var [role,setRole]=useState('')
     const auth = getAuth();
 
     // useEffect = () => {
     onAuthStateChanged(auth, async (user) => {
         console.log("user is,", user)
-
+       
         if (user) {
+            setUserUid(user.uid)
+
             const test = await getDoc(doc(db,  "users", user.uid));
             console.log("user details in main page", test.data().role,test.data());
+            setCollegeName(test.data().collegeName)
             setUserRole(test.data().role)
             // auth.signOut()
             // User is signed in.
@@ -51,10 +57,10 @@ function Authentication() {
     if (authenticated) {
         if (userRole == 'mentor') {
             console.log("authenticated in if", authenticated);
-            return <MentorDashboard />
+            return <MentorDashboard collegeName={collegeName} role={userRole} userUid={userUid} />
         }
-        else {
-            return <StudentDashboard />
+        else { 
+            return <StudentDashboard collegeName={collegeName} role={userRole} userUid={userUid} />
         }
 
     }
