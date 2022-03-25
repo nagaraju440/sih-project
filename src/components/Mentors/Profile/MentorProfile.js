@@ -112,6 +112,7 @@ export default function MentorProfile(props) {
         <TextArea
           className="MCreateCourseFormProjectInput"
           placeholder="Enter the project descripition"
+          value={descValue}
           onChange={(e)=>{
             setDescvalue(e.target.value)
           }}
