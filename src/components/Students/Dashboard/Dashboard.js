@@ -121,7 +121,11 @@ export default function Dashboard(props) {
              <Route  path='/Dashboard' element={<StudentRegisteredCourses/>}></Route>
            <Route path='/Dashboard/profile' element={<Profile collegeName={props.collegeName} userUid={props.userUid}  />}></Route>
            <Route path='/Dashboard/assignments' element={<Assignments/>}></Route>
+<<<<<<< HEAD
+           <Route path='/Dashboard/RegisterForCourses' element={<RegisterForCourses collegeName={props.collegeName} userUid={props.userUid}/> }></Route>
+=======
            <Route path='/Dashboard/RegisterForCourses' element={<RegisterForCourses   collegeName={props.collegeName} userUid={props.userUid}/>}></Route>
+>>>>>>> 0a1ccd9f5a7b00afc86da02bed01c035e654e5df
            {/* <Route path='/Dashboard' element={<StudentRegisteredCourses/>} ></Route> */}
            </Routes>
 
