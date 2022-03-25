@@ -21,7 +21,7 @@ import StudentRegisteredCourses from './StudentMainDashboard/StudentRegisteredCo
 // const { SubMenu } = Menu;
 // import { Link } from 'react-router-dom';
 const { Header, Content, Sider } = Layout;
-export default function Dashboard() {
+export default function Dashboard(props) {
   return (
     <Router>
     <div style={{width:'100%',height:'100%'}}>
@@ -116,7 +116,7 @@ export default function Dashboard() {
            <Route  path='/'  element={<StudentRegisteredCourses/>}></Route>
            <Route path="/student/signup" element={<Navigate replace={true} to="/Dashboard"></Navigate>} >  </Route>
              <Route  path='/Dashboard' element={<StudentRegisteredCourses/>}></Route>
-           <Route path='/Dashboard/profile' element={<Profile/>}></Route>
+           <Route path='/Dashboard/profile' element={<Profile collegeName={props.collegeName} userUid={props.userUid}  />}></Route>
            <Route path='/Dashboard/assignments' element={<Assignments/>}></Route>
            {/* <Route path='/Dashboard' element={<StudentRegisteredCourses/>} ></Route> */}
            </Routes>

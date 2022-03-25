@@ -1,18 +1,25 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { Card } from 'antd'
 import { Layout, Menu, Breadcrumb } from 'antd';
 import { UserOutlined, LaptopOutlined, NotificationOutlined,EditFilled,PlusOutlined } from '@ant-design/icons';
 import { ProSidebar, MenuItem, SubMenu, SidebarHeader, SidebarContent, SidebarFooter } from 'react-pro-sidebar';
 import Avatar from '../../../assets/Images/avtar.jpg'
-export default function MentorProfile() {
-    console.log("mentor profle")
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { collection, doc, setDoc, addDoc, getDoc } from "firebase/firestore";
+import db from "../../../firebaseConfig";
+
+export default function MentorProfile(props) {
+   const auth=getAuth()
+  useEffect(async () => {
+    const test = await getDoc(doc(db,  "colleges",props.collegeName,"mentors",props.userUid));
+    console.log("data of amentor at profile page is",test.data().data)
+  }, [])
+    // console.log("mentor profle",props.collegeName,"is college name of a mentor","user uid is",props.userUid)
+
   return (
     <div>
         <Card>
-  {/* <p style="background-image:url('../../../assets/Images/avtar.jpg')"> */}
-
-  {/* </p>  */}
- {/* <Avatar/>  */}
+ 
   <img src={Avatar} className="avatar1"/>
   <img src={Avatar} className="avatar2"></img>
   <div className='card1'>
