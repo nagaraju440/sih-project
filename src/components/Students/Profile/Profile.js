@@ -2,6 +2,7 @@ import React ,{useEffect} from 'react'
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { collection, doc, setDoc, addDoc, getDoc } from "firebase/firestore";
 import db from "../../../firebaseConfig";
+import "../../Mentors/Profile/MentorProfile.css"
 export default function Profile(props) {
   const auth=getAuth()
   useEffect(async () => {
@@ -11,5 +12,4 @@ export default function Profile(props) {
   return (
     <div> Student Profile</div>
   )
-  
 }
