@@ -19,7 +19,6 @@ export default function NavBar() {
     {/* <Router> */}
     <div className='logo2'>
     <Menu theme="light" mode="horizontal" defaultSelectedKeys={['1']} className='nav'>
-      {/* <div style={{justifyContent:"flex-start",alignItems:'flex-start'}}>senior M junior</div> */}
         <Menu.Item key="1"><Link to="/Dashboard" >Home</Link></Menu.Item>
         <Menu.Item key="2"><Link to="/Dashboard">About Us</Link></Menu.Item>
       </Menu>

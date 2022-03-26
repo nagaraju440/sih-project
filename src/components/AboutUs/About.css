@@ -7,7 +7,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 100px;
 
+}
+.about-page-features-section{
+    background-color: rgba(0, 78, 137, 0.85);
+    padding: 68px;
+}
+
+.about-page-features-content-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 16px;
 }
 .about-page-section-title{
     font-size: 24px;
@@ -22,7 +34,7 @@
 }
 .about-page-features-content{
     width: 50%;
-    border: 1px solid black;
+    margin-top: 16px;
 
 }
 .about-page-features-card{
