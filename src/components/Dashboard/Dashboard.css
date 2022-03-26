@@ -130,3 +130,15 @@
     font-size:20px;
     font-weight:500;
 }
+.icond
+{
+  margin-left: -5px;
+  margin-top: -4px;
+}
+.iconname
+{
+  margin-left:12px;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight:500;
+}

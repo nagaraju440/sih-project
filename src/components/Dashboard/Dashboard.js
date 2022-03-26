@@ -46,6 +46,8 @@ import Chat from "../Chat/Chat";
 import IdeanaHome from "../Ideana/IdeanaHome";
 import IdeanaAdd from "../Ideana/IdeanaAdd";
 import micon from "../../assets/Icons/Micon.png";
+import dashboardIcon from '../../assets/Icons/dashboardIcon.svg';
+import proflie from '../../assets/Icons/'
 // const { SubMenu } = Menu;
 // import { Link } from 'react-router-dom';
 const { Header, Content, Sider } = Layout;
@@ -103,8 +105,9 @@ export default function Dashboard(props) {
               {/* <div>image here</div>
             <br/> */}
               <div className="mentor_name">Hi,Sunil Kalikayi</div>
-              <Menu.Item icon={<UserOutlined />}>
-                <Link to="/Dashboard">Dashboard</Link>
+              <Menu.Item>
+                <img src={dashboardIcon} className="icond"/>
+                <Link to="/Dashboard" className="iconname">Dashboard</Link>
               </Menu.Item>
               <Menu.Item icon={<UserOutlined />}>
                 <Link to="/Dashboard/profile">Profile</Link>

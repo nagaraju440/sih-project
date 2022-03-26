@@ -3,8 +3,12 @@ import '../Ideana/IdeanaHome.css'
 import img1 from '../../../src/assets/Images/Ideanaimage1.png'
 import img2 from '../../../src/assets/Images/Ideanaimage2.png'
 import img3 from '../../assets/Images/Ideana_iamge3.png'
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
+import 'react-awesome-slider/dist/styles.css';
+import AwesomeSlider from 'react-awesome-slider';
+// import "slick-carousel/slick/slick.css"; 
+// import "slick-carousel/slick/slick-theme.css";
+// import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+// import { Carousel } from 'react-responsive-carousel';
 import Slider from "react-slick";
 import {
   collection,
@@ -25,6 +29,7 @@ import {
     Switch,
   } from "react-router-dom";
 export default function IdeanaHome(props) {
+
     const navigate=useNavigate()
     useEffect(async () => {
       const test = await getDocs(
@@ -61,9 +66,6 @@ export default function IdeanaHome(props) {
     setDetails(y);
     console.log(details, "dhgSjdnsnJ");
   }, []);
-
-
-
   return (
     <div>
     <div className="Ideana_iamges">
@@ -71,36 +73,32 @@ export default function IdeanaHome(props) {
      <div className="Ideana_image1"><img src={img1}/></div>
      <div className="Ideana_image2"><img src={img2}/></div>
     </div>
-    
-              {Object.values(details).map((c, p) => {
-              return(
     <div className="Ideana_main">
-      
-      {console.log(props,"ideana")}
-   
-     <Carousel  dots={false} className='Ideana_slider'>
-         <div className="Ideana_Card">
-             <div>
-                 <img src={img3}/>
-             </div>
-
-          
-               <div>
-                <div className="Ideana_heading">{c.title}</div>
-              <div className="Ideana_text">{c.description}</div>
-              <div className="Ideana_views">20 views</div>
-              </div>
-           
-             
-             
-         </div>
-         </Carousel> 
-        
-        
+      <div className="Ideana_slider">
+      <AwesomeSlider className="Ideana_Card" >
+    <div>
+      <div className="Ideana_card1">
+        <img src={img3}></img>
+      </div>
     </div>
-      );
-    })
-    }
+    <div>
+    <div className="Ideana_card1">
+        <img src={img3}></img>
+      </div>
+    </div>
+    <div>
+    <div className="Ideana_card1">
+        <img src={img3}></img>
+      </div>
+    </div>
+    <div>
+    <div className="Ideana_card1">
+        <img src={img3}></img>
+      </div>
+    </div>
+  </AwesomeSlider>
+      </div>
+      </div>
      <div className="Ideana_buttonpart">
              <button className='Ideana_button' onClick={
                  ()=>{
