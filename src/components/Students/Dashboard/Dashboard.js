@@ -19,6 +19,8 @@ import Profile from '../Profile/Profile'
 import Assignments from '../Assignments/Assignments'
 import StudentRegisteredCourses from './StudentMainDashboard/StudentRegisteredCourses'
 import RegisterForCourses from '../RegisterForCourses/RegisterForCourses'
+import IdeanaHome from '../../Ideana/IdeanaHome'
+import IdeanaAdd from '../../Ideana/IdeanaAdd'
 // const { SubMenu } = Menu;
 // import { Link } from 'react-router-dom';
 const { Header, Content, Sider } = Layout;
@@ -51,7 +53,7 @@ export default function Dashboard(props) {
     <Menu theme="light" mode="horizontal" defaultSelectedKeys={['1']} className='nav'>
       {/* <div style={{justifyContent:"flex-start",alignItems:'flex-start'}}>senior M junior</div> */}
         <Menu.Item key="1"><Link to="/Dashboard" >Home</Link></Menu.Item>
-        <Menu.Item key="2"><Link to="/Dashboard">Ideana</Link></Menu.Item>
+        <Menu.Item key="2"><Link to="/Dashboard/ideana">Ideana</Link></Menu.Item>
         <Menu.Item key="3"><Link to="/Dashboard">Connect</Link></Menu.Item>
         <Menu.Item key="4"><Link to="/Dashboard">About Us</Link></Menu.Item>
       </Menu>
@@ -119,7 +121,9 @@ export default function Dashboard(props) {
              <Route  path='/Dashboard' element={<StudentRegisteredCourses/>}></Route>
            <Route path='/Dashboard/profile' element={<Profile collegeName={props.collegeName} userUid={props.userUid}  />}></Route>
            <Route path='/Dashboard/assignments' element={<Assignments/>}></Route>
-           <Route path='/Dashboard/RegisterForCourses' element={<RegisterForCourses/>}></Route>
+           <Route path='/Dashboard/RegisterForCourses' element={<RegisterForCourses   collegeName={props.collegeName} userUid={props.userUid}/>}></Route>
+           <Route path='/Dashboard/ideana' element={<IdeanaHome/>}></Route>
+           <Route path='/Dashboard/ideana/addIdea' element={<IdeanaAdd/>}></Route>
            {/* <Route path='/Dashboard' element={<StudentRegisteredCourses/>} ></Route> */}
            </Routes>
 

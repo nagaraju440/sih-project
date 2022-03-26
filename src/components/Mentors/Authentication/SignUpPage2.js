@@ -15,12 +15,18 @@ export default function SignUpPage2(props) {
   const skills = ['html', 'css', 'js'];
   const languages = ['english', 'telugu', 'hindi'];
   const hobbies = ['cricket', 'sleeping', 'eating'];
-
+  const [selectedSkills,setSelectedSkills]=useState([])
+  const [selectedHobbies,setSelectedHobbies]=useState([])
+  const [selectedLanguages,setSelectedLanguages]=useState([])
+  // const [linkedin,setLinkedIn]=useState("")
+  // const [LinkedIn1,setLinkedin] = useState("");
+   const [linkedInValue,setLinkedInValue]=useState("")  
   for (let i = 0; i < 3; i++) {
     skills.push(
       <Option key={skills[i]} ></Option>
     );
   }
+  console.log("skills after for loop",skills)
   for (let i = 0; i < 3; i++) {
     languages.push(
       <Option key={languages[i]} ></Option>
@@ -31,13 +37,22 @@ export default function SignUpPage2(props) {
       <Option key={hobbies[i]} ></Option>
     );
   }
-  var navigateNextPage = () => {
-    console.log("hii this is next page");
+const Linked=(e)=>{
+  
+  // setLinkedIn(e.target.value)
+  console.log(e.target.value)
+
+}
+const skills1=[]
+
+  var navigateNextPage = (e) => {
+    
     let data = location.state
-    data['skills'] = ['skill1', 'skill2', 'skill3']
-    data['linked_in'] = "linkedin profile link"
-    data['languages'] = ['l1', 'l2', 'l3']
-    data['hobbies'] = ['h1', 'h2', 'h3']
+
+    data['skills'] = selectedSkills
+    data['linked_in'] = linkedInValue
+    // data['languages'] = languages
+    data['hobbies'] = selectedHobbies
     console.log("location is", data)
 
     navigate("/mentor/signup3", { state: data });
@@ -47,15 +62,25 @@ export default function SignUpPage2(props) {
     let data = location.state
     navigate("/mentor/signup3", { state: data });
   }
-  function handleChange(value) {
-    console.log(`selected ${value}`);
-  }
+
   function Languages(value1) {
-    console.log(`selected ${value1}`);
+    console.log(`selected language ${value1}`);
+    setSelectedLanguages(Object.values(value1))
   }
   function Hobbies(value2) {
-    console.log(`selected ${value2}`);
+    console.log(`selected hoby ${value2}`);
+    setSelectedHobbies(Object.values(value2))
+
   }
+  function Skills(x) {
+    // console.log(`selected skill ${x}`,typeof(x),Object.values(x));
+
+    // setSelectedSkills([])
+
+    setSelectedSkills(Object.values(x))
+    // console.log("selected skills are ",selectedSkills)
+  }
+  
   return (
     <>
       <NavBar />
@@ -73,7 +98,7 @@ export default function SignUpPage2(props) {
 
 
 
-          <form className="SignUpPage2-form-sub">
+          <div className="SignUpPage2-form-sub">
             <label className="SignUpPage2-label">Add Skills</label>
             <br />
             <div className="SignUpPage2-form-select">
@@ -81,8 +106,8 @@ export default function SignUpPage2(props) {
                 className="SignUpPage2-form-tags"
                 mode="tags"
                 style={{ width: "100%" }}
-                // onChange={AddSkills}
-                tokenSeparators={[","]}
+                tokenSeparators={[""]}
+                onChange={Skills}
               >
                 {skills}
               </Select>
@@ -90,10 +115,7 @@ export default function SignUpPage2(props) {
             <label className="label">Linked IN</label>
             <br />
             <div className="form-select">
-              <Input
-                style={{ width: "100%" }}
-                placeholder="Enter your linkedin Handle"
-              />
+              <Input type="text" placeholder="dfghj" style={{ width: "100%" }}onChange={(value)=>Linked(value)}/>
             </div>
 
             <label className="SignUpPage2-label">Languages</label>
@@ -130,9 +152,7 @@ export default function SignUpPage2(props) {
             <div className="SignUpPage2-button-class">
               <button onClick={navigateNextPage} className="SignUpPage2-button-text" >Next </button>
             </div>
-
-
-          </form>
+          </div>
 
           {/* <div
             className="skip"

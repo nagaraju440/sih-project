@@ -18,7 +18,7 @@ function Chat() {
         const q = query(collection(db, "messages"), orderBy("createdAt"), limit(50));
 
         const querySnapshot = await getDocs(q);
-        // setMessages(querySnapshot.forEach(doc => doc.data()))
+        setMessages(querySnapshot.forEach(doc => doc.data()))
         console.log("messages is ", messages);
         // querySnapshot.forEach((doc) => {
             // doc.data() is never undefined for query doc snapshots

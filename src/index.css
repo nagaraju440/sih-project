@@ -1,5 +1,10 @@
 @import "antd/dist/antd.css";
 /* @import '~antd/dist/antd.css'; */
+html{
+  --antd-wave-shadow-color:#fff;
+  -webkit-tap-highlight-color: #fff;
+}
+
 body {
   margin: 0;
   font-family: Rubik;
@@ -21,4 +26,9 @@ body {
 @font-face {
   font-family: Rubik;
   src: url("assets/fonts/Rubik-VariableFont_wght.ttf");
+}
+
+input:focus{
+  outline: none;
+  border: none;
 }

@@ -1,0 +1,79 @@
+.Ideana_iamges
+{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    padding-top:40px;
+}
+.Ideana_image1{
+    padding-left: 100px;
+    padding-top: 40px;
+}
+.Ideana_image2{
+    padding-right: 200px;
+}
+.Ideana_Card
+{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 708px;
+    height: 475px;
+    display: flex; 
+    flex-direction:column;  
+     background-color:rgb(195, 210, 238);
+     /* margin-right: 200px; */
+}
+.Ideana_slider
+{
+    /* background-color:pink; */
+    width:708px;
+    height:475px;
+    margin-right:100px;
+}
+.Ideana_heading
+{
+    font-size: 24px;
+    font-weight: bold;
+}
+.Ideana_text
+{
+    font-size:16px;
+    text-align:left;
+    padding: 20px;
+}
+
+.Ideana_main
+{
+    display: flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    
+}
+.Ideana_views
+{
+    text-align: left;
+    padding-left: 40px;
+    font-size:14px;
+    font-weight: bold;
+}
+.Ideana_buttonpart
+{
+    padding-top: 40px;
+    z-index: 1;
+    
+}
+.Ideana_button{
+     font-size:18px;
+     width: 200px;
+     height:40px;
+     color:#fff;
+     margin-right: 40px;
+     font-weight: 600;
+     /* background-color:pink */
+     /* padding-top:-10px; */
+}
+/* li{
+    padding: unset !important;
+} */

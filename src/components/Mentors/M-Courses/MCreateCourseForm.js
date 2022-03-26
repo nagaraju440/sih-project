@@ -12,9 +12,12 @@ import {
 } from "antd";
 import { DownOutlined, UserOutlined } from "@ant-design/icons";
 import AddIcon from "../../../assets/Icons/Plus.svg";
-
+import {
+  Routes, Route, Link, BrowserRouter as Router,Redirect,Navigate,useNavigate,useLocation,
+  Switch,
+} from "react-router-dom";
 import EditIcon from "../../../assets/Icons/edit.svg";
-import { useLocation, withRouter, useNavigate } from 'react-router-dom';
+// import { useLocation, withRouter, useNavigate } from 'react-router-dom';
 import { collection, doc, setDoc, addDoc } from "firebase/firestore";
 import db from "../../../firebaseConfig.js";
 import {
@@ -28,7 +31,8 @@ import { Modal } from 'antd';
 
 import { SidebarFooter } from "react-pro-sidebar";
 
-function MCreateCourseForm() {
+function MCreateCourseForm(props) {
+  // console.log("props in mcreatecourse form page is",props)
   const category = [
     'Fornt End',
     'Back End',
@@ -53,6 +57,7 @@ function MCreateCourseForm() {
     'Advanced',
   ]
   let location = useLocation();
+  const navigate=useNavigate()
   const [value, setValue] = useState(null);
   const [Category1, setCategory1] = useState("");
   const [Language1, setLanguage1] = useState("");
@@ -137,7 +142,7 @@ function MCreateCourseForm() {
       onAuthStateChanged(auth,user =>{
         console.log(user.uid,user.email)
 
-     setDoc(doc(db, "colleges", "srkr","mentors",user.uid,"courses","course8"), {
+       addDoc(collection(db, "colleges", props.collegeName,"mentors",user.uid,"courses"), {
        Category:Category1,
        Language:Language1,
        Standard:Standard1,
@@ -161,7 +166,7 @@ function MCreateCourseForm() {
     // time:"10:00",
     // date: Timestamp.fromDate(new Date("December 10, 1815")),
     })
-    setDoc(doc(db,"colleges","srkr","courses",user.uid),{
+    addDoc (collection(db,"colleges",props.collegeName,"courses"),{
       Category:Category1,
        Language:Language1,
        Standard:Standard1,
@@ -170,6 +175,10 @@ function MCreateCourseForm() {
        Projects:projectsData,
        Schedule:dayWiseData,
        uid:user.uid
+    })
+    .then((e)=>{
+        // alert("succsessfully created course")
+        navigate(-1)
     })
   })
 
