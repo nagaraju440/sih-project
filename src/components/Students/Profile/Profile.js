@@ -11,4 +11,5 @@ export default function Profile(props) {
   return (
     <div> Student Profile</div>
   )
+  
 }

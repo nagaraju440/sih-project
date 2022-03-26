@@ -3,8 +3,8 @@ import TopNavBar from "./TopNavBar";
 import MenuBarPage from "./MenuBarPage";
 import "./Dashboard.css";
 import { Card } from "antd";
-import DashboardIcon from '../../assets/Icons/dashboardIcon.svg'
 
+import DashboardIcon from '../../assets/Icons/dashboardIcon.svg'
 
 
 
@@ -50,7 +50,7 @@ import Chat from "../Chat/Chat";
 const { Header, Content, Sider } = Layout;
 
 
-/* import icons  */
+
 
 
 
