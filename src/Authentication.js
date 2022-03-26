@@ -43,7 +43,6 @@ function Authentication() {
             console.log("user details in main page", test.data().role,test.data());
             setCollegeName(test.data().collegeName)
             setUserRole(test.data().role)
-            auth.signOut()
             // User is signed in.
             setAuthenticated(true);
         } else {
