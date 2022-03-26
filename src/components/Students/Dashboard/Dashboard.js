@@ -22,7 +22,19 @@ import RegisterForCourses from '../RegisterForCourses/RegisterForCourses'
 import IdeanaHome from '../../Ideana/IdeanaHome'
 import IdeanaAdd from '../../Ideana/IdeanaAdd'
 import micon from "../../../assets/Icons/Micon.png";
-import CourseDetails from '../RegisterForCourses/CourseDetails'
+import Chat from '../../Chat/Chat'
+import TempPage from './StudentMainDashboard/TempPage'
+import About from '../../AboutUs/About'
+import Notification from "../../Notification/Notification"
+import dashboardIcon from '../../../assets/Icons/dashboardIcon.svg'
+import profile from "../../../assets/Icons/profileIcon.svg"
+import courses from "../../../assets/Icons/coursesIcon.svg"
+import notification from "../../../assets/Icons/notificationIcon.svg"
+import assignment from "../../../assets/Icons/Assignments.svg"
+import addtostory from "../../../assets/Icons/AddtostoryIcon.svg"
+import doubt from "../../../assets/Icons/clarifyDoubtsIcon.svg"
+import chat from "../../../assets/Icons/chatIcon.svg"
+import share from "../../../assets/Icons/shareIcon.svg"
 // const { SubMenu } = Menu;
 // import { Link } from 'react-router-dom';
 const { Header, Content, Sider } = Layout;
@@ -55,7 +67,7 @@ export default function Dashboard(props) {
         <Menu.Item key="1"><Link to="/Dashboard" >Home</Link></Menu.Item>
         <Menu.Item key="2"><Link to="/Dashboard/ideana">Ideana</Link></Menu.Item>
         <Menu.Item key="3"><Link to="/Dashboard">Connect</Link></Menu.Item>
-        <Menu.Item key="4"><Link to="/Dashboard">About Us</Link></Menu.Item>
+        <Menu.Item key="4"><Link to="/About">About Us</Link></Menu.Item>
       </Menu>
       </div>
       </div>
@@ -68,34 +80,42 @@ export default function Dashboard(props) {
             {/* <div>image here</div>
             <br/> */}
             <div className="studentname">Hi,Sunil Kalikayi</div>
-          <Menu.Item icon={<UserOutlined />}>
-              <Link to="/Dashboard">Dashboard</Link>
-          </Menu.Item>
-          <Menu.Item icon={<UserOutlined />}>
-              <Link to="/Dashboard/profile">Profile</Link>
-          </Menu.Item>
-          <Menu.Item icon={<UserOutlined />}>
-              <Link to="/Dashboard/RegisterForCourses">Courses</Link>
-          </Menu.Item>
-          <Menu.Item icon={<UserOutlined />}>
-              <Link to="/Dashboard/assignments">Assignments</Link>
-          </Menu.Item >
-          <Menu.Item icon={<UserOutlined />}>
-              <Link to="/Dashboard">Chat</Link>
-          </Menu.Item>
-          <Menu.Item icon={<UserOutlined />}>
-              <Link to="/Dashboard">Notifications</Link>
-          </Menu.Item>
-          <Menu.Item icon={<UserOutlined />}>
-              <Link to="/Dashboard">Clarify Doubts</Link>
-          </Menu.Item>
-          <Menu.Item icon={<UserOutlined />}>
-              <Link to="/Dashboard">Add to story</Link>
-          </Menu.Item>
-          <Menu.Item icon={<UserOutlined />}>
-          <Link to="/Dashboard">Share</Link>
-              
-          </Menu.Item>
+            <Menu.Item>
+                <img src={dashboardIcon} className="icond"/>
+                <Link to="/Dashboard" className="iconname">Dashboard</Link>
+              </Menu.Item>
+              <Menu.Item >
+              <img src={profile} className="icond"/>
+                <Link to="/Dashboard/profile" className="iconname">Profile</Link>
+              </Menu.Item>
+              <Menu.Item >
+              <img src={courses} className="icond"/>
+                <Link to="/Dashboard/courses" className="iconname">Courses</Link>
+              </Menu.Item>
+              <Menu.Item >
+              <img src={assignment} className="icond"/>
+                <Link to="/Dashboard/assignments" className="iconname">Assignments</Link>
+              </Menu.Item>
+              <Menu.Item >
+              <img src={chat} className="icond"/>
+                <Link to="/Dashboard/chat" className="iconname">Chat</Link>
+              </Menu.Item>
+              <Menu.Item >
+              <img src={notification} className="icond"/>
+                <Link to="/Dashboard/notification" className="iconname">Notifications</Link>
+              </Menu.Item>
+              <Menu.Item >
+              <img src={doubt} className="icond"/>
+                <Link to="/Dashboard" className="iconname">Clarify Doubts</Link>
+              </Menu.Item>
+              <Menu.Item>
+              <img src={addtostory} className="icond"/>
+                <Link to="/Dashboard" className="iconname">Add to story</Link>
+              </Menu.Item>
+              <Menu.Item>
+              <img src={share} className="icond"/>
+                <Link to="/Dashboard" className="iconname">Share</Link>
+              </Menu.Item>
           <Menu.Item icon={<UserOutlined />} onClick={()=>{
             // alert("hello")
             const auth = getAuth();
@@ -121,7 +141,11 @@ export default function Dashboard(props) {
              <Route  path='/Dashboard' element={<StudentRegisteredCourses collegeName={props.collegeName} userUid={props.userUid}/>}></Route>
            <Route path='/Dashboard/profile' element={<Profile collegeName={props.collegeName} userUid={props.userUid}  />}></Route>
            <Route path='/Dashboard/assignments' element={<Assignments/>}></Route>
-           <Route path='/Dashboard/RegisterForCourses' element={<CourseDetails   collegeName={props.collegeName} userUid={props.userUid}/>}></Route>
+           <Route path='/Dashboard/chat' element={<Chat/>}></Route>
+           <Route path='/Dashboard/temp' element={<TempPage/>}></Route>
+           <Route path='/About' element={<About/>}></Route>
+           <Route path='/Dashboard/notifications' element={<Notification/>}></Route>
+           <Route path='/Dashboard/RegisterForCourses' element={<RegisterForCourses   collegeName={props.collegeName} userUid={props.userUid}/>}></Route>
             <Route path='/Dashboard/ideana' element={<IdeanaHome collegeName={props.collegeName}/> }></Route>
            <Route path='/Dashboard/ideana/addIdea' element={<IdeanaAdd collegeName={props.collegeName}/>}></Route> 
            {/* <Route path='/Dashboard' element={<StudentRegisteredCourses/>} ></Route> */}

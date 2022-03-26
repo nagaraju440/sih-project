@@ -1,0 +1,42 @@
+.assignments-page{
+    width: 100%;
+    height: 100%;
+    padding: 24px;
+    background-color: red;
+}
+.create-assignment-section{
+    display:flex ;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/*Mentor course search box styles */
+.MCourseCardSearchContainer{
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+
+}
+.MCourseSearchBox{
+    width: 75%;
+}
+.MCourseCardCreateCourseBtn{
+    width: 150px;
+    margin-left: 24px;
+    height: 48px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #004E89;
+    color: #fff;
+    border-radius: 10px;
+    font-weight: 500;
+    cursor: pointer;
+       
+}

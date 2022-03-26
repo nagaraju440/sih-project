@@ -39,7 +39,7 @@ function TypeCard({ scroll }) {
       <div className="typeMessageContainer">
        
         <input type="text" className="typeMessageInput" placeholder="Type your message here...!" value={msg} onChange={e => setMsg(e.target.value)} />
-        <img src={CameraIcon} alt="cameraIcon" />
+        <img src={CameraIcon} alt="cameraIcon" className='camera-icon' />
       </div>
       <button type='submit' className="typeMessageSendContainer" >
         <img src={SendIcon} alt="send icon" />

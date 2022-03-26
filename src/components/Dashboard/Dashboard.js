@@ -48,15 +48,16 @@ import IdeanaHome from "../Ideana/IdeanaHome";
 import IdeanaAdd from "../Ideana/IdeanaAdd";
 import micon from "../../assets/Icons/Micon.png";
 import Notification from "../Notification/Notification"
-import dashboardIcon from "../../assets/Icons/dashboardIcon.svg"
+import About from "../AboutUs/About";
+import dashboardIcon from '../../assets/Icons/dashboardIcon.svg'
 import profile from "../../assets/Icons/profileIcon.svg"
 import courses from "../../assets/Icons/coursesIcon.svg"
-import assignment from "../../assets/Icons/Assignments.svg"
 import notification from "../../assets/Icons/notificationIcon.svg"
-import chat from "../../assets/Icons/chatIcon.svg"
-import share from "../../assets/Icons/shareIcon.svg"
+import assignment from "../../assets/Icons/Assignments.svg"
 import addtostory from "../../assets/Icons/AddtostoryIcon.svg"
 import doubt from "../../assets/Icons/clarifyDoubtsIcon.svg"
+import chat from "../../assets/Icons/chatIcon.svg"
+import share from "../../assets/Icons/shareIcon.svg"
 
 // const { SubMenu } = Menu;
 // import { Link } from 'react-router-dom';
@@ -101,7 +102,7 @@ export default function Dashboard(props) {
                   <Link to="/Dashboard">Connect</Link>
                 </Menu.Item>
                 <Menu.Item key="4">
-                  <Link to="/Dashboard">About Us</Link>
+                  <Link to="/about">About Us</Link>
                 </Menu.Item>
               </Menu>
             </div>
@@ -184,7 +185,9 @@ export default function Dashboard(props) {
            <Route path='/Dashboard/chat' element={<Chat/>}></Route>
            <Route path='/Dashboard/notification' element={<Notification/>}></Route>
            <Route path='/Dashboard/ideana' element={<IdeanaHome collegeName={props.collegeName} userUid={props.userUid}/>}></Route>
-           <Route path='/Dashboard/ideana/addIdea' element={<IdeanaAdd collegeName={props.collegeName}/>}></Route>
+              <Route path='/Dashboard/ideana/addIdea' element={<IdeanaAdd collegeName={props.collegeName} />}></Route>
+              <Route path='/about' element={<About  />}></Route>
+              
            </Routes>
 
             {/* <div style={{height:2000,backgroundColor:'red'}} className="content-inner">
