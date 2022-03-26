@@ -146,86 +146,100 @@ export default function SignUpPage(props) {
     <div className="singUpPage">
       <NavBar />
       <div className="container">
+        {/* ...................................... left container start's here............................................... */}
         <div className="signUpLeftContainer">
           <img src={Mentor_img} className="mentor_img" />
         </div>
-        <div className="form">
-          <div className="signUpFormHeaderSection">
-            <img src={Logo} alt="" className="Logo" />
-            <div className="heading">Mentor Registartion</div>
-          </div>
-          <div className="subheading">
-            Please, provide the information below
-          </div>
-          <form onSubmit={submitHandler} className="form-sub">
-            <label className="label">Full Name*</label>
-            <br />
-            <input
-              type="name"
-              autoComplete="name"
-              required
-              onChange={(value) => handlename(value)}
-            />
-            {namerr ? <div className="err">Name error bro</div> : <div></div>}
-            <br />
-            <label className="label">Email*</label>
-            <br />
-            <input
-              type="email"
-              autoComplete="email"
-              required
-              onChange={(value) => handlemail(value)}
-            />
-            {mailerr ? <div className="err">Email error bro</div> : <div></div>}
-            <br />
-            <label className="label">Phone No*</label>
-            <br />
-            <input
-              type="text"
-              pattern="[0-9]*"
-              maxLength="10"
-              required
-              onChange={(value) => handlephno(value)}
-            />
-            {phnoerr ? (
-              <div className="err">Number error bro</div>
-            ) : (
-              <div></div>
-            )}
-            <br />
-            <label className="label">New Password*</label>
-            <br />
-            <Space direction="vertical">
-              <Input.Password
-                className="pwd-input"
+        {/* ...................................... right container start's here............................................... */}
+        <div className="form-contatiner" >
+          <div >
+            <div className="signUpFormHeaderSection">
+              <img src={Logo} alt="" className="Logo" />
+              <div className="heading">Mentor Registartion</div>
+            </div>
+            <div className="subheading">
+              Please, provide the information below
+            </div>
+            <form onSubmit={submitHandler} className="form-sub">
+              {/* <div className="inputBox-container"> */}
+                {" "}
+                <label className="label">Full Name*</label><br />
+                <input
+                  type="name"
+                  autoComplete="name"
+                  required
+                  onChange={(value) => handlename(value)}
+                />
+              {/* </div> */}
+              {namerr ? <div className="err">Name error bro</div> : <div></div>}
+              <br />
+              <label className="label">Email*</label>
+              <br />
+              <input
+                type="email"
+                autoComplete="email"
+                required
+                onChange={(value) => handlemail(value)}
+              />
+              {mailerr ? (
+                <div className="err">Email error bro</div>
+              ) : (
+                <div></div>
+              )}
+              <br />
+              <label className="label">Phone No*</label>
+              <br />
+              <input
+                type="text"
+                pattern="[0-9]*"
+                maxLength="10"
+                required
+                onChange={(value) => handlephno(value)}
+              />
+              {phnoerr ? (
+                <div className="err">Number error bro</div>
+              ) : (
+                <div></div>
+              )}
+              <br />
+              <label className="label">New Password*</label>
+              <br />
+              <Space direction="vertical">
+                <Input.Password
+                  className="pwd-input"
+                  type="password"
+                  required
+                  onChange={(value) => handleNpassword(value)}
+                  iconRender={(visible) =>
+                    visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+                  }
+                />
+              </Space>
+              <br />
+              <br />
+              <label className="label">Confirm Password*</label>
+              <br />
+              <input
                 type="password"
                 required
-                onChange={(value) => handleNpassword(value)}
-                iconRender={(visible) =>
-                  visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
-                }
+                onChange={(value) => handleCpassword(value)}
               />
-            </Space>
-            <br />
-            <br />
-            <label className="label">Confirm Password*</label>
-            <br />
-            <input
-              type="password"
-              required
-              onChange={(value) => handleCpassword(value)}
-            />
-            {passerr ? <div className="err">password error</div> : <div></div>}
-            <div className="button-section">
-              <button type="submit" className="button-text">
-                Register
-              </button>
+              {passerr ? (
+                <div className="err">password error</div>
+              ) : (
+                <div></div>
+              )}
+              <div className="button-section">
+                <button type="submit" className="button-text">
+                  Register
+                </button>
+              </div>
+            </form>
+            <div className="bottom-text">
+              <Link to="/mentor/signin">Already Registered? Sign in</Link>
+              {/* <div>Already Registered? Sign in </div> */}
+              <div>Know More About Us </div>
             </div>
-          </form>
-          <div className="bottom-text">
-            <Link to="/mentor/signin">Already Registered? Sign in</Link>
-            {/* <div>Already Registered? Sign in </div> */}
-            <div>Know More About Us </div>
           </div>
         </div>
       </div>

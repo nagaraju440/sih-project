@@ -34,9 +34,9 @@ function Chat() {
     //     })
      
 
-    },[])
+    })
     return (
-        <div style={{ backgroundColor: "red" }}>
+        <div >
             helllloooo
             <SignOut />
             <div className="msgs">

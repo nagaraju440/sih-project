@@ -100,3 +100,18 @@ padding: 0px;
 width: 100%!important;
 background-color: aqua;
 }
+.miconimage
+{
+     margin-top:-10px;
+}
+.headingd
+{
+    font-size: 20px;
+    font-weight: bold;
+}
+.studentname
+{
+    padding: 0px 20px 20px 10px;
+    font-size: 20px;
+    font-weight: 600;
+}

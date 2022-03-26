@@ -27,6 +27,8 @@ import SignUpPage3 from './components/Mentors/Authentication/SignUpPage3'
 import Test_Card from './components/Mentors/test_Card';
 import Test_Cards2 from './components/Mentors/test_Cards2';
 import MCourses from './components/Mentors/M-Courses/MCourses';
+import Notification from './components/Notification/Notification'
+import About from './components/AboutUs/About';
 function App() {
   // const auth = getAuth()
   // auth.signOut()
@@ -38,7 +40,9 @@ function App() {
     // <Test_Card/>
     // <Test_Cards2/>
     // <MCourses/>
-
+    // <Notification/>
+    // <About/>
+    
   )
 
 }

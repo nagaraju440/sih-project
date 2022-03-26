@@ -45,7 +45,6 @@ function Authentication() {
             // console.log("user details in main page", test.data().role, test.data());
             setCollegeName(test.data().collegeName)
             setUserRole(test.data().role)
-            // auth.signOut()
             // User is signed in.
             setAuthenticated(true);
         } else {
@@ -59,12 +58,12 @@ function Authentication() {
     if (authenticated) {
         if (userRole == 'mentor') {
             // console.log("authenticated in if", authenticated);
-            // return <MentorDashboard collegeName={collegeName} role={userRole} userUid={userUid} />
-            return <Chat />
+            return <MentorDashboard collegeName={collegeName} role={userRole} userUid={userUid} />
+            // return <Chat />
         }
         else {
-            // return <StudentDashboard collegeName={collegeName} role={userRole} userUid={userUid} />
-            return <Chat />
+            return <StudentDashboard collegeName={collegeName} role={userRole} userUid={userUid} />
+            // return <Chat />
 
         }
 
