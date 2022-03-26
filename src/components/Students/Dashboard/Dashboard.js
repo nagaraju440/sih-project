@@ -21,7 +21,7 @@ import StudentRegisteredCourses from './StudentMainDashboard/StudentRegisteredCo
 import RegisterForCourses from '../RegisterForCourses/RegisterForCourses'
 import IdeanaHome from '../../Ideana/IdeanaHome'
 import IdeanaAdd from '../../Ideana/IdeanaAdd'
-import micon from '../../../assets/Icons/Micon.png'
+import micon from "../../../assets/Icons/Micon.png";
 // const { SubMenu } = Menu;
 // import { Link } from 'react-router-dom';
 const { Header, Content, Sider } = Layout;
@@ -46,9 +46,7 @@ export default function Dashboard(props) {
     className="header"
     >
       <div style={{display:"flex",flexDirection:'row'}}>
-      <div 
-      className="logo" 
-      ><div className="headingd">Senior <img src={micon} style={{width:'40px',height:'50px'}} className="miconimage"></img> Junior </div></div>
+      <div className="logo" ><div className="headingd">Senior <img src={micon} style={{width:'40px',height:'45px'}} className="miconimage"></img> Junior </div></div>
     {/* <Router> */}
     <div className='logo2'>
     <Menu theme="light" mode="horizontal" defaultSelectedKeys={['1']} className='nav'>
@@ -68,7 +66,7 @@ export default function Dashboard(props) {
       <Menu className="site-layout-background">
             {/* <div>image here</div>
             <br/> */}
-            <div>Hi,Sunil Kalikayi</div>
+            <div className="studentname">Hi,Sunil Kalikayi</div>
           <Menu.Item icon={<UserOutlined />}>
               <Link to="/Dashboard">Dashboard</Link>
           </Menu.Item>
@@ -123,8 +121,8 @@ export default function Dashboard(props) {
            <Route path='/Dashboard/profile' element={<Profile collegeName={props.collegeName} userUid={props.userUid}  />}></Route>
            <Route path='/Dashboard/assignments' element={<Assignments/>}></Route>
            <Route path='/Dashboard/RegisterForCourses' element={<RegisterForCourses   collegeName={props.collegeName} userUid={props.userUid}/>}></Route>
-           {/* <Route path='/Dashboard/ideana' element={<IdeanaHome/>}></Route> */}
-           {/* <Route path='/Dashboard/ideana/addIdea' element={<IdeanaAdd/>}></Route> */}
+            <Route path='/Dashboard/ideana' element={<IdeanaHome collegeName={props.collegeName}/> }></Route>
+           <Route path='/Dashboard/ideana/addIdea' element={<IdeanaAdd collegeName={props.collegeName}/>}></Route> 
            {/* <Route path='/Dashboard' element={<StudentRegisteredCourses/>} ></Route> */}
            </Routes>
 
