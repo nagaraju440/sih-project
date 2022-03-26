@@ -7,8 +7,8 @@ import 'react-awesome-slider/dist/styles.css';
 import AwesomeSlider from 'react-awesome-slider';
 // import "slick-carousel/slick/slick.css"; 
 // import "slick-carousel/slick/slick-theme.css";
-// import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-// import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 import Slider from "react-slick";
 import {
   collection,
@@ -75,7 +75,7 @@ export default function IdeanaHome(props) {
     </div>
     <div className="Ideana_main">
       <div className="Ideana_slider">
-      <AwesomeSlider className="Ideana_Card" >
+      {/* <AwesomeSlider className="Ideana_Card" >
     <div>
       <div className="Ideana_card1">
         <img src={img3}></img>
@@ -96,7 +96,7 @@ export default function IdeanaHome(props) {
         <img src={img3}></img>
       </div>
     </div>
-  </AwesomeSlider>
+  </AwesomeSlider> */}
       </div>
       </div>
      <div className="Ideana_buttonpart">
