@@ -24,6 +24,8 @@ import IdeanaAdd from '../../Ideana/IdeanaAdd'
 import micon from "../../../assets/Icons/Micon.png";
 import Chat from '../../Chat/Chat'
 import Notification from '../../Notification/Notification'
+import TempPage from './StudentMainDashboard/TempPage'
+import About from '../../AboutUs/About'
 // const { SubMenu } = Menu;
 // import { Link } from 'react-router-dom';
 const { Header, Content, Sider } = Layout;
@@ -56,7 +58,7 @@ export default function Dashboard(props) {
         <Menu.Item key="1"><Link to="/Dashboard" >Home</Link></Menu.Item>
         <Menu.Item key="2"><Link to="/Dashboard/ideana">Ideana</Link></Menu.Item>
         <Menu.Item key="3"><Link to="/Dashboard">Connect</Link></Menu.Item>
-        <Menu.Item key="4"><Link to="/Dashboard">About Us</Link></Menu.Item>
+        <Menu.Item key="4"><Link to="/About">About Us</Link></Menu.Item>
       </Menu>
       </div>
       </div>
@@ -88,7 +90,7 @@ export default function Dashboard(props) {
               <Link to="/Dashboard/notifications">Notifications</Link>
           </Menu.Item>
           <Menu.Item icon={<UserOutlined />}>
-              <Link to="/Dashboard">Clarify Doubts</Link>
+              <Link to="/Dashboard/temp">Clarify Doubts</Link>
           </Menu.Item>
           <Menu.Item icon={<UserOutlined />}>
               <Link to="/Dashboard">Add to story</Link>
@@ -123,6 +125,8 @@ export default function Dashboard(props) {
            <Route path='/Dashboard/profile' element={<Profile collegeName={props.collegeName} userUid={props.userUid}  />}></Route>
            <Route path='/Dashboard/assignments' element={<Assignments/>}></Route>
            <Route path='/Dashboard/chat' element={<Chat/>}></Route>
+           <Route path='/Dashboard/temp' element={<TempPage/>}></Route>
+           <Route path='/About' element={<About/>}></Route>
            <Route path='/Dashboard/notifications' element={<Notification/>}></Route>
            <Route path='/Dashboard/RegisterForCourses' element={<RegisterForCourses   collegeName={props.collegeName} userUid={props.userUid}/>}></Route>
             <Route path='/Dashboard/ideana' element={<IdeanaHome collegeName={props.collegeName}/> }></Route>
