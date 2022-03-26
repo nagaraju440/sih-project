@@ -7,7 +7,7 @@ import {
   Routes, Route, Link, BrowserRouter as Router,
   Switch,
 } from "react-router-dom";
-import { getDocs,collection,docs} from 'firebase/firestore'
+import { getDocs,collection,doc} from 'firebase/firestore'
 import db from "../../../firebaseConfig";
 export default function MCourses(props) {
   const [details,setDetails]=useState([])
@@ -16,7 +16,7 @@ export default function MCourses(props) {
   useEffect(async() => {
     console.log("useEffect",props.collegeName);
     try{
-      const test= await getDocs(docs(db,"colleges",props.collegeName,"mentors",props.userUid,"courses"))
+      const test= await getDocs(collection(db,"colleges",props.collegeName,"mentors",props.userUid,"courses"))
       test.forEach((doc)=>{
         y.push(doc.data())
       })
