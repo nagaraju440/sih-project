@@ -19,15 +19,33 @@ import {
 } from "firebase/auth";
 import { useState } from "react";
 export default function RegisterForCourses(props) {
-  const [details, setDetails] = useState({});
+  // console.log("uid of a student is",props.userUid/)
+  var [details, setDetails] = useState([]);
+  var [studentCourseId,setStudentCourseId]=useState([]);
   const y = [];
   const auth = getAuth();
   useEffect(async () => {
     const test = await getDocs(
       collection(db, "colleges", props.collegeName, "courses")
     );
-    test.forEach((doc) => {
-      y.push({data:doc.data(),courseId:doc.id});
+    test.forEach(async (doc1) => {
+      // const checkCourseInStudent
+      // try {
+        // await getDoc(doc(db,"colleges",props.collegeName,"students",props.userUid,"courses",doc1.id)).then((e)=>{
+      //     //  console.log("course is already there",doc1.id,e.id,e.data())
+      //      if(e.data()==undefined){ 
+            y.push({data:doc1.data(),courseId:doc1.id,mentorName:"Nagaraju"});
+  
+      //      }
+      //    }).catch(e=>{
+      //      console.log("course is not there",e)
+      //    })
+      // } catch (error) {
+      //   console.log("some thing error in catch block")
+      // }
+       
+      
+      
       try {
         const auth = getAuth();
         onAuthStateChanged(auth, (user) => {
@@ -38,8 +56,20 @@ export default function RegisterForCourses(props) {
         alert(err.message);
       }
     });
-    setDetails(y);
-    console.log(details, "dhgSJ");
+    details=y
+    setDetails(details);
+    console.log(details,"detaisl are",   "dhgSJ",y,"is y");
+
+    // ...............get student course uid isFinite.apply..................
+    await getDocs(collection(db,"colleges",props.collegeName,"students",props.userUid,"courses")).then((e)=>{
+      studentCourseId=[]
+      setStudentCourseId([])
+         e.forEach((doc)=>{
+           studentCourseId.push(doc.id)
+           setStudentCourseId(studentCourseId)
+           console.log("doc.id is",studentCourseId)
+         })
+    })
   }, []);
   const AddData = (e) => {
     console.log(e, "wohoooo");
@@ -47,9 +77,7 @@ export default function RegisterForCourses(props) {
       const auth = getAuth();
       onAuthStateChanged(auth,user =>{
         console.log(user.uid,user.email)
-      
-
-      addDoc(collection(db,"colleges",props.collegeName,"students",user.uid,"courses"),{
+      setDoc(doc(db,"colleges",props.collegeName,"students",user.uid,"courses",e.courseId),{
         Category:e.data.Category,
         Language:e.data.Language,
         Standard:e.data.Standard,
@@ -61,6 +89,7 @@ export default function RegisterForCourses(props) {
         courseId:e.courseId
       }).then((e)=>{
         alert("succsessfully registered for course")
+       
       })
     })
     } catch (err) {
@@ -71,9 +100,11 @@ export default function RegisterForCourses(props) {
     <div>
       {console.log(props.collegeName, props.userUid, details, "./././.")}
       {Object.values(details).map((c, p) => {
-        console.log("c is",c)
-        return (
-          <div key={p} className="card1">
+         if(studentCourseId.indexOf(c.courseId)===-1){
+          console.log("c is",c.courseId)
+          return (
+            <div key={p} className="card1">
+            
             <div className="Card1_image">
               <img src={img1}></img>
             </div>
@@ -86,7 +117,7 @@ export default function RegisterForCourses(props) {
                 ></img>
               </div>
             </div>
-            <div className="Card1_secondparttext">{c.data.uid}</div>
+            <div className="Card1_secondparttext">{c.mentorName}</div>
             <div className="Card1_thirdparttext">
               <div className="Card1_days">• 7days</div>
               <div className="Card1_time">• 5pm to 7 pm</div>
@@ -105,8 +136,12 @@ export default function RegisterForCourses(props) {
               </div>
             </div>
           </div>
-        );
+          )
+         }
       })}
     </div>
   );
 }
+  // {
+  //    studentCourseId.indexOf(c.courseId)?"":<div></div>
+  //           }

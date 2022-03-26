@@ -177,7 +177,7 @@ function MCreateCourseForm(props) {
        uid:user.uid
     })
     .then((e)=>{
-        // alert("succsessfully created course")
+        alert("succsessfully created course")
         navigate(-1)
     })
   })
