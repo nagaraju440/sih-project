@@ -30,7 +30,8 @@ export default function StudentRegisteredCourses(props) {
   
   return (
     <div >
-       {
+      <div className='rfc-container'>
+      {
          coursesData.map((l,i)=>{
           return(
             <div  className="card">
@@ -51,6 +52,7 @@ export default function StudentRegisteredCourses(props) {
           )
           })
        } 
+       </div>
     </div>
   )
 }
