@@ -55,11 +55,11 @@ function Chat() {
         {messages.map(({ id, text, photoURL, uid }) =>{ 
                     return(
                         <div key={id}  className={`msg ${uid === authUid ? 'sent' : 'received'}`}>
-                    <div>
+                    {/* <div> */}
                             {/* <p>123</p> */}
                             <img src={photoURL} alt="" className='chat-image'/>
                             <p className='chat-text'>{text}</p>
-                        </div>
+                        {/* </div> */}
                     </div>
                     )
                     })}
