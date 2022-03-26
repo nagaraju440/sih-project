@@ -11,6 +11,8 @@ import { useState } from 'react';
 export default function RegisterForCourses(props) {
   const [coursesData,setCoursesData]=useState([])
   useEffect( async()=>{
+    // setCoursesData([])
+
     console.log("hehehehehhe i am from register for course page")
     const test = await getDocs(collection(db,  "colleges",props.collegeName,"courses"));
     // console.log("test is",test)
