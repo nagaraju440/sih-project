@@ -201,7 +201,7 @@ export default function MentorProfile(props) {
         {/* .........................................skills container starts here.................................................. */}
         <div className="mp-subcontainer">
           <div className="mps-subsection">
-            <div className="MCreateCourseFormSubTitle">Skils </div>
+            <div className="MCreateCourseFormSubTitle">Skills </div>
             <div className="MCreateCourseFormProjectIconSection">
               <img
                 src={AddIcon}

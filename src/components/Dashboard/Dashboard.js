@@ -69,9 +69,7 @@ export default function Dashboard(props) {
         {/* <Layout> */}
         <Header className="header">
           <div style={{ display: "flex", flexDirection: "row" }}>
-            <div className="logo">
-              Senior <img src={micon}></img> Junior
-            </div>
+          <div className="logo" ><div className="headingd">Senior <img src={micon} style={{width:'40px',height:'45px'}} className="miconimage"></img> Junior </div></div>
             {/* <Router> */}
             <div className="logo2">
               <Menu
@@ -104,7 +102,7 @@ export default function Dashboard(props) {
             <Menu className="site-layout-background">
               {/* <div>image here</div>
             <br/> */}
-              <div>Hi,Sunil Kalikayi</div>
+              <div className="mentor_name">Hi,Sunil Kalikayi</div>
               <Menu.Item icon={<UserOutlined />}>
                 <Link to="/Dashboard">Dashboard</Link>
               </Menu.Item>
