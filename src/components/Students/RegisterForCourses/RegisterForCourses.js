@@ -25,6 +25,15 @@ export default function RegisterForCourses(props) {
   const y = [];
   const auth = getAuth();
   useEffect(async () => {
+    await getDocs(collection(db,"colleges",props.collegeName,"students",props.userUid,"courses")).then((e)=>{
+      studentCourseId=[]
+      setStudentCourseId([])
+         e.forEach((doc)=>{
+           studentCourseId.push(doc.id)
+           setStudentCourseId(studentCourseId)
+           console.log("doc.id is",studentCourseId)
+         })
+    })
     const test = await getDocs(
       collection(db, "colleges", props.collegeName, "courses")
     );
@@ -61,15 +70,7 @@ export default function RegisterForCourses(props) {
     console.log(details,"detaisl are",   "dhgSJ",y,"is y");
 
     // ...............get student course uid isFinite.apply..................
-    await getDocs(collection(db,"colleges",props.collegeName,"students",props.userUid,"courses")).then((e)=>{
-      studentCourseId=[]
-      setStudentCourseId([])
-         e.forEach((doc)=>{
-           studentCourseId.push(doc.id)
-           setStudentCourseId(studentCourseId)
-           console.log("doc.id is",studentCourseId)
-         })
-    })
+   
   }, []);
   const AddData = (e) => {
     console.log(e, "wohoooo");
@@ -100,9 +101,15 @@ export default function RegisterForCourses(props) {
     <div>
       {/* {console.log(props.collegeName, props.userUid, details, "./././.")} */}
       <div className="rfc-container">
-      {Object.values(details).map((c, p) => {
+      {
+        studentCourseId.length===Object.values(details.length)?<div>
+          There are no course for you
+        </div>:<div>
+
+{Object.values(details).map((c, p) => {
+          console.log("c is",studentCourseId,c.courseId)
+
          if(studentCourseId.indexOf(c.courseId)===-1){
-          console.log("c is",c.courseId)
           return (
             <div key={p} className="card1">
             
@@ -140,6 +147,8 @@ export default function RegisterForCourses(props) {
           )
          }
       })}
+        </div>
+      }
       </div>
     </div>
   );
