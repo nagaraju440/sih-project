@@ -5,7 +5,7 @@ import HeartIcon from "../../../assets/Icons/heart.svg";
 export default function MCourseCard() {
   return (
     <div className="MCourseCard">
-      <img src={pythonImg} alt="" srcset="" />
+      <img src={pythonImg} alt=""  />
       <div className="MCourseCardDescription">
         <p style={{ fontSize: 18 }}>
           Enroled Students <span style={{ fontWeight: 500 }}>15</span>
