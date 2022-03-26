@@ -30,5 +30,5 @@ body {
 
 input:focus{
   outline: none;
-  border: none;
+  border: 1px solid lightgray;
 }
