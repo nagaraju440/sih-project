@@ -46,6 +46,10 @@ import Chat from "../Chat/Chat";
 import IdeanaHome from "../Ideana/IdeanaHome";
 import IdeanaAdd from "../Ideana/IdeanaAdd";
 import micon from "../../assets/Icons/Micon.png";
+import Notification from "../Notification/Notification"
+
+
+
 // const { SubMenu } = Menu;
 // import { Link } from 'react-router-dom';
 const { Header, Content, Sider } = Layout;
@@ -119,7 +123,7 @@ export default function Dashboard(props) {
                 <Link to="/Dashboard/chat">Chat</Link>
               </Menu.Item>
               <Menu.Item icon={<UserOutlined />}>
-                <Link to="/Dashboard">Notifications</Link>
+                <Link to="/Dashboard/notification">Notifications</Link>
               </Menu.Item>
               <Menu.Item icon={<UserOutlined />}>
                 <Link to="/Dashboard">Clarify Doubts</Link>
@@ -161,6 +165,7 @@ export default function Dashboard(props) {
            <Route path='/Dashboard/courses' element={<MCourses/>}></Route>
            <Route path='/Dashboard/courses/createCourse' element={<MCreateCourseForm collegeName={props.collegeName} userUid={props.userUid}/>}></Route>
            <Route path='/Dashboard/chat' element={<Chat/>}></Route>
+           <Route path='/Dashboard/notification' element={<Notification/>}></Route>
            <Route path='/Dashboard/ideana' element={<IdeanaHome collegeName={props.collegeName} userUid={props.userUid}/>}></Route>
            <Route path='/Dashboard/ideana/addIdea' element={<IdeanaAdd collegeName={props.collegeName}/>}></Route>
            </Routes>

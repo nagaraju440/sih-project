@@ -4,9 +4,13 @@ import "./Chat.css";
 import ChatCard2 from "./ChatCard2";
 import TypeCard from "./TypeCard";
 import { Input, AutoComplete } from 'antd';
+import { useEffect, useState } from "react";
 
 
 function Chat() {
+  const { sender, setsender } = useState();
+
+
   return (
     <div className="chatPage">
       <div className="ChatMenuContainer">
@@ -27,8 +31,12 @@ function Chat() {
         </div>
       </div>
       <div className="chatSection">
-        <ChatCard2 />
-        <TypeCard />
+        <div className="chatSection-header"><ChatCard2 /></div>
+        <div className="chatSection-body">
+          djfadshfkajldfhakjlhdlkj
+        </div>
+        <div className="chatSection-footer"><TypeCard /></div>
+        
       </div>
     </div>
   );
