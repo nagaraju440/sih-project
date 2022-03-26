@@ -43,7 +43,7 @@ import MentorAssignments from "../Mentors/MentorAssignments/MentorAssignments";
 import MCourses from "../Mentors/M-Courses/MCourses";
 import MCreateCourseForm from "../Mentors/M-Courses/MCreateCourseForm";
 // import Chat from "../../firebasechat/Chat";
-import Chat from "../Chat/Chat";
+import Chat from "../Chat/Chat"
 import IdeanaHome from "../Ideana/IdeanaHome";
 import IdeanaAdd from "../Ideana/IdeanaAdd";
 import micon from "../../assets/Icons/Micon.png";
