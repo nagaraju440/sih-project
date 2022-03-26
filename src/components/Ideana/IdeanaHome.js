@@ -44,7 +44,7 @@ export default function IdeanaHome(props) {
   const y = [];
   useEffect(async () => {
     const test = await getDocs(
-      collection(db, "colleges", "srkr", "ideana")
+      collection(db, "colleges", props.collegeName, "ideana")
     );
     test.forEach((doc) => {
       y.push(doc.data());
@@ -58,6 +58,7 @@ export default function IdeanaHome(props) {
   return (
     <div>
     <div className="Ideana_iamges">
+      {console.log(props.collegeName)}
      <div className="Ideana_image1"><img src={img1}/></div>
      <div className="Ideana_image2"><img src={img2}/></div>
     </div>
