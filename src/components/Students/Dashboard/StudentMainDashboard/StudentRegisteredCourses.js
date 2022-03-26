@@ -17,6 +17,8 @@ import {
 } from "firebase/auth";
 export default function StudentRegisteredCourses(props) {
     const [coursesData,setCoursesData]=useState([])
+
+    console.log("ehehehehhhehehe in student registered course")
   useEffect(async() => {
     const y=[]
     await getDocs(collection(db,"colleges",props.collegeName,"students",props.userUid,"courses")).then((e)=>{
@@ -34,11 +36,11 @@ export default function StudentRegisteredCourses(props) {
       {
          coursesData.map((l,i)=>{
           return(
-            <div  className="card">
+            <div key={i} className="card">
           <div className="Card_image">
             <img src={image}></img>
           </div>
-          <div className="Card_Name"> C programming</div>
+          <div className="Card_Name"> {l.Title}</div>
           <div className="Card_secondpart">
             <div className="Card_text">-By Tejawini</div>
             <div className="Card_dot">•</div>

@@ -2,7 +2,7 @@ import React, { Component, useState, useEffect } from "react";
 import styles from "./SignUpPage3.css";
 import { Select } from "antd";
 import Micon from "../../../assets/Icons/Micon.png";
-import { useLocation, withRouter, useNavigate } from 'react-router-dom';
+import { useLocation, withRouter, useNavigate, Navigate } from 'react-router-dom';
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -14,6 +14,7 @@ import { Input } from 'antd';
 import NavBar from "../../Students/Authentication/NavBar";
 
 export default function SignUpPage3(props) {
+  const navigate=useNavigate()
   let location = useLocation();
 
   const { Option } = Select;
@@ -59,7 +60,8 @@ export default function SignUpPage3(props) {
           data
         }
       );
-    
+      auth.signOut();
+      navigate('/signin')
     } catch (err) {
       console.error(err);
       alert(err.message);
