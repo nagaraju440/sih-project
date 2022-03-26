@@ -47,8 +47,6 @@ export default function RegisterForCourses(props) {
       const auth = getAuth();
       onAuthStateChanged(auth,user =>{
         console.log(user.uid,user.email)
-      
-
       addDoc(collection(db,"colleges",props.collegeName,"students",user.uid,"courses"),{
         Category:e.Category,
         Language:e.Language,
