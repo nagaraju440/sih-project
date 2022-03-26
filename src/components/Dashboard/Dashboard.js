@@ -20,6 +20,7 @@ import MCreateCourseForm from '../Mentors/M-Courses/MCreateCourseForm'
 import Chat from '../Chat/Chat'
 import IdeanaHome from '../Ideana/IdeanaHome'
 import IdeanaAdd from '../Ideana/IdeanaAdd'
+import micon from '../../assets/Icons/Micon.png'
 // const { SubMenu } = Menu;
 // import { Link } from 'react-router-dom';
 const { Header, Content, Sider } = Layout;
@@ -46,7 +47,7 @@ export default function Dashboard(props) {
       <div style={{display:"flex",flexDirection:'row'}}>
       <div 
       className="logo" 
-      >senior M junior</div>
+      >Senior <img src={micon}></img> Junior</div>
     {/* <Router> */}
     <div className='logo2'>
     <Menu theme="light" mode="horizontal" defaultSelectedKeys={['1']} className='nav'>
