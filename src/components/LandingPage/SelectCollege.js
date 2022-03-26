@@ -86,6 +86,8 @@ export default function SelectCollege() {
           <Option value="mit">MIT</Option>
           <Option value="Pixar">Pixar</Option>
           <Option value="IIT">IIT</Option>
+          <Option value="klu">klu</Option>
+          <Option value="srm">srm</Option>
         </Select>,
         </div>
           <div className='Sc-right-section-button'>

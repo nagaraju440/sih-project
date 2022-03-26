@@ -158,9 +158,9 @@ export default function Dashboard(props) {
             {/* <Content> */}
             {/* <Router> */}
             <Routes>
-              <Route path='/' element={<MentorDashboard />}></Route>
+              <Route path='/' element={<MCourses collegeName={props.collegeName} userUid={props.userUid} />}></Route>
               <Route path="/mentor/signup3" element={<Navigate replace={true} to="/Dashboard"></Navigate>} >  </Route>
-              <Route path='/Dashboard' element={<MentorDashboard />}></Route>
+              <Route path='/Dashboard' element={<MCourses collegeName={props.collegeName} userUid={props.userUid} />}></Route>
               <Route path='/Dashboard/profile' element={<MentorProfile collegeName={props.collegeName} userUid={props.userUid} />}></Route>
               <Route path='/Dashboard/assignments' element={<MentorAssignments />}></Route>
               <Route path='/Dashboard/courses' element={<MCourses collegeName={props.collegeName} userUid={props.userUid} />}></Route>

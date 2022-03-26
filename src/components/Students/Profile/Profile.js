@@ -158,10 +158,10 @@ export default function Profile(props) {
     
       try {
         const auth = getAuth();
-        onAuthStateChanged(auth,user =>{
-          console.log(user.uid,user.email)
+        // onAuthStateChanged(auth,user =>{
+          // console.log(user.uid,user.email)
   
-          updateDoc(doc(db, "colleges", props.collegeName,"students",user.uid), {
+          updateDoc(doc(db, "colleges", props.collegeName,"students",props.userUid), {
            Skills:Skills,
            Hobbies:HobbiesData,
            Projects:ProjectsData,
@@ -180,7 +180,7 @@ export default function Profile(props) {
           // alert("succsessfully created course")
           navigate(-1)
       })
-    })
+    // })
   
     
   } catch (err) {
