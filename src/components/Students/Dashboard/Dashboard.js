@@ -22,6 +22,8 @@ import RegisterForCourses from '../RegisterForCourses/RegisterForCourses'
 import IdeanaHome from '../../Ideana/IdeanaHome'
 import IdeanaAdd from '../../Ideana/IdeanaAdd'
 import micon from "../../../assets/Icons/Micon.png";
+import Chat from '../../Chat/Chat'
+import Notification from '../../Notification/Notification'
 // const { SubMenu } = Menu;
 // import { Link } from 'react-router-dom';
 const { Header, Content, Sider } = Layout;
@@ -80,10 +82,10 @@ export default function Dashboard(props) {
               <Link to="/Dashboard/assignments">Assignments</Link>
           </Menu.Item >
           <Menu.Item icon={<UserOutlined />}>
-              <Link to="/Dashboard">Chat</Link>
+              <Link to="/Dashboard/chat">Chat</Link>
           </Menu.Item>
           <Menu.Item icon={<UserOutlined />}>
-              <Link to="/Dashboard">Notifications</Link>
+              <Link to="/Dashboard/notifications">Notifications</Link>
           </Menu.Item>
           <Menu.Item icon={<UserOutlined />}>
               <Link to="/Dashboard">Clarify Doubts</Link>
@@ -120,6 +122,8 @@ export default function Dashboard(props) {
              <Route  path='/Dashboard' element={<StudentRegisteredCourses collegeName={props.collegeName} userUid={props.userUid}/>}></Route>
            <Route path='/Dashboard/profile' element={<Profile collegeName={props.collegeName} userUid={props.userUid}  />}></Route>
            <Route path='/Dashboard/assignments' element={<Assignments/>}></Route>
+           <Route path='/Dashboard/chat' element={<Chat/>}></Route>
+           <Route path='/Dashboard/notifications' element={<Notification/>}></Route>
            <Route path='/Dashboard/RegisterForCourses' element={<RegisterForCourses   collegeName={props.collegeName} userUid={props.userUid}/>}></Route>
             <Route path='/Dashboard/ideana' element={<IdeanaHome collegeName={props.collegeName}/> }></Route>
            <Route path='/Dashboard/ideana/addIdea' element={<IdeanaAdd collegeName={props.collegeName}/>}></Route> 

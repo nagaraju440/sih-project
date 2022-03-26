@@ -83,6 +83,8 @@ export default function SignInPage() {
       if (test) {
         console.log("hii routing has done succesfully");
       }
+      auth.signOut();
+      navigate('/signin')
     } catch (err) {
       console.error(err);
       alert(err.message);
