@@ -68,12 +68,14 @@ function Chat() {
         <div className="chatSection-body msgs">
           {messages.map(({ id, text, photoURL, uid }) => {
             return (
-              <div
-                key={id}
-                className={`msg ${uid === authUid ? "sent" : "received"}`}
-              >
-                <img src={photoURL} alt="" className="chat-image" />
-                <p className="chat-text">{text}</p>
+              <div>
+                <div
+                  key={id}
+                  className={`msg ${uid === authUid ? "sent" : "received"}`}
+                >
+                  <img src={photoURL} alt="" className="chat-image" />
+                  <p className="chat-text">{text}</p>
+                </div>
               </div>
             );
           })}
