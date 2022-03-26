@@ -76,9 +76,9 @@ export default function RegisterForCourses(props) {
     console.log(e, "wohoooo");
     try {
       const auth = getAuth();
-      onAuthStateChanged(auth,user =>{
-        console.log(user.uid,user.email)
-      setDoc(doc(db,"colleges",props.collegeName,"students",user.uid,"courses",e.courseId),{
+      // onAuthStateChanged(auth,user =>{
+        // console.log(user.uid,user.email)
+      setDoc(doc(db,"colleges",props.collegeName,"students",props.userUid,"courses",e.courseId),{
         Category:e.data.Category,
         Language:e.data.Language,
         Standard:e.data.Standard,
@@ -93,20 +93,20 @@ export default function RegisterForCourses(props) {
          
       })
        
-      updateDoc(doc(db,"colleges",props.collegeName,"mentors",e.data.uid),{
-        students:arrayUnion(user.uid)
+      // updateDoc(doc(db,"colleges",props.collegeName,"mentors",e.data.uid),{
+      //   students:arrayUnion(user.uid)
         
-      }).then(e=>{
+      // }).then(e=>{
 
-      })
-      updateDoc(doc(db,"colleges",props.collegeName,"courses",e.courseId),{
-        students:arrayUnion(user.uid)
-      }).then((e)=>{
-        alert(" succsesfully registered for course")
+      // })
+      // updateDoc(doc(db,"colleges",props.collegeName,"courses",e.courseId),{
+      //   students:arrayUnion(user.uid)
+      // }).then((e)=>{
+      //   alert(" succsesfully registered for course")
 
-      })
+      // })
       
-    })
+    // })
 
     } catch (err) {
       console.log(err);

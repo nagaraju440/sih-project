@@ -137,8 +137,8 @@ function MCreateCourseForm(props) {
     console.log("hii",Category1,Language1,Standard1,Title,Link)      
     // console.log(user.email)
     let data = location.state
+    const auth = getAuth();
     try {
-      const auth = getAuth();
       onAuthStateChanged(auth,user =>{
         console.log(user.uid,user.email)
 
