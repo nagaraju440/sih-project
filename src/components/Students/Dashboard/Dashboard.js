@@ -21,6 +21,7 @@ import StudentRegisteredCourses from './StudentMainDashboard/StudentRegisteredCo
 import RegisterForCourses from '../RegisterForCourses/RegisterForCourses'
 import IdeanaHome from '../../Ideana/IdeanaHome'
 import IdeanaAdd from '../../Ideana/IdeanaAdd'
+import micon from '../../../assets/Icons/Micon.png'
 // const { SubMenu } = Menu;
 // import { Link } from 'react-router-dom';
 const { Header, Content, Sider } = Layout;
@@ -47,7 +48,7 @@ export default function Dashboard(props) {
       <div style={{display:"flex",flexDirection:'row'}}>
       <div 
       className="logo" 
-      >senior M junior</div>
+      ><div className="headingd">Senior <img src={micon} style={{width:'40px',height:'50px'}} className="miconimage"></img> Junior </div></div>
     {/* <Router> */}
     <div className='logo2'>
     <Menu theme="light" mode="horizontal" defaultSelectedKeys={['1']} className='nav'>
