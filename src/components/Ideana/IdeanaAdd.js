@@ -55,7 +55,7 @@ export default function IdeanaAdd(props) {
   var onSubmitIdea = async (e) => {
     try {
    
-    addDoc (collection(db,"colleges","srkr","ideana"),{
+    addDoc(collection(db,"colleges",props.collegeName,"ideana"),{
       title:idea,
        domain:domain,
        description:descript,
