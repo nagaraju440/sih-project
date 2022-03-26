@@ -26,7 +26,16 @@ import {
   } from "react-router-dom";
 export default function IdeanaHome(props) {
     const navigate=useNavigate()
-
+    useEffect(async () => {
+      const test = await getDocs(
+        collection(db, "colleges", props.collgeName, "ideana")
+      );
+      test.forEach((doc) => {
+        y.push(doc.data());
+      });
+      setDetails(y);
+      console.log(details, "dhgSjdnsnJ");
+    }, []);
     const ideas=[{
       id: 1,
       title: "title 1",
@@ -66,6 +75,8 @@ export default function IdeanaHome(props) {
               {Object.values(details).map((c, p) => {
               return(
     <div className="Ideana_main">
+      
+      {console.log(props,"ideana")}
    
      <Carousel  dots={false} className='Ideana_slider'>
          <div className="Ideana_Card">

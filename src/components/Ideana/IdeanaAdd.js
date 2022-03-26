@@ -3,15 +3,21 @@ import '../Ideana/IdeanaAdd.css'
 import { Input } from 'antd';
 import { Select } from 'antd';
 import { collection, doc, setDoc, addDoc } from "firebase/firestore";
-import db from "../../firebaseConfig";
+import db from "../../firebaseConfig";import {
+  Routes, Route, Link, BrowserRouter as Router,Redirect,Navigate,
+  Switch,
+  useNavigate
+} from "react-router-dom";
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged
 } from "firebase/auth";
+// import { Navigate } from 'react-router-dom';
 
 export default function IdeanaAdd(props) {
+  const navigate=useNavigate()
   const { Option } = Select;
   const { TextArea } = Input;
   const [idea,setIdea]=useState("")
@@ -55,12 +61,18 @@ export default function IdeanaAdd(props) {
   var onSubmitIdea = async (e) => {
     try {
    
-    addDoc (collection(db,"colleges",props.collegeName,"ideana"),{
+    addDoc(collection(db,"colleges",props.collegeName,"ideana"),{
       title:idea,
        domain:domain,
        description:descript,
     
+    }).then((e)=>{
+      alert("successfullt added")
+      navigate(-1)
     })
+    setIdea("")
+    setDomain("")
+    setDescript("")
     console.log("idea posted successfully");
   }
  
