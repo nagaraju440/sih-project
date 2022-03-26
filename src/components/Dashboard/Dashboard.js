@@ -48,6 +48,7 @@ import IdeanaHome from "../Ideana/IdeanaHome";
 import IdeanaAdd from "../Ideana/IdeanaAdd";
 import micon from "../../assets/Icons/Micon.png";
 import Notification from "../Notification/Notification"
+import About from "../AboutUs/About";
 
 
 
@@ -94,7 +95,7 @@ export default function Dashboard(props) {
                   <Link to="/Dashboard">Connect</Link>
                 </Menu.Item>
                 <Menu.Item key="4">
-                  <Link to="/Dashboard">About Us</Link>
+                  <Link to="/about">About Us</Link>
                 </Menu.Item>
               </Menu>
             </div>
@@ -168,7 +169,9 @@ export default function Dashboard(props) {
            <Route path='/Dashboard/chat' element={<Chat/>}></Route>
            <Route path='/Dashboard/notification' element={<Notification/>}></Route>
            <Route path='/Dashboard/ideana' element={<IdeanaHome collegeName={props.collegeName} userUid={props.userUid}/>}></Route>
-           <Route path='/Dashboard/ideana/addIdea' element={<IdeanaAdd collegeName={props.collegeName}/>}></Route>
+              <Route path='/Dashboard/ideana/addIdea' element={<IdeanaAdd collegeName={props.collegeName} />}></Route>
+              <Route path='/about' element={<About  />}></Route>
+              
            </Routes>
 
             {/* <div style={{height:2000,backgroundColor:'red'}} className="content-inner">
