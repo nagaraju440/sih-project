@@ -95,6 +95,8 @@ padding: 0px;
     width: 100%;
     justify-content: flex-end;
     align-items: flex-end; 
+    font-size:16px;
+    font-weight:600;
 }
 .ant-menu-overflow-item .ant-menu-overflow-item-rest .ant-menu-submenu .ant-menu-submenu-horizontal .ant-menu-submenu-selected{
 width: 100%!important;
@@ -103,4 +105,21 @@ background-color: aqua;
 .card_style{
     border-radius: 20px;
     box-shadow: grey;
+}
+
+.textheadingm
+{
+    font-size:20px;
+    font-weight:bold;
+}
+.headertext{
+    margin-top:-10px
+}
+.mentor-name
+{
+    font-size:20px;
+    font-weight:600;
+    padding:0px 20px 20px 20px;
+
+
 }

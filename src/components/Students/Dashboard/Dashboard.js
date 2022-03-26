@@ -21,10 +21,7 @@ import StudentRegisteredCourses from './StudentMainDashboard/StudentRegisteredCo
 import RegisterForCourses from '../RegisterForCourses/RegisterForCourses'
 import IdeanaHome from '../../Ideana/IdeanaHome'
 import IdeanaAdd from '../../Ideana/IdeanaAdd'
-<<<<<<< HEAD
 import micon from '../../../assets/Icons/Micon.png'
-=======
->>>>>>> c5ce5c455e3076234af8a5bfbb991645e28ea215
 // const { SubMenu } = Menu;
 // import { Link } from 'react-router-dom';
 const { Header, Content, Sider } = Layout;
