@@ -23,7 +23,7 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
 } from "firebase/auth";
-import { collection, doc, setDoc, addDoc, getDoc } from "firebase/firestore";
+import { collection, doc, setDoc, addDoc, getDoc,updateDoc } from "firebase/firestore";
 import db from "../../../firebaseConfig";
 import MCreateCourseForm from "../M-Courses/MCreateCourseForm";
 import {
@@ -38,6 +38,10 @@ import {
   Input,
 } from "antd";
 import "./MentorProfile.css";
+import {
+  Routes, Route, Link, BrowserRouter as Router,Redirect,Navigate,useNavigate,
+  Switch,
+} from "react-router-dom";
 // import { DownOutlined, UserOutlined } from "@ant-design/icons";
 import AddIcon from "../../../assets/Icons/Plus.svg";
 import EditIcon from "../../../assets/Icons/edit.svg";
@@ -63,6 +67,7 @@ export default function MentorProfile(props) {
   const [num, setNum] = useState("");
   const [about, setAbout] = useState("");
   const [name, setName] = useState("");
+  const navigate=useNavigate()
   useEffect(async () => {
     const test = await getDoc(
       doc(db, "colleges", props.collegeName, "mentors", props.userUid)
@@ -123,19 +128,16 @@ export default function MentorProfile(props) {
     setIsHModalVisible(false);
   };
 
-  const AddHobbiesData = () => {
+  const AddHobbiesData = (e) => {
     setIsHModalVisible(false);
-    //  var d={
-    //    data:skillValue,
-    //   //  day:dayValue
-    //   //  description:"project description"
-    //  }
-    Skills.push(skillValue);
-    setSkills(Skills);
+ 
+    HobbiesData.push(HobbiesValue);
+    setHobbiesData(HobbiesData);
     //  setDayValue(dayValue+1)
-    console.log("day wise data is", setSkills);
-    skillValue("");
+    console.log("day wise data is", setHobbiesData);
+    setHobbiesValue("");
   };
+
 
   const AddProjectsData = () => {
     setIsPModalVisible(false);
@@ -151,20 +153,59 @@ export default function MentorProfile(props) {
     ProjectValue("");
   };
   const showModalP = () => {
-    setIsHModalVisible(true);
+    setIsPModalVisible(true);
   };
 
   const handleOkP = () => {
-    setIsHModalVisible(false);
+    setIsPModalVisible(false);
   };
 
   const handleCancelP = () => {
-    setIsHModalVisible(false);
+    setIsPModalVisible(false);
   };
-
   const { TextArea } = Input;
   // console.log("mentor profle",props.collegeName,"is college name of a mentor","user uid is",props.userUid)
+  // const done=()=>{
+  //   console.log("button clicked")
 
+  // }
+
+  var done = async (e) => {
+    // console.log("hii",Category1,Language1,Standard1,Title,Link)      
+  
+  
+    try {
+      const auth = getAuth();
+      onAuthStateChanged(auth,user =>{
+        console.log(user.uid,user.email)
+
+        updateDoc(doc(db, "colleges", props.collegeName,"mentors",user.uid), {
+         Skills:Skills,
+         Hobbies:HobbiesData,
+         Projects:ProjectsData,
+    })
+    // addDoc (collection(db,"colleges",props.collegeName,"courses"),{
+    //   Category:Category1,
+    //    Language:Language1,
+    //    Standard:Standard1,
+    //    Link:Link,
+    //    Title:Title,
+    //    Projects:projectsData,
+    //    Schedule:dayWiseData,
+    //    uid:user.uid
+    // })
+    .then((e)=>{
+        // alert("succsessfully created course")
+        navigate(-1)
+    })
+  })
+
+  
+} catch (err) {
+  console.error(err);
+  alert(err.message);
+}
+  }
   return (
     <div className="mp-main-container">
       <div className="mp-container">
@@ -352,7 +393,7 @@ export default function MentorProfile(props) {
             <input
               className="MCreateCourseFormProjectInput"
               placeholder="Enter the schedule"
-              value={HobbiesValue}
+              value={ProjectValue}
               onChange={(e) => {
                 console.log("value is", e.target.value);
                 setProjectValue(e.target.value);
@@ -366,6 +407,10 @@ export default function MentorProfile(props) {
               Done
             </div>
           </Modal>
+        </div>
+        <div className="MCreateCourse-button">
+         <button onClick={done}>done</button>
+
         </div>
       </div>
     </div>
