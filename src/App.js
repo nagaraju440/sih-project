@@ -30,13 +30,13 @@ import MCourses from './components/Mentors/M-Courses/MCourses';
 import Notification from './components/Notification/Notification'
 import About from './components/AboutUs/About';
 function App() {
-    // const auth=getAuth()
-    // auth.signOut()
+  // const auth = getAuth()
+  // auth.signOut()
   // }
 
 
   return (
-    <Authentication/>
+    <Authentication />
     // <Test_Card/>
     // <Test_Cards2/>
     // <MCourses/>
@@ -66,7 +66,7 @@ export default App;
 //       <Route path="mentorOrStudent_signup" element={<MentorOrStu/>}   />
 //       <Route path="mentorOrStudent_signin" element={<MentorOrStudentSignin/>}   />
 //     </Routes>
-//     </Router> 
+//     </Router>
 // function Home() {
 //   return (
 //     <>

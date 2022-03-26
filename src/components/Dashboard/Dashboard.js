@@ -42,12 +42,22 @@ import MentorProfile from "../Mentors/Profile/MentorProfile";
 import MentorAssignments from "../Mentors/MentorAssignments/MentorAssignments";
 import MCourses from "../Mentors/M-Courses/MCourses";
 import MCreateCourseForm from "../Mentors/M-Courses/MCreateCourseForm";
-import Chat from "../Chat/Chat";
+// import Chat from "../../firebasechat/Chat";
+import Chat from "../Chat/Chat"
 import IdeanaHome from "../Ideana/IdeanaHome";
 import IdeanaAdd from "../Ideana/IdeanaAdd";
 import micon from "../../assets/Icons/Micon.png";
-import dashboardIcon from '../../assets/Icons/dashboardIcon.svg';
-import proflie from '../../assets/Icons/'
+import Notification from "../Notification/Notification"
+import dashboardIcon from "../../assets/Icons/dashboardIcon.svg"
+import profile from "../../assets/Icons/profileIcon.svg"
+import courses from "../../assets/Icons/coursesIcon.svg"
+import assignment from "../../assets/Icons/Assignments.svg"
+import notification from "../../assets/Icons/notificationIcon.svg"
+import chat from "../../assets/Icons/chatIcon.svg"
+import share from "../../assets/Icons/shareIcon.svg"
+import addtostory from "../../assets/Icons/AddtostoryIcon.svg"
+import doubt from "../../assets/Icons/clarifyDoubtsIcon.svg"
+
 // const { SubMenu } = Menu;
 // import { Link } from 'react-router-dom';
 const { Header, Content, Sider } = Layout;
@@ -71,7 +81,7 @@ export default function Dashboard(props) {
         {/* <Layout> */}
         <Header className="header">
           <div style={{ display: "flex", flexDirection: "row" }}>
-          <div className="logo" ><div className="headingd">Senior <img src={micon} style={{width:'40px',height:'45px'}} className="miconimage"></img> Junior </div></div>
+            <div className="logo" ><div className="headingd">Senior <img src={micon} style={{ width: '40px', height: '45px' }} className="miconimage"></img> Junior </div></div>
             {/* <Router> */}
             <div className="logo2">
               <Menu
@@ -109,29 +119,37 @@ export default function Dashboard(props) {
                 <img src={dashboardIcon} className="icond"/>
                 <Link to="/Dashboard" className="iconname">Dashboard</Link>
               </Menu.Item>
-              <Menu.Item icon={<UserOutlined />}>
-                <Link to="/Dashboard/profile">Profile</Link>
+              <Menu.Item >
+              <img src={profile} className="icond"/>
+                <Link to="/Dashboard/profile" className="iconname">Profile</Link>
               </Menu.Item>
-              <Menu.Item icon={<UserOutlined />}>
-                <Link to="/Dashboard/courses">Courses</Link>
+              <Menu.Item >
+              <img src={courses} className="icond"/>
+                <Link to="/Dashboard/courses" className="iconname">Courses</Link>
               </Menu.Item>
-              <Menu.Item icon={<UserOutlined />}>
-                <Link to="/Dashboard/assignments">Assignments</Link>
+              <Menu.Item >
+              <img src={assignment} className="icond"/>
+                <Link to="/Dashboard/assignments" className="iconname">Assignments</Link>
               </Menu.Item>
-              <Menu.Item icon={<UserOutlined />}>
-                <Link to="/Dashboard/chat">Chat</Link>
+              <Menu.Item >
+              <img src={chat} className="icond"/>
+                <Link to="/Dashboard/chat" className="iconname">Chat</Link>
               </Menu.Item>
-              <Menu.Item icon={<UserOutlined />}>
-                <Link to="/Dashboard">Notifications</Link>
+              <Menu.Item >
+              <img src={notification} className="icond"/>
+                <Link to="/Dashboard/notification" className="iconname">Notifications</Link>
               </Menu.Item>
-              <Menu.Item icon={<UserOutlined />}>
-                <Link to="/Dashboard">Clarify Doubts</Link>
+              <Menu.Item >
+              <img src={doubt} className="icond"/>
+                <Link to="/Dashboard" className="iconname">Clarify Doubts</Link>
               </Menu.Item>
-              <Menu.Item icon={<UserOutlined />}>
-                <Link to="/Dashboard">Add to story</Link>
+              <Menu.Item>
+              <img src={addtostory} className="icond"/>
+                <Link to="/Dashboard" className="iconname">Add to story</Link>
               </Menu.Item>
-              <Menu.Item icon={<UserOutlined />}>
-                <Link to="/Dashboard">Share</Link>
+              <Menu.Item>
+              <img src={share} className="icond"/>
+                <Link to="/Dashboard" className="iconname">Share</Link>
               </Menu.Item>
               <Menu.Item
                 icon={<UserOutlined />}
@@ -158,12 +176,13 @@ export default function Dashboard(props) {
            <Routes>
            <Route  path='/'  element={<MentorDashboard/>}></Route>
             <Route path="/mentor/signup3" element={<Navigate replace={true} to="/Dashboard"></Navigate>} >  </Route>
-             <Route  path='/Dashboard' element={<MentorDashboard/>}></Route>
+             <Route  path='/Dashboard' element={<MCourses/>}></Route>
            <Route path='/Dashboard/profile' element={<MentorProfile collegeName={props.collegeName} userUid={props.userUid} />}></Route>
            <Route path='/Dashboard/assignments' element={<MentorAssignments/>}></Route>
            <Route path='/Dashboard/courses' element={<MCourses/>}></Route>
            <Route path='/Dashboard/courses/createCourse' element={<MCreateCourseForm collegeName={props.collegeName} userUid={props.userUid}/>}></Route>
            <Route path='/Dashboard/chat' element={<Chat/>}></Route>
+           <Route path='/Dashboard/notification' element={<Notification/>}></Route>
            <Route path='/Dashboard/ideana' element={<IdeanaHome collegeName={props.collegeName} userUid={props.userUid}/>}></Route>
            <Route path='/Dashboard/ideana/addIdea' element={<IdeanaAdd collegeName={props.collegeName}/>}></Route>
            </Routes>

@@ -22,6 +22,7 @@ import RegisterForCourses from '../RegisterForCourses/RegisterForCourses'
 import IdeanaHome from '../../Ideana/IdeanaHome'
 import IdeanaAdd from '../../Ideana/IdeanaAdd'
 import micon from "../../../assets/Icons/Micon.png";
+import CourseDetails from '../RegisterForCourses/CourseDetails'
 // const { SubMenu } = Menu;
 // import { Link } from 'react-router-dom';
 const { Header, Content, Sider } = Layout;
@@ -117,10 +118,10 @@ export default function Dashboard(props) {
            <Routes>
            <Route  path='/'  element={<StudentRegisteredCourses/>}></Route>
            <Route path="/student/signup" element={<Navigate replace={true} to="/Dashboard"></Navigate>} >  </Route>
-             <Route  path='/Dashboard' element={<StudentRegisteredCourses/>}></Route>
+             <Route  path='/Dashboard' element={<StudentRegisteredCourses collegeName={props.collegeName} userUid={props.userUid}/>}></Route>
            <Route path='/Dashboard/profile' element={<Profile collegeName={props.collegeName} userUid={props.userUid}  />}></Route>
            <Route path='/Dashboard/assignments' element={<Assignments/>}></Route>
-           <Route path='/Dashboard/RegisterForCourses' element={<RegisterForCourses   collegeName={props.collegeName} userUid={props.userUid}/>}></Route>
+           <Route path='/Dashboard/RegisterForCourses' element={<CourseDetails   collegeName={props.collegeName} userUid={props.userUid}/>}></Route>
             <Route path='/Dashboard/ideana' element={<IdeanaHome collegeName={props.collegeName}/> }></Route>
            <Route path='/Dashboard/ideana/addIdea' element={<IdeanaAdd collegeName={props.collegeName}/>}></Route> 
            {/* <Route path='/Dashboard' element={<StudentRegisteredCourses/>} ></Route> */}
