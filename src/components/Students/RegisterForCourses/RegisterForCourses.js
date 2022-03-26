@@ -98,7 +98,8 @@ export default function RegisterForCourses(props) {
   };
   return (
     <div>
-      {console.log(props.collegeName, props.userUid, details, "./././.")}
+      {/* {console.log(props.collegeName, props.userUid, details, "./././.")} */}
+      <div className="rfc-container">
       {Object.values(details).map((c, p) => {
          if(studentCourseId.indexOf(c.courseId)===-1){
           console.log("c is",c.courseId)
@@ -139,6 +140,7 @@ export default function RegisterForCourses(props) {
           )
          }
       })}
+      </div>
     </div>
   );
 }
