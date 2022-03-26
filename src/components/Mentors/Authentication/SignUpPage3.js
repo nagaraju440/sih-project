@@ -20,6 +20,7 @@ export default function SignUpPage3(props) {
   const { TextArea } = Input;
   const [about, setabout] = useState("");
   const[exp,setexp]=useState("");
+  const [completedProject,setCompletedProject]=useState([])
 
   const projects = ['online-shopping', 'bug-tracking', 'e-waste-collection'];
   for (let i = 0; i < 3; i++) {
@@ -27,10 +28,12 @@ export default function SignUpPage3(props) {
       <Option key={projects[i]} ></Option>
     );
   }
+  console.log("state from page 2 in page 3 is ",location.state)
+
   var onSubmitdata = async (e) => {
     e.preventDefault();
     let data = location.state
-    data['projects'] = projects
+    data['projects'] = completedProject
     data['expeience'] = exp
     data['about'] = about
     console.log(about)
@@ -73,7 +76,9 @@ export default function SignUpPage3(props) {
     console.log(e.target.value);
     setexp(e.target.value);
   };
-
+  function ProjectFn(x){
+     setCompletedProject(Object.values(x))
+  }
   return (
     <>
     <NavBar/>
@@ -91,7 +96,7 @@ export default function SignUpPage3(props) {
 
 
 
-          <form className="SignUpPage3-form-sub">
+          <div className="SignUpPage3-form-sub">
             <label className="SignUpPage3-label">Completed Projects</label>
             <br />
             <div className="SignUpPage3-form-select">
@@ -99,6 +104,7 @@ export default function SignUpPage3(props) {
                 mode="tags"
                 style={{ width: "100%" }}
                 tokenSeparators={[","]}
+                onChange={ProjectFn}
               >
                 {projects}
               </Select>
@@ -116,7 +122,7 @@ export default function SignUpPage3(props) {
             <div className="SignUpPage3-button-class">
               <button onClick={onSubmitdata} className="SignUpPage3-button-text" >Next </button>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </>
