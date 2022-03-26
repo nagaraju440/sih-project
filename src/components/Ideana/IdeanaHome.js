@@ -57,7 +57,6 @@ export default function IdeanaHome(props) {
 
   return (
     <div>
-      {console.log(props,"ideana")}
     <div className="Ideana_iamges">
      <div className="Ideana_image1"><img src={img1}/></div>
      <div className="Ideana_image2"><img src={img2}/></div>
@@ -66,6 +65,8 @@ export default function IdeanaHome(props) {
               {Object.values(details).map((c, p) => {
               return(
     <div className="Ideana_main">
+      
+      {console.log(props,"ideana")}
    
      <Carousel  dots={false} className='Ideana_slider'>
          <div className="Ideana_Card">
