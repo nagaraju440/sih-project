@@ -149,7 +149,8 @@ function MCreateCourseForm(props) {
        Link:Link,
        Title:Title,
        Projects:projectsData,
-       Schedule:dayWiseData
+       Schedule:dayWiseData,
+       students:[]
       // Projects:[{title:Ptitle,des:Pdes}]
        
     // title: "Hello world!",
@@ -174,7 +175,8 @@ function MCreateCourseForm(props) {
        Title:Title,
        Projects:projectsData,
        Schedule:dayWiseData,
-       uid:user.uid
+       uid:user.uid,
+       students:[]
     })
     .then((e)=>{
         // alert("succsessfully created course")
