@@ -11,11 +11,10 @@ import "./Chat.css";
 import ChatCard2 from "./ChatCard2";
 import TypeCard from "./TypeCard";
 import { Input, AutoComplete } from 'antd';
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
 
 function Chat() {
-<<<<<<< HEAD
   const scroll = useRef()
     var [messages, setMessages] = useState([])
     var [msgsData,setMsgsData]=useState([])
@@ -31,11 +30,6 @@ function Chat() {
      
 
     },[])
-=======
-  const { sender, setsender } = useState();
-
-
->>>>>>> 935c9477ebd9f48da3fb1fc0e33e06ae99a83cb6
   return (
     <div className="chatPage">
       <div className="ChatMenuContainer">
@@ -57,7 +51,6 @@ function Chat() {
       </div>
       <div className="chatSection">
         <div className="chatSection-header"><ChatCard2 /></div>
-<<<<<<< HEAD
         <div className="chatSection-body msgs">
         {messages.map(({ id, text, photoURL, uid }) =>{ 
                     return(
@@ -72,12 +65,6 @@ function Chat() {
                     })}
         </div>
         <div className="chatSection-footer"><TypeCard scroll={scroll}/></div>
-=======
-        <div className="chatSection-body">
-          djfadshfkajldfhakjlhdlkj
-        </div>
-        <div className="chatSection-footer"><TypeCard /></div>
->>>>>>> 935c9477ebd9f48da3fb1fc0e33e06ae99a83cb6
         
       </div>
     </div>

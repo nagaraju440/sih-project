@@ -142,7 +142,7 @@ function MCreateCourseForm(props) {
       onAuthStateChanged(auth,user =>{
         console.log(user.uid,user.email)
 
-       addDoccollec(tion(db, "colleges", props.collegeName,"mentors",user.uid,"courses"), {
+       addDoc(collection(db, "colleges", props.collegeName,"mentors",user.uid,"courses"), {
        Category:Category1,
        Language:Language1,
        Standard:Standard1,
@@ -177,7 +177,7 @@ function MCreateCourseForm(props) {
        uid:user.uid
     })
     .then((e)=>{
-        alert("succsessfully created course")
+        // alert("succsessfully created course")
         navigate(-1)
     })
   })
