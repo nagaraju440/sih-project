@@ -88,9 +88,12 @@ export default function About() {
         <div className="about-page-section">
           <div className="about-page-section-title">Our Developers</div>
           <div className="about-page-sub-section">
-           <DeveloperCard/>
+           <DeveloperCard name="Naga Raju" des = 'i am a Full Stack develo' />
+           <DeveloperCard name="Uman" des = 'i am a Full Stack develo' />
+           <DeveloperCard name="Praveen" des = 'i am a Full Stack develo' />
           </div>
         </div>
+     
 
 
 
