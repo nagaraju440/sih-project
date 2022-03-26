@@ -36,7 +36,7 @@ export default function MCourses(props) {
       Object.values(details).map((x,y)=>{
         return(
          
-          <MCourseCard/>
+          <MCourseCard x={x}/>
           
         )
       })
