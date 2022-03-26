@@ -28,7 +28,7 @@ export default function SignUpPage3(props) {
       <Option key={projects[i]} ></Option>
     );
   }
-  console.log("state from page 2 in page 3 is ",location.state)
+  // console.log("state from page 2 in page 3 is ",location.state)
 
   var onSubmitdata = async (e) => {
     e.preventDefault();

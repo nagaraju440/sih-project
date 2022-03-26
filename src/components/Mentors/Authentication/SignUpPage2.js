@@ -53,11 +53,12 @@ const skills1=[]
     data['linked_in'] = linkedInValue
     // data['languages'] = languages
     data['hobbies'] = selectedHobbies
-    console.log("location is", data)
+    // console.log("location is", data)
 
     navigate("/mentor/signup3", { state: data });
   }
   var skipToNextPage = () => {
+    console.log("hii signuptonxtpage");
     let data = location.state
     navigate("/mentor/signup3", { state: data });
   }
@@ -82,7 +83,7 @@ const skills1=[]
   
   return (
     <>
-    <NavBar/>
+      <NavBar />
       <div className="SignUpPage2-container">
         <div className="SignUpPage2-form">
 
