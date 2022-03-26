@@ -9,13 +9,13 @@ import {
   setDoc,
   addDoc,
   getDoc,
-  getDocs,
+  getDocs,arrayUnion,updateDoc 
 } from "firebase/firestore";
 import db from "../../../firebaseConfig";
 import {
   getAuth,
   createUserWithEmailAndPassword,
-  onAuthStateChanged,
+  onAuthStateChanged
 } from "firebase/auth";
 import { useState } from "react";
 export default function RegisterForCourses(props) {
@@ -72,7 +72,7 @@ export default function RegisterForCourses(props) {
     // ...............get student course uid isFinite.apply..................
    
   }, []);
-  const AddData = (e) => {
+  const AddData = async (e) => {
     console.log(e, "wohoooo");
     try {
       const auth = getAuth();
@@ -89,10 +89,25 @@ export default function RegisterForCourses(props) {
         uid:e.data.uid,
         courseId:e.courseId
       }).then((e)=>{
-        alert("succsessfully registered for course")
-       
+        // alert("succsessfully registered for course")
+         
       })
+       
+      updateDoc(doc(db,"colleges",props.collegeName,"mentors",e.data.uid),{
+        students:arrayUnion(user.uid)
+        
+      }).then(e=>{
+
+      })
+      updateDoc(doc(db,"colleges",props.collegeName,"courses",e.courseId),{
+        students:arrayUnion(user.uid)
+      }).then((e)=>{
+        alert(" succsesfully registered for course")
+
+      })
+      
     })
+
     } catch (err) {
       console.log(err);
     }
@@ -100,11 +115,8 @@ export default function RegisterForCourses(props) {
   return (
     <div>
       {/* {console.log(props.collegeName, props.userUid, details, "./././.")} */}
+      <div>
       <div className="rfc-container">
-      {
-        studentCourseId.length===Object.values(details.length)?<div>
-          There are no course for you
-        </div>:<div>
 
 {Object.values(details).map((c, p) => {
           console.log("c is",studentCourseId,c.courseId)
@@ -148,7 +160,7 @@ export default function RegisterForCourses(props) {
          }
       })}
         </div>
-      }
+      
       </div>
     </div>
   );
