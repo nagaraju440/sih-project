@@ -27,7 +27,7 @@ export default function RegisterForCourses(props) {
       collection(db, "colleges", props.collegeName, "courses")
     );
     test.forEach((doc) => {
-      y.push(doc.data());
+      y.push({data:doc.data(),courseId:doc.id});
       try {
         const auth = getAuth();
         onAuthStateChanged(auth, (user) => {
@@ -50,14 +50,17 @@ export default function RegisterForCourses(props) {
       
 
       addDoc(collection(db,"colleges",props.collegeName,"students",user.uid,"courses"),{
-        Category:e.Category,
-        Language:e.Language,
-        Standard:e.Standard,
-        Link:e.Link,
-        Title:e.Title,
-        Projects:e.Projects,
-        Schedule:e.Schedule,
-        uid:e.uid
+        Category:e.data.Category,
+        Language:e.data.Language,
+        Standard:e.data.Standard,
+        Link:e.data.Link,
+        Title:e.data.Title,
+        Projects:e.data.Projects,
+        Schedule:e.data.Schedule,
+        uid:e.data.uid,
+        courseId:e.courseId
+      }).then((e)=>{
+        alert("succsessfully registered for course")
       })
     })
     } catch (err) {
@@ -68,13 +71,14 @@ export default function RegisterForCourses(props) {
     <div>
       {console.log(props.collegeName, props.userUid, details, "./././.")}
       {Object.values(details).map((c, p) => {
+        console.log("c is",c)
         return (
           <div key={p} className="card1">
             <div className="Card1_image">
               <img src={img1}></img>
             </div>
             <div className="Card1_Header">
-              <div className="Card1_Headertext"> {c.Title}</div>
+              <div className="Card1_Headertext"> {c.data.Title}</div>
               <div className="Card1_Headericon">
                 <img
                   src={HeartIcon}
@@ -82,7 +86,7 @@ export default function RegisterForCourses(props) {
                 ></img>
               </div>
             </div>
-            <div className="Card1_secondparttext">{c.uid}</div>
+            <div className="Card1_secondparttext">{c.data.uid}</div>
             <div className="Card1_thirdparttext">
               <div className="Card1_days">• 7days</div>
               <div className="Card1_time">• 5pm to 7 pm</div>

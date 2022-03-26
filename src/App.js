@@ -36,12 +36,12 @@ function App() {
 
 
   return (
-    // <Authentication/>
+    <Authentication/>
     // <Test_Card/>
     // <Test_Cards2/>
     // <MCourses/>
     // <Notification/>
-    <About/>
+    // <About/>
     
   )
 

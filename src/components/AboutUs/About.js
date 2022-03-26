@@ -6,6 +6,7 @@ import Technical from "../../assets/Icons/techinicalSkills.svg";
 import Communication from "../../assets/Icons/communication.svg";
 import SelfLearning from "../../assets/Icons/selfLearning.svg";
 import InnerStrength from "../../assets/Icons/innerStrength.svg";
+import DeveloperCard from "../Cards/DeveloperCard";
 
 export default function About() {
   return (
@@ -85,11 +86,9 @@ export default function About() {
       </div>
       {/* ........................................our developers start's form here ....!........................................*/}
         <div className="about-page-section">
-          <div className="about-page-section-title">Our Aim</div>
-          <div className="about-page-section-description">
-            “Smart Education, a Concept that Describes learning in digital
-            age.it enables learner to learn more effectively, efficiently,
-            flexibly and comfortably.”
+          <div className="about-page-section-title">Our Developers</div>
+          <div className="about-page-sub-section">
+           <DeveloperCard/>
           </div>
         </div>
 
