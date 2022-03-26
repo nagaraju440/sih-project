@@ -59,6 +59,7 @@ border-radius: 8px !important;
     display: flex;
     flex-direction: column;
     /* justify-content: space-between; */
+    position:relative;
 }
 .chatSection-header{
     /* background-color: red; */
@@ -71,6 +72,9 @@ border-radius: 8px !important;
 .chatSection-footer{
     /* background-color: brown; */
     flex: 1;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
 }
 
 
