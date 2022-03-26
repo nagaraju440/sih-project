@@ -35,14 +35,14 @@ function Authentication() {
 
     // useEffect = () => {
     onAuthStateChanged(auth, async (user) => {
-        console.log("user is,", user)
+        // console.log("user is,", user)
 
         if (user) {
             setUserUid(user.uid)
 
             const test = await getDoc(doc(db, "users", user.uid));
 
-            console.log("user details in main page", test.data().role, test.data());
+            // console.log("user details in main page", test.data().role, test.data());
             setCollegeName(test.data().collegeName)
             setUserRole(test.data().role)
             // auth.signOut()
@@ -58,7 +58,7 @@ function Authentication() {
 
     if (authenticated) {
         if (userRole == 'mentor') {
-            console.log("authenticated in if", authenticated);
+            // console.log("authenticated in if", authenticated);
             // return <MentorDashboard collegeName={collegeName} role={userRole} userUid={userUid} />
             return <Chat />
         }
@@ -70,7 +70,7 @@ function Authentication() {
 
     }
     else {
-        console.log("authenticated in else", authenticated);
+        // console.log("authenticated in else", authenticated);
         return <NotAuthenticated />
     }
 }

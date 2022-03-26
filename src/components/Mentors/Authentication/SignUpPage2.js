@@ -53,7 +53,7 @@ const skills1=[]
     data['linked_in'] = linkedInValue
     // data['languages'] = languages
     data['hobbies'] = selectedHobbies
-    console.log("location is", data)
+    // console.log("location is", data)
 
     navigate("/mentor/signup3", { state: data });
   }
