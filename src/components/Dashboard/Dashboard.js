@@ -43,10 +43,18 @@ import MentorAssignments from "../Mentors/MentorAssignments/MentorAssignments";
 import MCourses from "../Mentors/M-Courses/MCourses";
 import MCreateCourseForm from "../Mentors/M-Courses/MCreateCourseForm";
 // import Chat from "../../firebasechat/Chat";
+<<<<<<< HEAD
 import Chat from "../Chat/Chat"
+=======
+import Chat from "../Chat/Chat";
+>>>>>>> 935c9477ebd9f48da3fb1fc0e33e06ae99a83cb6
 import IdeanaHome from "../Ideana/IdeanaHome";
 import IdeanaAdd from "../Ideana/IdeanaAdd";
 import micon from "../../assets/Icons/Micon.png";
+import Notification from "../Notification/Notification"
+
+
+
 // const { SubMenu } = Menu;
 // import { Link } from 'react-router-dom';
 const { Header, Content, Sider } = Layout;
@@ -120,7 +128,7 @@ export default function Dashboard(props) {
                 <Link to="/Dashboard/chat">Chat</Link>
               </Menu.Item>
               <Menu.Item icon={<UserOutlined />}>
-                <Link to="/Dashboard">Notifications</Link>
+                <Link to="/Dashboard/notification">Notifications</Link>
               </Menu.Item>
               <Menu.Item icon={<UserOutlined />}>
                 <Link to="/Dashboard">Clarify Doubts</Link>
@@ -142,29 +150,30 @@ export default function Dashboard(props) {
                 {/* <div onClick={()=>{
    
             }}> */}
-                <Link to="/">Sign out</Link>
-                {/* </div> */}
-              </Menu.Item>
-            </Menu>
-            {/* </Router> */}
-          </div>
-          {/* </Sider> */}
-          <div className='content-container'>
-            {/* <Layout> */}
-            {/* <Content> */}
-            {/* <Router> */}
-            <Routes>
-              <Route path='/' element={<MentorDashboard />}></Route>
-              <Route path="/mentor/signup3" element={<Navigate replace={true} to="/Dashboard"></Navigate>} >  </Route>
-              <Route path='/Dashboard' element={<MentorDashboard />}></Route>
-              <Route path='/Dashboard/profile' element={<MentorProfile collegeName={props.collegeName} userUid={props.userUid} />}></Route>
-              <Route path='/Dashboard/assignments' element={<MentorAssignments />}></Route>
-              <Route path='/Dashboard/courses' element={<MCourses />}></Route>
-              <Route path='/Dashboard/courses/createCourse' element={<MCreateCourseForm collegeName={props.collegeName} userUid={props.userUid} />}></Route>
-              <Route path='/Dashboard/chat' element={<Chat />}></Route>
-              <Route path='/Dashboard/ideana' element={<IdeanaHome collegeName={props.collegeName} userUid={props.userUid} />}></Route>
-              <Route path='/Dashboard/ideana/addIdea' element={<IdeanaAdd collegeName={props.collegeName} />}></Route>
-            </Routes>
+              <Link to="/">Sign out</Link>
+              {/* </div> */}
+          </Menu.Item>
+        </Menu>
+      {/* </Router> */}
+       </div>
+      {/* </Sider> */}
+     <div className='content-container'>
+     {/* <Layout> */}
+        {/* <Content> */}
+         {/* <Router> */}
+           <Routes>
+           <Route  path='/'  element={<MentorDashboard/>}></Route>
+            <Route path="/mentor/signup3" element={<Navigate replace={true} to="/Dashboard"></Navigate>} >  </Route>
+             <Route  path='/Dashboard' element={<MentorDashboard/>}></Route>
+           <Route path='/Dashboard/profile' element={<MentorProfile collegeName={props.collegeName} userUid={props.userUid} />}></Route>
+           <Route path='/Dashboard/assignments' element={<MentorAssignments/>}></Route>
+           <Route path='/Dashboard/courses' element={<MCourses/>}></Route>
+           <Route path='/Dashboard/courses/createCourse' element={<MCreateCourseForm collegeName={props.collegeName} userUid={props.userUid}/>}></Route>
+           <Route path='/Dashboard/chat' element={<Chat/>}></Route>
+           <Route path='/Dashboard/notification' element={<Notification/>}></Route>
+           <Route path='/Dashboard/ideana' element={<IdeanaHome collegeName={props.collegeName} userUid={props.userUid}/>}></Route>
+           <Route path='/Dashboard/ideana/addIdea' element={<IdeanaAdd collegeName={props.collegeName}/>}></Route>
+           </Routes>
 
             {/* <div style={{height:2000,backgroundColor:'red'}} className="content-inner">
             This is conent pa

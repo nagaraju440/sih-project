@@ -58,8 +58,21 @@ border-radius: 8px !important;
     
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
+.chatSection-header{
+    /* background-color: red; */
+    flex: 1;
+}
+.chatSection-body{
+    flex: 8;
+    /* background-color: green; */
+}
+.chatSection-footer{
+    /* background-color: brown; */
+    flex: 1;
+}
+
 
 
 
@@ -156,4 +169,11 @@ border-radius: 8px !important;
 }
 input:focus{
     outline: none;
+}
+/* {,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,message card stylings ...........................................} */
+
+
+.message-card{
+    padding: 5px;
+    border: 1px solid black;
 }
