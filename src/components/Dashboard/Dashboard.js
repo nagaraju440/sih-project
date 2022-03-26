@@ -165,7 +165,7 @@ export default function Dashboard(props) {
            <Route path='/Dashboard/assignments' element={<MentorAssignments/>}></Route>
            <Route path='/Dashboard/courses' element={<MCourses/>}></Route>
            <Route path='/Dashboard/courses/createCourse' element={<MCreateCourseForm collegeName={props.collegeName} userUid={props.userUid}/>}></Route>
-           <Route path='/Dashboard/chat' element={<Chat/>}></Route>
+           <Route path='/Dashboard/chat' element={<Chat collegeName={props.collegeName} userUid={props.userUid}/>}></Route>
            <Route path='/Dashboard/notification' element={<Notification/>}></Route>
            <Route path='/Dashboard/ideana' element={<IdeanaHome collegeName={props.collegeName} userUid={props.userUid}/>}></Route>
            <Route path='/Dashboard/ideana/addIdea' element={<IdeanaAdd collegeName={props.collegeName}/>}></Route>
