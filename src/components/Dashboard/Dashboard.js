@@ -42,6 +42,7 @@ import MentorProfile from "../Mentors/Profile/MentorProfile";
 import MentorAssignments from "../Mentors/MentorAssignments/MentorAssignments";
 import MCourses from "../Mentors/M-Courses/MCourses";
 import MCreateCourseForm from "../Mentors/M-Courses/MCreateCourseForm";
+// import Chat from "../../firebasechat/Chat";
 import Chat from "../Chat/Chat";
 import IdeanaHome from "../Ideana/IdeanaHome";
 import IdeanaAdd from "../Ideana/IdeanaAdd";
@@ -73,7 +74,7 @@ export default function Dashboard(props) {
         {/* <Layout> */}
         <Header className="header">
           <div style={{ display: "flex", flexDirection: "row" }}>
-          <div className="logo" ><div className="headingd">Senior <img src={micon} style={{width:'40px',height:'45px'}} className="miconimage"></img> Junior </div></div>
+            <div className="logo" ><div className="headingd">Senior <img src={micon} style={{ width: '40px', height: '45px' }} className="miconimage"></img> Junior </div></div>
             {/* <Router> */}
             <div className="logo2">
               <Menu
