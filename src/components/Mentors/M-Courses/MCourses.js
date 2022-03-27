@@ -24,7 +24,7 @@ export default function MCourses(props) {
   }, []);
   return (
     <>
-    <div className='McourseComponent'key={y}>
+    <div className='McourseComponent' key={y}>
           {console.log(props,"mdash")}
           <div>
           <div className='MCourseCardSearchContainer'>
@@ -32,7 +32,11 @@ export default function MCourses(props) {
             <Link to="/Dashboard/courses/createCourse"><div className='MCourseCardCreateCourseBtn'>Create Course</div></Link>
           </div>
           <div className='McourseCardContainer' onClick={MCreateCourseForm}>
-    {
+       {
+         details.length===0?<div>
+               You didn't created any courses please create course 
+         </div>:<div>
+         {
       Object.values(details).map((x,y)=>{
         return(
          
@@ -41,6 +45,8 @@ export default function MCourses(props) {
         )
       })
     }
+         </div>
+       }
     </div>
           
        </div>

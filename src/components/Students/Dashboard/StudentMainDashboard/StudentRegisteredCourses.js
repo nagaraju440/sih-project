@@ -34,6 +34,10 @@ export default function StudentRegisteredCourses(props) {
     <div >
       <div className='rfc-container'>
       {
+        coursesData.length===0?<div>
+            <h1>You didn't register for any courses go to courses page and do do register</h1>
+        </div>:<div>
+          {
          coursesData.map((l,i)=>{
           return(
             <div key={i} className="card">
@@ -54,6 +58,8 @@ export default function StudentRegisteredCourses(props) {
           )
           })
        } 
+        </div>
+      }
        </div>
     </div>
   )

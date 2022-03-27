@@ -90,7 +90,7 @@ export default function Dashboard(props) {
               </Menu.Item>
               <Menu.Item >
               <img src={courses} className="icond"/>
-                <Link to="/Dashboard/courses" className="iconname">Courses</Link>
+                <Link to="/Dashboard/RegisterForCourses" className="iconname">Courses</Link>
               </Menu.Item>
               <Menu.Item >
               <img src={assignment} className="icond"/>
