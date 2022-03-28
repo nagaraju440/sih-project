@@ -107,41 +107,41 @@ function UserDashboard(props){
     setKeyvalue(keyValue)
       }} >
               <div className="studentname">Hi,Sunil Kalikayi</div>
-              <Menu.Item>
+              <Menu.Item key="1">
                   <img src={dashboardIcon} className="icond"/>
-                  <Link  to="/Dashboard" key="1" className="iconname">Dashboard</Link>
+                  <Link  to="/Dashboard"  className="iconname">Dashboard</Link>
                 </Menu.Item>
-                <Menu.Item >
+                <Menu.Item key="2" >
                 <img src={profile} className="icond"/>
-                  <Link key="2" to="/Dashboard/profile" className="iconname">Profile</Link>
+                  <Link to="/Dashboard/profile" className="iconname">Profile</Link>
                 </Menu.Item>
-                <Menu.Item >
+                <Menu.Item key="3">
                 <img src={courses} className="icond"/>
-                  <Link key="3" to="/Dashboard/RegisterForCourses" className="iconname">Courses</Link>
+                  <Link  to="/Dashboard/RegisterForCourses" className="iconname">Courses</Link>
                 </Menu.Item>
-                <Menu.Item >
+                <Menu.Item key="4">
                 <img src={assignment} className="icond"/>
-                  <Link key="4" to="/Dashboard/assignments" className="iconname">Assignments</Link>
+                  <Link  to="/Dashboard/assignments" className="iconname">Assignments</Link>
                 </Menu.Item>
-                <Menu.Item >
+                <Menu.Item key="5">
                 <img src={chat} className="icond"/>
-                  <Link key="5" to="/Dashboard/chat" className="iconname">Chat</Link>
+                  <Link  to="/Dashboard/chat" className="iconname">Chat</Link>
                 </Menu.Item>
-                <Menu.Item >
+                <Menu.Item key="6">
                 <img src={notification} className="icond"/>
-                  <Link key="6" to="/Dashboard" className="iconname">Notifications</Link>
+                  <Link  to="/Dashboard" className="iconname">Notifications</Link>
                 </Menu.Item>
-                <Menu.Item >
+                <Menu.Item key="7">
                 <img src={doubt} className="icond"/>
-                  <Link key="7" to="/Dashboard" className="iconname">Clarify Doubts</Link>
+                  <Link  to="/Dashboard" className="iconname">Clarify Doubts</Link>
                 </Menu.Item>
-                <Menu.Item>
+                <Menu.Item key="7">
                 <img src={addtostory} className="icond"/>
-                  <Link key="7" to="/Dashboard" className="iconname">Add to story</Link>
+                  <Link  to="/Dashboard" className="iconname">Add to story</Link>
                 </Menu.Item>
-                <Menu.Item>
+                <Menu.Item key="8">
                 <img src={share} className="icond"/>
-                  <Link key="8" to="/Dashboard" className="iconname">Share</Link>
+                  <Link  to="/Dashboard" className="iconname">Share</Link>
                 </Menu.Item>
             <Menu.Item icon={<UserOutlined />} onClick={()=>{
               const auth = getAuth();

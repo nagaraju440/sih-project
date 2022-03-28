@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState,useEffect} from 'react'
 import TopNavBar from "./TopNavBar";
 import MenuBarPage from "./MenuBarPage";
 import "./Dashboard.css";
@@ -101,7 +101,21 @@ function I() {
 
 
 function UserDashboard(props){
+  var [keyValue,setKeyvalue]=useState("")
   const location=useLocation();
+  var paths={
+    "/Dashboard":1,
+    "/Dashboard/profile":2,
+    "/Dashboard/courses":3,
+    "/Dashboard/assignments":4,
+    "/Dashboard/chat":5,
+    "/Dashboard/notification":6
+  }
+
+  useEffect(()=>{
+    setKeyvalue(JSON.stringify(paths[location.pathname]))
+    console.log("hello brroooo",location.pathname,JSON.stringify(paths[location.pathname]))
+  },[])
   var x={
     "/Dashboard":<MCourses  collegeName={props.collegeName} userUid={props.userUid}/>,
     "/Dashboard/courses":<MCourses  collegeName={props.collegeName} userUid={props.userUid}/>,
@@ -117,43 +131,47 @@ function UserDashboard(props){
     <div style={{ display: "flex" }}>
     <div className="sidenav-container">
       {/* <Router> */}
-      <Menu className="site-layout-background">
+      <Menu className="site-layout-background"  selectedKeys={[keyValue]} onClick={({item,key,keyPath})=>{
+          console.log("clicked broooo")
+    keyValue=key
+    setKeyvalue(keyValue)
+      }} >
         {/* <div>image here</div>
       <br/> */}
         <div className="mentor_name">Hi,Sunil Kalikayi</div>
-        <Menu.Item>
+        <Menu.Item key="1">
           <img src={dashboardIcon} className="icond"/>
           <Link to="/Dashboard" className="iconname">Dashboard</Link>
-        </Menu.Item>
-        <Menu.Item >
+        </Menu.Item >
+        <Menu.Item key="2">
         <img src={profile} className="icond"/>
           <Link to="/Dashboard/profile" className="iconname">Profile</Link>
         </Menu.Item>
-        <Menu.Item >
+        <Menu.Item key="3">
         <img src={courses} className="icond"/>
           <Link to="/Dashboard/courses" className="iconname">Courses</Link>
         </Menu.Item>
-        <Menu.Item >
+        <Menu.Item key="4">
         <img src={assignment} className="icond"/>
           <Link to="/Dashboard/assignments" className="iconname">Assignments</Link>
         </Menu.Item>
-        <Menu.Item >
+        <Menu.Item key="5">
         <img src={chat} className="icond"/>
           <Link to="/Dashboard/chat" className="iconname">Chat</Link>
         </Menu.Item>
-        <Menu.Item >
+        <Menu.Item key="6">
         <img src={notification} className="icond"/>
           <Link to="/Dashboard/notification" className="iconname">Notifications</Link>
         </Menu.Item>
-        <Menu.Item >
+        <Menu.Item key="7">
         <img src={doubt} className="icond"/>
           <Link to="/Dashboard" className="iconname">Clarify Doubts</Link>
         </Menu.Item>
-        <Menu.Item>
+        <Menu.Item key="8">
         <img src={addtostory} className="icond"/>
           <Link to="/Dashboard" className="iconname">Add to story</Link>
         </Menu.Item>
-        <Menu.Item>
+        <Menu.Item key="9">
         <img src={share} className="icond"/>
           <Link to="/Dashboard" className="iconname">Share</Link>
         </Menu.Item>
