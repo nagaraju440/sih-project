@@ -143,7 +143,7 @@ function MCreateCourseForm(props) {
     //   onAuthStateChanged(auth,user =>{
     //     console.log(user.uid,user.email)
 
-       addDoc(collection(db, "colleges", props.collegeName,"mentors",props.userUid,"courses"), {
+     await  addDoc(collection(db, "colleges", props.collegeName,"mentors",props.userUid,"courses"), {
        Category:Category1,
        Language:Language1,
        Standard:Standard1,
@@ -152,37 +152,26 @@ function MCreateCourseForm(props) {
        Projects:projectsData,
        Schedule:dayWiseData,
        students:[]
-      // Projects:[{title:Ptitle,des:Pdes}]
-       
-    // title: "Hello world!",
-    // link:"zoom.com",
-    // category: {
-    //     Machinelearning:["Tensorflow", "pandas", "numpy"],
-    //     Backend:["node", "php", "jsp"],
-    //     Frontend:["html", "css", "react"],
-    //     GameDevelopmemt:["android", "ios", "native"],
-        
-    // },
-    // Standard:["Easy", "Medium", "Hard"],
-    // date:"5/10/2020",
-    // time:"10:00",
-    // date: Timestamp.fromDate(new Date("December 10, 1815")),
+      
+    }).then(e=>{
+      // console.log("ehehehhehehheeh",e.id)
+      setDoc (doc(db,"colleges",props.collegeName,"courses",e.id),{
+        Category:Category1,
+         Language:Language1,
+         Standard:Standard1,
+         Link:Link,
+         Title:Title,
+         Projects:projectsData,
+         Schedule:dayWiseData,
+         uid:props.userUid,
+         students:[]
+      })
+      .then((e)=>{
+          alert("succsessfully created course")
+          navigate(-1)
+      })
     })
-    addDoc (collection(db,"colleges",props.collegeName,"courses"),{
-      Category:Category1,
-       Language:Language1,
-       Standard:Standard1,
-       Link:Link,
-       Title:Title,
-       Projects:projectsData,
-       Schedule:dayWiseData,
-       uid:props.userUid,
-       students:[]
-    })
-    .then((e)=>{
-        // alert("succsessfully created course")
-        navigate(-1)
-    })
+   
   // })
 
   

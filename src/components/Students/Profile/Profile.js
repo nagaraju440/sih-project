@@ -178,7 +178,7 @@ export default function Profile(props) {
       // })
       .then((e)=>{
           // alert("succsessfully created course")
-          navigate(-1)
+          // navigate(-1)
       })
     // })
   
