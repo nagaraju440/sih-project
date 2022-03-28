@@ -63,7 +63,7 @@ export default function Dashboard(props) {
     <div style={{width:'100%',height:'100%'}}>
         
     <div style={{display:'flex'}}>
-      <div className='sidenav-container'>
+      <div className='sidenav-container1'>
       <Menu className="site-layout-background" selectedKeys={[keyValue]} onClick={({item,key,keyPath})=>{
     keyValue=key
     setKeyvalue(keyValue)

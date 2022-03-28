@@ -69,8 +69,9 @@ export default function Dashboard(props) {
   return (
     <Router>
         <NavBar/>
-        <Routes>
-              <Route path='/' element={<MCourses collegeName={props.collegeName} userUid={props.userUid} />}></Route>
+       <div style={{paddingTop:60}}>
+       <Routes>
+              <Route path='/' element={<Navigate replace={true} to="/Dashboard"></Navigate>} ></Route>
               <Route path="/mentor/signup3" element={<Navigate replace={true} to="/Dashboard"></Navigate>} >  </Route>
               <Route path='/Dashboard/*' element={<UserDashboard collegeName={props.collegeName} userUid={props.userUid} />}></Route>
               {/* <Route path='/Dashboard/*' element={<MCourses collegeName={props.collegeName} userUid={props.userUid} />}></Route> */}
@@ -85,6 +86,7 @@ export default function Dashboard(props) {
               {/* <Route path='/about' element={<About  />}></Route>   */}
            </Routes>
       
+       </div>
      </Router> 
   );
 }
@@ -125,19 +127,18 @@ function UserDashboard(props){
     "/Dashboard/chat" :<Chat  collegeName={props.collegeName} userUid={props.userUid}/>
   }
   return(
-    <div style={{ width: "100%", height: "100%" }}>
+    <div style={{ width: "100%", height: "100%"}}>
         
       
     <div style={{ display: "flex" }}>
-    <div className="sidenav-container">
+    <div className="sidenav-container1">
       {/* <Router> */}
       <Menu className="site-layout-background"  selectedKeys={[keyValue]} onClick={({item,key,keyPath})=>{
           console.log("clicked broooo")
     keyValue=key
     setKeyvalue(keyValue)
       }} >
-        {/* <div>image here</div>
-      <br/> */}
+      
         <div className="mentor_name">Hi,Sunil Kalikayi</div>
         <Menu.Item key="1">
           <img src={dashboardIcon} className="icond"/>

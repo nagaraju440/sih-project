@@ -6,13 +6,16 @@ import {
   } from "react-router-dom";
  import micon from '../../assets/Icons/Micon.png' 
 import IdeanaHome from '../Ideana/IdeanaHome';
+import './Navbar.css'
 const { Header, Content, Sider } = Layout;
 export default function NavBar() {
   return (
     <div className='navbar-header' >
+
+      {/* <div style={{width:400,height:300,backgroundColor:'red',position: 'fixed',}}>hehhhheheheheehhhe</div> */}
       {/* <Router> */}
       <Header   
-    className=" header"
+    className=" header1"
     >
       <div style={{display:"flex",flexDirection:'row'}}>
       <div className="logo" ><div className="headingd">Senior <img src={micon} style={{width:'40px',height:'45px'}} className="miconimage"></img> Junior </div></div>

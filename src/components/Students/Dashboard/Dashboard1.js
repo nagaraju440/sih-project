@@ -43,7 +43,8 @@ export default function Dashboard(props) {
   return (
   <Router>
      <NavBar/>
-     <Routes>
+   <div style={{paddingTop:60}}>
+   <Routes>
            <Route  path='/'  element={<Navigate replace={true} to="/Dashboard"></Navigate>}></Route>
            {/* <Route path="/student/signup" element={<Navigate replace={true} to="/Dashboard"></Navigate>} >  </Route> */}
              {/* <Route  path='/Dashboard' element={<StudentRegisteredCourses collegeName={props.collegeName} userUid={props.userUid}/>}></Route> */}
@@ -59,6 +60,7 @@ export default function Dashboard(props) {
             <Route path='/Ideana' element={<IdeanaHome collegeName={props.collegeName}/> }></Route>
            <Route path='/Ideana/addIdea' element={<IdeanaAdd collegeName={props.collegeName}/>}></Route> 
            </Routes>
+   </div>
   
    </Router>  
   )
@@ -100,7 +102,7 @@ function UserDashboard(props){
   <div style={{width:'100%',height:'100%'}}>
       
       <div style={{display:'flex'}}>
-        <div className='sidenav-container'>
+        <div className='sidenav-container1'>
         <Menu className="site-layout-background"  selectedKeys={[keyValue]} onClick={({item,key,keyPath})=>{
           console.log("clicked broooo")
     keyValue=key
