@@ -7,63 +7,44 @@ import {
   Routes, Route, Link, BrowserRouter as Router,
   Switch,
 } from "react-router-dom";
-import { getDocs,collection,doc} from 'firebase/firestore'
+import { getDocs,collection } from 'firebase/firestore'
 import db from "../../../firebaseConfig";
 export default function MCourses(props) {
-  const [details,setDetails]=useState([])
+  const [details,setDetails]=useState({})
   const y=[]
  
   useEffect(async() => {
     console.log("useEffect",props.collegeName);
-    try{
-      const test= await getDocs(collection(db,"colleges",props.collegeName,"mentors",props.userUid,"courses"))
+    const test= await getDocs(collection(db,"colleges",props.collegeName,"mentors",props.userUid,"courses"))
       test.forEach((doc)=>{
-        y.push(doc.data())
+        y.push({data:doc.data()})
       })
-      setDetails(y)
-      console.log(details,"dfghjkl");
-    }
-    catch(err)
-    {
-      console.log(err);
-    }
-//     try {
-//       const test = await getDocs(
-//         collection(db, "colleges", props.collgeName, "mentors")
-//       );
-//       test.forEach((doc) => {
-//         y.push(doc.data());
-//       });
-//       setDetails(y);
-//       console.log(details, "dhgSjdnsnJ");
-
-// } catch (err) {
-//   console.error(err);
-//   alert(err.message);
-// }
+    setDetails(y)
+    console.log(y,"fghjkl././");
   }, []);
   return (
     <>
-    {
-      Object.values(details).map((x,y)=>{
-        return(
-          <div className='McourseComponent'key={y}>
+    <div className='McourseComponent'key={y}>
           {console.log(props,"mdash")}
+          <div>
           <div className='MCourseCardSearchContainer'>
             <MCourseSearch />
             <Link to="/Dashboard/courses/createCourse"><div className='MCourseCardCreateCourseBtn'>Create Course</div></Link>
           </div>
           <div className='McourseCardContainer' onClick={MCreateCourseForm}>
-            {/* hihi */}
-          <MCourseCard/>
-          </div>
-          {/* <MCreateCourseForm/> */}
+    {
+      Object.values(details).map((x,y)=>{
+        return(
+         
+          <MCourseCard x={x}/>
           
-        </div>
         )
       })
     }
- 
+    </div>
+          
+       </div>
+    </div>
     </>
   )
 }

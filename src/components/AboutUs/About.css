@@ -55,3 +55,14 @@
     font-size: 18px;
 
 }
+.about-page-sub-section{
+    width: 90%;
+    margin-top: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.about-page-sub-section-future{
+    width: 90%;
+    border: 1px solid black;
+}

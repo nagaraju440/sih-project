@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import db from '../firebaseConfig'
 // import firebase from 'firebase'
-import { Input, Button } from '@material-ui/core'
+// import Button from '@mui/material/Button';
+// import Input from '@mui/material/Input';
+import Button from '@material-ui/core/Button';
+import Input from '@material-ui/core/Input';
+// import { Input, Button } from '@material-ui/core'
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { collection, doc, setDoc, addDoc } from "firebase/firestore";
 import firebase from 'firebase/compat/app';

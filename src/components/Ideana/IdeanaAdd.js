@@ -95,7 +95,7 @@ export default function IdeanaAdd(props) {
           <div>
             <div className="Ideana_Headingtext">Title</div>
             <div className="Ideana_posttext">Be specific and imagine you’re asking a question to another person</div>
-            <div><Input className="Ideana_input" onChange={(value)=>Idea(value)} /></div>
+            <div><Input className="Ideana_input" onChange={(value)=>Idea(value)} style={{width: '95%'}} /></div>
           </div>
           <div>
             <div className="Ideana_Headingtext">Domine</div>

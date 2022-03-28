@@ -176,10 +176,10 @@ export default function MentorProfile(props) {
   
     try {
       const auth = getAuth();
-      onAuthStateChanged(auth,user =>{
-        console.log(user.uid,user.email)
+      // onAuthStateChanged(auth,user =>{
+        // console.log(user.uid,user.email)
 
-        updateDoc(doc(db, "colleges", props.collegeName,"mentors",user.uid), {
+        updateDoc(doc(db, "colleges", props.collegeName,"mentors",props.userUid), {
          Skills:Skills,
          Hobbies:HobbiesData,
          Projects:ProjectsData,
@@ -198,7 +198,7 @@ export default function MentorProfile(props) {
         // alert("succsessfully created course")
         navigate(-1)
     })
-  })
+  // })
 
   
 } catch (err) {

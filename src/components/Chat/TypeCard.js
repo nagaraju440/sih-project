@@ -3,7 +3,7 @@ import CameraIcon from "../../assets/Icons/cameraIcon.svg";
 import SendIcon from "../../assets/Icons/sendIcon.svg";
 import db from '../../firebaseConfig'
 // import firebase from 'firebase'
-import { Input, Button } from '@material-ui/core'
+// import { Input, Button } from '@material-ui/core'
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { collection, doc, setDoc, addDoc } from "firebase/firestore";
 import firebase from 'firebase/compat/app';
@@ -39,7 +39,7 @@ function TypeCard({ scroll }) {
       <div className="typeMessageContainer">
        
         <input type="text" className="typeMessageInput" placeholder="Type your message here...!" value={msg} onChange={e => setMsg(e.target.value)} />
-        <img src={CameraIcon} alt="cameraIcon" />
+        <img src={CameraIcon} alt="cameraIcon" className='camera-icon' />
       </div>
       <button type='submit' className="typeMessageSendContainer" >
         <img src={SendIcon} alt="send icon" />

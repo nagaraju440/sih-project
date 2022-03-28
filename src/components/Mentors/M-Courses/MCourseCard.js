@@ -2,10 +2,11 @@ import React from "react";
 import pythonImg from "../../../assets/Images/pythonLaguageImg.png";
 import HeartIcon from "../../../assets/Icons/heart.svg";
 
-export default function MCourseCard() {
+export default function MCourseCard(props) {
   return (
     <div className="MCourseCard">
-      <img src={pythonImg} alt="" srcset="" />
+      {console.log(props,"course card")}
+      <img src={pythonImg} alt=""  />
       <div className="MCourseCardDescription">
         <p style={{ fontSize: 18 }}>
           Enroled Students <span style={{ fontWeight: 500 }}>15</span>

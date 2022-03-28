@@ -134,15 +134,16 @@ function MCreateCourseForm(props) {
  
 
   var onSubmitdata = async (e) => {
+    // alert("need to add course data ")
     console.log("hii",Category1,Language1,Standard1,Title,Link)      
     // console.log(user.email)
     let data = location.state
-    try {
-      const auth = getAuth();
-      onAuthStateChanged(auth,user =>{
-        console.log(user.uid,user.email)
+    // try {
+    //   const auth = getAuth();
+    //   onAuthStateChanged(auth,user =>{
+    //     console.log(user.uid,user.email)
 
-       addDoc(collection(db, "colleges", props.collegeName,"mentors",user.uid,"courses"), {
+       addDoc(collection(db, "colleges", props.collegeName,"mentors",props.userUid,"courses"), {
        Category:Category1,
        Language:Language1,
        Standard:Standard1,
@@ -175,20 +176,20 @@ function MCreateCourseForm(props) {
        Title:Title,
        Projects:projectsData,
        Schedule:dayWiseData,
-       uid:user.uid,
+       uid:props.userUid,
        students:[]
     })
     .then((e)=>{
         // alert("succsessfully created course")
         navigate(-1)
     })
-  })
+  // })
 
   
-} catch (err) {
-  console.error(err);
-  alert(err.message);
-}
+// } catch (err) {
+//   console.error(err);
+//   alert(err.message);
+// }
   }
 
 
