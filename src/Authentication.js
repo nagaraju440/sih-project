@@ -48,12 +48,9 @@ function Authentication() {
     if (authenticated) {
         if (userRole == 'mentor') {
             return <MentorDashboard collegeName={collegeName} role={userRole} userUid={userUid} />
-
         }
         else {
             return <StudentDashboard collegeName={collegeName} role={userRole} userUid={userUid} />
-
-
         }
 
     }
