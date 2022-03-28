@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import TopNavBar from './TopNavBar'
 import MenuBarPage from './MenuBarPage'
 import "./Dashboard.css"
@@ -10,7 +10,7 @@ import { ProSidebar, MenuItem, SubMenu, SidebarHeader, SidebarContent, SidebarFo
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import {
   Routes, Route, Link, BrowserRouter as Router,
-  Switch,Navigate
+  Switch,Navigate, useLocation
 } from "react-router-dom";
 import StudentDashboard from './StudentDashboard'
 // import MentorProfile from '../Mentors/Profile/MentorProfile'
@@ -39,8 +39,26 @@ import share from "../../../assets/Icons/shareIcon.svg"
 // import { Link } from 'react-router-dom';
 const { Header, Content, Sider } = Layout;
 export default function Dashboard(props) {
+  var [keyValue,setKeyvalue]=useState("")
+  let location = useLocation();
+  var paths={
+    "/Dashboard":1,
+    "/Dashboard/profile":2,
+    "/Dashboard/RegisterForCourses":3,
+    "/Dashboard/assignments":4,
+    "/Dashboard/chat":5,
+    "/Dashboard/notification":6
+
+
+  }
+
+  useEffect(()=>{
+    setKeyvalue(JSON.stringify(paths[location.pathname]))
+    
+  },[])
   return (
-    <Router>
+    // <Router>
+
     <div style={{width:'100%',height:'100%'}}>
          {/* <TopNavBar/>
          <div className='layout'>
@@ -75,32 +93,32 @@ export default function Dashboard(props) {
     </Header>
     <div style={{display:'flex'}}>
       <div className='sidenav-container'>
-      {/* <Router> */}
-      <Menu className="site-layout-background">
-            {/* <div>image here</div>
-            <br/> */}
+      <Menu className="site-layout-background" selectedKeys={[keyValue]} onClick={({item,key,keyPath})=>{
+    keyValue=key
+    setKeyvalue(keyValue)
+      }} >
             <div className="studentname">Hi,Sunil Kalikayi</div>
-            <Menu.Item>
+            <Menu.Item key="1">
                 <img src={dashboardIcon} className="icond"/>
                 <Link to="/Dashboard" className="iconname">Dashboard</Link>
               </Menu.Item>
-              <Menu.Item >
+              <Menu.Item key="2">
               <img src={profile} className="icond"/>
                 <Link to="/Dashboard/profile" className="iconname">Profile</Link>
               </Menu.Item>
-              <Menu.Item >
+              <Menu.Item key="3">
               <img src={courses} className="icond"/>
                 <Link to="/Dashboard/RegisterForCourses" className="iconname">Courses</Link>
               </Menu.Item>
-              <Menu.Item >
+              <Menu.Item key="4">
               <img src={assignment} className="icond"/>
                 <Link to="/Dashboard/assignments" className="iconname">Assignments</Link>
               </Menu.Item>
-              <Menu.Item >
+              <Menu.Item key="5">
               <img src={chat} className="icond"/>
                 <Link to="/Dashboard/chat" className="iconname">Chat</Link>
               </Menu.Item>
-              <Menu.Item >
+              <Menu.Item key="6">
               <img src={notification} className="icond"/>
                 <Link to="/Dashboard/notification" className="iconname">Notifications</Link>
               </Menu.Item>
@@ -136,7 +154,7 @@ export default function Dashboard(props) {
         {/* <Content> */}
          {/* <Router> */}
            <Routes>
-           <Route  path='/'  element={<StudentRegisteredCourses/>}></Route>
+           <Route  path='/'  element={<StudentRegisteredCourses data={"1"}/>}></Route>
            <Route path="/student/signup" element={<Navigate replace={true} to="/Dashboard"></Navigate>} >  </Route>
              <Route  path='/Dashboard' element={<StudentRegisteredCourses collegeName={props.collegeName} userUid={props.userUid}/>}></Route>
            <Route path='/Dashboard/profile' element={<Profile collegeName={props.collegeName} userUid={props.userUid}  />}></Route>
@@ -168,7 +186,7 @@ export default function Dashboard(props) {
     {/* </Layout> */}
   {/* </Layout> */}
     </div>
-     </Router> 
+     //</Router> 
   )
 }
 

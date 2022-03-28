@@ -1,5 +1,10 @@
 import React, { Component, useState, useEffect } from 'react'
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+
+import {
+    Routes, Route, BrowserRouter as Router,
+  
+  } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import MentorDashboard from './components/Dashboard/Dashboard';
 import NotAuthenticated from './NotAuthenticated';
@@ -42,7 +47,7 @@ function Authentication() {
 
         }
         else {
-            return <StudentDashboard collegeName={collegeName} role={userRole} userUid={userUid} />
+            return <Router><StudentDashboard collegeName={collegeName} role={userRole} userUid={userUid} /></Router>
 
 
         }
