@@ -51,7 +51,7 @@ export default function SignInPage() {
   }
   return (
     <div className='signin-main-container'>
-    <div ><NavBar/></div>
+    {/* <div ><NavBar/></div> */}
       <div className='signin-main-inner-container'>
       <div className='signin-container'>
         <div > 

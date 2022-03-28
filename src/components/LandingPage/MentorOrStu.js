@@ -17,7 +17,7 @@ export default function MentorOrStu() {
   console.log("selected college name is",location.state.collegeName) 
   return (
     <>
-    <NavBar/>
+    {/* <NavBar/> */}
     <div className='MainContainer'>
         <div className='inner-container'>
           <div className='left-section'>

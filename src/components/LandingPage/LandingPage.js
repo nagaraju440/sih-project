@@ -13,7 +13,7 @@ export default function LandingPage() {
   const navigate=useNavigate();
   return (
     <>
-    <NavBar/>
+    {/* <NavBar/> */}
       <div className='MainContainer'>
         <div className='inner-container'>
           <div className='left-section'>

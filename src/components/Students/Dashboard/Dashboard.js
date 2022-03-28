@@ -35,44 +35,16 @@ import addtostory from "../../../assets/Icons/AddtostoryIcon.svg"
 import doubt from "../../../assets/Icons/clarifyDoubtsIcon.svg"
 import chat from "../../../assets/Icons/chatIcon.svg"
 import share from "../../../assets/Icons/shareIcon.svg"
+import NavBar from '../../Navbar/Navbar'
 // const { SubMenu } = Menu;
 // import { Link } from 'react-router-dom';
 const { Header, Content, Sider } = Layout;
 export default function Dashboard(props) {
   return (
-    <Router>
+  <Router>
+    <NavBar/>
     <div style={{width:'100%',height:'100%'}}>
-         {/* <TopNavBar/>
-         <div className='layout'>
-         <MenuBarPage/>
-         <div>
-             <div>
-               <Card bordered="true" title="About" hoverable="true" >
-                   card content
-               </Card>
-             </div>
-            
-         </div>
-         </div> */}
-         {/* <Layout> */}
-    <Header   
-    className="header"
-    >
-      <div style={{display:"flex",flexDirection:'row'}}>
-      <div className="logo" ><div className="headingd">Senior <img src={micon} style={{width:'40px',height:'45px'}} className="miconimage"></img> Junior </div></div>
-    {/* <Router> */}
-    <div className='logo2'>
-    <Menu theme="light" mode="horizontal" defaultSelectedKeys={['1']} className='nav'>
-      {/* <div style={{justifyContent:"flex-start",alignItems:'flex-start'}}>senior M junior</div> */}
-        <Menu.Item key="1"><Link to="/Dashboard" >Home</Link></Menu.Item>
-        <Menu.Item key="2"><Link to="/Dashboard/ideana">Ideana</Link></Menu.Item>
-        <Menu.Item key="3"><Link to="/Dashboard">Connect</Link></Menu.Item>
-        <Menu.Item key="4"><Link to="/About">About Us</Link></Menu.Item>
-      </Menu>
-      </div>
-      </div>
-    {/* </Router> */}
-    </Header>
+        
     <div style={{display:'flex'}}>
       <div className='sidenav-container'>
       {/* <Router> */}
@@ -146,8 +118,8 @@ export default function Dashboard(props) {
            <Route path='/About' element={<About/>}></Route>
            <Route path='/Dashboard/notifications' element={<Notification/>}></Route>
            <Route path='/Dashboard/RegisterForCourses' element={<RegisterForCourses   collegeName={props.collegeName} userUid={props.userUid}/>}></Route>
-            <Route path='/Dashboard/ideana' element={<IdeanaHome collegeName={props.collegeName}/> }></Route>
-           <Route path='/Dashboard/ideana/addIdea' element={<IdeanaAdd collegeName={props.collegeName}/>}></Route> 
+            <Route path='/Ideana' element={<IdeanaHome collegeName={props.collegeName}/> }></Route>
+           <Route path='/Ideana/addIdea' element={<IdeanaAdd collegeName={props.collegeName}/>}></Route> 
            {/* <Route path='/Dashboard' element={<StudentRegisteredCourses/>} ></Route> */}
            </Routes>
 
@@ -168,7 +140,7 @@ export default function Dashboard(props) {
     {/* </Layout> */}
   {/* </Layout> */}
     </div>
-     </Router> 
+   </Router>  
   )
 }
 

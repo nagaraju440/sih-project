@@ -48,7 +48,7 @@ export default function SelectCollege() {
 
   return (
     <>
-      <NavBar />
+      {/* <NavBar /> */}
       <div className="MainContainer">
         <div className="inner-container">
           <div className="left-section">

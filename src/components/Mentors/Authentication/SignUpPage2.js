@@ -83,7 +83,7 @@ const skills1=[]
   
   return (
     <>
-      <NavBar />
+      {/* <NavBar /> */}
       <div className="SignUpPage2-container">
         <div className="SignUpPage2-form">
 

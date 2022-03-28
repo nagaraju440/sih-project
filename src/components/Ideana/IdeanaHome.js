@@ -56,8 +56,6 @@ export default function IdeanaHome(props) {
   ];
 
   const [details, setDetails] = useState({});
-
-  // Getting ideas content from the database
   const y = [];
   useEffect(async () => {
     const test = await getDocs(
@@ -108,7 +106,7 @@ export default function IdeanaHome(props) {
           className="Ideana_button"
           onClick={() => {
             console.log("hello");
-            navigate("/Dashboard/ideana/addIdea");
+            navigate("/Ideana/addIdea");
           }}
         >
           Post Your Idea

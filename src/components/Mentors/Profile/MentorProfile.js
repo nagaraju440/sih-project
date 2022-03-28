@@ -73,8 +73,8 @@ export default function MentorProfile(props) {
       doc(db, "colleges", props.collegeName, "mentors", props.userUid)
     );
     console.log(
-      "data of amentor at profile page is",
-      "and skilss are",
+      "data of  a mentor at profile page is",
+      "and skils are",
       test.data().data
     );
     Skills = test.data().data.skills;
