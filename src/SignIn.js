@@ -43,7 +43,8 @@ export default function SignInPage() {
         // ...
       })
       .catch((error) => {
-        alert("Please provide valid details")
+        console.log(error);
+        alert("Please provide valid details",error)
         const errorCode = error.code;
         const errorMessage = error.message;
       });

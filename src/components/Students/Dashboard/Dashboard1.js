@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import TopNavBar from './TopNavBar'
 import MenuBarPage from './MenuBarPage'
 import "./Dashboard.css"
@@ -73,9 +73,21 @@ function I()
   )
 }
 function UserDashboard(props){
-  // alert("hii")
-  const location=useLocation();
-  // console.log("hehe",location)
+  var [keyValue,setKeyvalue]=useState("")
+  let location = useLocation();
+  var paths={
+    "/Dashboard":1,
+    "/Dashboard/profile":2,
+    "/Dashboard/RegisterForCourses":3,
+    "/Dashboard/assignments":4,
+    "/Dashboard/chat":5,
+    "/Dashboard/notification":6
+  }
+
+  useEffect(()=>{
+    setKeyvalue(JSON.stringify(paths[location.pathname]))
+    console.log("hello brroooo",location.pathname,JSON.stringify(paths[location.pathname]))
+  },[])
   var x={
     "/Dashboard":<StudentRegisteredCourses  collegeName={props.collegeName} userUid={props.userUid}/>,
     "/Dashboard/profile":<Profile  collegeName={props.collegeName} userUid={props.userUid}/>,
@@ -89,50 +101,54 @@ function UserDashboard(props){
       
       <div style={{display:'flex'}}>
         <div className='sidenav-container'>
-        <Menu className="site-layout-background">
+        <Menu className="site-layout-background"  selectedKeys={[keyValue]} onClick={({item,key,keyPath})=>{
+          console.log("clicked broooo")
+    keyValue=key
+    setKeyvalue(keyValue)
+      }} >
               <div className="studentname">Hi,Sunil Kalikayi</div>
               <Menu.Item>
                   <img src={dashboardIcon} className="icond"/>
-                  <Link to="/Dashboard" className="iconname">Dashboard</Link>
+                  <Link  to="/Dashboard" key="1" className="iconname">Dashboard</Link>
                 </Menu.Item>
                 <Menu.Item >
                 <img src={profile} className="icond"/>
-                  <Link to="/Dashboard/profile" className="iconname">Profile</Link>
+                  <Link key="2" to="/Dashboard/profile" className="iconname">Profile</Link>
                 </Menu.Item>
                 <Menu.Item >
                 <img src={courses} className="icond"/>
-                  <Link to="/Dashboard/RegisterForCourses" className="iconname">Courses</Link>
+                  <Link key="3" to="/Dashboard/RegisterForCourses" className="iconname">Courses</Link>
                 </Menu.Item>
                 <Menu.Item >
                 <img src={assignment} className="icond"/>
-                  <Link to="/Dashboard/assignments" className="iconname">Assignments</Link>
+                  <Link key="4" to="/Dashboard/assignments" className="iconname">Assignments</Link>
                 </Menu.Item>
                 <Menu.Item >
                 <img src={chat} className="icond"/>
-                  <Link to="/Dashboard/chat" className="iconname">Chat</Link>
+                  <Link key="5" to="/Dashboard/chat" className="iconname">Chat</Link>
                 </Menu.Item>
                 <Menu.Item >
                 <img src={notification} className="icond"/>
-                  <Link to="/Dashboard" className="iconname">Notifications</Link>
+                  <Link key="6" to="/Dashboard" className="iconname">Notifications</Link>
                 </Menu.Item>
                 <Menu.Item >
                 <img src={doubt} className="icond"/>
-                  <Link to="/Dashboard" className="iconname">Clarify Doubts</Link>
+                  <Link key="7" to="/Dashboard" className="iconname">Clarify Doubts</Link>
                 </Menu.Item>
                 <Menu.Item>
                 <img src={addtostory} className="icond"/>
-                  <Link to="/Dashboard" className="iconname">Add to story</Link>
+                  <Link key="7" to="/Dashboard" className="iconname">Add to story</Link>
                 </Menu.Item>
                 <Menu.Item>
                 <img src={share} className="icond"/>
-                  <Link to="/Dashboard" className="iconname">Share</Link>
+                  <Link key="8" to="/Dashboard" className="iconname">Share</Link>
                 </Menu.Item>
             <Menu.Item icon={<UserOutlined />} onClick={()=>{
               const auth = getAuth();
               auth.signOut()
             }}>
               
-                <Link to="/">Sign out</Link>
+                <Link key="9" to="/">Sign out</Link>
             </Menu.Item>
           </Menu>
          </div>
