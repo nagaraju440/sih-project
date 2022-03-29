@@ -100,7 +100,7 @@ export default function IdeanaAdd(props) {
           <div>
             <div className="Ideana_Headingtext">Domine</div>
             <div className="Ideana_posttext">
-            <select name="cars" className="MCreateCourseFormTitleInput" onChange={domineSelect}>
+            <select name="cars" className="MCreateCourseFormTitleInput" onChange={domineSelect} style={{width: '96.5%'}}>
              
           
         {
@@ -117,7 +117,7 @@ export default function IdeanaAdd(props) {
           <div>
             <div className="Ideana_Headingtext">Description</div>
             <div className="Ideana_textarea">
-              <TextArea  onChange={(value)=>description(value)} />
+              <TextArea  onChange={(value)=>description(value)}  style={{height:305}}/>
             </div>
           </div>
         </div>
