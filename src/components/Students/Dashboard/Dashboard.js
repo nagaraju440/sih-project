@@ -109,6 +109,7 @@ export default function Dashboard(props) {
             // alert("hello")
             const auth = getAuth();
             auth.signOut()
+            navigate('/')
           }}>
             {/* <div onClick={()=>{
    

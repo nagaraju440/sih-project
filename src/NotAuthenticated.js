@@ -1,6 +1,6 @@
 
 import {
-  Routes, Route, BrowserRouter as Router,
+  Routes, Route, BrowserRouter as Router, Navigate,
 
 } from "react-router-dom";
 import MentorSignUpPage from './components/Mentors/Authentication/SignUpPage';
@@ -19,8 +19,10 @@ export default function NotAuthenticated() {
   return (
      <Router>
        <NavBar/>
-      <Routes>
+     <div style={{paddingTop:60}}>
+     <Routes>
       <Route path="/" element={<LandingPage />} />
+      <Route path="/Dashboard" element={<Navigate to="/" replace={true}></Navigate>}></Route>
       <Route path="/Ideana" element={<IdeanaHome/>}></Route>
       <Route path="mentor/signup" element={<MentorSignUpPage />} />
       <Route path="mentor/signup1" element={<MentorSignUpPage1 />} />
@@ -33,6 +35,7 @@ export default function NotAuthenticated() {
       <Route path="mentorOrStudent_signup" element={<MentorOrStu />} />
       <Route path="mentorOrStudent_signin" element={<MentorOrStudentSignin />} />
       </Routes>
+     </div>
  </Router>  
   )
 }

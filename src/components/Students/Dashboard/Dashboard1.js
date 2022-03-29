@@ -10,7 +10,7 @@ import { ProSidebar, MenuItem, SubMenu, SidebarHeader, SidebarContent, SidebarFo
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import {
   Routes, Route, Link, BrowserRouter as Router,
-  Switch,Navigate, useLocation
+  Switch,Navigate, useLocation, useNavigate
 } from "react-router-dom";
 import StudentDashboard from './StudentDashboard'
 // import MentorProfile from '../Mentors/Profile/MentorProfile'
@@ -49,6 +49,8 @@ export default function Dashboard(props) {
            {/* <Route path="/student/signup" element={<Navigate replace={true} to="/Dashboard"></Navigate>} >  </Route> */}
              {/* <Route  path='/Dashboard' element={<StudentRegisteredCourses collegeName={props.collegeName} userUid={props.userUid}/>}></Route> */}
              <Route  path='/Dashboard/*' element={<UserDashboard  collegeName={props.collegeName} userUid={props.userUid} />}></Route>
+             <Route path="signin" element={<Navigate replace={true} to="/Dashboard"></Navigate>} />
+
            {/* <Route path='/Dashboard/profile' element={<Profile collegeName={props.collegeName} userUid={props.userUid}  />}></Route>
            <Route path='/Dashboard/assignments' element={<Assignments/>}></Route>
            <Route path='/Dashboard/chat' element={<Chat/>}></Route>
@@ -77,6 +79,7 @@ function I()
 function UserDashboard(props){
   var [keyValue,setKeyvalue]=useState("")
   let location = useLocation();
+  const navigate=useNavigate()
   var paths={
     "/Dashboard":1,
     "/Dashboard/profile":2,
@@ -148,6 +151,7 @@ function UserDashboard(props){
             <Menu.Item icon={<UserOutlined />} onClick={()=>{
               const auth = getAuth();
               auth.signOut()
+            navigate('/')
             }}>
               
                 <Link key="9" to="/">Sign out</Link>
