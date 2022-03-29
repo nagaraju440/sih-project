@@ -1,210 +1,266 @@
 /*Mentor course component(component) styles */
-.McourseComponent{
-    width: 100%;
-    height: 90vh;
-    padding: 50px 150px 100px 30px;
+.McourseComponent {
+  width: 100%;
+  height: 90vh;
+  padding: 50px 150px 100px 30px;
 }
 
 /*Mentor course search box styles */
-.MCourseCardSearchContainer{
-    width: 100%;
+.MCourseCardSearchContainer {
+  width: 100%;
 
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-
-
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
-.MCourseSearchBox{
-    width: 75%;
+.MCourseSearchBox {
+  width: 75%;
 }
-.MCourseCardCreateCourseBtn{
-    width: 150px;
-    margin-left: 24px;
-    height: 48px;
+.MCourseCardCreateCourseBtn {
+  width: 150px;
+  margin-left: 24px;
+  height: 48px;
 
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 
-    background-color: #004E89;
-    color: #fff;
-    border-radius: 10px;
-    font-weight: 500;
-    cursor: pointer;
-       
+  background-color: #004e89;
+  color: #fff;
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: pointer;
 }
 /*Mentor course card styles */
-.McourseCardContainer{
-    padding-top: 24px;
-
+.McourseCardContainer {
+  padding-top: 24px;
 }
-.MCourseCard{
-    width: 272px;
-    height: 210px;
-
+.MCourseCard {
+  width: 272px;
+  height: 210px;
 }
-.MCourseCardDescription{
-    width: 100%;
+.MCourseCardDescription {
+  width: 100%;
 
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 
-    margin-top: 10px;
-
+  margin-top: 10px;
 }
-.MCourseCardLikesContainer{
-    width: 70px;
-    height: 35px;
-    display: flex;
-    flex-direction: row;
-
-   
+.MCourseCardLikesContainer {
+  width: 70px;
+  height: 35px;
+  display: flex;
+  flex-direction: row;
 }
-.MCourseCardLikes{
-    font-size: 18px;
-    margin-left: 4px;
-    font-weight: 600;
-   
+.MCourseCardLikes {
+  font-size: 18px;
+  margin-left: 4px;
+  font-weight: 600;
 }
 
 /* Mentor course registration form  */
-.MCreateCourseForm{
-    margin:30px
+.MCreateCourseForm {
+  margin: 30px;
+}
+.MCreateCourseFormTitle {
+  font-weight: 700;
+  font-size: 24px;
+}
+.MCreateCourseFormContainer {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+.MCreateCourseFormDorpdownContent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.MCreateCourseFormDorpdownText {
+  font-size: 18px;
+}
+.MCreateCourseFormDorpdownIcon {
+  margin-top: 5px;
+}
+
+.MCreateCourseFormInputSection {
+  display: flex;
+  flex-direction: row;
+  margin-top: 18px;
+  align-items: center;
+}
+.MCreateCourseFormSubTitle {
+  font-size: 18px;
+  font-weight: 500;
+  width: 25%;
+}
+.MCreateCourseFormTitleInput {
+  width: 70%;
+  height: 48px;
+  padding-left: 18px;
+  font-size: 18px;
+  border: 1px solid lightgray;
+}
+.MCreateCourseFormDate {
+  height: 48px;
+  padding-left: 18px;
+  font-size: 18px;
+}
+.MCreateCourseFormProjectCard {
+  width: 100%;
+  padding: 10px 40px 25px 20px;
+  margin-top: 24px;
+  border: 1px solid rgba(116, 115, 115, 0.85);
+}
+.MCreateCourseFormProjectTitleSection {
+  display: flex;
+  justify-content: space-between;
+}
+.MCreateCourseFormProjectTitle {
+  font-size: 18px;
+  font-weight: 500;
+}
+.MCreateCourseFormProjectInput {
+  width: 100%;
+  height: 48px;
+  padding-left: 18px;
+  font-size: 18px;
+  margin-top: 24px;
+}
+.MCreateCourseFormProjectIconSection {
+  width: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.MCreateCourseFormProjectCardBtn {
+  width: 100px;
+  height: 40px;
+  margin-top: 16px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #004e89;
+  color: #fff;
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.MCreateCourseFormCreateCourseBtn {
+  width: 150px;
+  height: 48px;
+  margin-top: 24px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #004e89;
+  color: #fff;
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.MCreateCourseFormsheduleSecioon {
+  width: 95%;
+  padding: 16px;
+  box-shadow: 0px 4px 5px 2px rgba(0, 0, 0, 0.25);
+  margin: 24px 0px 24px 0px;
+  border-radius: 10px;
+  border: 0.1px solid grey;
+}
+.MCreateCourseFormSheduleTitleSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.MCreateCourseFormSheduleCard {
+  width: 96%;
+  border-bottom: 0.5px solid lightgray;
+  padding: 8px 0px;
+}
+.MCreateCourseFormSheduleCardtext {
+  font-size: 16px;
+}
+
+/* mentor course details page stylings */
+.MCourse-details-page {
+  height: 100%;
+  width: 100%;
+  padding-bottom:  50px;
+  background-color: red;
+}
+.mcd-background-box {
+  width: 100%;
+  height: 240px;
+  background-image: url("../../../assets/Images/background-image.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: top;
+}
+.mcd-content-container {
+  width: 80%;
+  margin: auto;
+  margin-top: -100px;
+  padding: 50px ;
+  border-radius: 10px;
+  background-color: #fff;
+  border: .1px solid rgb(216, 213, 213);
+}
+.mcd-title-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.mcd-title {
+  font-size: 22px;
+  font-weight: 600;
+}
+.mcd-rate-student-level-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 24px;
+}
+.mcd-rating {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 24px;
+}
+.mcd-rating-text {
+  font-size: 35px;
+  font-weight: 600;
+  margin-right: 5px;
+}
+.mcd-students {
+  font-size: 24px;
+  margin-left: 24px;
 
 }
-.MCreateCourseFormTitle{
-    font-weight: 700;
-    font-size:24px ;
-}
-.MCreateCourseFormContainer{
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-}
-.MCreateCourseFormDorpdownContent{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-}
-.MCreateCourseFormDorpdownText{
-    font-size: 18px;
-}
-.MCreateCourseFormDorpdownIcon{
-    margin-top: 5px;
-}
 
-.MCreateCourseFormInputSection{
-    display: flex;
-    flex-direction: row;
-    margin-top: 18px;
-    align-items: center;
-}
-.MCreateCourseFormSubTitle{
-    font-size: 18px;
-    font-weight: 500;
-    width: 25%;
-}
-.MCreateCourseFormTitleInput{
-    width: 70%;
-    height: 48px;
-    padding-left: 18px;
-    font-size: 18px;
+.mcd-section{
     border: 1px solid lightgray;
-}
-.MCreateCourseFormDate{
-    height: 48px;
-    padding-left: 18px;
-    font-size: 18px;
-
-}
-.MCreateCourseFormProjectCard{
-    width: 100%;
-    padding: 10px 40px 25px 20px;
-    margin-top: 24px;
-    border: 1px solid rgba(116, 115, 115, 0.85);
-
-}
-.MCreateCourseFormProjectTitleSection{
+    padding: 24px;
     display: flex;
-    justify-content: space-between;
-    
-}
-.MCreateCourseFormProjectTitle{
-    font-size: 18px;
-    font-weight: 500;
-}
-.MCreateCourseFormProjectInput{
-    width: 100%;
-    height: 48px;
-    padding-left: 18px;
-    font-size: 18px;
-    margin-top: 24px;
-    
-}
-.MCreateCourseFormProjectIconSection{
-    width: 100px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
+  flex-direction: row;
+  align-items: center;
+  margin-top: 24px ;
+  border-radius: 5px;
 
-.MCreateCourseFormProjectCardBtn{
-    width: 100px;
-    height: 40px;
-    margin-top: 16px;
 
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-
-    background-color: #004E89;
-    color: #fff;
-    border-radius: 10px;
-    font-weight: 500;
-    cursor: pointer;
-}
-.MCreateCourseFormCreateCourseBtn{
-    width: 150px;
-    height: 48px;
-    margin-top: 24px;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-
-    background-color: #004E89;
-    color: #fff;
-    border-radius: 10px;
-    font-weight: 500;
-    cursor: pointer;
-       
-}
-.MCreateCourseFormsheduleSecioon{
-    width: 95%;
-    padding: 16px;
-    box-shadow:0px 4px 5px 2px rgba(0, 0, 0, 0.25);
-    margin: 24px 0px 24px 0px;
-    border-radius: 10px;
-    border: .1px solid grey;
 
 }
-.MCreateCourseFormSheduleTitleSection{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-
+.mcd-time{
+    font-size: 24px;
+    font-weight: 600;
+    margin-left: 24px;
 }
-.MCreateCourseFormSheduleCard{
-    width: 96%;
-    border-bottom: .5px solid lightgray;
-    padding: 8px 0px;
-}
-.MCreateCourseFormSheduleCardtext{
-    font-size: 16px;
-}
-
