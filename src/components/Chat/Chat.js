@@ -25,14 +25,17 @@ import TypeCard from "./TypeCard";
 import { Input, AutoComplete } from "antd";
 // import { useEffect, useState } from "react";
 
-function Chat() {
+function Chat(props) {
   const scroll = useRef();
   var [messages, setMessages] = useState([]);
   var [msgsData, setMsgsData] = useState([]);
   var [authUid, setAuthUid] = useState("");
+  var [mentorCourses, setMentorCourses] = useState([]);
+
   useEffect(async () => {
     let auth = getAuth();
     authUid = auth.currentUser.uid;
+    console.log("currentuserdetails",props.userUid);
     setAuthUid(authUid);
     const q = query(
       collection(db, "messages"),
@@ -41,6 +44,15 @@ function Chat() {
     );
     const querySnapshot = await getDocs(q);
     setMessages(querySnapshot.docs.map((doc) => doc.data()));
+
+    const courseData = query(
+      collection(db, "colleges",props.collegeName,"mentors",props.userUid,"courses"),
+      orderBy("createdAt"),
+      limit(50)
+    );
+    const querySnapshot1 = await getDocs(courseData);
+    setMentorCourses(querySnapshot1.docs.map((doc) => doc.data()));
+    console.log(mentorCourses);
   }, []);
   return (
     <div className="chatPage">

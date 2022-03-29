@@ -48,7 +48,7 @@ export default function SelectCollege() {
 
   return (
     <>
-      <NavBar />
+      {/* <NavBar /> */}
       <div className="MainContainer">
         <div className="inner-container">
           <div className="left-section">
@@ -95,6 +95,7 @@ export default function SelectCollege() {
                   <Option value="klu">klu</Option>
                   <Option value="srm">srm</Option>
                   <Option value="vit">vit</Option>
+                  <Option value="git">git</Option>
                 </Select>
                 ,
               </div>

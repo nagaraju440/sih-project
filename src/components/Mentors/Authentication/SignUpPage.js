@@ -144,7 +144,7 @@ export default function SignUpPage(props) {
 
   return (
     <div className="singUpPage">
-      <NavBar />
+      {/* <NavBar /> */}
       <div className="container">
         {/* ...................................... left container start's here............................................... */}
         <div className="signUpLeftContainer">
