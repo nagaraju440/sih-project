@@ -18,16 +18,22 @@ import {
 export default function StudentRegisteredCourses(props) {
     const [coursesData,setCoursesData]=useState([])
 
-    console.log("ehehehehhhehehe in student registered course")
+    // console.log("ehehehehhhehehe in student registered course")
   useEffect(async() => {
     const y=[]
+    var mentorName=""
     await getDocs(collection(db,"colleges",props.collegeName,"students",props.userUid,"courses")).then((e)=>{
-         e.forEach((doc)=>{
-          y.push(doc.data())
+         e.forEach((doc1)=>{
+          //  await getDoc(doc(db,"colleges",props.collegeName,"mentors",doc1.data().uid)).then((data1)=>{
+              // console.log("mentor data for particular course",data1.data())
+          //    mentorName=data1.data().name
+          //  })
+          //  console.log("mentor name is",mentorName)
+           y.push({data:doc1.data()})
          })
     })
     setCoursesData(y)
-    console.log("hello stuent courses are",coursesData)
+    // console.log("hello stuent courses are",y)
   }, [])
   
   return (

@@ -14,18 +14,18 @@ export default function MCourses(props) {
   const y=[]
  
   useEffect(async() => {
-    console.log("useEffect",props.collegeName);
+    // console.log("useEffect",props.collegeName);
     const test= await getDocs(collection(db,"colleges",props.collegeName,"mentors",props.userUid,"courses"))
       test.forEach((doc)=>{
         y.push({data:doc.data()})
       })
     setDetails(y)
-    console.log(y,"fghjkl././");
+    // console.log(y,"fghjkl././");
   }, []);
   return (
     <>
     <div className='McourseComponent' key={y}>
-          {console.log(props,"mdash")}
+          {/* {console.log(props,"mdash")} */}
           <div>
           <div className='MCourseCardSearchContainer'>
             <MCourseSearch />
@@ -40,7 +40,7 @@ export default function MCourses(props) {
       Object.values(details).map((x,y)=>{
         return(
          
-          <MCourseCard x={x}/>
+          <MCourseCard courseData={x}/>
           
         )
       })

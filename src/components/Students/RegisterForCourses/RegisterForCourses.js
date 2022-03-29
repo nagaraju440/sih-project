@@ -19,7 +19,7 @@ import {
 } from "firebase/auth";
 import { useState } from "react";
 export default function RegisterForCourses(props) {
-  console.log("uid of a student is",props.userUid)
+  // console.log("uid of a student is",props.userUid)
   var [details, setDetails] = useState([]);
   var [studentCourseId,setStudentCourseId]=useState([]);
 
@@ -38,7 +38,7 @@ export default function RegisterForCourses(props) {
          e.forEach((doc)=>{
            studentCourseId.push(doc.id)
            setStudentCourseId(studentCourseId)
-           console.log("doc.id is",studentCourseId)
+          //  console.log("doc.id is",studentCourseId)
          })
     })
     const test = await getDocs(
@@ -58,10 +58,10 @@ export default function RegisterForCourses(props) {
     })
     NotRegisteredCourses=y;
     setNotRegisteredCourses(NotRegisteredCourses)
-  console.log("not register course is ",NotRegisteredCourses)
+  // console.log("not register course is ",NotRegisteredCourses)
   }
   const AddData = async (e) => {
-    console.log(e, "wohoooo");
+    // console.log(e, "wohoooo");
     try {
       setDoc(doc(db,"colleges",props.collegeName,"students",props.userUid,"courses",e.courseId),{
         Category:e.data.Category,

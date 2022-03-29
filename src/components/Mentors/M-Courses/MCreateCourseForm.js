@@ -111,7 +111,7 @@ function MCreateCourseForm(props) {
    }
    projectsData.push(d)
    setProjectsData(projectsData)
-   console.log("projects data is",projectsData)
+  //  console.log("projects data is",projectsData)
    setTitleValue("")
    setDescvalue("")
   }
@@ -127,7 +127,7 @@ function MCreateCourseForm(props) {
    dayWiseData.push(d)
    setDayWiseData(dayWiseData)
    setDayValue(dayValue+1)
-   console.log("day wise data is",dayWiseData)
+  //  console.log("day wise data is",dayWiseData)
    setDayWiseValue("")
   }
   
@@ -135,13 +135,13 @@ function MCreateCourseForm(props) {
 
   var onSubmitdata = async (e) => {
     // alert("need to add course data ")
-    console.log("hii",Category1,Language1,Standard1,Title,Link)      
+    // console.log("hii",Category1,Language1,Standard1,Title,Link)      
     // console.log(user.email)
     let data = location.state
     // try {
     //   const auth = getAuth();
     //   onAuthStateChanged(auth,user =>{
-    //     console.log(user.uid,user.email)
+        // console.log(user.uid,user.email)
 
      await  addDoc(collection(db, "colleges", props.collegeName,"mentors",props.userUid,"courses"), {
        Category:Category1,
@@ -185,39 +185,39 @@ function MCreateCourseForm(props) {
 
 
   function selectDate(date, dateString) {
-    console.log(dateString);
+    // console.log(dateString);
   }
 
   const onChange = (time) => {
     setValue(time);
-    console.log(time.value);
+    // console.log(time.value);
   };
   function Categories(e) {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setCategory1(e.target.value);
   }
   function languages(e) {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setLanguage1(e.target.value);
   }
   function standards(e) {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setStandard1(e.target.value);
   }
   function title(e) {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setTitle(e.target.value);
   }
   function link(e) {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setLink(e.target.value);
   }
   function handleTitle(e) {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setPTitle(e.target.value);
   }
   function handleDes(e) {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setPDes(e.target.value);
   }
 
@@ -327,7 +327,7 @@ function MCreateCourseForm(props) {
           placeholder="Enter the schedule"
           value={dayWiseValue}
           onChange={(e)=>{
-            console.log("value is",e.target.value)
+            // console.log("value is",e.target.value)
             setDayWiseValue(e.target.value)
           }}
         />
@@ -385,7 +385,7 @@ function MCreateCourseForm(props) {
           placeholder="Enter the title of the project"
           value={titleValue}
           onChange={(e)=>{
-            console.log("value is",e.target.value)
+            // console.log("value is",e.target.value)
             setTitleValue(e.target.value)
           }}
         />
