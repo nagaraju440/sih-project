@@ -35,6 +35,7 @@ import addtostory from "../../../assets/Icons/AddtostoryIcon.svg"
 import doubt from "../../../assets/Icons/clarifyDoubtsIcon.svg"
 import chat from "../../../assets/Icons/chatIcon.svg"
 import share from "../../../assets/Icons/shareIcon.svg"
+import CourseDetails from '../RegisterForCourses/CourseDetails'
 // const { SubMenu } = Menu;
 // import { Link } from 'react-router-dom';
 const { Header, Content, Sider } = Layout;
@@ -145,7 +146,7 @@ export default function Dashboard(props) {
            <Route path='/Dashboard/temp' element={<TempPage/>}></Route>
            <Route path='/About' element={<About/>}></Route>
            <Route path='/Dashboard/notifications' element={<Notification/>}></Route>
-           <Route path='/Dashboard/RegisterForCourses' element={<RegisterForCourses   collegeName={props.collegeName} userUid={props.userUid}/>}></Route>
+           <Route path='/Dashboard/RegisterForCourses' element={<CourseDetails   collegeName={props.collegeName} userUid={props.userUid}/>}></Route>
             <Route path='/Dashboard/ideana' element={<IdeanaHome collegeName={props.collegeName}/> }></Route>
            <Route path='/Dashboard/ideana/addIdea' element={<IdeanaAdd collegeName={props.collegeName}/>}></Route> 
            {/* <Route path='/Dashboard' element={<StudentRegisteredCourses/>} ></Route> */}
