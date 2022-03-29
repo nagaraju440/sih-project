@@ -105,7 +105,7 @@ export default function IdeanaHome(props) {
       })}
       <div className="Ideana_buttonpart">
         <button
-          className="Ideana_button"
+          className="Ideana_button" 
           onClick={() => {
             console.log("hello");
             navigate("/Dashboard/ideana/addIdea");

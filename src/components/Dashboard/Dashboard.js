@@ -58,6 +58,7 @@ import addtostory from "../../assets/Icons/AddtostoryIcon.svg"
 import doubt from "../../assets/Icons/clarifyDoubtsIcon.svg"
 import chat from "../../assets/Icons/chatIcon.svg"
 import share from "../../assets/Icons/shareIcon.svg"
+import MCourseDetails from "../Mentors/M-Courses/MCourseDetails";
 
 // const { SubMenu } = Menu;
 // import { Link } from 'react-router-dom';
@@ -185,8 +186,9 @@ export default function Dashboard(props) {
               <Route path='/Dashboard/chat' element={<Chat />}></Route>
               <Route path='/Dashboard/ideana' element={<IdeanaHome collegeName={props.collegeName} userUid={props.userUid} />}></Route>
               <Route path='/Dashboard/ideana/addIdea' element={<IdeanaAdd collegeName={props.collegeName} />}></Route>
+              <Route path='/Dashboard/courses/courseDetails' element={<MCourseDetails />}></Route>
               <Route path='/about' element={<About  />}></Route>
-              
+              {/* <Route path="/Dashboard/ViewCourse"></Route> */}
            </Routes>
 
             {/* <div style={{height:2000,backgroundColor:'red'}} className="content-inner">
