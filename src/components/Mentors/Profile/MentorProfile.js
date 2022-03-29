@@ -23,7 +23,7 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
 } from "firebase/auth";
-import { collection, doc, setDoc, addDoc, getDoc,updateDoc } from "firebase/firestore";
+import { collection, doc, setDoc, addDoc, getDoc,updateDoc, arrayUnion } from "firebase/firestore";
 import db from "../../../firebaseConfig";
 import MCreateCourseForm from "../M-Courses/MCreateCourseForm";
 import {
@@ -73,8 +73,8 @@ export default function MentorProfile(props) {
       doc(db, "colleges", props.collegeName, "mentors", props.userUid)
     );
     console.log(
-      "data of amentor at profile page is",
-      "and skilss are",
+      "data of  a mentor at profile page is",
+      "and skils are",
       test.data().data
     );
     Skills = test.data().data.skills;
@@ -112,8 +112,8 @@ export default function MentorProfile(props) {
     Skills.push(skillValue);
     setSkills(Skills);
     //  setDayValue(dayValue+1)
-    console.log("day wise data is", setSkills);
-    skillValue("");
+    console.log("day wise data is", Skills);
+    setSkillValue("");
   };
 
   const showModalH = () => {
@@ -195,8 +195,8 @@ export default function MentorProfile(props) {
     //    uid:user.uid
     // })
     .then((e)=>{
-        // alert("succsessfully created course")
-        navigate(-1)
+        alert("succsessfully updated ")
+        // navigate(-1)
     })
   // })
 

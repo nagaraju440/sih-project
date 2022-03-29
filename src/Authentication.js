@@ -1,36 +1,22 @@
-import logo from './logo.svg';
 import React, { Component, useState, useEffect } from 'react'
-import './App.less';
-import { Button } from 'antd';
-import 'antd/dist/antd.css';
-import AntdSample from './AntdSample/AntdSample';
-import CloudFirestore from './FirebaseSample/CloudFirestore';
-import {
-    Routes, Route, Link, BrowserRouter as Router,
-    Switch,
-} from "react-router-dom";
-import MentorSignUpPage from './components/Mentors/Authentication/SignUpPage';
-import MentorSignInPage from './components/Mentors/Authentication/SigninPage';
-import StudentSignUpPage from './components/Students/Authentication/SignupPage';
-import StudentSignInPage from './components/Students/Authentication/SigninPage';
-import MenuBarPage from './components/Dashboard/MenuBarPage';
-import TopNavBar from './components/Dashboard/TopNavBar';
-// import Dashboard from './components/Dashboard/Dashboard';
-import LandingPage from './components/LandingPage/LandingPage'
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
-import { collection, doc, setDoc, addDoc, getDoc } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import MentorDashboard from './components/Dashboard/Dashboard';
 import NotAuthenticated from './NotAuthenticated';
 import db from "./firebaseConfig.js";
-import StudentDashboard from './components/Students/Dashboard/Dashboard';
+import StudentDashboard from './components/Students/Dashboard/Dashboard1';
 import MCourses from './components/Mentors/M-Courses/MCourses';
 import Chat from './firebasechat/Chat';
+import {
+    Routes, Route, Link, BrowserRouter as Router,
+    Switch, withRouter, useNavigate
+  } from "react-router-dom";
 function Authentication() {
+    // const navigate=useNavigate();
     var [authenticated, setAuthenticated] = useState(false);
     var [userRole, setUserRole] = useState('');
     var [collegeName, setCollegeName] = useState('')
     var [userUid, setUserUid] = useState('')
-    // var [role,setRole]=useState('')
     const auth = getAuth();
 
     // useEffect = () => {
@@ -43,6 +29,7 @@ function Authentication() {
             const test = await getDoc(doc(db, "users", user.uid));
 
             // console.log("user details in main page", test.data().role, test.data());
+            userRole=test.data().role;
             setCollegeName(test.data().collegeName)
             setUserRole(test.data().role)
             // User is signed in.
@@ -51,25 +38,23 @@ function Authentication() {
             setAuthenticated(false);
             // No user is signed in.
         }
+    //    if(userRole==="student"){
+                // navigate('Dashboard')
+    //    }
     })
     // }
 
 
     if (authenticated) {
         if (userRole == 'mentor') {
-            // console.log("authenticated in if", authenticated);
             return <MentorDashboard collegeName={collegeName} role={userRole} userUid={userUid} />
-            // return <Chat />
         }
         else {
             return <StudentDashboard collegeName={collegeName} role={userRole} userUid={userUid} />
-            // return <Chat />
-
         }
 
     }
     else {
-        // console.log("authenticated in else", authenticated);
         return <NotAuthenticated />
     }
 }

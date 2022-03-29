@@ -17,13 +17,11 @@ import { getDocs, collection } from "firebase/firestore";
 import db from "../../../firebaseConfig";
 
 export default function MCourses(props) {
-  let navigate = useNavigate();
-
   const [details, setDetails] = useState({});
   const y = [];
 
   useEffect(async () => {
-    console.log("useEffect", props.collegeName);
+    // console.log("useEffect",props.collegeName);
     const test = await getDocs(
       collection(
         db,
@@ -38,12 +36,12 @@ export default function MCourses(props) {
       y.push({ data: doc.data() });
     });
     setDetails(y);
-    console.log(y, "fghjkl././");
+    // console.log(y,"fghjkl././");
   }, []);
   return (
     <>
       <div className="McourseComponent" key={y}>
-        {console.log(props, "mdash")}
+        {/* {console.log(props,"mdash")} */}
         <div>
           <div className="MCourseCardSearchContainer">
             <MCourseSearch />
@@ -52,17 +50,15 @@ export default function MCourses(props) {
             </Link>
           </div>
           <div className="McourseCardContainer" onClick={MCreateCourseForm}>
-            {Object.values(details).map((x, y) => {
-              return (
-                <MCourseCard
-                  x={x}
-                  onClick={() => {
-                    console.log("mu navigation")
-                    navigate("/Dashboard/courses/courseDetails");
-                  }}
-                />
-              );
-            })}
+            {details.length === 0 ? (
+              <div>You didn't created any courses please create course</div>
+            ) : (
+              <div>
+                {Object.values(details).map((x, y) => {
+                  return <MCourseCard courseData={x} />;
+                })}
+              </div>
+            )}
           </div>
         </div>
       </div>

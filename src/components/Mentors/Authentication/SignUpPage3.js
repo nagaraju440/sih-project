@@ -83,7 +83,7 @@ export default function SignUpPage3(props) {
   }
   return (
     <>
-    <NavBar/>
+    {/* <NavBar/> */}
       <div className="SignUpPage3-container">
         <div className="SignUpPage3-form">
 

@@ -1,0 +1,14 @@
+.navbar-header{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+}
+.header1{
+    background-color: white;
+  position: sticky;
+  /* top: 0; */
+  left: 0px;
+  width: 100vw;
+  z-index: 100;
+  box-shadow: 0px 4px #dfdddd;
+}
